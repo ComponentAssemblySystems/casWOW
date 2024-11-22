@@ -1,0 +1,25 @@
+{
+  "name": "caswow",
+  "version": "1.0.0",
+  "description": "Time to wow the CAS group",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:eleventy": "eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "start": "cross-env ELEVENTY_ENV=dev npm-run-all build:eleventy"
+  },
+  "author": "Adam J. Jolicoeur",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^5.3.3",
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@11ty/eleventy-plugin-inclusive-language": "^1.0.3",
+    "npm-run-all": "4.1.5"
+  },
+  "dependencies": {
+    "@shoelace-style/shoelace": "^2.18.0"
+  }
+}

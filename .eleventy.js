@@ -1,0 +1,54 @@
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const packageVersion = require("./package.json").version;
+const fs = require("fs");
+const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
+
+// const formatDate = date => DateTime.fromJSDate(new Date(date)).toISO({includeOffset: true, suppressMilliseconds: true})
+// const formatDateYear = date => DateTime.fromJSDate(new Date(date)).get('year')
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(inclusiveLangPlugin, {
+    templateFormats: ["md, html"], // default, add more file extensions here
+
+		// accepts an array or a comma-delimited string
+		words:
+			"simply,obviously,basically,of course,clearly,just,everyone knows,however,easy",
+  });
+  eleventyConfig.addWatchTarget("src/css/*.css");
+
+  eleventyConfig.addPassthroughCopy("src/img");
+  eleventyConfig.addPassthroughCopy("src/js/**");
+
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+  eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
+
+  eleventyConfig.setBrowserSyncConfig({
+    callbacks: {
+      ready: function(err, bs) {
+
+        bs.addMiddleware("*", (req, res) => {
+          const content_404 = fs.readFileSync('./docs/404.html');
+          // Add 404 http status code in request header.
+          res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
+          // Provides the 404 content without redirect.
+          res.write(content_404);
+          res.end();
+        });
+      }
+    }
+  });
+
+  // Markdown
+  eleventyConfig.setLibrary(
+    'md'
+  );
+
+  return {
+    passthroughFileCopy: true,
+    dir: {
+      input: "src",
+      output: "docs",
+    },
+  };
+};

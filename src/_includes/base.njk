@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{%- set pageTitle %}{% if title %}{{ title }} | {% endif %}{{ meta.siteName }}{% endset -%}
+{%- set pageDescription %}{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}{% endset -%}
+{%- set pageSocialImg %}{{ meta.url }}/previews/{% if title %}{{ title | slug }}{% else %}home{% endif %}.png{% endset -%}
+  <head>
+    <!-- Generated from the 11ty Netlify Jumpstart: https://github.com/5t3ph/11ty-netlify-jumpstart -->
+    <!-- Modified for usage/content provided by Adam J. Jolicoeur: https://github.com/AdamJ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="@{{ meta.siteMeta }}" />
+    <title>{{pageTitle}}</title>
+    <meta
+      name="description"
+      content="{{pageDescription}}"
+    />
+    <meta name="generator" content="Eleventy">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/components/include/include.js"></script>
+    <link href="{{ '/css/appstack-theme.css' | url }}" rel="stylesheet" />
+  </head>
+    <body class="layout">
+    {% include 'nav.njk' %}
+    <main class="content">
+      {{ content | safe }}
+    </main>
+    {% include 'footer.njk' %}
+  </body>
+</html>
