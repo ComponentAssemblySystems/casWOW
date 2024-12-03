@@ -17,7 +17,9 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addWatchTarget("src/css/*.css");
 
+  eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/img");
+  eleventyConfig.addPassthroughCopy("src/webfonts");
   eleventyConfig.addPassthroughCopy("src/js/**");
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
