@@ -1,0 +1,38 @@
+{
+  "author": "Adam J. Jolicoeur",
+  "description": "CASWOW prototype",
+  "name": "CASWOW prototype",
+  "short_name": "Adam J.",
+  "lang": "en-US",
+  "display": "standalone",
+  "orientation": "portrait",
+  "homepage_url": "https://www.adamjolicoeur.com/CASWOW",
+  "developer": {
+    "name": "Adam J. Jolicoeur",
+    "url": "https://github.com/adamj"
+  },
+  "icons": [{
+    "src": "img/touch/favicon-16x16.png",
+    "type": "image/png",
+    "sizes": "16x16"
+  }, {
+    "src": "img/touch/favicon-32x32.png",
+    "type": "image/png",
+    "sizes": "32x32"
+  }, {
+    "src": "img/touch/apple-touch-icon.png",
+    "type": "image/png",
+    "sizes": "152x152"
+  }, {
+    "src": "img/touch/android-chrome-192x192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }, {
+    "src": "img/touch/android-chrome-512x512.png",
+    "type": "image/png",
+    "sizes": "512x512"
+  }],
+  "start_url": "index.html",
+  "theme_color": "#111519",
+  "background_color": "#111519"
+}

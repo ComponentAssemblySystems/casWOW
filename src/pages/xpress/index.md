@@ -1,14 +1,14 @@
 ---
 layout: base.njk
-title: Welcome, Username
-toolBar: buttons
-tabBar: show
+title: XPress
+breadcrumbs: true
+toolBar:
+tabBar:
 eleventyNavigation:
-  key: Dashboard
-  order: 0
+  key: XPress
+  parent: Dashboard
+  order: 1
 ---
-
-<!-- <sl-include src="_partials/cards-horizontal"></sl-include> -->
 
 <div class="d-grid gap-4">
   <div class="custom-placeholder"></div>

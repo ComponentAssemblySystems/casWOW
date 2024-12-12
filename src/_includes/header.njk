@@ -1,20 +1,53 @@
-<header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="light">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">CASWOW</a>
-
-  <ul class="navbar-nav flex-row d-md-none">
-    <li class="nav-item text-nowrap">
-      <button class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle search">
-        <i class="fa-solid fa-search"></i>
+<header class="p-3 mb-3 border-bottom">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-2">
+      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <i class="fas fa-bars"></i>
       </button>
-    </li>
-    <li class="nav-item text-nowrap">
-      <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </li>
-  </ul>
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-secondary text-decoration-none">
+        <img src="{{ '/img/Jolicoeur_SVG.svg' | url }}" height="32px" alt="CASWOW logo" />
+      </a>
 
-  <div id="navbarSearch" class="navbar-search w-100 collapse">
-    <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li>
+          <a href="/" class="nav-link px-2 link-secondary {% if currentURL === '/' %}active{%- endif -%}">Dashboard</a>
+        </li>
+        <li>
+          <a href="{{ '/pages/xpress' | url }}" class="nav-link px-2 link-secondary {% if '/xpress' in page.url %}active{%- endif -%}">XPress</a>
+        </li>
+        <li>
+          <a href="{{ '/pages/project-costs' | url }}" class="nav-link px-2 link-secondary {% if '/project-costs' in page.url %}active{%- endif -%}">Project Costs</a>
+        </li>
+        <li class="d-none d-lg-block">
+          <a href="{{ '/pages/reports' | url }}" class="nav-link px-2 link-secondary {% if '/reports' in page.url %}active{%- endif -%}">Reports</a>
+        </li>
+        <li class="d-none d-lg-block">
+          <a href="{{ '/pages/project-information' | url }}" class="nav-link px-2 link-secondary {% if '/project-information' in page.url %}active{%- endif -%}">Project Information</a>
+        </li>
+        <li class="d-none d-lg-block">
+          <a href="{{ '/pages/vendor-information' | url }}" class="nav-link px-2 link-secondary {% if '/vendor-information' in page.url %}active{%- endif -%}">Vendor Information</a>
+        </li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-none d-lg-block" role="search">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+      </form>
+
+      <div class="dropdown text-end d-none d-lg-block">
+        <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="{{ '/img/Jolicoeur_SVG.svg' | url }}" alt="AdamJ" width="32" height="32" class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu text-small" style="">
+          <li><a class="dropdown-item" href="#">Access Level A</a></li>
+          <li><a class="dropdown-item" href="#">Change Password</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">My Configuration</a></li>
+          <li><a class="dropdown-item" href="#">Email Administrator</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log out</a></li>
+        </ul>
+      </div>
+
+    </div>
   </div>
 </header>

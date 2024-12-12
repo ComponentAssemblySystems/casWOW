@@ -1,13 +1,75 @@
 @import "variables.css";
-@import "sidebar.css";
+@import "cas-sidebar.css";
+@import "typography.css";
+@import "breadcrumbs.css";
+@import "buttons.css";
 
-a.sidebar-link:not(i) {
-  vertical-align: middle;
+body {
+  font: 1rem/1.5 var(--bs-font-sans-serif) !important;
+  font-weight: var(--bs-body-font-weight) !important;
 }
-/* .fa-solid, .fa-regular {
-  display: inline-block;
-} */
+.gap-1 {
+  gap: var(--Spacer-x-small) !important;
+}
+.gap-2 {
+  gap: var(--Spacer-small) !important;
+}
+.gap-3 {
+  gap: var(--Spacer-medium) !important;
+}
+.gap-4 {
+  gap: var(--Spacer-large) !important;
+}
+.gap-5 {
+  gap: var(--Spacer-x-large) !important;
+}
+.nav-underline {
+  display: flex !important;
+  flex-direction: horizontal !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  border-bottom: var(--Spacer-3x-small) var(--bs-border-style) var(--border-secondary) !important;
+  .nav-link {
+    border-width: var(--Spacer-3x-small) !important;
+  }
+}
 
+.nav-link {
+  color: var(--text-primary) !important;
+  &.active {
+    font-weight: var(--bs-btn-font-weight) !important;
+    color: var(--text-link) !important;
+  }
+  &.link-secondary {
+    border-bottom: 4px var(--bs-border-style) var(--border-transparent) !important;
+    color: var(--base-cas-brown) !important;
+  }
+  &.link-secondary:hover {
+    border-color: var(--cas-200) !important;
+  }
+  &.link-secondary:active,
+  &.link-secondary:focus,
+  &.link-secondary.active {
+    border-color: var(--cas-400) !important;
+    color: var(--base-cas-brown) !important;
+  }
+}
+
+a {
+  color: var(--text-link) !important;
+  &:hover,
+  &:active {
+    color: var(--text-hover-link) !important;
+  }
+  &:disabled,
+  &.disabled,
+  .disabled {
+    color: var(--text-disabled) !important;
+  }
+  &.sidebar-link:not(i) {
+    vertical-align: middle !important;
+  }
+}
 /*
  * Navbar
  */
@@ -21,4 +83,17 @@ a.sidebar-link:not(i) {
 
 .navbar .form-control {
   padding: .75rem 1rem;
+}
+
+.custom-placeholder {
+  height: 12.5rem;
+  width: 100%;
+  align-self: stretch;
+  flex-grow: 0;
+  border-radius: 4px;
+  background-color: var(--background-tertiary);
+}
+
+.dropdown-item {
+  color: var(--text-primary) !important;
 }

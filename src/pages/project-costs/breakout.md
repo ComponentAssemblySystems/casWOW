@@ -1,17 +1,19 @@
 ---
 layout: base.njk
-title: Welcome, Username
-toolBar: buttons
-tabBar: show
+title: Project Breakout
+breadcrumbs: true
+toolBar:
+tabBar:
 eleventyNavigation:
-  key: Dashboard
-  order: 0
+  key: ProjectBreakout
+  parent: Dashboard
+  order: 2
 ---
 
-<!-- <sl-include src="_partials/cards-horizontal"></sl-include> -->
-
 <div class="d-grid gap-4">
-  <div class="custom-placeholder"></div>
+  <div class="custom-placeholder">
+    <a class="ItalicH5" href="{{ 'breakout' | url }}">Project breakout</a>
+  </div>
   <div class="d-flex gap-4 justify-content-between">
     <div class="custom-placeholder w-50"></div>
     <div class="custom-placeholder w-50"></div>

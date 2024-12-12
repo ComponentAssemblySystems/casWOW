@@ -4,19 +4,21 @@
 :root {
   --base: 16px;
 
-  --spacer-none: 0;
-  --spacer-3x-small: 0.125rem; /* 2px */
-  --spacer-2x-small: 0.25rem; /* 4px */
-  --spacer-x-small: 0.5rem; /* 8px */
-  --spacer-small: 0.75rem; /* 12px */
-  --spacer-medium: 1rem; /* 16px */
-  --spacer-large: 1.25rem; /* 20px */
-  --spacer-x-large: 1.75rem; /* 28px */
-  --spacer-2x-large: 2.25rem; /* 36px */
-  --spacer-3x-large: 3rem; /* 48px */
-  --spacer-4x-large: 4.5rem; /* 72px */
-  --spacer-gutter: 5rem; /* 80px */
-  --border-pill: calc(var(--spacer-medium) * 100);
+  --Spacer-none: 0;
+  --Spacer-3x-small: 0.125rem; /* 2px */
+  --Spacer-2x-small: 0.25rem; /* 4px */
+  --Spacer-x-small: 0.5rem; /* 8px */
+  --Spacer-small: 0.75rem; /* 12px */
+  --Spacer-medium: 1rem; /* 16px */
+  --Spacer-large: 1.25rem; /* 20px */
+  --Spacer-x-large: 1.75rem; /* 28px */
+  --Spacer-2x-large: 2.25rem; /* 36px */
+  --Spacer-3x-large: 3rem; /* 48px */
+  --Spacer-4x-large: 4.5rem; /* 72px */
+  --Spacer-gutter: 5rem; /* 80px */
+  --Text-primary: var(--neutral-950);
+  --Font-sans: "IBM Plex Sans";
+  --border-pill: calc(var(--Spacer-medium) * 100);
 
   --bs-blue: var(--blue-600);
   --bs-indigo: var(--indigo-600);
@@ -83,22 +85,22 @@
   --bs-dark-border-subtle: var(--border-disabled);
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: 'IBM Plex Sans', system-ui, -apple-system, Roboto, Arial, sans-serif,
+  --bs-font-sans-serif: "IBM Plex Sans", system-ui, -apple-system, Roboto, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --bs-font-monospace: 'IBM Plex Mono', monospace;
+  --bs-font-monospace: "IBM Plex Mono", monospace;
   --bs-gradient: linear-gradient(180deg,
     rgba(255, 255, 255, 0.15),
     rgba(255, 255, 255, 0)
   );
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 400;
+  --bs-body-font-weight: var(--Font-weight-normal);
   --bs-body-line-height: 1.5;
   --bs-body-color: var(--text-primary);
   --bs-body-color-rgb: 32, 37, 44;
   --bs-body-bg: var(--background-primary);
   --bs-body-bg-rgb: 255, 255, 255;
-  --bs-emphasis-color: var(--black);
+  --bs-emphasis-color: var(--bs-black);
   --bs-emphasis-color-rgb: 0, 0, 0;
   --bs-secondary-color: var(--gray-600);
   --bs-secondary-color-rgb: 77, 95, 109;
@@ -110,6 +112,8 @@
   --bs-tertiary-bg-rgb: 226, 232, 235;
   --bs-heading-color: inherit;
   --bs-link-color: var(--text-link);
+  --bs-link-opacity: 1;
+  --bs-link-underline-opacity: 1;
   /* --bs-link-color-rgb: 13, 110, 253; */
   --bs-link-decoration: underline;
   --bs-link-hover-color: var(--text-hover-link);
@@ -121,24 +125,25 @@
   --bs-border-style: solid;
   --bs-border-color: var(--border-primary);
   --bs-border-color-translucent: var(--border-secondary);
-  --bs-border-radius: var(--spacer-2x-small);
-  --bs-border-radius-sm: var(--spacer-x-small);
-  --bs-border-radius-lg: var(--spacer-small);
-  --bs-border-radius-xl: var(--spacer-medium);
-  --bs-border-radius-xxl: var(--spacer-large);
-  --bs-border-radius-2xl: var(--spacer-x-large);
+  --bs-border-radius: var(--Spacer-2x-small);
+  --bs-border-radius-sm: var(--Spacer-x-small);
+  --bs-border-radius-lg: var(--Spacer-small);
+  --bs-border-radius-xl: var(--Spacer-medium);
+  --bs-border-radius-xxl: var(--Spacer-large);
+  --bs-border-radius-2xl: var(--Spacer-x-large);
   --bs-border-radius-pill: var(--border-pill);
   --bs-box-shadow: var(--shadow-04);
   --bs-box-shadow-sm: var(--shadow-02);
   --bs-box-shadow-lg: var(--shadow-16);
   --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-  --bs-focus-ring-width: var(--spacer-3x-small);
+  --bs-focus-ring-width: var(--Spacer-3x-small);
   --bs-focus-ring-opacity: .2;
   --bs-focus-ring-color: var(--border-info);
   --bs-form-valid-color: var(--special-success);
   --bs-form-valid-border-color: var(--special-success);
   --bs-form-invalid-color: var(--special-danger);
   --bs-form-invalid-border-color: var(--special-danger);
+  --bs-breadcrumb-font-size: 0.875rem;
 }
 .text-bg-primary {
   background-color: var(--background-brand) !important;

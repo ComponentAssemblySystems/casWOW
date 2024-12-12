@@ -17,6 +17,7 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addWatchTarget("src/css/*.css");
 
+  eleventyConfig.addPassthroughCopy("dependencies/**");
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/webfonts");

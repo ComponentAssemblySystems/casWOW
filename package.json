@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:eleventy": "eleventy",
-    "config": "npm install && npm run copy-css && npm run copy-js && npm run build:eleventy",
-    "copy-css": "cp node_modules/bootstrap/dist/css/bootstrap.min.css src/css/",
-    "copy-js": "cp node_modules/bootstrap/dist/js/bootstrap.min.js src/js/",
-    "copy-fa": "cp node_modules/@fortawesome/fontawesome-free/webfonts/** src/webfonts && cp node_modules/@fortawesome/fontawesome-free/css/all.min.css src/css/fa.min.css",
+    "make": "mkdir dependencies dependencies/css dependencies/js dependencies/webfonts",
+    "config": "npm install && npm run copy-css && npm run copy-js && npm run copy-fa && npm run build:eleventy",
+    "copy-css": "cp node_modules/bootstrap/dist/css/bootstrap.min.css dependencies/css/",
+    "copy-js": "cp node_modules/bootstrap/dist/js/bootstrap.min.js dependencies/js/",
+    "copy-fa": "cp node_modules/@fortawesome/fontawesome-free/webfonts/** dependencies/webfonts && cp node_modules/@fortawesome/fontawesome-free/css/all.min.css dependencies/css/fa.min.css",
     "serve": "npx @11ty/eleventy --serve",
     "start": "ELEVENTY_ENV=dev npm-run-all build:eleventy"
   },
