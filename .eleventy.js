@@ -7,6 +7,7 @@ const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
 // const formatDateYear = date => DateTime.fromJSDate(new Date(date)).get('year')
 
 module.exports = function (eleventyConfig) {
+
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(inclusiveLangPlugin, {
     templateFormats: ["md, html"], // default, add more file extensions here
@@ -22,6 +23,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/webfonts");
   eleventyConfig.addPassthroughCopy("src/js/**");
+  eleventyConfig.addPassthroughCopy("src/favicon.ico");
+  eleventyConfig.addPassthroughCopy("src/favicon.png");
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
@@ -49,6 +52,7 @@ module.exports = function (eleventyConfig) {
 
   return {
     passthroughFileCopy: true,
+    pathPrefix: "/casWOW/",
     dir: {
       input: "src",
       output: "docs",
