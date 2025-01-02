@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-layout="fluid" data-sidebar-theme="colored" data-sidebar-position="left" data-sidebar-behavior="sticky">
+{%- if ELEVENTY_ENV == "dev" -%}
+<title>DEVELOPMENT</title>
+{%- else -%}
 {%- set pageTitle %}{% if title %}{{ title }} | {% endif %}{{ meta.siteName }}{% endset -%}
 {%- set pageDescription %}{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}{% endset -%}
+{%- endif -%}
   <head>
     <!-- Generated from the 11ty Netlify Jumpstart: https://github.com/5t3ph/11ty-netlify-jumpstart -->
     <!-- Modified for usage/content provided by Adam J. Jolicoeur: https://github.com/AdamJ -->
@@ -20,9 +24,9 @@
     <meta name="generator" content="Eleventy">
     {# {%- if meta.env=="dev" -%} #}
     {# {%- else -%} #}
-    <link href="{{ '/dependencies/css/fa.min.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/styles.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/variables.css' | url }}" rel="stylesheet" />
+    <link href="{{ '/css/solid.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/cas-sidebar.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/page-header.css' | url }}" rel="stylesheet" />
     {# {%- endif -%} #}

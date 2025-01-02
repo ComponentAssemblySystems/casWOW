@@ -2,7 +2,8 @@
 /* stylelint-disable-next-line import-notation */
 @import "colors.css";
 
-:root {
+:root,
+:host {
   --base: 16px;
 
   --Spacer-none: 0;
@@ -20,4 +21,22 @@
   --border-pill: calc(var(--Spacer-medium) * 100);
 
   --bs-border-style: solid;
+
+  --fa-style-family-classic: "Font Awesome 6 Free";
+}
+@font-face {
+  font-family: var(--fa-style-family-classic);
+  font-style: normal;
+  font-weight: 900;
+  src: url("../webfonts/fa-solid-900.woff2");
+  font-display: block;
+}
+
+.fa-bars::before {
+  font-family: var(--fa-style-family-classic);
+  font-style: normal;
+  font-weight: 900;
+  src: url("../webfonts/fa-solid-900.woff2");
+  font-display: block;
+  content: "\f0c9";
 }

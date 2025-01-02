@@ -125,14 +125,14 @@ icon-button {
   }
 }
 .menu-item__text-header[aria-expanded="false"]::after {
-  font-family: "Font Awesome 5 Free";
+  font-family: var(--fa-style-family-classic);
   content: "\f107";
   right: 24px;
   position: absolute;
 }
 
 .menu-item__text-header[aria-expanded="true"]::after {
-  font-family: "Font Awesome 5 Free";
+  font-family: var(--fa-style-family-classic);
   content: "\f105";
   position: absolute;
   right: 24px;

@@ -1,16 +1,16 @@
 <header class="p-3 mb-3 border-bottom">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-2">
-      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-        <i class="fas fa-bars"></i>
+      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
+        <i class="fa-bars"></i>
       </button>
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-secondary text-decoration-none">
+      <a href="{{ '/' | url }}" class="d-flex align-items-center mb-2 mb-lg-0 link-secondary text-decoration-none">
         <img src="{{ '/img/Jolicoeur_SVG.svg' | url }}" height="32px" alt="CASWOW logo" />
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="/" class="nav-link px-2 link-secondary {% if currentURL === '/' %}active{%- endif -%}">Dashboard</a>
+          <a href="{{ '/' | url }}" class="nav-link px-2 link-secondary {% if currentURL === '/' %}active{%- endif -%}">Dashboard</a>
         </li>
         <li>
           <a href="{{ '/pages/xpress' | url }}" class="nav-link px-2 link-secondary {% if '/xpress' in page.url %}active{%- endif -%}">XPress</a>
