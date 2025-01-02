@@ -3,6 +3,8 @@
 @import "typography.css";
 @import "breadcrumbs.css";
 @import "buttons.css";
+@import "page-header.css";
+@import "navbar.css";
 
 body {
   font: 1rem/1.5 var(--bs-font-sans-serif) !important;
@@ -23,37 +25,6 @@ body {
 .gap-5 {
   gap: var(--Spacer-x-large) !important;
 }
-.nav-underline {
-  display: flex !important;
-  flex-direction: horizontal !important;
-  flex-wrap: nowrap !important;
-  width: 100% !important;
-  border-bottom: var(--Spacer-3x-small) var(--bs-border-style) var(--border-secondary) !important;
-  .nav-link {
-    border-width: var(--Spacer-3x-small) !important;
-  }
-}
-
-.nav-link {
-  color: var(--text-primary) !important;
-  &.active {
-    font-weight: var(--bs-btn-font-weight) !important;
-    color: var(--text-link) !important;
-  }
-  &.link-secondary {
-    border-bottom: 4px var(--bs-border-style) var(--border-transparent) !important;
-    color: var(--base-cas-brown) !important;
-  }
-  &.link-secondary:hover {
-    border-color: var(--cas-200) !important;
-  }
-  &.link-secondary:active,
-  &.link-secondary:focus,
-  &.link-secondary.active {
-    border-color: var(--cas-400) !important;
-    color: var(--base-cas-brown) !important;
-  }
-}
 
 a {
   color: var(--text-link) !important;
@@ -69,31 +40,4 @@ a {
   &.sidebar-link:not(i) {
     vertical-align: middle !important;
   }
-}
-/*
- * Navbar
- */
-
-.navbar-brand {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  background-color: rgba(0, 0, 0, .25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
-}
-
-.navbar .form-control {
-  padding: .75rem 1rem;
-}
-
-.custom-placeholder {
-  height: 12.5rem;
-  width: 100%;
-  align-self: stretch;
-  flex-grow: 0;
-  border-radius: 4px;
-  background-color: var(--background-tertiary);
-}
-
-.dropdown-item {
-  color: var(--text-primary) !important;
 }

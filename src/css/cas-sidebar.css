@@ -1,32 +1,33 @@
+/* stylelint-disable @stylistic/number-leading-zero */
+/* stylelint-disable order/properties-order */
 .left-navigation {
-  display: flex;
-  height: 100%;
-  width: 18rem !important;
-  padding: var(--Spacer-none, 0rem) 0rem;
-  flex-direction: column;
-  gap: var(--Spacer-none, 0rem);
   position: absolute;
   top: 0;
   left: 0;
-  /* bottom: 0; */
-  border-right: 1px solid var(--border-secondary, #C8D3D9);
-  background: var(--background-primary, #FFF);
   z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--Spacer-none, 0);
+  width: 18rem !important;
+  height: 100%;
+  padding: var(--Spacer-none, 0) 0;
+  background: var(--background-primary, #fff);
+  border-right: 1px solid var(--border-secondary, #c8d3d9);
   &:not(a) {
-    color: var(--base-cas-brown, #0E0800);
+    color: var(--base-cas-brown, #0e0800);
   }
 }
 .product-logo {
   display: flex;
-  padding: var(--Spacer-x-small, 0.5rem) 0rem;
-  justify-content: center;
+  gap: var(--Spacer-x-small, .5rem);
   align-items: center;
-  gap: var(--Spacer-x-small, 0.5rem);
   align-self: stretch;
+  justify-content: center;
+  padding: var(--Spacer-x-small, .5rem) 0;
 }
 icon-button {
   display: flex;
-  padding: var(--Spacer-x-small, 0.5rem) 0rem;
+  padding: var(--Spacer-x-small, 0.5rem) 0;
   justify-content: center;
   align-items: center;
   gap: var(--Spacer-x-small, 0.5rem);
