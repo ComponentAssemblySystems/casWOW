@@ -1,6 +1,6 @@
 <div class="offcanvas offcanvas-start left-navigation" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title product-name" id="offcanvasExampleLabel">CASim Online</h5>
+    <span class="h5 offcanvas-title product-name" id="offcanvasExampleLabel">CASim Online</span>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="">
@@ -11,8 +11,8 @@
           {# <div class="menu-active">
           </div> #}
           <div class="frame-2">
-            <div class="menu-item__text">
-              <a href="{{ '/' | url }}" class="h4">Dashboard</a>
+            <div class="menu-item__text {% if '/' in page.url %}active{% endif %}">
+              <a href="{{ '/' | url }}">Dashboard</a>
             </div>
             {% if entry.key === "Welcome, Username" %}
             <div class="menu-item__icon">
@@ -23,7 +23,7 @@
         </div>
         <div class="menu-block">
           <div class="menu-item">
-            <div class="menu-item__text-header" data-bs-toggle="collapse" data-bs-target="#applications" aria-expanded="false">
+            <div class="menu-item__text-header {% if '/applications' in page.url %}active{% endif %}" data-bs-toggle="collapse" data-bs-target="#applications" aria-expanded="false">
               <h4 class="mb-0">Applications</h4>
             </div>
             <div class="menu-item__section collapse" id="applications">
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="menu-item">
-            <div class="menu-item__text-header" data-bs-toggle="collapse" data-bs-target="#rtu" aria-expanded="false">
+            <div class="menu-item__text-header {% if '/rtu' in page.url %}active{% endif %}" data-bs-toggle="collapse" data-bs-target="#rtu" aria-expanded="false">
               <h4 class="mb-0">RTU</h4>
             </div>
             <div class="menu-item__section collapse" id="rtu">
@@ -60,8 +60,51 @@
               </div>
             </div>
           </div>
+          <div class="divider"></div>
+          <div class="menu-item">
+            <div class="menu-item__text-header {% if '/administration' in page.url %}active{% endif %}" data-bs-toggle="collapse" data-bs-target="#administration" aria-expanded="false">
+              <h4 class="mb-0">Administration</h4>
+            </div>
+            <div class="menu-item__section collapse" id="administration">
+              <div class="section-item">
+                <a class="menu-item__text">Users</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Site</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Access</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Other</a>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="menu-item">
+            <div class="menu-item__text-header {% if '/integrations' in page.url %}active{% endif %}" data-bs-toggle="collapse" data-bs-target="#integrations" aria-expanded="false">
+              <h4 class="mb-0">Integrations</h4>
+            </div>
+            <div class="menu-item__section collapse" id="integrations">
+              <div class="section-item">
+                <a class="menu-item__text">Users</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Site</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Access</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Other</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="item-menu-footer d-grid gap-2 p-2">
+      <button class="btn btn-outline-secondary" type="button">{{meta.version}}</button>
     </div>
   </div>
 </div>

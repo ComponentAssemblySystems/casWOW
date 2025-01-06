@@ -17,9 +17,14 @@
     <div class="logo-text-badge-link">
       <div class="header-subheader">
         <div class="header-label">
-          <span class="Heading2">
+          <span class="h2">
             {{ title }}
           </span>
+          {%- if (badge) -%}
+          <span class="badge bg-secondary">
+            {{ badgeText }}
+          </span>
+          {%- else -%}{%- endif -%}
         </div>
       </div>
     </div>
@@ -41,7 +46,26 @@
       {%- endif -%}
       {%- if toolBar === "buttons" -%}
       <div class="d-flex gap-2">
-        <button type="button" class="btn btn-outline-secondary">CAS - NY</button>
+        <div class="dropdown">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-calendar"></i> {{ toolbarButtonOne }}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-building"></i> {{ toolbarButtonTwo }}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Actions
@@ -58,7 +82,7 @@
     {%- endif -%}
   </div>
   {%- if (tabBar) -%}
-  <ul class="nav nav-underline">
+  <ul class="nav">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>

@@ -19,7 +19,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/css/*.css");
 
   eleventyConfig.addPassthroughCopy("dependencies/**");
-  eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/css/caswow.css");
+  eleventyConfig.addPassthroughCopy("src/css/variables.css");
+  eleventyConfig.addPassthroughCopy("src/css/site.css");
+  eleventyConfig.addPassthroughCopy("src/css/fontawesome.css");
+  eleventyConfig.addPassthroughCopy("src/css/brands.css");
+  eleventyConfig.addPassthroughCopy("src/css/solid.css");
+  eleventyConfig.addPassthroughCopy("src/css/print.css");
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/webfonts");
   eleventyConfig.addPassthroughCopy("src/js/**");

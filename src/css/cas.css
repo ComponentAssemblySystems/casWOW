@@ -1,10 +1,18 @@
+@import "solid.css";
 @import "variables.css";
-@import "cas-sidebar.css";
 @import "typography.css";
-@import "breadcrumbs.css";
-@import "buttons.css";
-@import "page-header.css";
+/* @import "alerts.css"; */
+/* @import "breadcrumbs.css"; */
+/* @import "buttons.css"; */
+/* @import "cards.css"; */
+@import "cas-sidebar.css";
+/* @import "dropdowns.css"; */
+/* @import "icon-list.css"; */
+/* @import "pagination.css"; */
+/* @import "page-header.css"; */
+/* @import "popover.css"; */
 @import "navbar.css";
+@import "print.css";
 
 body {
   font: 1rem/1.5 var(--bs-font-sans-serif) !important;

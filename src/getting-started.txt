@@ -1,0 +1,40 @@
+Front Matter Setup
+
+*Layout*
+layout: base.njk
+
+*Title*
+title: Page Title - less than 50 characters
+
+*Toolbar*
+There are three options to choose from:
+- Buttons - display a set of three buttons, inline with the page title.
+- Input - display a single input field, inline with the page title.
+- Buttons and Input - display a set of three buttons and a single input field, inline with the page title.
+
+*Tab Bar*
+There are two options to choose from:
+- Show - display a tab bar with a set of tabs, inline with the page title.
+- Hide - hide the tab bar.
+
+*Badge*
+There are two options to choose from:
+- True - display a badge with the text "Admin" in the top right corner of the page.
+- False - hide the badge.
+
+*Badge Text*
+This is the text that will be displayed in the badge. It is optional and will only be displayed if the badge is set to true.
+
+```
+---
+layout: base.njk
+title: Welcome, Username
+toolBar: buttons
+tabBar: false
+badge: true
+badgeText: "Admin"
+eleventyNavigation:
+  key: Dashboard
+  order: 0
+---
+```
