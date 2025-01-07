@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: Welcome, Username
+title: Welcome, Neo
 toolBar: buttons
 toolbarButtonOne: "December 2024"
 toolbarButtonTwo: "CAS - NY"
@@ -12,16 +12,20 @@ eleventyNavigation:
   order: 0
 ---
 
-<!-- <sl-include src="_partials/cards-horizontal"></sl-include> -->
+<sl-include src="_partials/company-summary"></sl-include>
 
 <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="card-title">Receivables</h5>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="fa-solid fa-sliders"></i>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
       </div>
       <div class="card-body">
         <canvas id="receivablesChart"></canvas>
@@ -32,9 +36,13 @@ eleventyNavigation:
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="card-title">Hours</h5>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="fa-solid fa-sliders"></i>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
       </div>
       <div class="card-body">
         <canvas id="hoursChart"></canvas>
@@ -45,9 +53,13 @@ eleventyNavigation:
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="card-title">Costs</h5>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="fa-solid fa-sliders"></i>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
       </div>
       <div class="card-body">
         <canvas id="costsChart"></canvas>

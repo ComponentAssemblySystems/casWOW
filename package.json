@@ -14,7 +14,7 @@
     "copy-fa": "cp node_modules/@fortawesome/fontawesome-free/webfonts/** dependencies/webfonts && cp node_modules/@fortawesome/fontawesome-free/css/all.min.css dependencies/css/fa.min.css",
     "copy-cas": "cp node_modules/cas_wow/css/caswow.css src/css/caswow.css",
     "show": "cross-env ELEVENTY_ENV=dev npx @11ty/eleventy --serve watch:*",
-    "serve": "cross-env ELEVENTY_ENV=dev npm-run-all --parallel watch:*",
+    "serve": "cross-env ELEVENTY_ENV=dev npm run copy-cas && npm-run-all --parallel watch:*",
     "start": "cross-env ELEVENTY_ENV=dev npm-run-all build:eleventy",
     "build": "cross-env ELEVENTY_ENV=prod npm run css build:eleventy",
     "css-compile": "sass --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules src/sass/:docs/css/",

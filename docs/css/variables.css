@@ -3,21 +3,6 @@
 :root,
 :host {
   --base: 16px;
-/*
-  --Spacer-none: 0;
-  --Spacer-3x-small: .125rem; /* 2px *
-  --Spacer-2x-small: .25rem; /* 4px *
-  --Spacer-x-small: .5rem; /* 8px *
-  --Spacer-small: .75rem; /* 12px *
-  --Spacer-medium: 1rem; /* 16px *
-  --Spacer-large: 1.25rem; /* 20px *
-  --Spacer-x-large: 1.75rem; /* 28px *
-  --Spacer-2x-large: 2.25rem; /* 36px *
-  --Spacer-3x-large: 3rem; /* 48px *
-  --Spacer-4x-large: 4.5rem; /* 72px *
-  --Spacer-gutter: 5rem; 80px
-  --border-pill: calc(var(--Spacer-medium) * 100);
-*/
 
   --cas-button-border-radius: var(--cas-border-radius-pill);
 

@@ -11,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="@" />
-    <title>casWOW | Welcome, Username | </title>
+    <title>casWOW | Welcome, Neo | </title>
     <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
     <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -24,14 +24,11 @@
     <meta name="generator" content="Eleventy">
     
     
-    
     <link href="/casWOW/css/caswow.css" rel="stylesheet" />
     <link href="/casWOW/css/site.css" rel="stylesheet" />
     <link href="/casWOW/css/fontawesome.css" rel="stylesheet" />
     <link href="/casWOW/css/solid.css" rel="stylesheet" />
     <link href="/casWOW/css/brands.css" rel="stylesheet" />
-    
-    
     
     
   </head>
@@ -68,16 +65,14 @@
       </ul>
 
       <span class="ms-auto">
-        <button class="badge rounded-pill text-bg-light position-relative border-success">
+        <button class="btn btn-sm btn-outline-primary position-relative" type="button">
           41 users
-          <span class="position-absolute top-0 start-100 translate-middle p-1 bg-success border border-success rounded-circle">
+          <span class="position-absolute top-0 start-100 translate-middle p-1 bg-success border rounded-circle">
           <span class="visually-hidden">Online Users</span>
         </button></span>
-        <button class="btn btn-light print me-2" type="button"><i class="icon print"></i> Print</button>
-        <button class="btn btn-light export" type="button">Export</button>
+        <button class="btn btn-sm btn-light border print me-2" type="button"><i class="icon print"></i> Print</button>
+        <button class="btn btn-sm btn-light border export" type="button">Export</button>
       </span>
-      
-      
 
       <div class="dropdown text-end d-none d-lg-block">
         <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -112,7 +107,7 @@
       <div class="menu">
         <div class="menu-item">
           
-          <div class="frame-2">
+          <div class="menu-item__row">
             <div class="menu-item__text active">
               <a href="/casWOW/">Dashboard</a>
             </div>
@@ -215,7 +210,7 @@
       <div class="header-subheader">
         <div class="header-label">
           <span class="h2">
-            Welcome, Username
+            Welcome, Neo
           </span><span class="badge bg-secondary">
             Admin
           </span></div>
@@ -255,15 +250,19 @@
 
         <main class="col-12 px-md-4">
           <a id="main-content"></a>
-          <!-- <sl-include src="_partials/cards-horizontal"></sl-include> -->
+          <p><sl-include src="_partials/company-summary"></sl-include></p>
 <div class="row row-cols-1 row-cols-md-2 g-4">
   <div class="col">
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="card-title">Receivables</h5>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="fa-solid fa-sliders"></i>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
       </div>
       <div class="card-body">
         <canvas id="receivablesChart"></canvas>
@@ -274,9 +273,13 @@
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="card-title">Hours</h5>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="fa-solid fa-sliders"></i>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
       </div>
       <div class="card-body">
         <canvas id="hoursChart"></canvas>
@@ -287,9 +290,13 @@
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="card-title">Costs</h5>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="fa-solid fa-sliders"></i>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
       </div>
       <div class="card-body">
         <canvas id="costsChart"></canvas>
