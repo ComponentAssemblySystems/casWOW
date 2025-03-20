@@ -1,19 +1,21 @@
 ---
 layout: base.njk
-title: Project Costs
+title: Reports
 breadcrumbs: true
 toolBar:
+buttonCount: "1"
+toolbarIcon: "fa-building"
+toolbarButtonOne: "CAS - NY"
 tabBar:
-toolbarIcon: ""
 eleventyNavigation:
-  key: ProjectCosts
-  parent: Dashboard
+  tag: Reports
+  key: Dashboard
   level: 1
 ---
 
 <div class="d-grid gap-4">
   <div class="custom-placeholder">
-    <!--<a class="ItalicH5" href="{{ 'breakout' | url }}">Project breakout</a>-->
+    <a class="ItalicH5" href="{{ 'breakout' | url }}">Project breakout</a>
   </div>
   <div class="d-flex gap-4 justify-content-between">
     <div class="custom-placeholder w-50"></div>

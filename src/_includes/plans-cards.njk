@@ -1,0 +1,7 @@
+{{ content | safe }}
+{% for card in cards %}
+  <sl-card class="card-image card-plan">
+    <div>{{ card.name }}</div>
+    <div>{{ card.date }}</div>
+  </sl-card>
+{% endfor %}

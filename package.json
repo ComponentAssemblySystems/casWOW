@@ -11,6 +11,9 @@
     "config": "npm install && npm link caswow.library && npm run copy-cas && npm run copy-css && npm run copy-js && npm run copy-fa && npm run build:eleventy",
     "copy-css": "cp node_modules/bootstrap/dist/css/bootstrap.min.css dependencies/css/",
     "copy-js": "cp node_modules/bootstrap/dist/js/bootstrap.min.js dependencies/js/",
+    "copy-chartjs": "cp node_modules/chart.js/dist/chart.js dependencies/js/",
+    "bootstrap-js": "cp node_modules/bootstrap/dist/js/bootstrap.min.js src/dependencies/js/",
+    "bootstrap-css": "cp node_modules/bootstrap/dist/css/bootstrap.min.css src/dependencies/css/",
     "copy-fa": "cp node_modules/@fortawesome/fontawesome-free/webfonts/** dependencies/webfonts && cp node_modules/@fortawesome/fontawesome-free/css/all.min.css dependencies/css/fa.min.css",
     "copy-cas": "cp node_modules/caswow.library/css/caswow.css src/css/caswow.css",
     "show": "cross-env ELEVENTY_ENV=dev npx @11ty/eleventy --serve watch:*",
@@ -38,7 +41,6 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@shoelace-style/shoelace": "^2.19.0",
     "bootstrap-icons": "^1.11.3",
-    "cas_wow": "file:../examples/sass-js",
     "chart.js": "^4.4.6"
   },
   "browserslist": [

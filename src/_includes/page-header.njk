@@ -3,14 +3,19 @@
     {%- if (breadcrumbs) -%}
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <ol class="breadcrumb">
-        {% for navPages in collections.all | eleventyNavigation %}
-        <li class="breadcrumb-item"><a href="{{navPages.url}}">{{ eleventyNavigation.parent }}</a></li>
-        {% endfor %}
-        <li class="breadcrumb-item active" aria-current="page">{{eleventyNavigation.key}}</li>
+        <li class="breadcrumb-item">
+          <a href="{{ '/' | url }}">Dashboard</a>
+        </li>
+        {%- if (eleventyNavigation.level) === 1 -%}
+        <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+        {%- else -%}
+        <li class="breadcrumb-item">
+          <a href="{{ eleventyNavigation.url | url }}">{{eleventyNavigation.parent}}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+        {%- endif -%}
       </ol>
     </nav>
-    {# {{ collections.all | eleventyNavigationBreadcrumb("ProjectCosts", { includeSelf: true }) | eleventyNavigationToHtml | safe }}
-    {{ navPages | dump | safe }} #}
     {%- else -%}{%- endif -%}
   </div>
   <div class="page-header-text">
@@ -46,14 +51,14 @@
       {%- endif -%}
       {%- if toolBar === "buttons" -%}
       <div class="d-flex gap-2">
+        {%- if buttonCount === "2" -%}
         <div class="dropdown">
           <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-calendar"></i> {{ toolbarButtonOne }}
+            <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonOne }}
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">{{ dropdownOne }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ dropdownTwo }}</a></li>
           </ul>
         </div>
         <div class="dropdown">
@@ -61,19 +66,29 @@
             <i class="fa-solid fa-building"></i> {{ toolbarButtonTwo }}
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">{{ dropdownOne }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ dropdownTwo }}</a></li>
           </ul>
         </div>
+        {%- else -%}
+        <div class="dropdown">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonOne }}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item">{{ dropdownOne }}</a></li>
+            <li><a class="dropdown-item">{{ dropdownTwo }}</a></li>
+          </ul>
+        </div>
+        {%- endif -%}
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Actions
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">{{ actionsOne }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ actionsTwo }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ actionsThree }}</a></li>
           </ul>
         </div>
       </div>

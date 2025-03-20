@@ -1,19 +1,15 @@
 ---
-layout: base.njk
-title: XPress
+layout: xpress.njk
+title: CASim XPress
 breadcrumbs: true
-toolBar:
+toolBar: buttons
+buttonCount: "1"
+toolbarIcon: "fa-building"
+toolbarButtonOne: "CAS - NY"
 tabBar:
 eleventyNavigation:
-  key: XPress
-  parent: Dashboard
-  order: 1
+  tag: xpress
+  key: CASim XPress
+  level: 1
 ---
 
-<div class="d-grid gap-4">
-  <div class="custom-placeholder"></div>
-  <div class="d-flex gap-4 justify-content-between">
-    <div class="custom-placeholder w-50"></div>
-    <div class="custom-placeholder w-50"></div>
-  </div>
-</div>

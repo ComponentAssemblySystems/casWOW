@@ -11,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="@" />
-    <title>casWOW | Welcome, Neo | </title>
+    <title>casWOW | CASim XPress | </title>
     <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
     <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -48,7 +48,7 @@
 
       <ul class="nav navbar-top col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="/casWOW/xpress" class="nav-link px-2 link-secondary ">XPress</a>
+          <a href="/casWOW/xpress" class="nav-link px-2 link-secondary active">XPress</a>
         </li>
         <li>
           <a href="/casWOW/project-costs" class="nav-link px-2 link-secondary ">Project Costs</a>
@@ -207,20 +207,23 @@
 
         
         <div class="page-header">
-  <div class="top-page-header"></div>
+  <div class="top-page-header"><nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/casWOW/">Dashboard</a>
+        </li><li class="breadcrumb-item active" aria-current="page">CASim XPress</li></ol>
+    </nav></div>
   <div class="page-header-text">
     <div class="logo-text-badge-link">
       <div class="header-subheader">
         <div class="header-label">
           <span class="h2">
-            Welcome, Neo
-          </span><span class="badge bg-secondary">
-            Admin
+            CASim XPress
           </span></div>
       </div>
     </div><div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"><div class="d-flex gap-2"><div class="dropdown">
           <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid "></i> December 2024
+            <i class="fa-solid fa-building"></i> CAS - NY
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item"></a></li>
@@ -240,237 +243,7 @@
 
         <main class="col-12 px-md-4">
           <a id="main-content"></a>
-          <p><sl-include src="_partials/company-summary"></sl-include></p>
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <div class="card-header d-flex justify-content-between align-items-center">
-        <h5 class="card-title">Receivables</h5>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><h6 class="dropdown-header">Configure</h6></li>
-          <li><a class="dropdown-item" href="">Make Primary</a></li>
-          <li><a class="dropdown-item" href="">Hide</a></li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <canvas id="receivablesChart"></canvas>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <div class="card-header d-flex justify-content-between align-items-center">
-        <h5 class="card-title">Hours</h5>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><h6 class="dropdown-header">Configure</h6></li>
-          <li><a class="dropdown-item" href="">Make Primary</a></li>
-          <li><a class="dropdown-item" href="">Hide</a></li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <canvas id="hoursChart"></canvas>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <div class="card-header d-flex justify-content-between align-items-center">
-        <h5 class="card-title">Costs</h5>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><h6 class="dropdown-header">Configure</h6></li>
-          <li><a class="dropdown-item" href="">Make Primary</a></li>
-          <li><a class="dropdown-item" href="">Hide</a></li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <canvas id="costsChart"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
-  <!-- <div class="custom-placeholder"></div> -->
-<script>
-  // Sample data
-  const months = ['January', 'February', 'March', 'April', 'May', 'June'];
-  const actualHours = [120, 150, 130, 160, 170, 180];
-  const budgetHours = [140, 160, 120, 150, 160, 170];
-
-  // Chart configuration
-  const data = {
-    labels: months,
-    datasets: [
-      {
-        label: 'Actual Hours',
-        data: actualHours,
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1
-      },
-      {
-        label: 'Budget Hours',
-        data: budgetHours,
-        backgroundColor: 'rgba(255, 99, 132, 0.6)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1
-      }
-    ]
-  };
-
-  const config = {
-    type: 'bar',
-    data: data,
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'top'
-        },
-        title: {
-          display: true,
-          text: 'Actual Hours vs Budget Hours (6-Month Period)'
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  };
-
-  // Render the chart
-  const ctx = document.getElementById('hoursChart').getContext('2d');
-  new Chart(ctx, config);
-</script>
-<script>
-    // Sample data
-    const monthCosts = ['January', 'February', 'March', 'April', 'May', 'June'];
-    const actualCosts = [2000, 2500, 2300, 2800, 3000, 3200];
-    const budgetCosts = [2200, 2400, 2100, 2600, 2900, 3100];
-
-    // Chart configuration
-    const sampleCostsChart = {
-      labels: monthCosts,
-      datasets: [
-        {
-          label: 'Actual Costs ($)',
-          data: actualCosts,
-          backgroundColor: 'rgba(54, 162, 235, 0.6)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
-        },
-        {
-          label: 'Budget Costs ($)',
-          data: budgetCosts,
-          backgroundColor: 'rgba(255, 206, 86, 0.6)',
-          borderColor: 'rgba(255, 206, 86, 1)',
-          borderWidth: 1
-        }
-      ]
-    };
-
-    const sampleCostsChartConfig = {
-      type: 'bar',
-      data: sampleCostsChart,
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top'
-          },
-          title: {
-            display: true,
-            text: 'Actual Costs vs Budget Costs (6-Month Period)'
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: 'Costs ($)'
-            }
-          }
-        }
-      }
-    };
-
-    // Render the chart
-    const ctxCostsChart = document.getElementById('costsChart').getContext('2d');
-    new Chart(ctxCostsChart, sampleCostsChartConfig);
-  </script>
-<script>
-    // Sample data
-    const monthsReceivables = ['January', 'February', 'March', 'April', 'May', 'June'];
-    const amountInvoiced = [5000, 5200, 4800, 5300, 5500, 6000];
-    const amountPaid = [4500, 5000, 4700, 5100, 5400, 5800];
-    const retainage = [500, 200, 100, 200, 100, 200];
-
-    // Chart configuration
-    const sampleReceivablesChart = {
-      labels: monthsReceivables,
-      datasets: [
-        {
-          label: 'Amount Invoiced ($)',
-          data: amountInvoiced,
-          backgroundColor: 'rgba(75, 192, 192, 0.6)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        },
-        {
-          label: 'Amount Paid ($)',
-          data: amountPaid,
-          backgroundColor: 'rgba(54, 162, 235, 0.6)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
-        },
-        {
-          label: 'Retainage ($)',
-          data: retainage,
-          backgroundColor: 'rgba(255, 206, 86, 0.6)',
-          borderColor: 'rgba(255, 206, 86, 1)',
-          borderWidth: 1
-        }
-      ]
-    };
-
-    const sampleReceivablesChartConfig = {
-      type: 'bar',
-      data: sampleReceivablesChart,
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top'
-          },
-          title: {
-            display: true,
-            text: 'Receivables: Amount Invoiced vs Amount Paid vs Retainage'
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: {
-              display: true,
-              text: 'Amount ($)'
-            }
-          }
-        }
-      }
-    };
-
-    // Render the chart
-    const ctxReceivablesChart = document.getElementById('receivablesChart').getContext('2d');
-    new Chart(ctxReceivablesChart, sampleReceivablesChartConfig);
-  </script>
-
+          
         </main>
       </div>
     </div>
@@ -491,3 +264,161 @@
     </script>
   </body>
 </html>
+
+
+<sl-tab-group>
+  <sl-tab slot="nav" panel="active">Active</sl-tab>
+  <sl-tab slot="nav" panel="inactive" disabled>Inactive</sl-tab>
+  <sl-tab slot="nav" panel="complete" disabled>Complete</sl-tab>
+
+  <sl-tab-panel name="active">
+    <div class="table-responsive-lg">
+      <table class="table table-striped table-hover table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Plans</th>
+            <th scope="col">Project</th>
+            <th scope="col">Budget hours</th>
+            <th scope="col">Equated hours</th>
+            <th scope="col">Actual hours</th>
+            <th scope="col">Delta hours</th>
+            <th scope="col"># Days</th>
+            <th scope="col">% Complete</th>
+            <th scope="col">% Update</th>
+            <th scope="col">Times updated</th>
+            <th scope="col">Budget updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <th scope="row"></th>
+              <td><span class="badge rounded-pill text-bg-info">717</span> <a href="">Mandalore Place</a></td>
+              <td>186,455</td>
+              <td>186,455</td>
+              <td>179,252</td>
+              <td>
+                <span>7,203</span></td>
+              <td>856</td>
+              <td>
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow=100 aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar bg-success" style="width: 100%">100</div></div>
+              </td>
+              <td>03/08/2024</td>
+              <td>21</td>
+              <td>08/24/2024</td>
+            </tr>
+          
+            <tr>
+              <th scope="row"></th>
+              <td><span class="badge rounded-pill text-bg-info">212</span> <a href="">Heater Grappler</a></td>
+              <td>86,686</td>
+              <td>86,675</td>
+              <td>96,886</td>
+              <td>
+                <span style="color: red;">(-1,209)</span></td>
+              <td>212</td>
+              <td>
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow=50 aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar bg-primary" style="width: 50%">50</div></div>
+              </td>
+              <td>03/08/2024</td>
+              <td>19</td>
+              <td>08/24/2024</td>
+            </tr>
+          
+            <tr>
+              <th scope="row"><sl-icon-button name="image" label="plan" href="/casWOW/plans"></sl-icon-button></th>
+              <td><span class="badge rounded-pill text-bg-info">873</span> <a href="">Skywalker and Family</a></td>
+              <td>38,763</td>
+              <td>38,763</td>
+              <td>38,763</td>
+              <td>
+                <span>9,226</span></td>
+              <td>112</td>
+              <td>
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow=25 aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar bg-danger" style="width: 25%">25</div></div>
+              </td>
+              <td>03/08/2024</td>
+              <td>15</td>
+              <td>08/24/2024</td>
+            </tr>
+          
+            <tr>
+              <th scope="row"></th>
+              <td><span class="badge rounded-pill text-bg-info">718</span> <a href="">400 Raffles</a></td>
+              <td>7,270</td>
+              <td>0</td>
+              <td>0</td>
+              <td>
+                <span class="text-neutral">0</span></td>
+              <td>0</td>
+              <td>
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow=0 aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar bg-secondary" style="width: 0%">0</div></div>
+              </td>
+              <td>03/08/2024</td>
+              <td>1</td>
+              <td>08/24/2024</td>
+            </tr>
+          
+            <tr>
+              <th scope="row"></th>
+              <td><span class="badge rounded-pill text-bg-info">212</span> <a href="">Healthcore Group LLC</a></td>
+              <td>145,087</td>
+              <td>142,870</td>
+              <td>141,002</td>
+              <td>
+                <span>1,868</span></td>
+              <td>27</td>
+              <td>
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow=85 aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar bg-primary" style="width: 85%">85</div></div>
+              </td>
+              <td>01/08/2025</td>
+              <td>12</td>
+              <td>02/01/2025</td>
+            </tr>
+          
+            <tr>
+              <th scope="row"></th>
+              <td><span class="badge rounded-pill text-bg-info">712</span> <a href="">Company and Sons</a></td>
+              <td>17,652</td>
+              <td>2,054</td>
+              <td>572</td>
+              <td>
+                <span>1,482</span></td>
+              <td>156</td>
+              <td>
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow=15 aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar bg-secondary" style="width: 15%">15</div></div>
+              </td>
+              <td>1/20/2025</td>
+              <td>6</td>
+              <td>-</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </sl-tab-panel>
+  <sl-tab-panel name="inactive">
+    <div class="d-grid gap-4">
+      <div class="custom-placeholder"></div>
+      <div class="d-flex gap-4 justify-content-between">
+        <div class="custom-placeholder w-50"></div>
+        <div class="custom-placeholder w-50"></div>
+      </div>
+    </div>
+  </sl-tab-panel>
+  <sl-tab-panel name="complete">
+    <div class="d-grid gap-4">
+      <div class="custom-placeholder"></div>
+      <div class="d-flex gap-4 justify-content-between">
+        <div class="custom-placeholder w-50"></div>
+        <div class="custom-placeholder w-50"></div>
+      </div>
+    </div>
+  </sl-tab-panel>
+</sl-tab-group>
