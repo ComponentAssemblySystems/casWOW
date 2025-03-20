@@ -55,6 +55,57 @@
         <main class="col-12 px-md-4">
           <a id="main-content"></a>
           {{ content | safe }}
+          <sl-tab-group placement="start">
+            <sl-tab slot="nav" panel="conformed">
+              Conformed set <sl-badge variant="primary">693</sl-badge>
+            </sl-tab>
+            <sl-tab slot="nav" panel="dated">
+              <span class="text-wrap">2024-05-24 Contract Includes ASKs up to 050</span> <sl-badge variant="neutral">600</sl-badge>
+            </sl-tab>
+            <sl-tab-panel name="conformed">
+              {% for plan in plans %}
+                <sl-card class="card-image card-plan">
+                  <img
+                    slot="image"
+                    src={{ plan.image }}
+                    alt="A kitten walks towards camera on top of pallet."
+                  />
+                  <strong>{{ plan.name }}</strong>
+                  <div style="font-style: italic;">{{ plan.date }}</div>
+                  <div><a href="">{{ plan.title }}</a></div>
+                </sl-card>
+              {% endfor %}
+              <sl-card class="card-image card-plan">
+                <sl-button variant="text" size="large" href="" disabled>Load more...</sl-button>
+              </sl-card>
+            </sl-tab-panel>
+            <sl-tab-panel name="dated">
+              {% for plan in plans %}
+                <sl-card class="card-image card-plan">
+                  <img
+                    slot="image"
+                    src={{ plan.image }}
+                    alt="A kitten walks towards camera on top of pallet."
+                  />
+                  {%- if plan.label === "cover" -%}
+                  <sl-badge variant="neutral" class="plan-badge">{{ plan.label }}</sl-badge>
+                  {%- endif -%}
+                  {%- if plan.label === "duplicate" -%}
+                  <sl-badge variant="primary" class="plan-badge">{{ plan.label }}</sl-badge>
+                  {%- endif -%}
+                  {%- if plan.label === "superseded" -%}
+                  <sl-badge variant="warning" class="plan-badge">{{ plan.label }}</sl-badge>
+                  {%- endif -%}
+                  <strong>{{ plan.name }}</strong>
+                  <div style="font-style: italic;">{{ plan.date }}</div>
+                  <div><a href="">{{ plan.title }}</a></div>
+                </sl-card>
+              {% endfor %}
+              <sl-card class="card-image card-plan">
+                <sl-button variant="text" size="large" href="" disabled>Load more...</sl-button>
+              </sl-card>
+            </sl-tab-panel>
+          </sl-tab-group>
         </main>
       </div>
     </div>

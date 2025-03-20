@@ -186,6 +186,9 @@ icon-button {
   &:hover {
     background-color: var(--cas-tertiary-bg); /* change to background-transparent-brand */
   }
+  .compound:hover {
+    background-color: transparent; /* change to background-transparent-brand */
+  }
   &__text:hover {
     color: var(--text-hover-link);
   }

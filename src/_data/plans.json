@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Cover Sheet",
+    "date": "N/A",
+    "title": "Schematic",
+    "image": "../img/starship_schematic.png",
+    "label": "cover"
+  },
+  {
+    "name": "A-701.00",
+    "date": "May 04, 2020",
+    "title": "Floor signature",
+    "image": "../img/amsterdam-city-archives.jpg",
+    "label": "duplicate"
+  },
+  {
+    "name": "A-701.00",
+    "date": "May 04, 2020",
+    "title": "Floor signature",
+    "image": "../img/amsterdam-city-archives.jpg",
+    "label": "duplicate"
+  },
+  {
+    "name": "A-701.00",
+    "date": "May 04, 2020",
+    "title": "Typical section",
+    "image": "../img/amsterdam-city-archives.jpg",
+    "label": "duplicate"
+  },
+  {
+    "name": "A-701.00",
+    "date": "May 04, 2020",
+    "title": "3d Axons",
+    "image": "../img/amsterdam-city-archives.jpg",
+    "label": "duplicate"
+  },
+  {
+    "name": "A-701.00",
+    "date": "May 04, 2020",
+    "title": "Floor signature",
+    "image": "../img/amsterdam-city-archives.jpg",
+    "label": "duplicate"
+  },
+  {
+    "name": "A-702.00",
+    "date": "May 04, 2020",
+    "title": "Typical section details",
+    "image": "../img/amsterdam-city-archives.jpg",
+    "label": "duplicate"
+  },
+  {
+    "name": "A-703.00",
+    "date": "May 04, 2020",
+    "title": "Details",
+    "image": "../img/amsterdam-city-archives.jpg"
+  },
+  {
+    "name": "A-702.00",
+    "date": "May 04, 2020",
+    "title": "Typical section details",
+    "image": "../img/amsterdam-city-archives.jpg",
+    "label": "duplicate"
+  },
+  {
+    "name": "A-704.00",
+    "date": "May 04, 2020",
+    "title": "Exterior details",
+    "image": "../img/amsterdam-city-archives.jpg",
+    "label": "superseded"
+  },
+  {
+    "name": "A-701.00",
+    "date": "May 04, 2020",
+    "title": "life safety - 8th floor",
+    "image": "../img/amsterdam-city-archives.jpg"
+  },
+  {
+    "name": "A-701.00",
+    "date": "May 04, 2020",
+    "title": "22nd floor plan",
+    "image": "../img/amsterdam-city-archives.jpg"
+  }
+]

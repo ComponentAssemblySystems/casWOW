@@ -1,0 +1,15 @@
+[
+  {
+  "layout": "page",
+  "tags": ["pages"],
+  "permalink": "/{{ page.fileSlug }}/"
+  },
+  {
+  "tags": ["xpress"],
+  "permalink": "/xpress/{{ page.fileSlug }}/"
+  },
+  {
+  "tags": ["reports"],
+  "permalink": "/reports/{{ page.fileSlug }}/"
+  }
+]
