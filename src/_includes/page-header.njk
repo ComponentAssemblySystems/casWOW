@@ -31,6 +31,11 @@
           </span>
           {%- else -%}{%- endif -%}
         </div>
+          {%- if (projectName) -%}
+          <span class="fw-bold">
+            {{ projectTitle }}
+          </span>
+          {%- else -%}{%- endif -%}
       </div>
     </div>
     {%- if (toolBar) -%}

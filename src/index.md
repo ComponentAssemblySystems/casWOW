@@ -2,8 +2,8 @@
 layout: base.njk
 title: Welcome, Neo
 toolBar: buttons
+toolbarIcon: "fa-calendar"
 toolbarButtonOne: "December 2024"
-toolbarButtonTwo: "CAS - NY"
 tabBar: false
 badge: true
 badgeText: "Admin"

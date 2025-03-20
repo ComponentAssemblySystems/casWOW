@@ -1,6 +1,10 @@
 ---
 layout: plan-room.njk
 title: Plans
+projectName: true
+projectTitle: "Skywalker and Family"
+badge: true
+badgeText: "873"
 breadcrumbs: true
 toolBar: buttons
 buttonCount: "1"
