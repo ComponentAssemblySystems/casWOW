@@ -5,7 +5,7 @@
         <span class="text-capitalize">Menu</span>
       </button>
       <a href="{{ '/' | url }}" class="d-flex align-items-center mb-2 mb-lg-0 link-secondary text-decoration-none">
-        <img src="{{ '/img/Jolicoeur_SVG.svg' | url }}" height="32px" alt="CASWOW logo" />
+        <img src="{{ '/img/CAS_logo.svg' | url }}" height="32px" alt="CASWOW logo" />
       </a>
 
       <ul class="nav navbar-top col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -16,13 +16,13 @@
           <a href="{{ '/project-costs' | url }}" class="nav-link px-2 link-secondary {% if '/project-costs' in page.url %}active{%- endif -%}">Project Costs</a>
         </li>
         <li class="d-none d-lg-block">
-          <a href="{{ '/pages/reports' | url }}" class="nav-link px-2 link-secondary {% if '/reports' in page.url %}active{%- endif -%}">Reports</a>
+          <a href="{{ '/reports' | url }}" class="nav-link px-2 link-secondary {% if '/reports' in page.url %}active{%- endif -%}">Reports</a>
         </li>
         <li class="d-none d-lg-block">
-          <a href="{{ '/pages/project-info' | url }}" class="nav-link px-2 link-secondary {% if '/project-info' in page.url %}active{%- endif -%}">Project Information</a>
+          <a href="{{ '/project-info' | url }}" class="nav-link px-2 link-secondary {% if '/project-info' in page.url %}active{%- endif -%}">Project Information</a>
         </li>
         <li class="d-none d-lg-block">
-          <a href="{{ '/pages/vendor-info' | url }}" class="nav-link px-2 link-secondary {% if '/vendor-info' in page.url %}active{%- endif -%}">Vendor Information</a>
+          <a href="{{ '/vendor-info' | url }}" class="nav-link px-2 link-secondary {% if '/vendor-info' in page.url %}active{%- endif -%}">Vendor Information</a>
         </li>
       </ul>
 
@@ -38,7 +38,9 @@
 
       <div class="dropdown text-end d-none d-lg-block">
         <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="{{ '/img/Jolicoeur_SVG.svg' | url }}" alt="AdamJ" width="32" height="32" class="rounded-circle">
+          <span style="font-size: 1.5rem; color: #4a90e2;">
+            <sl-icon name="person-circle"></sl-icon>
+          </span>
         </a>
         <ul class="dropdown-menu text-small" style="">
           <li><a class="dropdown-item" href="#">Access Level A</a></li>

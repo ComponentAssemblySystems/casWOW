@@ -18,7 +18,8 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addWatchTarget("src/css/*.css");
 
-  eleventyConfig.addPassthroughCopy("dependencies/**");
+  eleventyConfig.addPassthroughCopy("dependencies/js/bootstrap.min.js");
+  eleventyConfig.addPassthroughCopy("dependencies/js/chart.js");
   eleventyConfig.addPassthroughCopy("src/css/caswow.css");
   eleventyConfig.addPassthroughCopy("src/css/variables.css");
   eleventyConfig.addPassthroughCopy("src/css/site.css");
