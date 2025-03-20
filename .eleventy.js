@@ -23,6 +23,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css/caswow.css");
   eleventyConfig.addPassthroughCopy("src/css/variables.css");
   eleventyConfig.addPassthroughCopy("src/css/site.css");
+  eleventyConfig.addPassthroughCopy("src/css/colors.css");
   eleventyConfig.addPassthroughCopy("src/css/fontawesome.css");
   eleventyConfig.addPassthroughCopy("src/css/brands.css");
   eleventyConfig.addPassthroughCopy("src/css/solid.css");
