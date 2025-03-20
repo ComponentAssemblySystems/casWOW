@@ -1,6 +1,6 @@
 # CASWOW
 
-This project requires the caswow.library to function correctly.
+This project requires the [caswow.library](https://github.com/ComponentAssemblySystems/caswow.library) to function correctly.
 
 Run the following to link caswow.library as an npm module:
 
