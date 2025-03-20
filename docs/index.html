@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!doctype html>
 <html
   lang="en"
   data-layout="fluid"
@@ -48,19 +48,19 @@
 
       <ul class="nav navbar-top col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="/casWOW/pages/xpress" class="nav-link px-2 link-secondary ">XPress</a>
+          <a href="/casWOW/xpress" class="nav-link px-2 link-secondary ">XPress</a>
         </li>
         <li>
-          <a href="/casWOW/pages/project-costs" class="nav-link px-2 link-secondary ">Project Costs</a>
+          <a href="/casWOW/project-costs" class="nav-link px-2 link-secondary ">Project Costs</a>
         </li>
         <li class="d-none d-lg-block">
           <a href="/casWOW/pages/reports" class="nav-link px-2 link-secondary ">Reports</a>
         </li>
         <li class="d-none d-lg-block">
-          <a href="/casWOW/pages/project-information" class="nav-link px-2 link-secondary ">Project Information</a>
+          <a href="/casWOW/pages/project-info" class="nav-link px-2 link-secondary ">Project Information</a>
         </li>
         <li class="d-none d-lg-block">
-          <a href="/casWOW/pages/vendor-information" class="nav-link px-2 link-secondary ">Vendor Information</a>
+          <a href="/casWOW/pages/vendor-info" class="nav-link px-2 link-secondary ">Vendor Information</a>
         </li>
       </ul>
 
@@ -123,8 +123,11 @@
               <div class="section-item">
                 <a class="menu-item__text">CASim</a>
               </div>
-              <div class="section-item">
+              <div class="section-item compound">
                 <a class="menu-item__text">Analytics</a>
+                <div class="section-item">
+                  <a class="menu-item__text">Analytics</a>
+                </div>
               </div>
               <div class="section-item">
                 <a class="menu-item__text">PO Module</a>
@@ -215,35 +218,22 @@
             Admin
           </span></div>
       </div>
-    </div><div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"><div class="d-flex gap-2">
-        <div class="dropdown">
+    </div><div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"><div class="d-flex gap-2"><div class="dropdown">
           <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-calendar"></i> December 2024
+            <i class="fa-solid "></i> December 2024
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item"></a></li>
+            <li><a class="dropdown-item"></a></li>
           </ul>
-        </div>
-        <div class="dropdown">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-building"></i> CAS - NY
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div>
-        <div class="dropdown">
+        </div><div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Actions
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
           </ul>
         </div>
       </div></div></div></div>
@@ -485,10 +475,19 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="/casWOW/dependencies/js/bootstrap.min.js"></script>
+    <style>
+      sl-dialog::part(base) {
+        z-index: 10000 !important;
+      }
+    </style>
+    <script>
+      const dialog = document.querySelector('.dialog-overview');
+      const openButton = dialog.nextElementSibling;
+      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+
+      openButton.addEventListener('click', () => dialog.show());
+      closeButton.addEventListener('click', () => dialog.hide());
+    </script>
   </body>
-  <script>
-    const sayHello = require('cas_wow');
-    sayHello();
-  </script>
 </html>

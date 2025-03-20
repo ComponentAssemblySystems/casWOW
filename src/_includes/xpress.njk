@@ -1,0 +1,90 @@
+{% include 'base.njk' %}
+
+<sl-tab-group>
+  <sl-tab slot="nav" panel="active">Active</sl-tab>
+  <sl-tab slot="nav" panel="inactive" disabled>Inactive</sl-tab>
+  <sl-tab slot="nav" panel="complete" disabled>Complete</sl-tab>
+
+  <sl-tab-panel name="active">
+    <div class="table-responsive-lg">
+      <table class="table table-striped table-hover table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Plans</th>
+            <th scope="col">Project</th>
+            <th scope="col">Budget hours</th>
+            <th scope="col">Equated hours</th>
+            <th scope="col">Actual hours</th>
+            <th scope="col">Delta hours</th>
+            <th scope="col"># Days</th>
+            <th scope="col">% Complete</th>
+            <th scope="col">% Update</th>
+            <th scope="col">Times updated</th>
+            <th scope="col">Budget updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in xpress %}
+            <tr>
+              <th scope="row">
+                {%- if data.plans === "true" -%}
+                <sl-icon-button name="image" label="plan" href="/casWOW/plans"></sl-icon-button>
+                {%- else -%}{%- endif -%}
+              </th>
+              <td><span class="badge rounded-pill text-bg-info">{{ data.badge }}</span> <a href="">{{ data.project }}</a></td>
+              <td>{{ data.budget }}</td>
+              <td>{{ data.equated }}</td>
+              <td>{{ data.actual }}</td>
+              <td>
+                {% set delta = data.delta | int %}
+                {%- if delta < 0 -%}
+                  <span style="color: red;">({{ data.delta }})</span>
+                {%- elseif data.delta == "0" -%}
+                  <span class="text-neutral">{{ data.delta }}</span>
+                {%- else -%}
+                  <span>{{ data.delta }}</span>
+                {%- endif -%}
+              </td>
+              <td>{{ data.days }}</td>
+              <td>
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow={{ data.percent }} aria-valuemin="0" aria-valuemax="100">
+                  {% set percent = data.percent | int %}
+                  {%- if data.percent <= 20 -%}
+                  <div class="progress-bar bg-secondary" style="width: {{ percent }}%">{{ percent }}</div>
+                  {%- elseif percent > 21 and percent < 50 -%}
+                  <div class="progress-bar bg-danger" style="width: {{ percent }}%">{{ percent }}</div>
+                  {%- elseif percent >= 50 and percent < 100 -%}
+                  <div class="progress-bar bg-primary" style="width: {{ percent }}%">{{ percent }}</div>
+                  {%- elseif percent === 100 -%}
+                  <div class="progress-bar bg-success" style="width: {{ percent }}%">{{ percent }}</div>
+                  {%- endif -%}
+                </div>
+              </td>
+              <td>{{ data.update }}</td>
+              <td>{{ data.timesUpdated }}</td>
+              <td>{{ data.budgetUpdated }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </sl-tab-panel>
+  <sl-tab-panel name="inactive">
+    <div class="d-grid gap-4">
+      <div class="custom-placeholder"></div>
+      <div class="d-flex gap-4 justify-content-between">
+        <div class="custom-placeholder w-50"></div>
+        <div class="custom-placeholder w-50"></div>
+      </div>
+    </div>
+  </sl-tab-panel>
+  <sl-tab-panel name="complete">
+    <div class="d-grid gap-4">
+      <div class="custom-placeholder"></div>
+      <div class="d-flex gap-4 justify-content-between">
+        <div class="custom-placeholder w-50"></div>
+        <div class="custom-placeholder w-50"></div>
+      </div>
+    </div>
+  </sl-tab-panel>
+</sl-tab-group>

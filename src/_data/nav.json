@@ -1,0 +1,30 @@
+[
+  {
+    "page": "Dashboard",
+    "link": "/"
+  },
+  {
+    "page": "CASim XPress",
+    "link": "/xpress"
+  },
+  {
+    "page": "Plans",
+    "link": "/xpress/plans"
+  },
+  {
+    "page": "Project Costs",
+    "link": "/project"
+  },
+  {
+    "page": "Reports",
+    "link": "/reports"
+  },
+  {
+    "page": "Project Information",
+    "link": "/project-information"
+  },
+  {
+    "page": "Vendor Information",
+    "link": "/vendor-information"
+  }
+]

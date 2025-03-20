@@ -1,0 +1,128 @@
+<!doctype html>
+<html
+  lang="en"
+  data-layout="fluid"
+  data-sidebar-theme="colored"
+  data-sidebar-position="left"
+  data-sidebar-behavior="sticky"
+>
+{%- if ELEVENTY_ENV == "dev" -%}
+<title>DEVELOPMENT</title>
+{%- else -%}
+{%- set pageTitle %}{% if title %}{{ title }} | {% endif %}{{ meta.siteName }}{% endset -%}
+{%- set pageDescription %}{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}{% endset -%}
+{%- endif -%}
+  <head>
+    <!-- Generated from the 11ty Netlify Jumpstart: https://github.com/5t3ph/11ty-netlify-jumpstart -->
+    <!-- Modified for usage/content provided by Adam J. Jolicoeur: https://github.com/AdamJ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="@{{ meta.siteMeta }}" />
+    <title>casWOW | {{pageTitle}}</title>
+    <link rel="icon" type="image/png" size="48x48" href="{{ '/favicon.ico' | url }}">
+    <link rel="icon" type="image/png" size="72x72" href="{{ '/favicon.png' | url }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/shoelace-autoloader.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/themes/light.css" />
+    <meta
+      name="description"
+      content="{{meta.siteDescription}}"
+    />
+    <meta name="generator" content="Eleventy">
+    {# {%- if meta.env=="dev" -%} #}
+    {# {%- else -%} #}
+    <link href="{{ '/css/caswow.css' | url }}" rel="stylesheet" />
+    <link href="{{ '/css/site.css' | url }}" rel="stylesheet" />
+    <link href="{{ '/css/fontawesome.css' | url }}" rel="stylesheet" />
+    <link href="{{ '/css/solid.css' | url }}" rel="stylesheet" />
+    <link href="{{ '/css/brands.css' | url }}" rel="stylesheet" />
+    {# {%- endif -%} #}
+    {# Set the initial theme and menu states here to prevent flashing #}
+  </head>
+    <body>
+      <a id="skip-to-main" class="visually-hidden" href="#main-content" data-smooth-link="false">
+        Skip to main content
+      </a>
+      {% include 'header.njk' %}
+      <div class="container-fluid">
+        <div class="row">
+        {% if page.sidebar == "sidebar" %}
+        {% include 'sidebar.njk' %}
+        {% else %}
+        {% include 'cas-sidebar.njk' %}
+        {% endif %}
+        {% include 'page-header.njk' %}
+        <main class="col-12 px-md-4">
+          <a id="main-content"></a>
+          {{ content | safe }}
+          <sl-tab-group placement="start">
+            <sl-tab slot="nav" panel="conformed">
+              Conformed set <sl-badge variant="primary">693</sl-badge>
+            </sl-tab>
+            <sl-tab slot="nav" panel="dated">
+              <span class="text-wrap">2024-05-24 Contract Includes ASKs up to 050</span> <sl-badge variant="neutral">600</sl-badge>
+            </sl-tab>
+            <sl-tab-panel name="conformed">
+              {% for plan in plans %}
+                <sl-card class="card-image card-plan">
+                  <img
+                    slot="image"
+                    src={{ plan.image }}
+                    alt="A kitten walks towards camera on top of pallet."
+                  />
+                  <strong>{{ plan.name }}</strong>
+                  <div style="font-style: italic;">{{ plan.date }}</div>
+                  <div><a href="">{{ plan.title }}</a></div>
+                </sl-card>
+              {% endfor %}
+              <sl-card class="card-image card-plan">
+                <sl-button variant="text" size="large" href="" disabled>Load more...</sl-button>
+              </sl-card>
+            </sl-tab-panel>
+            <sl-tab-panel name="dated">
+              {% for plan in plans %}
+                <sl-card class="card-image card-plan">
+                  <img
+                    slot="image"
+                    src={{ plan.image }}
+                    alt="A kitten walks towards camera on top of pallet."
+                  />
+                  {%- if plan.label === "cover" -%}
+                  <sl-badge variant="neutral" class="plan-badge">{{ plan.label }}</sl-badge>
+                  {%- endif -%}
+                  {%- if plan.label === "duplicate" -%}
+                  <sl-badge variant="primary" class="plan-badge">{{ plan.label }}</sl-badge>
+                  {%- endif -%}
+                  {%- if plan.label === "superseded" -%}
+                  <sl-badge variant="warning" class="plan-badge">{{ plan.label }}</sl-badge>
+                  {%- endif -%}
+                  <strong>{{ plan.name }}</strong>
+                  <div style="font-style: italic;">{{ plan.date }}</div>
+                  <div><a href="">{{ plan.title }}</a></div>
+                </sl-card>
+              {% endfor %}
+              <sl-card class="card-image card-plan">
+                <sl-button variant="text" size="large" href="" disabled>Load more...</sl-button>
+              </sl-card>
+            </sl-tab-panel>
+          </sl-tab-group>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="{{ '/dependencies/js/bootstrap.min.js' | url }}"></script>
+    <style>
+      sl-dialog::part(base) {
+        z-index: 10000 !important;
+      }
+    </style>
+    <script>
+      const dialog = document.querySelector('.dialog-overview');
+      const openButton = dialog.nextElementSibling;
+      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+
+      openButton.addEventListener('click', () => dialog.show());
+      closeButton.addEventListener('click', () => dialog.hide());
+    </script>
+  </body>
+</html>
