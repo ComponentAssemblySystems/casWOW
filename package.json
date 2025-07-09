@@ -20,8 +20,8 @@
     "serve": "cross-env ELEVENTY_ENV=dev && npm-run-all --parallel watch:*",
     "start": "cross-env ELEVENTY_ENV=dev npm-run-all build:eleventy",
     "build": "cross-env ELEVENTY_ENV=prod npm run css build:eleventy",
-    "css-compile": "sass --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules src/sass/:docs/css/",
-    "css-lint": "stylelint src/sass/",
+    "css-compile": "sass --style compressed --source-map --embed-sources --no-error-css src/css/:docs/css/",
+    "css-lint": "stylelint src/css/",
     "css-prefix": "postcss --replace docs/css/styles.css --use autoprefixer --map",
     "css": "npm-run-all css-compile css-prefix"
   },
@@ -41,6 +41,7 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@shoelace-style/shoelace": "^2.19.0",
     "bootstrap-icons": "^1.11.3",
+    "caswow.library": "file:../caswow.library",
     "chart.js": "^4.4.6"
   },
   "browserslist": [

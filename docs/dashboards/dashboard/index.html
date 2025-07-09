@@ -1,0 +1,545 @@
+<!doctype html>
+<html
+  lang="en"
+  data-layout="fluid"
+  data-sidebar-theme="colored"
+  data-sidebar-position="left"
+  data-sidebar-behavior="sticky"
+><head>
+    <!-- Generated from the 11ty Netlify Jumpstart: https://github.com/5t3ph/11ty-netlify-jumpstart -->
+    <!-- Modified for usage/content provided by Adam J. Jolicoeur: https://github.com/AdamJ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="@" />
+    <title>casWOW | Welcome, Neo | </title>
+    <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
+    <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/shoelace-autoloader.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/themes/light.css" />
+    <meta
+      name="description"
+      content=""
+    />
+    <meta name="generator" content="Eleventy">
+    
+    
+    <link rel="stylesheet" href="/casWOW/css/caswow.css" />
+    <link href="/casWOW/css/site.css" rel="stylesheet" />
+    <link href="/casWOW/css/fontawesome.css" rel="stylesheet" />
+    <link href="/casWOW/css/solid.css" rel="stylesheet" />
+    <link href="/casWOW/css/brands.css" rel="stylesheet" />
+    
+    
+  </head>
+    <body>
+      <a id="skip-to-main" class="visually-hidden" href="#main-content" data-smooth-link="false">
+        Skip to main content
+      </a>
+      <header class="py-1 px-3 mb-1 sticky-top navigation">
+  <div class="container-fluid">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-2">
+      <button class="btn btn-outline-secondary icon-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
+        <span class="text-capitalize">Menu</span>
+      </button>
+      <a href="/casWOW/" class="d-flex align-items-center mb-2 mb-lg-0 link-secondary text-decoration-none">
+        <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" />
+      </a>
+
+      <ul class="nav navbar-top col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li>
+          <a href="/casWOW/xpress" class="nav-link px-2 link-secondary ">XPress</a>
+        </li>
+        <li>
+          <a href="/casWOW/project-costs" class="nav-link px-2 link-secondary ">Project Costs</a>
+        </li>
+        <li class="d-none d-lg-block">
+          <a href="/casWOW/reports" class="nav-link px-2 link-secondary ">Reports</a>
+        </li>
+        <li class="d-none d-lg-block">
+          <a href="/casWOW/project-info" class="nav-link px-2 link-secondary ">Project Information</a>
+        </li>
+        <li class="d-none d-lg-block">
+          <a href="/casWOW/vendor-info" class="nav-link px-2 link-secondary ">Vendor Information</a>
+        </li>
+      </ul>
+
+      <span class="ms-auto">
+        <button class="btn btn-sm btn-outline-secondary position-relative  px-2" type="button">
+          <i class="fa-solid fa-users"></i>
+          
+          <span class="position-absolute top-0 start-100 translate-middle p-1 bg-success border rounded-circle">
+            <span class="visually-hidden">Online Users</span>
+          </span>
+        </button>
+        <button class="btn btn-sm btn-outline-secondary border px-2" type="button"><i class="fa-solid fa-print"></i></button>
+        <button class="btn btn-sm btn-outline-secondary px-2" type="button"><i class="fa-solid fa-file-export"></i></button>
+      </span>
+
+      <div class="dropdown text-end d-none d-lg-block">
+        <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <span style="font-size: 1.5rem; color: #4a90e2;">
+            <sl-icon name="person-circle"></sl-icon>
+          </span>
+        </a>
+        <ul class="dropdown-menu text-small" style="">
+          <li><a class="dropdown-item" href="#">Access Level A</a></li>
+          <li><a class="dropdown-item" href="#">Change Password</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">My Configuration</a></li>
+          <li><a class="dropdown-item" href="#">Email Administrator</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Log out</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+      <div class="container-fluid">
+        <div class="row">
+        
+        <div class="offcanvas offcanvas-start left-navigation" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <span class="h5 offcanvas-title product-name" id="offcanvasExampleLabel">CASim Online</span>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="">
+  
+    <div class="item-menu-dashboards">
+      <div class="menu">
+        <div class="menu-item">
+          
+          <div class="menu-item__row">
+            <div class="menu-item__text active">
+              <a href="/casWOW/">Dashboard</a>
+            </div>
+            
+          </div>
+        </div>
+        <div class="menu-block">
+          <div class="menu-item">
+            <div class="menu-item__text-header " data-bs-toggle="collapse" data-bs-target="#applications" aria-expanded="false">
+              <h4 class="mb-0">Applications</h4>
+            </div>
+            <div class="menu-item__section collapse" id="applications">
+              <div class="section-item">
+                <a class="menu-item__text">CASim</a>
+              </div>
+              <div class="section-item compound">
+                <a class="menu-item__text">Analytics</a>
+                <div class="section-item">
+                  <a class="menu-item__text">Analytics</a>
+                </div>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">PO Module</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">EDI Module</a>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__text-header " data-bs-toggle="collapse" data-bs-target="#rtu" aria-expanded="false">
+              <h4 class="mb-0">RTU</h4>
+            </div>
+            <div class="menu-item__section collapse" id="rtu">
+              <div class="section-item">
+                <a class="menu-item__text">CASim</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Analytics</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">PO Module</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">EDI Module</a>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="menu-item">
+            <div class="menu-item__text-header " data-bs-toggle="collapse" data-bs-target="#administration" aria-expanded="false">
+              <h4 class="mb-0">Administration</h4>
+            </div>
+            <div class="menu-item__section collapse" id="administration">
+              <div class="section-item">
+                <a class="menu-item__text">Users</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Site</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Access</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Other</a>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="menu-item">
+            <div class="menu-item__text-header " data-bs-toggle="collapse" data-bs-target="#integrations" aria-expanded="false">
+              <h4 class="mb-0">Integrations</h4>
+            </div>
+            <div class="menu-item__section collapse" id="integrations">
+              <div class="section-item">
+                <a class="menu-item__text">Users</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Site</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Access</a>
+              </div>
+              <div class="section-item">
+                <a class="menu-item__text">Other</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item-menu-footer d-grid gap-2 p-2">
+      <button class="btn btn-outline-secondary" type="button">6.0.4.24</button>
+    </div>
+  </div>
+</div>
+
+        
+        <div class="page-header">
+  <div class="top-page-header"></div>
+  <div class="page-header-text">
+    <div class="logo-text-badge-link">
+      <div class="header-subheader">
+        <div class="header-label">
+          <span class="h2">
+            Welcome, Neo
+          </span><span class="badge bg-secondary">
+            Admin
+          </span></div></div>
+    </div><div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"><div class="d-flex gap-2"><div class="dropdown">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-calendar"></i> December 2024
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item">Quarter 1</a></li>
+            <li><a class="dropdown-item">Quarter 2</a></li>
+            <li><a class="dropdown-item" href="#">Quarter 3</a></li><li data-bs-toggle="collapse" data-bs-target="#applications" aria-expanded="false"><a class="dropdown-item">Quarter 4</a>
+              <ul id="applications">
+                <li><a class="dropdown-item" href="#">September</a>
+                </li>
+                <li><a class="dropdown-item" href="#">October</a>
+                </li>
+                <li><a class="dropdown-item" href="#">November</a>
+                </li>
+                <li><a class="dropdown-item" href="#">December</a>
+                </li>
+              </ul>
+            </li></ul>
+        </div><div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Export to CSV</a></li>
+          </ul>
+        </div>
+      </div></div></div></div>
+
+        <main class="col-12 px-md-4">
+          <a id="main-content"></a>
+          <div class="card w-100  mb-3">
+  <div class="card-header">
+    <h5 class="card-title">Company Summary</h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <p class="card-text mb-1">Active jobs</p>
+        <p class="text-body-secondary">104</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Budget hours</p>
+        <p class="text-body-secondary">1,695,618</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Budget dollars</p>
+        <p class="text-body-secondary">$156,510,389</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Active hours</p>
+        <p class="text-body-secondary">1,049,413</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Actual dollars</p>
+        <p class="text-body-secondary">$106,283,204</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Amount invoiced</p>
+        <p class="text-body-secondary">$299,294,300</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Retainage</p>
+        <p class="text-body-secondary">$14,440,621</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Amount paid</p>
+        <p class="text-body-secondary">$276,726,819</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title">Receivables</h5>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <canvas id="receivablesChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title">Hours</h5>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <canvas id="hoursChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title">Costs</h5>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <canvas id="costsChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="custom-placeholder"></div> -->
+<script>
+  // Sample data
+  const months = ['January', 'February', 'March', 'April', 'May', 'June'];
+  const actualHours = [120, 150, 130, 160, 170, 180];
+  const budgetHours = [140, 160, 120, 150, 160, 170];
+
+  // Chart configuration
+  const data = {
+    labels: months,
+    datasets: [
+      {
+        label: 'Actual Hours',
+        data: actualHours,
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Budget Hours',
+        data: budgetHours,
+        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      }
+    ]
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top'
+        },
+        title: {
+          display: true,
+          text: 'Actual Hours vs Budget Hours (6-Month Period)'
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+
+  // Render the chart
+  const ctx = document.getElementById('hoursChart').getContext('2d');
+  new Chart(ctx, config);
+</script>
+<script>
+    // Sample data
+    const monthCosts = ['January', 'February', 'March', 'April', 'May', 'June'];
+    const actualCosts = [2000, 2500, 2300, 2800, 3000, 3200];
+    const budgetCosts = [2200, 2400, 2100, 2600, 2900, 3100];
+
+    // Chart configuration
+    const sampleCostsChart = {
+      labels: monthCosts,
+      datasets: [
+        {
+          label: 'Actual Costs ($)',
+          data: actualCosts,
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Budget Costs ($)',
+          data: budgetCosts,
+          backgroundColor: 'rgba(255, 206, 86, 0.6)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          borderWidth: 1
+        }
+      ]
+    };
+
+    const sampleCostsChartConfig = {
+      type: 'bar',
+      data: sampleCostsChart,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
+          },
+          title: {
+            display: true,
+            text: 'Actual Costs vs Budget Costs (6-Month Period)'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Costs ($)'
+            }
+          }
+        }
+      }
+    };
+
+    // Render the chart
+    const ctxCostsChart = document.getElementById('costsChart').getContext('2d');
+    new Chart(ctxCostsChart, sampleCostsChartConfig);
+  </script>
+<script>
+    // Sample data
+    const monthsReceivables = ['January', 'February', 'March', 'April', 'May', 'June'];
+    const amountInvoiced = [5000, 5200, 4800, 5300, 5500, 6000];
+    const amountPaid = [4500, 5000, 4700, 5100, 5400, 5800];
+    const retainage = [500, 200, 100, 200, 100, 200];
+
+    // Chart configuration
+    const sampleReceivablesChart = {
+      labels: monthsReceivables,
+      datasets: [
+        {
+          label: 'Amount Invoiced ($)',
+          data: amountInvoiced,
+          backgroundColor: 'rgba(75, 192, 192, 0.6)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Amount Paid ($)',
+          data: amountPaid,
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Retainage ($)',
+          data: retainage,
+          backgroundColor: 'rgba(255, 206, 86, 0.6)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          borderWidth: 1
+        }
+      ]
+    };
+
+    const sampleReceivablesChartConfig = {
+      type: 'bar',
+      data: sampleReceivablesChart,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
+          },
+          title: {
+            display: true,
+            text: 'Receivables: Amount Invoiced vs Amount Paid vs Retainage'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Amount ($)'
+            }
+          }
+        }
+      }
+    };
+
+    // Render the chart
+    const ctxReceivablesChart = document.getElementById('receivablesChart').getContext('2d');
+    new Chart(ctxReceivablesChart, sampleReceivablesChartConfig);
+  </script>
+
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="/casWOW/js/bootstrap.min.js"></script>
+    <style>
+      sl-dialog::part(base) {
+        z-index: 10000 !important;
+      }
+    </style>
+    <script>
+      const dialog = document.querySelector('.dialog-overview');
+      const openButton = dialog.nextElementSibling;
+      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+
+      openButton.addEventListener('click', () => dialog.show());
+      closeButton.addEventListener('click', () => dialog.hide());
+    </script>
+  </body>
+</html>

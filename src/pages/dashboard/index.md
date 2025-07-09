@@ -1,0 +1,305 @@
+---
+layout: base.njk
+title: Welcome, Neo
+toolBar: buttons
+toolbarIcon: "fa-calendar"
+toolbarButtonCalendar: "December 2024"
+calendarOne: "Quarter 1"
+calendarTwo: "Quarter 2"
+calendarThree: "Quarter 3"
+calendarFour: "Quarter 4"
+isExpanded: true
+expandedOne: September
+expandedTwo: October
+expandedThree: November
+expandedFour: December
+tabBar: false
+badge: true
+badgeText: "Admin"
+eleventyNavigation:
+  key: Dashboard
+  order: 0
+cardTitle: "Company Summary"
+activeJobCount: "104"
+budgetHours: "1,695,618"
+budgetDollars: "$156,510,389"
+activeHours: "1,049,413"
+actualDollars: "$106,283,204"
+amountInvoiced: "$299,294,300"
+retainage: "$14,440,621"
+amountPaid: "$276,726,819"
+---
+
+<div class="card w-100  mb-3">
+  <div class="card-header">
+    <h5 class="card-title">{{ cardTitle }}</h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <p class="card-text mb-1">Active jobs</p>
+        <p class="text-body-secondary">{{ activeJobCount }}</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Budget hours</p>
+        <p class="text-body-secondary">{{ budgetHours }}</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Budget dollars</p>
+        <p class="text-body-secondary">{{ budgetDollars }}</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Active hours</p>
+        <p class="text-body-secondary">{{ activeHours }}</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Actual dollars</p>
+        <p class="text-body-secondary">{{ actualDollars }}</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Amount invoiced</p>
+        <p class="text-body-secondary">{{ amountInvoiced }}</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Retainage</p>
+        <p class="text-body-secondary">{{ retainage }}</p>
+      </div>
+      <div class="col">
+        <p class="card-text mb-1">Amount paid</p>
+        <p class="text-body-secondary">{{ amountPaid }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title">Receivables</h5>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <canvas id="receivablesChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title">Hours</h5>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <canvas id="hoursChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title">Costs</h5>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><h6 class="dropdown-header">Configure</h6></li>
+          <li><a class="dropdown-item" href="">Make Primary</a></li>
+          <li><a class="dropdown-item" href="">Hide</a></li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <canvas id="costsChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div class="custom-placeholder"></div> -->
+
+<script>
+  // Sample data
+  const months = ['January', 'February', 'March', 'April', 'May', 'June'];
+  const actualHours = [120, 150, 130, 160, 170, 180];
+  const budgetHours = [140, 160, 120, 150, 160, 170];
+
+  // Chart configuration
+  const data = {
+    labels: months,
+    datasets: [
+      {
+        label: 'Actual Hours',
+        data: actualHours,
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Budget Hours',
+        data: budgetHours,
+        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      }
+    ]
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top'
+        },
+        title: {
+          display: true,
+          text: 'Actual Hours vs Budget Hours (6-Month Period)'
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+
+  // Render the chart
+  const ctx = document.getElementById('hoursChart').getContext('2d');
+  new Chart(ctx, config);
+</script>
+<script>
+    // Sample data
+    const monthCosts = ['January', 'February', 'March', 'April', 'May', 'June'];
+    const actualCosts = [2000, 2500, 2300, 2800, 3000, 3200];
+    const budgetCosts = [2200, 2400, 2100, 2600, 2900, 3100];
+
+    // Chart configuration
+    const sampleCostsChart = {
+      labels: monthCosts,
+      datasets: [
+        {
+          label: 'Actual Costs ($)',
+          data: actualCosts,
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Budget Costs ($)',
+          data: budgetCosts,
+          backgroundColor: 'rgba(255, 206, 86, 0.6)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          borderWidth: 1
+        }
+      ]
+    };
+
+    const sampleCostsChartConfig = {
+      type: 'bar',
+      data: sampleCostsChart,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
+          },
+          title: {
+            display: true,
+            text: 'Actual Costs vs Budget Costs (6-Month Period)'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Costs ($)'
+            }
+          }
+        }
+      }
+    };
+
+    // Render the chart
+    const ctxCostsChart = document.getElementById('costsChart').getContext('2d');
+    new Chart(ctxCostsChart, sampleCostsChartConfig);
+  </script>
+
+<script>
+    // Sample data
+    const monthsReceivables = ['January', 'February', 'March', 'April', 'May', 'June'];
+    const amountInvoiced = [5000, 5200, 4800, 5300, 5500, 6000];
+    const amountPaid = [4500, 5000, 4700, 5100, 5400, 5800];
+    const retainage = [500, 200, 100, 200, 100, 200];
+
+    // Chart configuration
+    const sampleReceivablesChart = {
+      labels: monthsReceivables,
+      datasets: [
+        {
+          label: 'Amount Invoiced ($)',
+          data: amountInvoiced,
+          backgroundColor: 'rgba(75, 192, 192, 0.6)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Amount Paid ($)',
+          data: amountPaid,
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        },
+        {
+          label: 'Retainage ($)',
+          data: retainage,
+          backgroundColor: 'rgba(255, 206, 86, 0.6)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          borderWidth: 1
+        }
+      ]
+    };
+
+    const sampleReceivablesChartConfig = {
+      type: 'bar',
+      data: sampleReceivablesChart,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
+          },
+          title: {
+            display: true,
+            text: 'Receivables: Amount Invoiced vs Amount Paid vs Retainage'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Amount ($)'
+            }
+          }
+        }
+      }
+    };
+
+    // Render the chart
+    const ctxReceivablesChart = document.getElementById('receivablesChart').getContext('2d');
+    new Chart(ctxReceivablesChart, sampleReceivablesChartConfig);
+  </script>

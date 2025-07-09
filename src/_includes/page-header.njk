@@ -64,6 +64,8 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">{{ dropdownOne }}</a></li>
             <li><a class="dropdown-item" href="#">{{ dropdownTwo }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ dropdownThree }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ dropdownFour }}</a></li>
           </ul>
         </div>
         <div class="dropdown">
@@ -78,11 +80,28 @@
         {%- else -%}
         <div class="dropdown">
           <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonOne }}
+            <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonCalendar }}
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item">{{ dropdownOne }}</a></li>
-            <li><a class="dropdown-item">{{ dropdownTwo }}</a></li>
+            <li><a class="dropdown-item">{{ calendarOne }}</a></li>
+            <li><a class="dropdown-item">{{ calendarTwo }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ calendarThree }}</a></li>
+            {%- if (isExpanded) -%}
+            <li data-bs-toggle="collapse" data-bs-target="#applications" aria-expanded="false"><a class="dropdown-item">{{ calendarFour }}</a>
+              <ul id="applications">
+                <li><a class="dropdown-item" href="#">{{ expandedOne }}</a>
+                </li>
+                <li><a class="dropdown-item" href="#">{{ expandedTwo }}</a>
+                </li>
+                <li><a class="dropdown-item" href="#">{{ expandedThree }}</a>
+                </li>
+                <li><a class="dropdown-item" href="#">{{ expandedFour }}</a>
+                </li>
+              </ul>
+            </li>
+            {%- else -%}
+            <li><a class="dropdown-item" href="#">{{ calendarFour }}</a></li>
+            {%- endif -%}
           </ul>
         </div>
         {%- endif -%}
@@ -91,9 +110,7 @@
             Actions
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">{{ actionsOne }}</a></li>
-            <li><a class="dropdown-item" href="#">{{ actionsTwo }}</a></li>
-            <li><a class="dropdown-item" href="#">{{ actionsThree }}</a></li>
+            <li><a class="dropdown-item" href="#">Export to CSV</a></li>
           </ul>
         </div>
       </div>

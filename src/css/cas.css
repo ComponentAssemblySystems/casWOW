@@ -17,6 +17,8 @@
 body {
   font: 1rem/1.5 var(--bs-font-sans-serif) !important;
   font-weight: var(--bs-body-font-weight) !important;
+  background: #0F123B;
+  background: radial-gradient(circle, rgba(15, 18, 59, 1) 0%, rgba(9, 13, 46, 1) 50%, rgba(2, 5, 21, 1) 100%);
 }
 .gap-1 {
   gap: var(--Spacer-x-small) !important;

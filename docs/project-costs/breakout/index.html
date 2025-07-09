@@ -15,8 +15,9 @@
     <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
     <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/shoelace-autoloader.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/themes/light.css" />
+    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.1/dist/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.1/dist/styles/webawesome.css" />
+    <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.1/dist/webawesome.loader.js"></script>
     <meta
       name="description"
       content=""
@@ -32,18 +33,18 @@
     
     
   </head>
-    <body>
+    <body style="height: 100vh;">
       <a id="skip-to-main" class="visually-hidden" href="#main-content" data-smooth-link="false">
         Skip to main content
       </a>
       <header class="py-1 px-3 mb-1 sticky-top navigation">
   <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-2">
-      <button class="btn btn-outline-secondary icon-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
-        <span class="text-capitalize">Menu</span>
+      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
+        Menu
       </button>
       <a href="/casWOW/" class="d-flex align-items-center mb-2 mb-lg-0 link-secondary text-decoration-none">
-        <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" />
+        <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" style="height: 32px;" />
       </a>
 
       <ul class="nav navbar-top col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -64,20 +65,21 @@
         </li>
       </ul>
 
-      <span class="ms-auto">
-        <button class="btn btn-sm btn-outline-primary position-relative" type="button">
-          41 users
-          <span class="position-absolute top-0 start-100 translate-middle p-1 bg-success border rounded-circle">
-          <span class="visually-hidden">Online Users</span>
-        </button></span>
-        <button class="btn btn-sm btn-light border print me-2" type="button"><i class="icon print"></i> Print</button>
-        <button class="btn btn-sm btn-light border export" type="button">Export</button>
-      </span>
+<div class="d-grid gap-2 d-md-block">
+  <button class="btn btn-sm btn-icon" type="button">Button</button>
+  <button class="btn btn-sm btn-primary" type="button">Button</button>
+</div>
+
+      <div class="wa-cluster">
+        <wa-button variant="neutral" appearance="outlined"><wa-icon name="print" label="Home"></wa-icon></wa-button>
+        <wa-button variant="neutral" appearance="outlined"><wa-icon name="users" label="Home"></wa-icon></wa-button>
+        <wa-button variant="neutral" appearance="outlined"><wa-icon name="file-export" label="Export"></wa-icon></wa-button>
+      </div>
 
       <div class="dropdown text-end d-none d-lg-block">
         <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <span style="font-size: 1.5rem; color: #4a90e2;">
-            <sl-icon name="person-circle"></sl-icon>
+            <wa-avatar label="User avatar"></wa-avatar>
           </span>
         </a>
         <ul class="dropdown-menu text-small" style="">
@@ -245,14 +247,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="/casWOW/js/bootstrap.min.js"></script>
     <style>
-      sl-dialog::part(base) {
+      wa-dialog::part(base) {
         z-index: 10000 !important;
       }
     </style>
     <script>
       const dialog = document.querySelector('.dialog-overview');
       const openButton = dialog.nextElementSibling;
-      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+      const closeButton = dialog.querySelector('wa-button[slot="footer"]');
 
       openButton.addEventListener('click', () => dialog.show());
       closeButton.addEventListener('click', () => dialog.hide());

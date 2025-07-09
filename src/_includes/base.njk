@@ -22,8 +22,9 @@
     <link rel="icon" type="image/png" size="48x48" href="{{ '/favicon.ico' | url }}">
     <link rel="icon" type="image/png" size="72x72" href="{{ '/favicon.png' | url }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/shoelace-autoloader.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/themes/light.css" />
+    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.1/dist/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.1/dist/styles/webawesome.css" />
+    <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.1/dist/webawesome.loader.js"></script>
     <meta
       name="description"
       content="{{meta.siteDescription}}"
@@ -39,7 +40,7 @@
     {# {%- endif -%} #}
     {# Set the initial theme and menu states here to prevent flashing #}
   </head>
-    <body>
+    <body style="height: 100vh;">
       <a id="skip-to-main" class="visually-hidden" href="#main-content" data-smooth-link="false">
         Skip to main content
       </a>
@@ -61,14 +62,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="{{ '/js/bootstrap.min.js' | url }}"></script>
     <style>
-      sl-dialog::part(base) {
+      wa-dialog::part(base) {
         z-index: 10000 !important;
       }
     </style>
     <script>
       const dialog = document.querySelector('.dialog-overview');
       const openButton = dialog.nextElementSibling;
-      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+      const closeButton = dialog.querySelector('wa-button[slot="footer"]');
 
       openButton.addEventListener('click', () => dialog.show());
       closeButton.addEventListener('click', () => dialog.hide());

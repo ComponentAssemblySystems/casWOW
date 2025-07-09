@@ -9,7 +9,7 @@ cd /path/to/your/stylesheet
 npm link
 ```
 
-return to to this project:
+return to this project:
 
 ```sh
 npm link caswow.library

@@ -32,14 +32,14 @@ eleventyNavigation:
     overflow: hidden;
     white-space: nowrap;
   }
-  sl-tab-panel::part(base) {
+  wa-tab-panel::part(base) {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     grid-gap: 1rem !important;
     padding: .25rem;
   }
-  sl-tab::part(base) {
+  wa-tab::part(base) {
     /* min-width: 300px; */
     max-width: 300px;
     overflow: hidden;
@@ -49,16 +49,16 @@ eleventyNavigation:
     overflow: hidden !important;
     white-space: nowrap !important;
   }
-  sl-badge::part(base) {
+  wa-badge::part(base) {
     margin-left: .5rem;
   }
-  sl-card.card-plan::part(base) {
+  wa-card.card-plan::part(base) {
     position: relative;
   }
-  sl-card::part(base):hover {
-    box-shadow: 0 0 2px 2px var(--sl-color-primary-600);
+  wa-card::part(base):hover {
+    box-shadow: 0 0 2px 2px var(--wa-color-primary-600);
   }
-  sl-badge.plan-badge::part(base) {
+  wa-badge.plan-badge::part(base) {
     position: absolute;
     top: .25rem;
     right: .25rem;
@@ -66,7 +66,7 @@ eleventyNavigation:
   }
 </style>
 
-<sl-dialog label="Upload new set" class="dialog-overview">
+<wa-dialog label="Upload new set" class="dialog-overview">
   <form class="inline-validation">
     <input
       name="file upload"
@@ -80,9 +80,9 @@ eleventyNavigation:
     <br />
     If you wish to upload more than one file at a time, go <a href="">here</a>.
   </form>
-  <sl-button slot="footer" variant="success" disabled>Upload</sl-button>
-</sl-dialog>
-<sl-button variant="success" outline pill>
-  <sl-icon slot="prefix" name="folder"></sl-icon>
+  <wa-button slot="footer" variant="success" disabled>Upload</wa-button>
+</wa-dialog>
+<wa-button variant="success" outline pill>
+  <wa-icon slot="prefix" name="folder"></wa-icon>
   Upload new set
-</sl-button>
+</wa-button>
