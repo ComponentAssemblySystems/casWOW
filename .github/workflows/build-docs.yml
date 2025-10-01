@@ -43,6 +43,9 @@ jobs:
             echo "caswow.library not present — skipping npm run copy-cas"
           fi
 
+      - name: Install npm-run-all
+        run: npm install --save-dev npm-run-all
+
       - name: Build CSS
         run: npm run css
 
@@ -85,6 +88,9 @@ jobs:
           else
             echo "caswow.library not present — skipping npm run copy-cas"
           fi
+
+      - name: Install npm-run-all
+        run: npm install --save-dev npm-run-all
 
       - name: Build CSS
         run: npm run css
