@@ -10,42 +10,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup Node.js
+      - uses: actions/checkout@v4
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
-          cache: 'npm'
-      - run: npm ci
-
-      - name: Copy vendor assets
-        # these helper scripts copy vendor files into dependencies/ or src/ as configured in package.json
+          node-version: '22.x'
+      - name: Install dependencies using a safe clean install, build and test
         run: |
-          npm run copy-css || true
-          npm run copy-js || true
-          npm run copy-fa || true
-          npm run copy-chartjs || true
-          if [ -d node_modules/caswow.library ]; then
-            npm run copy-cas || true
-          else
-            echo "caswow.library not present — skipping npm run copy-cas"
-          fi
-
-      - name: Build CSS
-        run: npm run css
+          npm ci --ignore-scripts
+      - name: Run Build
+        run: npm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./docs
+          commit_message: ${{ github.event.head_commit.message }}
 
       - name: Build Eleventy
         run: npm run build
-
-      # Only upload artifact on pull requests
-      - name: Upload built site artifact
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: site-docs
-          path: docs/
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
