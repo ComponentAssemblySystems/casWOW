@@ -46,9 +46,6 @@ jobs:
             echo "caswow.library not present — skipping npm run copy-cas"
           fi
 
-      - name: List node_modules/.bin
-        run: ls -l node_modules/.bin
-
       - name: Build CSS
         run: npm run css
 
