@@ -26,9 +26,6 @@ jobs:
       - name: Set up .npmrc for npmjs
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Copy vendor assets
         run: |
           npm run copy-css || true
