@@ -28,9 +28,6 @@ jobs:
       - name: Authenticate to npm
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - name: Ensure npm-run-all is installed
-        run: npm install --save-dev npm-run-all
-
       - name: Install dependencies
         # tolerate local linked dependency (caswow.library) not being present in CI
         run: |
