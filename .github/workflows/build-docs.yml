@@ -44,7 +44,7 @@ jobs:
           fi
 
       - name: Install npm-run-all
-        run: npm install --save-dev npm-run-all
+        run: npm install npm-run-all
 
       - name: Build CSS
         run: npm run css
@@ -90,7 +90,7 @@ jobs:
           fi
 
       - name: Install npm-run-all
-        run: npm install --save-dev npm-run-all
+        run: npm install npm-run-all
 
       - name: Build CSS
         run: npm run css
