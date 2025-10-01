@@ -186,17 +186,16 @@ icon-button {
   &:hover {
     background-color: var(--cas-tertiary-bg); /* change to background-transparent-brand */
   }
-  .compound:hover {
-    background-color: transparent; /* change to background-transparent-brand */
-  }
-  &__text:hover {
-    color: var(--text-hover-link);
-  }
-  &__text.active,
-  &__text:active,
-  &__text:focus {
-    color: var(--text-link);
-  }
+}
+.section-item .compound:hover {
+  background-color: transparent; /* change to background-transparent-brand */
+}
+.section-item__text:hover {
+  color: var(--text-hover-link);
+}
+.section-item__text:active,
+.section-item__text:focus {
+  color: var(--text-link);
 }
 /* .section-item:has(.menu-item__text.active) {
   background: linear-gradient(to right, var(--cas-blue) 4px, var(--cas-body-bg) 4px 100%);

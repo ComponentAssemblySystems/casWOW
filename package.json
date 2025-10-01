@@ -35,7 +35,10 @@
     "autoprefixer": "^10.4.21",
     "bootstrap": "^5.3.8",
     "cross-env": "^10.1.0",
-    "npm-run-all": "^4.1.5"
+    "css-prefix": "^0.0.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.1",
