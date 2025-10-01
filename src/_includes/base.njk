@@ -22,9 +22,8 @@
     <link rel="icon" type="image/png" size="48x48" href="{{ '/favicon.ico' | url }}">
     <link rel="icon" type="image/png" size="72x72" href="{{ '/favicon.png' | url }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.1/dist/styles/themes/default.css" />
-    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.1/dist/styles/webawesome.css" />
-    <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.1/dist/webawesome.loader.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <meta
       name="description"
       content="{{meta.siteDescription}}"
@@ -33,6 +32,7 @@
     {# {%- if meta.env=="dev" -%} #}
     {# {%- else -%} #}
     <link rel="stylesheet" href="{{ '/css/caswow.css' | url }}" />
+    <link href="{{ '/css/tokens.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/site.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/fontawesome.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/solid.css' | url }}" rel="stylesheet" />
@@ -45,34 +45,43 @@
         Skip to main content
       </a>
       {% include 'header.njk' %}
-      <div class="container-fluid">
-        <div class="row">
-        {% if page.sidebar == "sidebar" %}
-        {% include 'sidebar.njk' %}
-        {% else %}
-        {% include 'cas-sidebar.njk' %}
-        {% endif %}
-        {% include 'page-header.njk' %}
-        <main class="col-12 px-md-4">
-          <a id="main-content"></a>
-          {{ content | safe }}
-        </main>
-      </div>
+      <main class="col-12 px-md-4" style="
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 2px #ddd;
+        padding: 8px;
+      ">
+        <a id="main-content"></a>
+        <div class="container-fluid">
+          <div class="row">
+          {% if page.sidebar == "sidebar" %}
+          {% include 'sidebar.njk' %}
+          {% else %}
+          {% include 'cas-sidebar.njk' %}
+          {% endif %}
+          {% include 'page-header.njk' %}
+        </div>
+        {{ content | safe }}
+      </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="{{ '/js/bootstrap.min.js' | url }}"></script>
     <style>
-      wa-dialog::part(base) {
+      sl-dialog::part(base) {
         z-index: 10000 !important;
       }
     </style>
     <script>
       const dialog = document.querySelector('.dialog-overview');
       const openButton = dialog.nextElementSibling;
-      const closeButton = dialog.querySelector('wa-button[slot="footer"]');
+      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
 
       openButton.addEventListener('click', () => dialog.show());
       closeButton.addEventListener('click', () => dialog.hide());
     </script>
+    <script src="{{ '/js/renderDataTable.js' | url }}"></script>
+    <script src="{{ '/js/renderDashboard.js' | url }}"></script>
+    <script src="{{ '/js/csvUploader.js' | url }}"></script>
+    <script src="{{ '/js/app.js' | url }}"></script>
   </body>
 </html>

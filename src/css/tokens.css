@@ -1,0 +1,18 @@
+:root {
+  /* Spacing */
+  --cas-space-s: 12px;
+  --cas-space-l: 20px;
+
+  /* Border radius */
+  --cas-border-radius-m: .75rem;
+
+  --Text-primary: #20252c;
+  --Text-secondary: #5A7180;
+}
+/* Shadows */
+.box-shadow04 {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+.box-shadow16 {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.14), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+}

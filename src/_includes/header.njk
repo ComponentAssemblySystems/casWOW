@@ -1,4 +1,4 @@
-<header class="py-1 px-3 mb-1 sticky-top navigation">
+<header class="py-1 px-3 mb-1 sticky-top">
   <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-2">
       <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
@@ -26,21 +26,24 @@
         </li>
       </ul>
 
-<div class="d-grid gap-2 d-md-block">
-  <button class="btn btn-sm btn-icon" type="button">Button</button>
-  <button class="btn btn-sm btn-primary" type="button">Button</button>
-</div>
-
-      <div class="wa-cluster">
-        <wa-button variant="neutral" appearance="outlined"><wa-icon name="print" label="Home"></wa-icon></wa-button>
-        <wa-button variant="neutral" appearance="outlined"><wa-icon name="users" label="Home"></wa-icon></wa-button>
-        <wa-button variant="neutral" appearance="outlined"><wa-icon name="file-export" label="Export"></wa-icon></wa-button>
+      <div class="d-grid gap-2 d-md-block">
+        <button class="btn btn-sm btn-icon" type="button">Button</button>
+        <button class="btn btn-sm btn-primary" type="button">Button</button>
+        <button class="btn btn-sm btn-icon" type="button">
+          <i class="fa-solid fa-print"></i>
+        </button>
+        <button class="btn btn-sm btn-icon d-inline-flex align-items-center" type="button">
+          <i class="fa-solid fa-user"></i>
+        </button>
+        <button class="btn btn-sm btn-icon d-inline-flex align-items-center" type="button">
+          <i class="fa-solid fa-file-export"></i>
+        </button>
       </div>
 
       <div class="dropdown text-end d-none d-lg-block">
         <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <span style="font-size: 1.5rem; color: #4a90e2;">
-            <wa-avatar label="User avatar"></wa-avatar>
+            <sl-avatar label="User avatar"></sl-avatar>
           </span>
         </a>
         <ul class="dropdown-menu text-small" style="">

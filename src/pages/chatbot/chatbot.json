@@ -1,0 +1,3 @@
+{
+  "permalink": "/chatbot/{{ page.fileSlug }}/"
+}

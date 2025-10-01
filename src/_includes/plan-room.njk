@@ -1,14 +1,35 @@
-{% include 'base.njk' %}
-<wa-tab-group placement="start">
-  <wa-tab slot="nav" panel="conformed">
-    Conformed set <wa-badge variant="primary" pill>693</wa-badge>
-  </wa-tab>
-  <wa-tab slot="nav" panel="dated">
-    <span class="text-wrap">2024-05-24 Contract Includes ASKs up to 050</span> <wa-badge variant="neutral" pill>600</wa-badge>
-  </wa-tab>
-  <wa-tab-panel name="conformed">
+---
+layout : base.njk
+---
+
+<ul class="nav nav-pills flex-column">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#1a" data-toggle="tab">Conformed set 693</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#2a" data-toggle="tab">
+      <span class="text-wrap">2024-05-24 Contract Includes ASKs up to 050</span>
+    </a>
+  </li>
+</ul>
+<div class="tab-content clearfix">
+  <div class="tab-pane active" id="1a">
+    <h3>Content's background color is the same for the tab</h3>
+  </div>
+  <div class="tab-pane" id="3a">
+    <h3>Content's background color is the same for the tab</h3>
+  </div>
+</div>
+<sl-tab-group placement="start">
+  <sl-tab slot="nav" panel="conformed">
+    Conformed set <sl-badge variant="primary" pill>693</sl-badge>
+  </sl-tab>
+  <sl-tab slot="nav" panel="dated">
+    <span class="text-wrap">2024-05-24 Contract Includes ASKs up to 050</span> <sl-badge variant="neutral" pill>600</sl-badge>
+  </sl-tab>
+  <sl-tab-panel name="conformed">
     {% for plan in plans %}
-      <wa-card class="card-image card-plan">
+      <sl-card class="card-image card-plan">
         <img
           slot="media"
           src={{ plan.image }}
@@ -17,36 +38,36 @@
         <strong>{{ plan.name }}</strong>
         <div style="font-style: italic;">{{ plan.date }}</div>
         <div><a href="">{{ plan.title }}</a></div>
-      </wa-card>
+      </sl-card>
     {% endfor %}
-    <wa-card class="card-overview">
-      <wa-button variant="text" size="large" href="" disabled>Load more...</wa-button>
-    </wa-card>
-  </wa-tab-panel>
-  <wa-tab-panel name="dated">
+    <sl-card class="card-overview">
+      <sl-button variant="text" size="large" href="" disabled>Load more...</sl-button>
+    </sl-card>
+  </sl-tab-panel>
+  <sl-tab-panel name="dated">
     {% for plan in plans %}
-      <wa-card class="card-overview">
+      <sl-card class="card-overview">
         <img
           slot="media"
           src={{ plan.image }}
           alt="A kitten walks towards camera on top of pallet."
         />
         {%- if plan.label === "cover" -%}
-        <wa-badge appearance="filled outlined" variant="neutral" class="plan-badge">{{ plan.label }}</wa-badge>
+        <sl-badge appearance="filled outlined" variant="neutral" class="plan-badge">{{ plan.label }}</sl-badge>
         {%- endif -%}
         {%- if plan.label === "duplicate" -%}
-        <wa-badge appearance="filled outlined" variant="brand" class="plan-badge">{{ plan.label }}</wa-badge>
+        <sl-badge appearance="filled outlined" variant="brand" class="plan-badge">{{ plan.label }}</sl-badge>
         {%- endif -%}
         {%- if plan.label === "superseded" -%}
-        <wa-badge appearance="filled outlined" variant="warning" class="plan-badge">{{ plan.label }}</wa-badge>
+        <sl-badge appearance="filled outlined" variant="warning" class="plan-badge">{{ plan.label }}</sl-badge>
         {%- endif -%}
         <strong>{{ plan.name }}</strong>
         <p style="font-style: italic;">{{ plan.date }}</p>
-        <wa-button appearance="plain" variant="brand" href="">{{ plan.title }}</wa-button>
-      </wa-card>
+        <sl-button appearance="plain" variant="brand" href="">{{ plan.title }}</sl-button>
+      </sl-card>
     {% endfor %}
-    <wa-card class="card-overview">
-      <wa-button appearance="outlined" variant="neutral">Load more..</wa-button>
-    </wa-card>
-  </wa-tab-panel>
-</wa-tab-group>
+    <sl-card class="card-overview">
+      <sl-button appearance="outlined" variant="neutral">Load more..</sl-button>
+    </sl-card>
+  </sl-tab-panel>
+</sl-tab-group>

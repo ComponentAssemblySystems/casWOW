@@ -1,0 +1,5 @@
+{
+  "uiFramework": "html",
+  "cssFramework": "bootstrap",
+  "notes": "Use HTML5 and Bootstrap classes for all new UI code in this workspace."
+}
