@@ -38,9 +38,6 @@ jobs:
             echo "caswow.library not present — skipping npm run copy-cas"
           fi
 
-      - name: Build Eleventy
-        run: npm run build
-
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
