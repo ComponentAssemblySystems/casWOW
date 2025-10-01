@@ -11,24 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-
-      - name: Cache npm
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        # tolerate local linked dependency (caswow.library) not being present in CI
-        run: |
-          npm ci || npm install || true
+          node-version: 20.x
+          cache: 'npm'
+      - run: npm ci
 
       - name: Copy vendor assets
         # these helper scripts copy vendor files into dependencies/ or src/ as configured in package.json
@@ -42,9 +32,6 @@ jobs:
           else
             echo "caswow.library not present — skipping npm run copy-cas"
           fi
-
-      - name: Install npm-run-all
-        run: npm install npm-run-all
 
       - name: Build CSS
         run: npm run css
@@ -66,16 +53,14 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      # Rebuild site to ensure fresh output for deploy
+        uses: actions/checkout@v5
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-
-      - name: Install dependencies
-        run: |
-          npm ci || npm install || true
+          node-version: 20.x
+          cache: 'npm'
+      - run: npm ci
 
       - name: Copy vendor assets
         run: |
@@ -88,9 +73,6 @@ jobs:
           else
             echo "caswow.library not present — skipping npm run copy-cas"
           fi
-
-      - name: Install npm-run-all
-        run: npm install npm-run-all
 
       - name: Build CSS
         run: npm run css
