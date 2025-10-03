@@ -27,7 +27,7 @@
     "css": "npm run css-compile && npm run css-prefix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_3c1a8cc8a434037"
+    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
   },
   "author": "Adam J. Jolicoeur",
   "license": "ISC",

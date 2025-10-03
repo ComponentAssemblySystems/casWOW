@@ -1,8 +1,34 @@
 # CASWOW
 
+[Demo](https://componentassemblysystems.github.io/casWOW/) | [Storybook](https://www.chromatic.com/library?appId=68dffe7bbaf9cb288a3faf2f)
+
+## Prerequisites
+
 This project requires the [caswow.library](https://github.com/ComponentAssemblySystems/caswow.library) to function correctly.
 
-Run the following to link caswow.library as an npm module:
+See the section on installing the [caswow.library](#caswow-library) as part of the overall local development setup.
+
+## Storybook
+
+This site utilizes Storybook to see code snippets and monitor changes when components are updated. To run Storybook locally, enter `npm run storybook` into your terminal.
+
+In the current configuration, the demo site and Storybook instance can be run simultaneously, simply by running each startup command within individual terminals.
+
+```sh
+$npm run dev // run local demo site - port 8080
+$npm run storybook // run local storybook instance - port 6006
+```
+
+## Local Development
+
+To run CAS WOW locally, simply clone the repository and install dependencies. Currently, this project requires Node v22, which can be set on a project basis by entering `nvm use` in the terminal.
+
+1. `git clone git@github.com:ComponentAssemblySystems/casWOW.git`
+2. `npm install`
+
+### caswow library
+
+Run the following to link the caswow.library as an npm module:
 
 ```sh
 cd /path/to/your/stylesheet
