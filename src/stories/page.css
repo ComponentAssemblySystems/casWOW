@@ -1,9 +1,9 @@
 .storybook-page {
   margin: 0 auto;
-  padding: 48px 20px;
-  max-width: 600px;
+  padding: 48px 24px;
+  max-width: 800px;
   color: #333;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -27,7 +27,7 @@
 
 .storybook-page ul {
   margin: 1em 0;
-  padding-left: 30px;
+  padding-left: 32px;
 }
 
 .storybook-page li {
@@ -37,27 +37,27 @@
 .storybook-page .tip {
   display: inline-block;
   vertical-align: top;
-  margin-right: 10px;
+  margin-right: 12px;
   border-radius: 1em;
   background: #e7fdd8;
   padding: 4px 12px;
   color: #357a14;
   font-weight: 700;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 12px;
 }
 
 .storybook-page .tip-wrapper {
   margin-top: 40px;
   margin-bottom: 40px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
 }
 
 .storybook-page .tip-wrapper svg {
   display: inline-block;
   vertical-align: top;
-  margin-top: 3px;
+  margin-top: 4px;
   margin-right: 4px;
   width: 12px;
   height: 12px;
