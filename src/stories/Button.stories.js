@@ -39,6 +39,37 @@ export const Secondary = {
   },
 };
 
+export const Info = {
+  args: {
+    label: 'Info',
+  },
+};
+export const Danger = {
+  args: {
+    label: 'Danger',
+  },
+};
+export const Success = {
+  args: {
+    label: 'Success',
+  },
+};
+export const Warning = {
+  args: {
+    label: 'Warning',
+  },
+};
+export const Light = {
+  args: {
+    label: 'Light',
+  },
+};
+export const Dark = {
+  args: {
+    label: 'Dark',
+  },
+};
+
 export const Large = {
   args: {
     size: 'lg',
