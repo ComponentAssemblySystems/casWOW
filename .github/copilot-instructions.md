@@ -66,3 +66,8 @@ These notes are meant to get an AI coding agent immediately productive in this r
 - If caswow.library changes, either `npm link` again from the library repo, or run `npm run config` to re-link and copy its CSS.
 
 If anything here is out-of-date or you want deeper coverage (example tests, CI steps, or specific coding style rules), tell me which area to expand and I'll iterate.
+
+9) Storybook usage in this repo
+- Storybook stories should be written in standard JavaScript, not React. Use the default Storybook JS format (exported functions, not JSX or React components).
+- Example: For a button, export stories as functions that return DOM elements or use helper functions (e.g., `createButton`).
+- Do not use JSX or React syntax in stories unless explicitly requested.
