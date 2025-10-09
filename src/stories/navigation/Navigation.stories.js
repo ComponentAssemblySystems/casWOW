@@ -1,15 +1,21 @@
 import { fn } from 'storybook/test';
 
-import { createHeader } from './Header';
+import { createNavigation } from './Navigation';
 
 export default {
-  title: 'Example/Header',
+  title: 'Components/Navigation',
+  component: createNavigation,
+  id: 'Components/Navigation',
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
-  render: (args) => createHeader(args),
+  // tags: ['autodocs'],
+  render: (args) => createNavigation(args),
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/EM5KcfOyqRBsPTRkbvT5Kn/Component-Assembly-Design-System?node-id=1572-3687&m=dev',
+    },
   },
   args: {
     onLogin: fn(),
