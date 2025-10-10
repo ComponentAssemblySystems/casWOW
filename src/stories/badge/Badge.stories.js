@@ -1,11 +1,13 @@
 import { fn } from 'storybook/test';
 
 import { createBadge } from './Badge';
+import { createCounter } from './Counter';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
   title: 'Components/Badge',
-  component: 'BadgeComponent',
+  component: createBadge,
+  id: 'Components/Badge',
   // tags: ['autodocs'],
   render: ({ label, ...args }) => {
     // You can either use a function to create DOM elements or use a plain html string!
@@ -13,9 +15,8 @@ export default {
     return createBadge({ label, ...args });
   },
   argTypes: {
+    count: { control: 'boolean' },
     label: { control: 'text' },
-    heavy: { control: 'boolean' },
-    external: { control: 'boolean' }
   },
   parameters: {
     design: {
@@ -28,8 +29,51 @@ export default {
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Default = {
+export const Primary = {
   args: {
-    label: 'Badge',
+    count: false,
+    label: 'Primary',
+  },
+};
+export const Secondary = {
+  args: {
+    count: false,
+    label: 'Secondary',
+  },
+};
+export const Success = {
+  args: {
+    count: false,
+    label: 'Success',
+  },
+};
+export const Danger = {
+  args: {
+    count: false,
+    label: 'Danger',
+  },
+};
+export const Warning = {
+  args: {
+    count: false,
+    label: 'Warning',
+  },
+};
+export const Info = {
+  args: {
+    count: false,
+    label: 'Info',
+  },
+};
+export const Light = {
+  args: {
+    count: false,
+    label: 'Light',
+  },
+};
+export const Dark = {
+  args: {
+    count: false,
+    label: 'Dark',
   },
 };

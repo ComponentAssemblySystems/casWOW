@@ -1,1 +1,6 @@
-@media print{body{background-color:red}}/*# sourceMappingURL=print.css.map */
+/* Only include style for media print */
+@media print {
+  body {
+    background-color: red;
+  }
+}
