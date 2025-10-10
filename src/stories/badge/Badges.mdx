@@ -1,0 +1,68 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import * as BadgeStories from './Badge.stories';
+
+<Meta title="Badge" of={BadgeStories} />
+
+# Definition
+
+Badges are used to add additional information to any content. They can be used to highlight new or unread items, or to indicate the status of an item.
+
+## Usage
+
+By default, badges are styled with a background color and white text. To increase contrast, light background utilize dark text. Badges in CASim are all rounded (pill) by default.
+
+Badges can be used in a variety of ways, including:
+- As a count or label for items, such as notifications or messages.
+- To indicate the status of an item, such as "New" or "Updated".
+- To highlight a user's role, such as "Admin" or "Project Manager".
+- To show progress or completion, such as "In Progress" or "Completed".
+- To provide additional context or information, such as "Beta" or "Deprecated".
+- To draw attention to important information, such as "Urgent" or "Important".
+
+Badge positioning can vary based on the context in which they are used. Common positions include:
+- Top-right corner of an icon or button.
+- Inline with text or other content.
+- Within a list item or card.
+
+## External resources
+
+Original Bootstrap documentation: [Badges](https://getbootstrap.com/docs/5.3/components/badge/)
+
+## Primary Example
+
+This is the primary example of the component.
+
+<Canvas of={BadgeStories.Primary} />
+
+### Controls
+
+These controls allow you to interactively modify the props of the component in the story. Additional controls are available in the story file.
+
+<Controls />
+
+## Badge as a Counter
+
+As this example shows, badges can be used as counters to indicate the number of unread messages or notifications. This is typically done by positioning the badge in the top-right corner of an icon or button.
+
+```html
+<button type="button" class="btn btn-primary position-relative">
+  Inbox
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>
+```
+
+## Other Badge Variants
+
+Add any additional variants or examples here.
+
+<Canvas of={BadgeStories.Secondary} />
+<Canvas of={BadgeStories.Success} />
+<Canvas of={BadgeStories.Danger} />
+<Canvas of={BadgeStories.Warning} />
+<Canvas of={BadgeStories.Info} />
+<Canvas of={BadgeStories.Light} />
+<Canvas of={BadgeStories.Dark} />
