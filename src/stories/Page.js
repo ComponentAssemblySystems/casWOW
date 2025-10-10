@@ -1,4 +1,3 @@
-import { createHeader } from './Header';
 import './page.css';
 
 export const createPage = () => {
