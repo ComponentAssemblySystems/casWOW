@@ -4,16 +4,22 @@ const config = {
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
+  "staticDirs": [
+    '../docs',
+  ],
   "addons": [
     "@storybook/addon-docs",
-    "@storybook/addon-designs"
+    "@storybook/addon-designs",
+    '@storybook/addon-a11y',
+    '@storybook/addon-themes'
   ],
   "framework": {
     "name": "@storybook/html-vite",
     "options": {}
   },
   "docs": {
-    "autodocs": true
+    defaultName: "Documentation",
+    "autodocs": false
   }
 };
 export default config;
