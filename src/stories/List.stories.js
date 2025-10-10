@@ -1,7 +1,7 @@
 import { createListItem } from './ListItem';
 
 export default {
-  title: 'Example/List',
+  title: 'Components/List',
   tags: ['autodocs'],
 };
 
