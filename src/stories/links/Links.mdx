@@ -1,0 +1,37 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import * as LinksStories from './Link.stories';
+
+<Meta title="Links" of={LinksStories} />
+
+# Definition
+
+Links (or anchors) are used to navigate between pages or to different sections within a page.
+
+## Usage
+
+Links can be styled in different ways using classes such as `<a class="fw-bold">` for heavy links and `<a class="icon-link">` for links with icons. These can be combined to have heavy links with icons `<a class="fw-bold icon-link">`.
+
+## External resources
+
+Original Bootstrap documentation: [Link](https://getbootstrap.com/docs/5.3/utilities/link/)
+
+## Primary Example
+
+This is the primary example of the component.
+
+<Canvas of={LinksStories.DefaultLink} />
+
+### Controls
+
+These controls allow you to interactively modify the props of the component in the story. Additional controls are available in the story file.
+
+<Controls />
+
+## Other Variants
+
+Add any additional variants or examples here.
+
+<Canvas of={LinksStories.HeavyLink} />
+<Canvas of={LinksStories.HeavyLinkExternal} />
+<Canvas of={LinksStories.LinkExternal} />
