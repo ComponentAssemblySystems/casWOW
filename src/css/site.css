@@ -1,7 +1,7 @@
 @import url("variables.css");
 /* @import url("colors.css"); */
 /* @import url("print.css") print; */
-@import url("caswow.library/css/caswow.css");
+@import url("caswow.css");
 .icon-left,
 .icon-right {
   display: inline-flex;
