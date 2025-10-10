@@ -1,16 +1,16 @@
 import { fn } from 'storybook/test';
 
-import { createLink } from './Link';
+import { createBadge } from './Badge';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
-  title: 'Components/Link',
-  component: 'LinkComponent',
-  tags: ['autodocs'],
+  title: 'Components/Badge',
+  component: 'BadgeComponent',
+  // tags: ['autodocs'],
   render: ({ label, ...args }) => {
     // You can either use a function to create DOM elements or use a plain html string!
     // return `<div>${label}</div>`;
-    return createLink({ label, ...args });
+    return createBadge({ label, ...args });
   },
   argTypes: {
     label: { control: 'text' },
@@ -28,32 +28,8 @@ export default {
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const DefaultLink = {
+export const Default = {
   args: {
-    heavy: false,
-    external: false,
-    label: 'Link',
-  },
-};
-
-export const HeavyLink = {
-  args: {
-    heavy: true,
-    external: false,
-    label: 'Heavy Link',
-  },
-};
-export const HeavyLinkExternal = {
-  args: {
-    heavy: true,
-    external: true,
-    label: 'External Heavy Link',
-  },
-};
-export const LinkExternal = {
-  args: {
-    heavy: false,
-    external: true,
-    label: 'External Link',
+    label: 'Badge',
   },
 };
