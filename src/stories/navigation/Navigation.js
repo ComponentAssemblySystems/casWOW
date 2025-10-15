@@ -1,5 +1,6 @@
 import { createButton } from '../button/Button';
 import casLogo from '../../../docs/img/CAS_logo.svg'; // Adjust path as needed
+import userAvatar from '../../../docs/img/construction.png';
 
 export const createNavigation = ({ user, onLogout, onLogin, onCreateAccount }) => {
   const navigation = document.createElement('nav');
@@ -58,7 +59,7 @@ export const createNavigation = ({ user, onLogout, onLogin, onCreateAccount }) =
             <div data-status="Online" style="padding: 4px 8px 0 8px; justify-content: center; align-items: center; gap: 4px; display: inline-flex">
               <div data-size="16px" style="width: 16px; height: 16px; position: relative; background: var(--Background-primary, #20252C); box-shadow: 0px 0px 0px 3px #B9E4FE; overflow: hidden; border-radius: 10000px">
                 <div data-identity="Man w/sweatshirt" style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute; overflow: hidden">
-                  <img style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute" src="https://placehold.co/24x24" />
+                  <img style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute;" src="${userAvatar}" />
                 </div>
               </div>
             </div>

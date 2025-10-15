@@ -1,24 +1,3 @@
-@import url("variables.css");
-/* @import url("colors.css"); */
-/* @import url("print.css") print; */
-@import url("caswow.css");
-.icon-left,
-.icon-right {
-  display: inline-flex;
-  align-items: center;
-  gap: .375rem;
-}
-.icon-left svg,
-.icon-right svg {
-  flex-shrink: 0;
-  width: 1em;
-  height: 1em;
-  fill: currentColor;
-  transition: .2s ease-in-out transform;
-}
-
-/* Chatbot styles -- TEMP -- */
-
 .chat-article {
   height: 90dvh;
 }
@@ -91,7 +70,7 @@
   gap: var(--cas-spacer-xs, 0.25rem);
   align-self: stretch;
   border-radius: var(--border-radius-none, 0);
-  background: var(--cas-secondary-bg, #f4f6f7);
+  background: var(--cas-tertiary-bg, #F8F9FA);
 }
 .message-bar {
   border-radius: var(--cas-border-radius-pill, 999px);
@@ -118,6 +97,7 @@
   gap: var(--cas-spacer-xl);
   align-self: stretch;
   border-radius: var(--cas-border-radius-md);
+  position: relative;
 }
 .chatbot-message-group.message-bot {
   background: var(--cas-body-bg-rgba, rgba(226, 231, 235, 0.20));
@@ -128,6 +108,10 @@
   height: 3rem;
   justify-content: center;
   align-items: center;
+}
+.chat-metadata__name {
+  color: var(--cas-light-text-emphasis, #6C757D);
+  font-weight: 600;
 }
 .chat-message-contents {
   display: flex;
@@ -151,4 +135,13 @@
   flex-wrap: wrap;
   border-radius: var(--cas-border-radius-sm);
   background: rgba(255, 255, 255, 0.00);
+}
+.chatbot-response-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--cas-spacer-xs, 0.25rem);
+  position: absolute;
+  right: 0;
+  bottom: -16px;
 }
