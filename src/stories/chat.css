@@ -1,0 +1,92 @@
+.chat-article {
+  height: 100dvh;
+}
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+  height: 100%;
+}
+.chat-regions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+  background: var(--cas-body-bg, #fff);
+}
+.chat-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--global-spacer-sm, 0.5rem);
+  align-self: stretch;
+  border-radius: var(--global-border-radius-medium, 1rem)
+    var(--global-border-radius-medium, 1rem) 0 0;
+}
+.chat-header__items {
+  display: flex;
+  height: 5.4375rem;
+  padding: var(--global-spacer-md, 1rem);
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.chatbot-conversation {
+  display: flex;
+  padding: var(--global-spacer-lg, 1.5rem) 14.125rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3rem;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+.welcome-message {
+  display: flex;
+  padding: var(--cas-spacer-xxl) var(--cas-spacer-xxxl);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--global-spacer-md, 1rem);
+  align-self: stretch;
+  background: var(--cas-body-bg-rgba, #ffffff);
+}
+.text-block {
+  display: flex;
+  padding: var(--cas-spacer-xs) var(--cas-spacer-md);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: cas-space-2xs;
+  align-self: stretch;
+}
+.shortcut-cards {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+.chat-footer {
+  display: flex;
+  padding: var(--cas-space-l, 20px) var(--cas-spacer-xxxl, 3rem);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--cas-spacer-xs, 0.25rem);
+  align-self: stretch;
+  border-radius: var(--border-radius-none, 0);
+  background: var(--cas-secondary-bg, #f4f6f7);
+}
+.message-bar {
+  border-radius: var(--cas-border-radius-pill, 999px);
+  background: var(--cas-body-bg, #fff);
+}
+.message-value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 0 0;
+}
