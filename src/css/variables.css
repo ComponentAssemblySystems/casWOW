@@ -55,9 +55,3 @@
   /* Set the Unicode value for the "fa-trash" icon */
   content: '\f56e';
 }
-
-.card:hover {
-  border: 1px solid var(--cas-primary-border-subtle, #b9e4fe);
-  background: var(--cas-primary-border-subtle);
-  cursor: pointer;
-}

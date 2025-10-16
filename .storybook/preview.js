@@ -17,7 +17,7 @@ const preview = {
     layout: 'centered',
     options: {
       storySort: {
-        order: ['Intro', 'Pages', ['Login', 'Dashboard', 'Tables'], 'Components', '*', 'WIP'],
+        order: ['Introduction', 'Pages', ['Login', 'Dashboard', 'Tables'], 'Components', '*', 'WIP'],
       },
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
