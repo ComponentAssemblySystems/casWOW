@@ -27,6 +27,12 @@ export const createChat = () => {
   const chatThreads = createChatbot({ state: 'chatThreads' });
   section.appendChild(chatThreads);
 
+  const chatConfiguration = createChatbot({ state: 'chatConfiguration' });
+  section.appendChild(chatConfiguration);
+
+  const chatHistory = createChatbot({ state: 'chatHistory' });
+  section.appendChild(chatHistory);
+
   const chatInput = createChatbot({ state: 'chatInput' });
   section.appendChild(chatInput);
 

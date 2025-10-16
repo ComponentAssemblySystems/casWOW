@@ -17,11 +17,10 @@
   transition: .2s ease-in-out transform;
 }
 
-/* Chatbot styles -- TEMP -- */
-
 .chat-article {
   height: 90dvh;
 }
+/* Chatbot styles -- TEMP -- */
 .chat-wrapper {
   display: flex;
   flex-direction: column;
@@ -30,6 +29,7 @@
   align-self: stretch;
   height: 100%;
   background: var(--cas-body-bg, #fff);
+  position: relative; /* so that the history panel sits inside of the container and not over the navigation */
 }
 .chat-header {
   display: flex;
@@ -118,6 +118,7 @@
   gap: var(--cas-spacer-xl);
   align-self: stretch;
   border-radius: var(--cas-border-radius-md);
+  position: relative;
 }
 .chatbot-message-group.message-bot {
   background: var(--cas-body-bg-rgba, rgba(226, 231, 235, 0.20));
@@ -152,3 +153,13 @@
   border-radius: var(--cas-border-radius-sm);
   background: rgba(255, 255, 255, 0.00);
 }
+.chatbot-response-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--cas-spacer-xs, 0.25rem);
+  position: absolute;
+  right: 0;
+  bottom: -16px;
+}
+

@@ -9,6 +9,6 @@ export default {
   },
 };
 
-export const ChatScreen = {
-  tags: ['experimental'],
+export const Fullscreen = {
+  tags: ['experimental', '!test'],
 };

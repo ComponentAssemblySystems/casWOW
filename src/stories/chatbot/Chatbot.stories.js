@@ -12,7 +12,7 @@ export default {
   argTypes: {
     state: {
       control: 'select',
-      options: ['startScreen', 'chatThreads', 'chatInput', 'chatHistory', 'chatError']
+      options: ['chatInput', 'startScreen', 'chatThreads', 'chatHistory', 'chatConfiguration', 'chatError']
     },
   },
   parameters: {
@@ -23,9 +23,9 @@ export default {
   },
 };
 
-export const StartScreen = {
+export const ChatInput = {
   args: {
-    state: 'startScreen',
+    state: 'chatInput',
   },
 };
 
@@ -35,15 +35,21 @@ export const ChatThreads = {
   },
 };
 
-export const ChatInput = {
+export const StartScreen = {
   args: {
-    state: 'chatInput',
+    state: 'startScreen',
   },
 };
 
 export const ChatHistory = {
   args: {
     state: 'chatHistory',
+  },
+};
+
+export const ChatConfiguration = {
+  args: {
+    state: 'chatConfiguration',
   },
 };
 

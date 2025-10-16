@@ -1,6 +1,7 @@
 .chat-article {
   height: 90dvh;
 }
+/* Chatbot styles -- TEMP -- */
 .chat-wrapper {
   display: flex;
   flex-direction: column;
@@ -9,6 +10,7 @@
   align-self: stretch;
   height: 100%;
   background: var(--cas-body-bg, #fff);
+  position: relative; /* so that the history panel sits inside of the container and not over the navigation */
 }
 .chat-header {
   display: flex;
@@ -70,7 +72,7 @@
   gap: var(--cas-spacer-xs, 0.25rem);
   align-self: stretch;
   border-radius: var(--border-radius-none, 0);
-  background: var(--cas-tertiary-bg, #F8F9FA);
+  background: var(--cas-secondary-bg, #f4f6f7);
 }
 .message-bar {
   border-radius: var(--cas-border-radius-pill, 999px);
@@ -108,10 +110,6 @@
   height: 3rem;
   justify-content: center;
   align-items: center;
-}
-.chat-metadata__name {
-  color: var(--cas-light-text-emphasis, #6C757D);
-  font-weight: 600;
 }
 .chat-message-contents {
   display: flex;
