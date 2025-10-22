@@ -21,7 +21,7 @@ addons.setConfig({
     },
   },
   sidebar: {
-    showRoots: true,
+    showRoots: false,
     collapsedRoots: ['Example'],
   },
   toolbar: {

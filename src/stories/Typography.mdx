@@ -1,7 +1,38 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Typography" />
 
+# Typography
+
+The CAS WOW design system defines a clear and consistent typographic hierarchy to ensure readability and visual harmony across the application. Below are the key typography variables used in the design system.
+
 ## Font Family
 
+The primary font families used in the CAS WOW design system are defined as follows:
+
+```json
+{
+  "fontSansSerif": "IBM Plex Sans",
+  "fontMonospace": "IBM Plex Mono",
+  "fontSerif": "IBM Plex Serif",
+  "fontDisplay": "Inter Display",
+  "bodyFontFamily": "IBM Plex Sans",
+  "fontFamilyFa": "Font Awesome 5 Free",
+  "fontFamilyCode": "IBM Plex Mono"
+}
+```
+
 ## Font Sizes
+
+The typography system includes the following font size variables:
+
+```json
+{
+  "fontSizeBase": 16,
+  "fontSizeSm": 14,
+  "fontSizeLg": 18,
+  "fontSizeXs": 12
+}
+```
+
+Each font size variable corresponds to a specific use case within the application, ensuring a consistent typographic scale. Calculations at compilation time convert these pixel values to `rem` units for scalability and accessibility. Sizes larger than the base font size are calculated by dividing the pixel value by 16, while sizes smaller than the base are calculated by multiplying the pixel value by 0.0625.

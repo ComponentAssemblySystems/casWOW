@@ -1,3 +1,29 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import DefaultIcons from '../../docs/img/DefaultIcons.png';
+
 <Meta title="Icons" />
+
+# Icons
+
+The CAS WOW design system includes a comprehensive set of icons that are used throughout the application to enhance the user interface and improve usability. These icons are designed to be consistent with the overall design language of the system.
+
+## Icon Set
+
+The primary icon set used in the CAS WOW design system is Font Awesome. This library provides a wide range of icons that can be easily integrated into the application.
+
+<div style={{ display: 'flex', gap: '10px' }}>
+  <img src={DefaultIcons} alt="CAS Default Icons" style={{ width: '50%'}} />
+</div>
+
+## Usage
+
+To use an icon from the Font Awesome library, you can include it in your HTML or JSX code using the appropriate class names. For example, to include a user icon, you would use the following code:
+
+```html
+  <i class="fas fa-user"></i>
+```
+
+Make sure to include the Font Awesome CSS in your project to ensure the icons render correctly.
+
+A full list of available icons can be found on the [Font Awesome website](https://fontawesome.com/icons).

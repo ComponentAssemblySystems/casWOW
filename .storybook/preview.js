@@ -14,10 +14,10 @@ import DocumentationTemplate from './DocumentationTemplate.mdx';
 
 const preview = {
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
     options: {
       storySort: {
-        order: ['Introduction', 'Pages', ['Login', 'Dashboard', 'Tables'], 'Components', '*', 'WIP'],
+        order: ['Introduction', 'Getting Started', 'Colors', 'Typography', 'Icons', 'Variables', 'Pages', ['Login', 'Dashboard', 'Tables'], 'Components', '*', 'WIP'],
       },
     },
     actions: { argTypesRegex: '^on[A-Z].*' },

@@ -1,0 +1,56 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import * as containerStories from './Container.stories';
+
+<Meta title="Container" of={containerStories} />
+
+# Definition
+
+The Container component is a layout wrapper that centers and constrains the width of the content within it. It provides responsive behavior by adjusting its width based on predefined breakpoints, ensuring optimal readability and presentation across various screen sizes.
+
+## Usage
+
+The Container component is used to wrap page content, providing a consistent and centered layout. It can be configured to have a fluid width that spans the entire viewport or a fixed width that adjusts at specific breakpoints for better content alignment.
+
+## External resources
+
+[Bootstrap Container Documentation](https://getbootstrap.com/docs/5.3/layout/containers/)
+
+## Primary Example
+
+The default container uses the class `container-fluid`, which adjusts to the screen size, filling the available space of the parent wrapper.
+
+<Canvas of={containerStories.Default} />
+
+## Breakpoints
+
+To change the container width, update the `container` wrapper to include the breakpoint sizing, such as `-sm`, `-md`, or `-lg`.
+
+<table>
+  <tr>
+    <th>Breakpoint</th><th>Class</th><th>Max width</th>
+  </tr>
+  <tr>
+    <td>Extra small</td><td><code>container</code></td><td>100%</td>
+  </tr>
+  <tr>
+    <td>Small</td><td><code>container-sm</code></td><td>540px</td>
+  </tr>
+  <tr>
+    <td>Medium</td><td><code>container-md</code></td><td>720px</td>
+  </tr>
+  <tr>
+    <td>Large</td><td><code>container-lg</code></td><td>960px</td>
+  </tr>
+  <tr>
+    <td>Extra large</td><td><code>container-xl</code></td><td>1140px</td>
+  </tr>
+</table>
+
+<Canvas of={containerStories.FixedContainerWidths} />
+
+### Fixed column width for large screens
+
+> 100% wide until the large breakpoint
+
+<Canvas of={containerStories.FixedColumnWidths} />
