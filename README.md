@@ -2,7 +2,7 @@
 
 ![Storybook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
 
-[Demo](https://componentassemblysystems.github.io/casWOW/) | [Storybook](https://www.chromatic.com/library?appId=68dffe7bbaf9cb288a3faf2f)
+[Demo](https://componentassemblysystems.github.io/casWOW/) [Storybook](https://www.chromatic.com/library?appId=68dffe7bbaf9cb288a3faf2f)
 
 ## Prerequisites
 
@@ -71,4 +71,4 @@ You should now be able to run `npm run dev` to view the icons with the newest ve
 ## Notes
 
 >Architectural drawing found under `/plans`
->Photo by <a href="https://unsplash.com/@amsterdamcityarchives?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Amsterdam City Archives</a> on <a href="https://unsplash.com/photos/a-drawing-of-a-floor-plan-of-a-building--StEPF2CK2M?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+>Photo by [Amsterdam City Archives](https://unsplash.com/@amsterdamcityarchives?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/a-drawing-of-a-floor-plan-of-a-building--StEPF2CK2M?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
