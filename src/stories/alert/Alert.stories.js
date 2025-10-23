@@ -30,6 +30,12 @@ export default {
       inline: { control: 'boolean' },
     }
   },
+    parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/EM5KcfOyqRBsPTRkbvT5Kn/Component-Assembly-Design-System?node-id=75-1693&m=dev',
+    },
+  },
 };
 
 export const primary = {
