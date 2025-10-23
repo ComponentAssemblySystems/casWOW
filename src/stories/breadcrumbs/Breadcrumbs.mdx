@@ -1,0 +1,21 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import * as breadcrumbStories from './Breadcrumbs.stories';
+
+<Meta title="Breadcrumbs" of={breadcrumbStories} />
+
+# Definition
+
+The Breadcrumbs component is a navigational aid that helps users understand their current location within a website's hierarchy. It provides a trail of links that represent the path from the homepage to the current page, allowing users to easily navigate back to previous sections.
+
+## Usage
+
+The Breadcrumbs component is typically used at the top of a webpage, just below the header or navigation bar. It displays a series of links separated by a delimiter (usually a slash or greater-than symbol) that indicate the user's current position within the site's structure. Each link in the breadcrumb trail is clickable, allowing users to quickly return to higher-level pages.
+
+## External resources
+
+Original Bootstrap Breadcrumb Documentation: [Bootstrap Breadcrumb Documentation](https://getbootstrap.com/docs/5.3/components/breadcrumb/)
+
+## Primary Example
+
+<Canvas of={breadcrumbStories.Simple} />
