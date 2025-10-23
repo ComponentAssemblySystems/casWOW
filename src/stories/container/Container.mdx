@@ -18,13 +18,15 @@ The Container component is used to wrap page content, providing a consistent and
 
 ## Primary Example
 
-The default container uses the class `container-fluid`, which adjusts to the screen size, filling the available space of the parent wrapper.
+The default container class adjusts to the screen size, filling the available space of the parent wrapper.
 
-<Canvas of={containerStories.Default} />
+<Canvas of={containerStories.ContainerFluid} />
 
 ## Breakpoints
 
-To change the container width, update the `container` wrapper to include the breakpoint sizing, such as `-sm`, `-md`, or `-lg`.
+To change the container width, update the `container` wrapper to include the breakpoint sizing, such as `-sm`, `-md`, `-lg`, `xl`, or `xxl`.
+
+For a full width container that spans the entire width of the viewport, use the `container-fluid` class.
 
 <table>
   <tr>
@@ -45,12 +47,10 @@ To change the container width, update the `container` wrapper to include the bre
   <tr>
     <td>Extra large</td><td><code>container-xl</code></td><td>1140px</td>
   </tr>
+  <tr>
+    <td>Extra extra large</td><td><code>container-xxl</code></td><td>1320px</td>
+  </tr>
+  <tr>
+    <td>Fluid</td><td><code>container-fluid</code></td><td>100%</td>
+  </tr>
 </table>
-
-<Canvas of={containerStories.FixedContainerWidths} />
-
-### Fixed column width for large screens
-
-> 100% wide until the large breakpoint
-
-<Canvas of={containerStories.FixedColumnWidths} />
