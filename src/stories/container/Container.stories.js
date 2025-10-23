@@ -1,4 +1,5 @@
 import { createContainer } from './Container';
+import './Container.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
@@ -9,25 +10,55 @@ export default {
   render: ({ ...args }) => {
     return createContainer({ ...args });
   },
-  argTypes: {
-    state: {
-      options: ['Default', 'FixedContainerWidths', 'FixedColumnWidths']
-    },
-  },
 };
 
-export const Default = {
+export const ContainerFluid = {
   args: {
-    state: 'Default',
+    option: 'ContainerFluid',
   },
 };
-export const FixedContainerWidths = {
-  args: {
-    state: 'FixedContainerWidths',
-  },
+export const ContainerSmall = () => {
+  return `
+    <div class="container-sm">
+      <div class="col">
+        <p>100% wide until small breakpoint</p>
+      </div>
+    </div>
+  `;
 };
-export const FixedColumnWidths = {
-  args: {
-    state: 'FixedColumnWidths',
-  },
+export const ContainerMedium = () => {
+  return `
+    <div class="container-md">
+      <div class="col">
+        <p>100% wide until medium breakpoint</p>
+      </div>
+    </div>
+  `;
+};
+export const ContainerLarge = () => {
+  return `
+    <div class="container-lg">
+      <div class="col">
+        <p>100% wide until large breakpoint</p>
+      </div>
+    </div>
+  `;
+};
+export const ContainerExtraLarge = () => {
+  return `
+    <div class="container-xl">
+      <div class="col">
+        <p>100% wide until extra large breakpoint</p>
+      </div>
+    </div>
+  `;
+};
+export const ContainerExtraExtraLarge = () => {
+  return `
+    <div class="container-xxl">
+      <div class="col">
+        <p>100% wide until extra extra large breakpoint</p>
+      </div>
+    </div>
+  `;
 };

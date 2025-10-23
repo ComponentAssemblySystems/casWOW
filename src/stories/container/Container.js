@@ -1,44 +1,33 @@
 export const createContainer = ({
-  state = 'default',
+  option = 'ContainerFluid',
 }) => {
   const createContainer = document.createElement('div');
 
   let mode;
   let content;
-  if (state === 'Default') {
+  if (option === 'ContainerFluid') {
     mode = 'container-fluid';
     content = `
-      <div class="row">
-        <div class="col border">1</div>
-        <div class="col border">2</div>
-        <div class="col border">3</div>
-        <div class="col border">4</div>
-        <div class="col border">5</div>
-        <div class="col border">6</div>
-        <div class="col border">7</div>
-        <div class="col border">8</div>
-        <div class="col border">9</div>
-        <div class="col border">10</div>
-        <div class="col border">11</div>
-        <div class="col border">12</div>
+      <div class="col">
+        <p>The default <code>.container</code> class is a responsive, fixed-width container, meaning its max-width changes at each breakpoint.</p>
       </div>
     `;
-  } else if (state === 'FixedContainerWidths') {
+  } else if (option === 'FixedContainerWidths') {
     mode = 'container';
     content = `
       <div class="row">
-        <div class="col-4 border">1-4</div>
-        <div class="col-4 border">5-8</div>
-        <div class="col-4 border">9-12</div>
+        <div class="col-4 border">Fixed columns 1-4</div>
+        <div class="col-4 border">Fixed columns 5-8</div>
+        <div class="col-4 border">Fixed columns 9-12</div>
       </div>
     `;
-  } else if (state === 'FixedColumnWidths') {
+  } else if (option === 'FixedColumnWidths') {
     mode = 'container-lg';
     content = `
       <div class="row">
-        <div class="col-4 border">4 column width</div>
-        <div class="col-lg-2 border">2 column width on large viewports</div>
-        <div class="col border">fills available space</div>
+        <div class="col-4 border">Fixed 4 columns</div>
+        <div class="col col-lg-2 border">Fill until large, then fixed 2 column</div>
+        <div class="col border">Fills available space</div>
       </div>
     `;
   }
@@ -50,16 +39,16 @@ export const createContainer = ({
 };
 
 // Storybook stories
-export const Default = () =>
+export const ContainerFluid = () =>
   createContainer({
-    state: 'Default',
+    option: 'ContainerFluid',
   });
 // Storybook stories
 export const FixedContainerWidths = () =>
   createContainer({
-    state: 'FixedContainerWidths',
+    option: 'FixedContainerWidths',
   });
 export const FixedColumnWidths = () =>
   createContainer({
-    state: 'FixedColumnWidths',
+    option: 'FixedColumnWidths',
   });
