@@ -1,0 +1,35 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import * as cardStories from './Card.stories';
+
+<Meta title="Card" of={cardStories} />
+
+# Definition
+
+The Card component is a versatile UI element used to display content and information in a contained format. It typically includes elements such as images, text, and action buttons, making it suitable for showcasing items like products, articles, or user profiles.
+
+## Usage
+
+The Card component is commonly used in web applications to present information in a visually appealing and organized manner. It can be utilized in various contexts, such as product listings, blog post previews, or user profile summaries, providing users with a quick overview of the content.
+
+## External resources
+
+Original Bootstrap Card Documentation: [Cards](https://getbootstrap.com/docs/5.0/components/card/)
+
+## Primary Example
+
+Basic card example with a title, body text, and footer.
+
+<Canvas of={cardStories.Default} />
+
+## Additional Examples
+
+Any element can be placed within the card body, including images and buttons. Commonly, cards will have images at the top and buttons at the bottom for actions.
+
+Additionally, list groups can be used within cards to display related items in a structured format.
+
+To maintain proper spacing and alignment of content within a card, you can stack multiple `card-body` sections as needed.
+
+### Card with no header
+
+<Canvas of={cardStories.NoHeader} />
