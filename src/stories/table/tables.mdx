@@ -1,0 +1,27 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import * as TableStories from './tables.stories';
+
+<Meta title="Tables" of={TableStories} />
+
+# Definition
+
+Tables are used to display data in a structured format using rows and columns.
+
+## Usage
+
+The component comes with various styles such as `striped`, `bordered`, and `hover` to enhance the appearance and readability of the table data.
+You can also make tables responsive by wrapping them in a container with the class `table-responsive-*`, where `*` is the breakpoint name.
+
+## External resources
+
+Original Bootstrap documentation: [Tables](https://getbootstrap.com/docs/5.3/content/tables/)
+
+## Primary Example
+
+<Canvas of={TableStories.Default} />
+
+### Controls
+<Controls />
+
+## Other Variants
