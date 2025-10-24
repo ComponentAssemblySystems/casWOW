@@ -28,8 +28,3 @@ export const Default = {
     state: 'Default',
   },
 };
-export const ChatBot = {
-  args: {
-    state: 'ChatBot',
-  },
-};

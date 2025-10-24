@@ -1,77 +1,48 @@
-export const createPageHeader = ({
-  state = 'default',
-}) => {
-  const pageheader = document.createElement('div');
+import { createBreadcrumbs } from '../breadcrumbs/Breadcrumbs';
 
-  let mode;
-  let content;
-  if (state === 'Default') {
-    mode = 'page-header';
-    content = `
-      <div class="page-header">
-        <div class="top-page-header">
-          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
-              </li>
-              <li class="breadcrumb-item">
-                <a href="#">Page item</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">Page item</li>
-            </ol>
-          </nav>
-        </div>
-        <div class="page-header-text">
-          <div class="logo-text-badge-link">
-            <div class="header-subheader">
-              <div class="header-label">
-                <span class="h2">Page Title</span>
-                <span class="badge bg-secondary">Draft</span>
-              </div>
-              <span class="text-secondary">Subheader text</span>
-            </div>
-          </div>
-          <div class="button-stripe">
-          <button type="button" class="btn btn-outline-secondary">Button</button>
-            <button type="button" class="btn btn-outline-secondary">Button</button>
-            <button type="button" class="btn btn-outline-secondary">Button</button>
-            <button type="button" class="btn btn-primary">Primary</button>
-          </div>
-        </div>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Inactive</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
+export const createPageHeader = ({}) => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'page-header';
+
+  // Top page header with breadcrumbs inside
+  const topPageHeader = document.createElement('div');
+  topPageHeader.className = 'top-page-header';
+  topPageHeader.appendChild(createBreadcrumbs({}));
+  wrapper.appendChild(topPageHeader);
+
+  // Page header text (adjacent to topPageHeader)
+  const pageHeaderText = document.createElement('div');
+  pageHeaderText.className = 'page-header-text';
+
+  // logo-text-badge-link
+  const logoTextBadgeLink = document.createElement('div');
+  logoTextBadgeLink.className = 'logo-text-badge-link';
+  logoTextBadgeLink.innerHTML = `
+    <div class="header-subheader">
+      <div class="header-label">
+        <span class="h2">Page Title</span>
+        <span class="badge bg-secondary">Draft</span>
       </div>
-    `;
-  } else if (state === 'ChatBot') {
-    mode = 'page-header chat-bot';
-    content = `
-      <span>Hello Chatbot</span>
-    `;
-  }
+      <span class="text-secondary">Subheader text</span>
+    </div>
+  `;
+  pageHeaderText.appendChild(logoTextBadgeLink);
 
-  pageheader.innerHTML = content;
-  pageheader.className = ['pageheader', mode].join(' ');
+  // buttonStripe after logo-text-badge-link
+  const buttonStripe = document.createElement('div');
+  buttonStripe.className = 'button-stripe';
+  buttonStripe.innerHTML = `
+    <button type="button" class="btn btn-outline-secondary">Button</button>
+    <button type="button" class="btn btn-outline-secondary">Button</button>
+    <button type="button" class="btn btn-outline-secondary">Button</button>
+    <button type="button" class="btn btn-primary">Primary</button>
+  `;
+  pageHeaderText.appendChild(buttonStripe);
 
-  return pageheader;
+  wrapper.appendChild(pageHeaderText);
+
+  return wrapper;
 };
 
 // Storybook stories
-export const Default = () =>
-  createPageHeader({
-    state: 'Default',
-  });
-// Storybook stories
-export const ChatBot = () =>
-  createPageHeader({
-    state: 'ChatBot',
-  });
+export const Default = () => createPageHeader({});
