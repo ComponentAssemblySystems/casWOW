@@ -10,15 +10,43 @@ This project requires the [caswow.library](https://github.com/ComponentAssemblyS
 
 See the section on installing the [caswow.library](#caswow-library) as part of the overall local development setup.
 
+### NPM to PNPM Transition
+
+This project has transitioned to using [PNPM](https://pnpm.io/) as the package manager. The goal is to improve performance and efficiency in managing dependencies.
+
+Install PNPM globally if you haven't already:
+
+```sh
+npm install -g pnpm
+```
+
+Import existing lockfiles from NPM, if they exist:
+
+```sh
+pnpm import
+```
+
+Install dependencies:
+
+```sh
+pnpm install
+```
+
+All subsequent commands that previously used `npm` should now use `pnpm` without declaring `run`. For example, to run the development server, instead of `npm run dev` use:
+
+```sh
+pnpm dev
+```
+
 ## Storybook
 
-This site utilizes Storybook to see code snippets and monitor changes when components are updated. To run Storybook locally, enter `npm run storybook` into your terminal.
+This site utilizes Storybook to see code snippets and monitor changes when components are updated. To run Storybook locally, enter `pnpm run storybook` into your terminal.
 
 In the current configuration, the demo site and Storybook instance can be run simultaneously, simply by running each startup command within individual terminals.
 
 ```sh
-$npm run dev // run local demo site - port 8080
-$npm run storybook // run local storybook instance - port 6006
+$ pnpm dev // run local demo site - port 8080
+$ pnpm storybook // run local storybook instance - port 6006
 ```
 
 ## Local Development
@@ -26,31 +54,37 @@ $npm run storybook // run local storybook instance - port 6006
 To run CAS WOW locally, simply clone the repository and install dependencies. Currently, this project requires Node v22, which can be set on a project basis by entering `nvm use` in the terminal.
 
 1. `git clone git@github.com:ComponentAssemblySystems/casWOW.git`
-2. `npm install`
+2. `pnpm install`
 
 ### caswow library
 
-Run the following to link the caswow.library as an npm module:
+Run the following to link the caswow.library as a pnpm module:
 
 ```sh
-cd /path/to/your/stylesheet
-npm link
+$ cd /path/to/your/stylesheet
+$ pnpm link
 ```
 
 return to this project:
 
 ```sh
-npm link caswow.library
-npm run copy-cas
+$ pnpm link ../caswow.library // path to your local caswow.library
+$ pnpm install
+```
+
+Then copy the caswow CSS files into the dependencies folder:
+
+```sh
+$ pnpm copy-cas
 ```
 
 or you can import it into `site.css`:
 
-```sh
+```javascript
 @import "caswow.library/css/caswow.css";
 ```
 
-> if the caswow.library is ever published, replace `npm link caswow.library` with `npm install caswow.library` to add it to the package.json dependencies.
+> if the caswow.library is ever published, replace `pnpm link caswow.library` with `pnpm install caswow.library` to add it to the package.json dependencies.
 
 ## Font Awesome
 
@@ -61,12 +95,12 @@ CASWOW uses [Font Awesome](https://fontawesome.com/) for icons, with the current
 To upgrade the version of Font Awesome, the following steps must be taken:
 
 1. Update the version in `package.json`
-1. Run `npm install`
+1. Run `pnpm install`
 1. Run `copy-fa` to copy the latest Font Awesome webfonts and CSS files to their respective CASWOW directories
-1. Run `npm run build` to rebuild the CASWOW project with the new dependencies
+1. Run `pnpm build` to rebuild the CASWOW project with the new dependencies
 1. Verify the build has picked up the latest changes by checking the version under `docs/css/fontawesome.css`
 
-You should now be able to run `npm run dev` to view the icons with the newest version. If any icons are missing that are specific to the latest version, be sure to check `dependencies/` and `src/css/fontawesome.css` to verify that the correct version has been copied over.
+You should now be able to run `pnpm dev` to view the icons with the newest version. If any icons are missing that are specific to the latest version, be sure to check `dependencies/` and `src/css/fontawesome.css` to verify that the correct version has been copied over.
 
 ## Notes
 

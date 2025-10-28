@@ -1,1 +1,57 @@
-﻿:root,:host{--base: 16px;--cas-button-border-radius: var(--cas-border-radius-pill);--bs-border-style: solid;--fa-style-family-classic: "Font Awesome 6 Free";--fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free"}@font-face{font-family:var(--fa-style-family-classic);font-style:normal;font-weight:900;font-display:block;src:url("../webfonts/fa-solid-900.woff2")}.icon::before{font:var(--fa-font-solid);-webkit-font-smoothing:antialiased}.fa-bars::before{font-family:var(--fa-style-family-classic);font-style:normal;font-weight:900;src:url("../webfonts/fa-solid-900.woff2");font-display:block;content:""}.icon-button{height:32px;display:flex;align-items:center;border-radius:var(--cas-border-radius-sm) !important;padding:.5rem}.btn.print::before{font:var(--fa-font-solid);-webkit-font-smoothing:antialiased;content:""}.btn.export::before{font:var(--fa-font-solid);-webkit-font-smoothing:antialiased;content:""}/*# sourceMappingURL=variables.css.map */
+/* variables.css */
+/* stylelint-disable-next-line import-notation */
+:root,
+:host {
+  --base: 16px;
+
+  --cas-button-border-radius: var(--cas-border-radius-pill);
+
+  --bs-border-style: solid;
+
+  --fa-style-family-classic: "Font Awesome 6 Free";
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+}
+@font-face {
+  font-family: var(--fa-style-family-classic);
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../webfonts/fa-solid-900.woff2");
+}
+.icon::before {
+  /* Set the font and weight for this icon style */
+  font: var(--fa-font-solid);
+  /* Make sure icons render pixel-perfect */
+  -webkit-font-smoothing: antialiased;
+}
+.fa-bars::before {
+  font-family: var(--fa-style-family-classic);
+  font-style: normal;
+  font-weight: 900;
+  src: url("../webfonts/fa-solid-900.woff2");
+  font-display: block;
+  content: "\f0c9";
+}
+.icon-button {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--cas-border-radius-sm) !important;
+  padding: .5rem;
+}
+.btn.print::before {
+  /* Set the font and weight for this icon style */
+  font: var(--fa-font-solid);
+  /* Make sure icons render pixel-perfect */
+  -webkit-font-smoothing: antialiased;
+  /* Set the Unicode value for the "fa-trash" icon */
+  content: '\f02f';
+}
+.btn.export::before {
+  /* Set the font and weight for this icon style */
+  font: var(--fa-font-solid);
+  /* Make sure icons render pixel-perfect */
+  -webkit-font-smoothing: antialiased;
+  /* Set the Unicode value for the "fa-trash" icon */
+  content: '\f56e';
+}
