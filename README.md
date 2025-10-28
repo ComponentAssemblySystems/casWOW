@@ -2,7 +2,8 @@
 
 ![Storybook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
 
-[Demo](https://componentassemblysystems.github.io/casWOW/) [Storybook](https://www.chromatic.com/library?appId=68dffe7bbaf9cb288a3faf2f)
+[Demo](https://componentassemblysystems.github.io/casWOW/) [Component Library on Storybook](https://www.chromatic.com/library?appId=68dffe7bbaf9cb288a3faf2f)
+[Storybook Docs](https://68dffe7bbaf9cb288a3faf2f-qhkfjiirch.chromatic.com/?path=/)
 
 ## Prerequisites
 

@@ -6,6 +6,7 @@ addons.setConfig({
   bottomPanelHeight: 300,
   rightPanelWidth: 300,
   panelPosition: 'right',
+  showPanel: false,
   enableShortcuts: true,
   showToolbar: true,
   // theme: undefined,
