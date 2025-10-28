@@ -4,11 +4,11 @@ import { create } from 'storybook/theming';
 export default create({
   base: 'light',
   brandTitle: 'CASWOW UI Components',
-  brandUrl: '/docs/introduction',
+  brandUrl: '/',
   brandImage: '/img/CAS_logo.svg', // Use leading slash for public root
   brandTarget: '_self',
   // Typography
-  fontBase: '"Open Sans", sans-serif',
+  fontBase: 'IBM Plex Serif, sans-serif',
   fontCode: 'monospace',
   // Colors
   colorPrimary: '#3A10E5',
