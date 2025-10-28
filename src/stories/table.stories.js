@@ -1,4 +1,4 @@
-import { createTable } from './Table';
+import { createTable } from './table';
 
 export default {
   title: 'Example/Table',
