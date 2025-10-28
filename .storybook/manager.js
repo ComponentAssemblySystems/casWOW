@@ -2,16 +2,16 @@ import { addons } from 'storybook/manager-api';
 import yourTheme from './YourTheme';
 
 addons.setConfig({
-  navSize: 300,
+  navSize: 250,
   bottomPanelHeight: 300,
   rightPanelWidth: 300,
-  panelPosition: 'bottom',
+  panelPosition: 'right',
   enableShortcuts: true,
   showToolbar: true,
   // theme: undefined,
   theme: yourTheme,
-  selectedPanel: undefined,
-  initialActive: 'sidebar',
+  selectedPanel: 'storybook/design/panel',
+  initialActive: 'canvas',
   layoutCustomisations: {
     showSidebar(state, defaultValue) {
       return state.storyId === 'landing' ? false : defaultValue;
@@ -21,7 +21,7 @@ addons.setConfig({
     },
   },
   sidebar: {
-    showRoots: false,
+    showRoots: true,
     collapsedRoots: ['Example'],
   },
   toolbar: {

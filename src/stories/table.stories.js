@@ -3,10 +3,13 @@ import { createTable } from './Table';
 export default {
   title: 'Example/Table',
   render: () => createTable(),
-  tags: ['component'],
+  tags: ['example'],
+  globals: {
+    background: { value: 'light' },
+  },
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
-    layout: 'fullscreen'
+    layout: 'fullscreen',
   },
 };
 

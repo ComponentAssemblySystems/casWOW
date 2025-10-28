@@ -56,8 +56,29 @@ const customViewports = {
 };
 
 const preview = {
+  // globalTypes: {
+  //   theme: {
+  //     description: 'Global theme for components',
+  //     toolbar: {
+  //       title: 'Theme',
+  //       icon: 'paintbrush',
+  //       items: [
+  //         { value: 'light', title: 'Light Theme', left: '☀️' },
+  //         { value: 'dark', title: 'Dark Theme', left: '🌑' },
+  //       ],
+  //       dynamicTitle: true,
+  //     }
+  //   }
+  // },
   parameters: {
     layout: 'padded',
+    backgrounds: {
+      options: {
+        dark: { name: 'Dark', value: '#20252c' },
+        light: { name: 'Light', value: '#ffffff' },
+        cas: { name: 'CAS Blue', value: '#003366' },
+      }
+    },
     options: {
       storySort: {
         order: ['Introduction', 'Getting Started', 'Colors', 'Typography', 'Icons', 'Variables', 'Pages', ['Login', 'Dashboard', 'Tables'], 'Components', '*', 'WIP'],
@@ -82,7 +103,11 @@ const preview = {
       page: DocumentationTemplate,
       toc: true, // 👈 Enables the table of contents
     },
-  }
+  },
+  initialGlobals: {
+    theme: 'light',
+    backgrounds: { value: 'light' },
+  },
 };
 
 export default preview;

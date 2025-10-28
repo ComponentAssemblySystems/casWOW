@@ -2,6 +2,10 @@ import { createChat } from './Chat';
 
 export default {
   title: 'Example/Chat',
+  tags: ['example'],
+  globals: {
+    background: { value: 'light' },
+  },
   render: () => createChat(),
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
