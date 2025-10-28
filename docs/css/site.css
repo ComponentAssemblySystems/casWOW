@@ -1,18 +1,1 @@
-@import url("variables.css");
-/* @import url("colors.css"); */
-/* @import url("print.css") print; */
-@import url("caswow.css");
-.icon-left,
-.icon-right {
-  display: inline-flex;
-  align-items: center;
-  gap: .375rem;
-}
-.icon-left svg,
-.icon-right svg {
-  flex-shrink: 0;
-  width: 1em;
-  height: 1em;
-  fill: currentColor;
-  transition: .2s ease-in-out transform;
-}
+@import"variables.css";@import"caswow.css";.icon-left,.icon-right{display:inline-flex;align-items:center;gap:.375rem}.icon-left svg,.icon-right svg{flex-shrink:0;width:1em;height:1em;fill:currentColor;transition:.2s ease-in-out transform}/*# sourceMappingURL=site.css.map */

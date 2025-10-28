@@ -61,7 +61,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: cas-space-2xs;
+  gap: var(--cas-spacer-xxl);
   align-self: stretch;
 }
 .shortcut-cards {
