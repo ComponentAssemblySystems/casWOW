@@ -6,3 +6,5 @@ storybook-static
 
 .env
 build-storybook.log
+
+.pnpm-workspace.yaml
