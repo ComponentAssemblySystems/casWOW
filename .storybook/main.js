@@ -11,15 +11,14 @@ const config = {
     "@storybook/addon-docs",
     "@storybook/addon-designs",
     '@storybook/addon-a11y',
-    '@storybook/addon-themes',
+    '@storybook/addon-themes'
   ],
   "framework": {
     "name": "@storybook/html-vite",
     "options": {}
   },
   "docs": {
-    defaultName: "Documentation",
-    "autodocs": false
+    defaultName: "Documentation"
   }
 };
 export default config;

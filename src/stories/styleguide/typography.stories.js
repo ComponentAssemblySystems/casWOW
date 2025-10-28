@@ -24,5 +24,9 @@ export const Body = () => {
   return `
     <p>This is a paragraph of body text. It is used for regular content and provides a comfortable reading experience.</p>
     <p>Another paragraph to demonstrate body text styling in the CAS WOW design system.</p>
+    <a href="#">This is a sample link</a>
+    <p>
+      <small>This is small text.</small>
+    </p>
   `;
 };
