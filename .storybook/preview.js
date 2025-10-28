@@ -103,7 +103,7 @@ const preview = {
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
-      expanded: true,
+      expanded: false,
       hideNoControlsWarning: true,
       matchers: {
        color: /(background|color)$/i,

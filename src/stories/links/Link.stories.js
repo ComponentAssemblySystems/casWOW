@@ -6,7 +6,7 @@ import { createLink } from './Link';
 export default {
   title: 'Components/Link',
   component: 'LinkComponent',
-  // tags: ['autodocs'],
+  tags: ['component'],
   render: ({ label, ...args }) => {
     // You can either use a function to create DOM elements or use a plain html string!
     // return `<div>${label}</div>`;

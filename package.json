@@ -29,7 +29,8 @@
     "build-storybook": "storybook build",
     "storybook-docs": "storybook dev --docs",
     "build-storybook-docs": "storybook build --docs",
-    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
+    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
+    "setup-storybook-esm": "echo '{\"type\": \"module\"}' > .storybook/package.json"
   },
   "author": "Adam J. Jolicoeur",
   "license": "ISC",

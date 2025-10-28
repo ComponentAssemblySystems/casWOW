@@ -4,7 +4,7 @@ import { createPageHeader } from './PageHeader';
 export default {
   title: 'Components/Page Header',
   component: 'PageHeaderComponent',
-  tags: ['page element'],
+  tags: ['page element', 'component'],
   // tags: ['autodocs'],
   render: ({ ...args }) => {
     return createPageHeader({ ...args });

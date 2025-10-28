@@ -68,39 +68,6 @@ export const createTables = ({
   `;
   tables.appendChild(tbody);
 
-  // const article = document.createElement('article');
-  // article.className = 'chat-article';
-
-  // const section = document.createElement('section');
-  // section.className = 'chat-wrapper';
-  // article.appendChild(section);
-
-  // const navigation = createNavigation({
-  //   title: 'Chat',
-  //   user: {
-  //     name: 'Adam Jolicoeur',
-  //   },
-  //   onLogout: () => console.log('Logout clicked'),
-  //   onLogin: () => console.log('Login clicked'),
-  //   onCreateAccount: () => console.log('Create account clicked'),
-  // });
-  // article.prepend(navigation);
-
-  // const startScreen = createChatbot({ state: 'startScreen' });
-  // section.appendChild(startScreen);
-
-  // const chatThreads = createChatbot({ state: 'chatThreads' });
-  // section.appendChild(chatThreads);
-
-  // const chatConfiguration = createChatbot({ state: 'chatConfiguration' });
-  // section.appendChild(chatConfiguration);
-
-  // const chatHistory = createChatbot({ state: 'chatHistory' });
-  // section.appendChild(chatHistory);
-
-  // const chatInput = createChatbot({ state: 'chatInput' });
-  // section.appendChild(chatInput);
-
   tables.className = ['table', mode].join(' ');
 
   return tables;
