@@ -1,5 +1,6 @@
 /** @type { import('@storybook/html-vite').Preview } */
 import { themes } from 'storybook/theming';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -11,6 +12,17 @@ import '../docs/css/fontawesome.css';
 import '../docs/css/solid.css';
 import '../docs/css/brands.css';
 import DocumentationTemplate from './DocumentationTemplate.mdx';
+
+export const decorators = [
+  withThemeByDataAttribute({
+    themes: {
+      light: 'light',
+      dark: 'dark',
+    },
+    defaultTheme: 'light',
+    attributeName: 'data-bs-theme',
+  }),
+];
 
 const customViewports = {
   widescreen: {
