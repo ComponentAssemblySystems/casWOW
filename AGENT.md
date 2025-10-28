@@ -4,15 +4,15 @@
 Purpose: get an AI coding agent instantly productive editing this Eleventy site and making safe, testable changes.
 
 - Project type: Eleventy (11ty) static site. Source in `src/`, built output in `docs/`.
-- Local dependency: `caswow.library` is used as a linked npm package and its CSS is copied into `src/css/` by `npm run copy-cas`.
+- Local dependency: `caswow.library` is used as a linked npm package and its CSS is copied into `src/css/` by `pnpm copy-cas`.
 
 Key commands (use exactly):
 
-- `npm run config` — install deps, link `caswow.library`, copy vendor files, run initial build
-- `npm run show` — start Eleventy in dev mode with auto-reload (ELEVENTY_ENV=dev)
-- `npm run build` — production build (runs css pipeline then eleventy)
-- `npm run css` — compile SASS and run autoprefixer
-- `npm run copy-css`, `npm run copy-js`, `npm run copy-fa`, `npm run copy-chartjs`, `npm run copy-cas` — copy vendor assets when needed
+- `pnpm config` — install deps, link `caswow.library`, copy vendor files, run initial build
+- `pnpm show` — start Eleventy in dev mode with auto-reload (ELEVENTY_ENV=dev)
+- `pnpm build` — production build (runs css pipeline then eleventy)
+- `pnpm css` — compile SASS and run autoprefixer
+- `pnpm copy-css`, `pnpm copy-js`, `pnpm copy-fa`, `pnpm copy-chartjs`, `pnpm copy-cas` — copy vendor assets when needed
 
 Important files and places to read first:
 
@@ -42,7 +42,7 @@ Gotchas and runtime checks:
 Change contract (what to do when making edits):
 
 1. Edit in `src/` (templates, css, js)
-2. Run `npm run show` for dev iteration or `npm run css && npm run build` for a production check
+2. Run `pnpm show` for dev iteration or `pnpm css && pnpm build` for a production check
 3. Verify `docs/` contains expected output and that vendor files exist in `dependencies/`
 4. If you change global layout or scripts, check browser console for uncaught exceptions (dialog script is a common culprit)
 

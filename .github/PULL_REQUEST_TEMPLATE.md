@@ -1,5 +1,9 @@
 <!-- Pull Request template for casWOW -->
-# PR checklist
+# Description of changes
+
+Please include a summary of the change and which (if any) issue is fixed. List any dependencies that are required for this change.
+
+## PR checklist
 
 Please check the boxes that apply before requesting review.
 
