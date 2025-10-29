@@ -1,7 +1,7 @@
 import { createChat } from './Chat';
 
 export default {
-  title: 'Example/Chat',
+  title: 'Examples/Chat',
   tags: ['example', 'experimental'],
   globals: {
     background: { value: 'light' },

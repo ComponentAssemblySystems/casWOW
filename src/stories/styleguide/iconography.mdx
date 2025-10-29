@@ -1,8 +1,10 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta, Canvas, Controls } from "@storybook/addon-docs/blocks";
 
 import DefaultIcons from '../../../docs/img/DefaultIcons.png';
 
-<Meta title="Styleguide/Iconography" />
+import * as IconStories from './iconography.stories';
+
+<Meta of={IconStories} />
 
 <div className="sb-unstyled">
 
@@ -18,13 +20,40 @@ The primary icon set used in the CAS WOW design system is Font Awesome. This lib
   <img src={DefaultIcons} alt="CAS Default Icons" style={{ width: '50%'}} />
 </div>
 
+{/* <Controls /> */}
+
 ## Usage
 
 To use an icon from the Font Awesome library, you can include it in your HTML or JSX code using the appropriate class names. For example, to include a user icon, you would use the following code:
 
-```html
-  <i class="fas fa-user"></i>
-```
+<Canvas of={IconStories.Default} />
+
+<div style={{ display: 'flex', direction: 'row', gap: '20px', marginTop: '20px', marginBottom: '20px' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <i className="fa-solid fa-user fa-2x"></i>
+    <span>fa-user</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <i className="fa-solid fa-cancel fa-2x"></i>
+    <span>fa-cancel</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <i className="fa-solid fa-share fa-2x"></i>
+    <span>fa-share</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <i className="fa-solid fa-highlighter fa-2x"></i>
+    <span>fa-highlighter</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <i className="fa-solid fa-user fa-2x"></i>
+    <span>fa-user</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <i className="fa-solid fa-user fa-2x"></i>
+    <span>fa-user</span>
+  </div>
+</div>
 
 Make sure to include the Font Awesome CSS in your project to ensure the icons render correctly.
 
