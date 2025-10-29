@@ -2,7 +2,7 @@ import { createListItem } from './ListItem';
 
 export default {
   title: 'Components/List',
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
 };
 
 export const SimpleList = () => {

@@ -87,6 +87,13 @@ export const createButton = ({
 
 // Storybook stories for 5 button variations
 export const Primary = () =>
+  parameters({
+    docs: {
+      description: {
+        story: 'Primary buttons are used to indicate the main action on a page. They should stand out and draw the user\'s attention.',
+      }
+    }
+  });
   createButton({
     primary: true,
     outline: false,

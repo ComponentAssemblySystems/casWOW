@@ -1,28 +1,29 @@
+import { createIcon } from './iconography';
+
 export default {
-  title: 'Styleguide/Iconography',
-  tags: ['variables'],
+  title: 'Styleguide/Icons',
+  id: 'Styleguide/Icons',
+  tags: ['styleguide', 'iconography', 'component'],
+  render: ({ name, ...args }) => {
+    return createIcon({ name, ...args });
+  },
   globals: {
     background: { value: 'light' },
   },
+  argTypes: {
+    name: { control: 'text' },
+  },
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
-    layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/EM5KcfOyqRBsPTRkbvT5Kn/Component-Assembly-Design-System?node-id=2104-2817&m=dev',
+    },
   },
 };
 
-export const Headings = () => {
-  return `
-    <h1>Heading 1</h1>
-    <h2>Heading 2</h2>
-    <h3>Heading 3</h3>
-    <h4>Heading 4</h4>
-    <h5>Heading 5</h5>
-    <h6>Heading 6</h6>
-  `;
+export const Default = {
+  args: {
+    name: 'star',
+  },
 };
-export const Body = () => {
-  return `
-    <p>This is a paragraph of body text. It is used for regular content and provides a comfortable reading experience.</p>
-    <p>Another paragraph to demonstrate body text styling in the CAS WOW design system.</p>
-  `;
-};
+

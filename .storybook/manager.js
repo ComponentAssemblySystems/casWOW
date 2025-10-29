@@ -6,12 +6,11 @@ addons.setConfig({
   bottomPanelHeight: 300,
   rightPanelWidth: 300,
   panelPosition: 'right',
-  showPanel: false,
   enableShortcuts: true,
   showToolbar: true,
   // theme: undefined,
   theme: yourTheme,
-  selectedPanel: 'storybook/design/panel',
+  selectedPanel: 'storybook/controls/panel',
   initialActive: 'canvas',
   layoutCustomisations: {
     showSidebar(state, defaultValue) {

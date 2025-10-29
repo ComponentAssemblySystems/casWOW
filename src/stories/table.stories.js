@@ -1,8 +1,8 @@
 import { createTableExample } from './table';
 
 export default {
-  title: 'Example/Table',
-  id: 'Example/Table',
+  title: 'Examples/Table',
+  id: 'Examples/Table',
   tags: ['example'],
   render: () => createTableExample(),
   globals: {

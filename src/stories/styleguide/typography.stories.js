@@ -1,6 +1,6 @@
 export default {
   title: 'Styleguide/Typography',
-  tags: ['variables'],
+  tags: ['styleguide', 'variables', '!autodocs'],
   globals: {
     background: { value: 'light' },
   },

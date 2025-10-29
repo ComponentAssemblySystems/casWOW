@@ -1,7 +1,7 @@
 import { createPage } from './Page';
 
 export default {
-  title: 'Example/Page',
+  title: 'Examples/Page',
   render: () => createPage(),
   tags: ['example'],
   globals: {

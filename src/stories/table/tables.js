@@ -22,6 +22,7 @@ export const createTables = ({
   thead.innerHTML = `
     <tr>
       <th scope="col">Plans</th>
+      <th scope="col">ID</th>
       <th scope="col">Project</th>
       <th scope="col">Budget hours</th>
       <th scope="col">Equated hours</th>
@@ -47,7 +48,10 @@ export const createTables = ({
         </a>
       </th>
       <td>
-        <span class="badge rounded-pill text-bg-info">717</span> <a href="">Mandalore Palace</a>
+        <span class="badge rounded-pill text-bg-info">717</span>
+      </td>
+      <td>
+        <a href="">Mandalore Palace</a>
       </td>
       <td>186,455</td>
       <td>186,455</td>
@@ -75,15 +79,12 @@ export const createTables = ({
 
 export const Default = () =>
   createTables({
-    label: 'Default',
-    striped: true,
+    striped: false,
   });
 export const Striped = () =>
   createTables({
     striped: true,
-    label: 'table-striped',
   });
 export const Bordered = () =>
   createTables({
-    label: 'table-bordered',
   });
