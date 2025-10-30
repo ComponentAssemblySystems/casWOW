@@ -1,9 +1,6 @@
 # CASWOW
 
-![Storybook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
-
-[Demo](https://componentassemblysystems.github.io/casWOW/) [Component Library on Storybook](https://www.chromatic.com/library?appId=68dffe7bbaf9cb288a3faf2f)
-[Storybook Docs](https://68dffe7bbaf9cb288a3faf2f-qhkfjiirch.chromatic.com/?path=/)
+[Demo](https://componentassemblysystems.github.io/casWOW/)
 
 ## Prerequisites
 
@@ -37,17 +34,6 @@ All subsequent commands that previously used `npm` should now use `pnpm` without
 
 ```sh
 pnpm dev
-```
-
-## Storybook
-
-This site utilizes Storybook to see code snippets and monitor changes when components are updated. To run Storybook locally, enter `pnpm run storybook` into your terminal.
-
-In the current configuration, the demo site and Storybook instance can be run simultaneously, simply by running each startup command within individual terminals.
-
-```sh
-$ pnpm dev // run local demo site - port 8080
-$ pnpm storybook // run local storybook instance - port 6006
 ```
 
 ## Local Development
