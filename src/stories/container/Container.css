@@ -1,6 +1,0 @@
-.col {
-  background: #eee2ff;
-}
-.col:nth-of-type(odd) {
-  background: #d5b9ff;
-}
