@@ -47,26 +47,10 @@ These controls allow you to interactively modify the props of the component in t
 
 ## Additional variations
 
-<Canvas of={BadgeStories.Secondary} />
-<Canvas of={BadgeStories.Success} />
-<Canvas of={BadgeStories.Danger} />
-<Canvas of={BadgeStories.Warning} />
-<Canvas of={BadgeStories.Info} />
-<Canvas of={BadgeStories.Light} />
-<Canvas of={BadgeStories.Dark} />
-
 ### Badge as a Counter
 
 As this example shows, badges can be used as counters to indicate the number of unread messages or notifications. This is typically done by positioning the badge in the top-right corner of an icon or button.
 
-```html
-<button type="button" class="btn btn-primary position-relative">
-  Inbox
-  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-    99+
-    <span class="visually-hidden">unread messages</span>
-  </span>
-</button>
-```
+<Canvas of={BadgeStories.BadgeAsCounter} />
 
 </div>
