@@ -77,7 +77,7 @@ amountPaid: "$276,726,819"
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="card-title">Receivables</h5>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
           <li><h6 class="dropdown-header">Configure</h6></li>

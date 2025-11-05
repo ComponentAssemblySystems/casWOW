@@ -8,11 +8,6 @@ calendarOne: "Quarter 1"
 calendarTwo: "Quarter 2"
 calendarThree: "Quarter 3"
 calendarFour: "Quarter 4"
-isExpanded: true
-expandedOne: September
-expandedTwo: October
-expandedThree: November
-expandedFour: December
 tabBar: false
 badge: true
 badgeText: "Admin"
@@ -52,7 +47,7 @@ amountPaid: "$276,726,819"
     <div class="card">
       <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="card-title">Hours</h5>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-sm btn-outline-dark dropdown-toggle settings-dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
           <li><h6 class="dropdown-header">Configure</h6></li>

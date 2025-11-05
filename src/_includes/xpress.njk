@@ -2,95 +2,81 @@
 layout : base.njk
 ---
 
-<sl-tab-group>
-  <sl-tab slot="nav" panel="active">Active</sl-tab>
-  <sl-tab slot="nav" panel="inactive" disabled>Inactive</sl-tab>
-  <sl-tab slot="nav" panel="complete" disabled>Complete</sl-tab>
+<ul class="nav nav-pills border-bottom pb-2 mb-2">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Inactive</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Complete</a>
+  </li>
+</ul>
 
-  <sl-tab-panel name="active">
-    <div class="table-responsive-lg">
-      <table class="table table-striped table-hover table-sm">
-        <thead>
+  <div class="table-responsive-lg">
+    <table class="table table-striped table-hover table-sm">
+      <thead>
+        <tr class="table-primary">
+          <th scope="col">Plans</th>
+          <th scope="col">Project</th>
+          <th scope="col">Budget hours</th>
+          <th scope="col">Equated hours</th>
+          <th scope="col">Actual hours</th>
+          <th scope="col">Delta hours</th>
+          <th scope="col"># Days</th>
+          <th scope="col">% Complete</th>
+          <th scope="col">% Update</th>
+          <th scope="col">Times updated</th>
+          <th scope="col">Budget updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in xpress %}
           <tr>
-            <th scope="col">Plans</th>
-            <th scope="col">Project</th>
-            <th scope="col">Budget hours</th>
-            <th scope="col">Equated hours</th>
-            <th scope="col">Actual hours</th>
-            <th scope="col">Delta hours</th>
-            <th scope="col"># Days</th>
-            <th scope="col">% Complete</th>
-            <th scope="col">% Update</th>
-            <th scope="col">Times updated</th>
-            <th scope="col">Budget updated</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for data in xpress %}
-            <tr>
-              <th scope="row">
-                {%- if data.plans === "true" -%}
-                  <a href="/casWOW/plans">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-easel" viewBox="0 0 16 16">
-                      <path d="M8 0a.5.5 0 0 1 .473.337L9.046 2H14a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1.85l1.323 3.837a.5.5 0 1 1-.946.326L11.092 11H8.5v3a.5.5 0 0 1-1 0v-3H4.908l-1.435 4.163a.5.5 0 1 1-.946-.326L3.85 11H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h4.954L7.527.337A.5.5 0 0 1 8 0M2 3v7h12V3z"/>
-                    </svg>
-                  </a>
-                {%- else -%}{%- endif -%}
-              </th>
-              <td><span class="badge rounded-pill text-bg-info">{{ data.badge }}</span> <a href="">{{ data.project }}</a></td>
-              <td>{{ data.budget }}</td>
-              <td>{{ data.equated }}</td>
-              <td>{{ data.actual }}</td>
-              <td>
-                {% set delta = data.delta | int %}
-                {%- if delta < 0 -%}
-                  <span style="color: red;">({{ data.delta }})</span>
-                {%- elseif data.delta == "0" -%}
-                  <span class="text-neutral">{{ data.delta }}</span>
-                {%- else -%}
-                  <span>{{ data.delta }}</span>
+            <th scope="row" class="text-center">
+              {%- if data.plans === "true" -%}
+                <a href="/casWOW/plans">
+                  <i class="fa-solid fa-file-image"></i>
+                </a>
+              {%- else -%}{%- endif -%}
+            </th>
+            <td>
+              <span class="badge rounded-pill text-bg-primary">{{ data.badge }}</span>
+              <a href="" class="flex-grow-1">{{ data.project }}</a>
+            <td>{{ data.budget }}</td>
+            <td>{{ data.equated }}</td>
+            <td>{{ data.actual }}</td>
+            <td>
+              {% set delta = data.delta | int %}
+              {%- if delta < 0 -%}
+                <span style="color: red;">({{ data.delta }})</span>
+              {%- elseif data.delta == "0" -%}
+                <span class="text-neutral">{{ data.delta }}</span>
+              {%- else -%}
+                <span>{{ data.delta }}</span>
+              {%- endif -%}
+            </td>
+            <td>{{ data.days }}</td>
+            <td>
+              <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow={{ data.percent }} aria-valuemin="0" aria-valuemax="100">
+                {% set percent = data.percent | int %}
+                {%- if data.percent <= 20 -%}
+                <div class="progress-bar bg-secondary" style="width: {{ percent }}%"></div>
+                {%- elseif percent > 21 and percent < 50 -%}
+                <div class="progress-bar bg-danger" style="width: {{ percent }}%">{{ percent }}</div>
+                {%- elseif percent >= 50 and percent < 100 -%}
+                <div class="progress-bar bg-primary" style="width: {{ percent }}%">{{ percent }}</div>
+                {%- elseif percent === 100 -%}
+                <div class="progress-bar bg-success" style="width: {{ percent }}%">{{ percent }}</div>
                 {%- endif -%}
-              </td>
-              <td>{{ data.days }}</td>
-              <td>
-                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow={{ data.percent }} aria-valuemin="0" aria-valuemax="100">
-                  {% set percent = data.percent | int %}
-                  {%- if data.percent <= 20 -%}
-                  <div class="progress-bar bg-secondary" style="width: {{ percent }}%">{{ percent }}</div>
-                  {%- elseif percent > 21 and percent < 50 -%}
-                  <div class="progress-bar bg-danger" style="width: {{ percent }}%">{{ percent }}</div>
-                  {%- elseif percent >= 50 and percent < 100 -%}
-                  <div class="progress-bar bg-primary" style="width: {{ percent }}%">{{ percent }}</div>
-                  {%- elseif percent === 100 -%}
-                  <div class="progress-bar bg-success" style="width: {{ percent }}%">{{ percent }}</div>
-                  {%- endif -%}
-                </div>
-              </td>
-              <td>{{ data.update }}</td>
-              <td>{{ data.timesUpdated }}</td>
-              <td>{{ data.budgetUpdated }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </sl-tab-panel>
-  <sl-tab-panel name="inactive">
-    <div class="d-grid gap-4">
-      <div class="custom-placeholder"></div>
-      <div class="d-flex gap-4 justify-content-between">
-        <div class="custom-placeholder w-50"></div>
-        <div class="custom-placeholder w-50"></div>
-      </div>
-    </div>
-  </sl-tab-panel>
-  <sl-tab-panel name="complete">
-    <div class="d-grid gap-4">
-      <div class="custom-placeholder"></div>
-      <div class="d-flex gap-4 justify-content-between">
-        <div class="custom-placeholder w-50"></div>
-        <div class="custom-placeholder w-50"></div>
-      </div>
-    </div>
-  </sl-tab-panel>
-</sl-tab-group>
+              </div>
+            </td>
+            <td>{{ data.update }}</td>
+            <td>{{ data.timesUpdated }}</td>
+            <td>{{ data.budgetUpdated }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>

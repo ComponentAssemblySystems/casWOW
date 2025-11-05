@@ -1,9 +1,11 @@
 ---
-layout: project-costs.njk
-title: Project Costs
+layout: cost-summary.njk
+title: Cost Summary
+badge: true
+badgeText: "873"
 breadcrumbs: true
 toolBar: buttons
-buttonCount: "1"
+buttonCount: "0"
 dropdownOne: "office location"
 dropdownTwo: "office location"
 dropdownThree: "office location"
@@ -11,9 +13,9 @@ dropdownFour: "office location"
 toolbarIcon: "fa-building"
 toolbarButtonOne: "CAS - NY"
 eleventyNavigation:
-  key: ProjectCosts
-  parent: Dashboard
-  level: 1
+  key: CostSummary
+  parent: Project Costs
+  level: 2
 ---
 
 <div class="d-grid gap-4">

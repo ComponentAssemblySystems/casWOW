@@ -1,19 +1,16 @@
 ---
-layout: project-costs.njk
-title: Project Costs
+layout: to-date-costs.njk
+title: To Date Costs
+badge: true
+badgeText: "873"
 breadcrumbs: true
 toolBar: buttons
-buttonCount: "1"
-dropdownOne: "office location"
-dropdownTwo: "office location"
-dropdownThree: "office location"
-dropdownFour: "office location"
-toolbarIcon: "fa-building"
-toolbarButtonOne: "CAS - NY"
+buttonCount: "4"
 eleventyNavigation:
-  key: ProjectCosts
-  parent: Dashboard
-  level: 1
+  key: ToDateCosts
+  parent: Cost Summary
+  primaryParent: Project Costs
+  level: 3
 ---
 
 <div class="d-grid gap-4">

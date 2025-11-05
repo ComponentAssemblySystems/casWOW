@@ -1,0 +1,42 @@
+[
+  {
+    "area": "Labor",
+    "costs": "11,781,034",
+    "equated": "12,680,742",
+    "totalBudget": "12,680,742",
+    "origBudget": "8,429,510",
+    "budgetAdjusted": "4,251,232",
+    "percentComplete": "100",
+    "percentBudget": "93"
+  },
+  {
+    "area": "Material",
+    "costs": "4,647,337",
+    "equated": "4,721,964",
+    "totalBudget": "4,721,964",
+    "origBudget": "2,854,863",
+    "budgetAdjusted": "1,867,101",
+    "percentComplete": "100",
+    "percentBudget": "98"
+  },
+  {
+    "area": "Subcontractor",
+    "costs": "179,647",
+    "equated": "223,197",
+    "totalBudget": "223,197",
+    "origBudget": "0",
+    "budgetAdjusted": "223,197",
+    "percentComplete": "100",
+    "percentBudget": "80"
+  },
+  {
+    "area": "Other",
+    "costs": "3,298,790",
+    "equated": "3,599,114",
+    "totalBudget": "3,599,114",
+    "origBudget": "2,546,006",
+    "budgetAdjusted": "1,053,108",
+    "percentComplete": "100",
+    "percentBudget": "92"
+  }
+]

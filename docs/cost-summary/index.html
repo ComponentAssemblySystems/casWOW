@@ -11,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="@" />
-    <title>casWOW | </title>
+    <title>casWOW | Cost Summary | </title>
     <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
     <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -235,129 +235,132 @@
 
           
           <div class="page-header">
-  <div class="top-page-header d-none d-sm-block"></div>
+  <div class="top-page-header d-none d-sm-block"><nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/casWOW/">Dashboard</a>
+        </li><li class="breadcrumb-item">
+          <a href="javascript:history.back()">Project Costs</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Cost Summary</li></ol>
+    </nav></div>
   <div class="page-header-text">
     <div class="logo-text-badge-link">
       <div class="header-subheader">
         <div class="header-label">
           <span class="h2">
-            
+            Cost Summary
+          </span><span class="badge bg-secondary">
+            873
           </span></div></div>
-    </div></div></div>
+    </div><div class="btn-toolbar d-none d-sm-block" role="toolbar" aria-label="Toolbar with button groups"><div class="d-flex gap-2"><div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-building"></i> 
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item"></a></li>
+            <li><a class="dropdown-item"></a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+            <!---->
+            <li><a class="dropdown-item" href="#"></a></li></ul>
+        </div><div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Export to CSV</a></li>
+          </ul>
+        </div>
+      </div></div></div></div>
 
         </div>
-        <h1 class="text-center">Welcome, Neo</h1>
-<p class="h4 italic text-secondary text-center">What are you looking for today?</p>
-<sl-details summary="AI Analysis" open>
-  <h3>Ask the AI a Question</h3>
-  <sl-input type="text" id="llm-query-input" label="What is your question?" placeholder="e.g., What was my total spending?" pill clearable>
-    <sl-icon name="chat" slot="suffix"></sl-icon>
-  </sl-input>
-  <br />
-  <div id="llm-button-container" style="display: flex; gap: var(--sl-spacing-small); margin-bottom: var(--sl-spacing-medium);">
-    <sl-button id="analyze-button">
-      <sl-icon slot="prefix" name="cpu"></sl-icon>
-      Get AI Analysis
-    </sl-button>
-    <sl-button id="stop-analyze-button" variant="danger" style="display: none;">
-      <sl-icon slot="prefix" name="stop-circle"></sl-icon>
-      Stop Generating
-    </sl-button>
-    <sl-button id="new-chat-button" variant="default" style="display: none;">
-      <sl-icon slot="prefix" name="plus-circle"></sl-icon>
-      New Chat
-    </sl-button>
-  </div>
-  <div id="llm-container" style="display: none;">
-    <sl-card class="card-header" style="max-width: 100%; width: 100%;">
-      <div slot="header">
-        AI Analysis
-        <sl-icon name="cpu" label="CPU Icon"></sl-icon>
-      </div>
-      <samp id="llm-output"></samp>
-    </sl-card>
-  </div>
-  <div style="display: flex; flex-direction: column; gap: var(--sl-spacing-medium);">
-    <h3>Chat History</h3>
-    <div id="history-actions" style="display: flex; justify-content: flex-end;">
-      <sl-button id="clear-history-button" size="small" variant="danger" outline>
-        <sl-icon slot="prefix" name="trash"></sl-icon>
-        Clear History
-      </sl-button>
-    </div>
-    <div id="llm-history-container"></div>
-  </div>
-</sl-details>
-<sl-details summary="Table">
-  <div class="display-flex direction-row gap-1">
-    <div class="display-flex direction-row gap-1 flex-end flex-grow-2">
-      <sl-select id="filter-column-select" label="Filter By" value="description" style="min-width: 150px;">
-          <sl-option value="description">Description</sl-option>
-          <sl-option value="season">Season</sl-option>
-          <sl-option value="sport">Sport</sl-option>
-          <sl-option value="type">Type</sl-option>
-      </sl-select>
-      <div id="filter-value-container" class="flex-grow-1">
-          <!-- Dynamic input will be rendered here by app.js -->
-      </div>
-    </div>
-    <sl-input type="date" id="start-date" label="Start Date"></sl-input>
-    <sl-input type="date" id="end-date" label="End Date"></sl-input>
-  </div>
-  <section id="data-display">
-    <sl-tab-group>
-      <sl-tab slot="nav" panel="table">Table</sl-tab>
-      <sl-tab slot="nav" panel="chart">Chart</sl-tab>
-      <sl-tab-panel name="table">
-        <div id="table-container"><p>Loading data...</p></div>
-        <div id="pagination-controls" class="display-flex justify-content-space-between align-items-center margin-top-1 flex-wrap gap-1">
-          <sl-select id="items-per-page-select" label="Items per page" size="small" value="10">
-              <sl-option value="10">10</sl-option>
-              <sl-option value="25">25</sl-option>
-              <sl-option value="50">50</sl-option>
-          </sl-select>
-          <div id="pagination-buttons"></div>
-          <div id="pagination-info"></div>
-        </div>
-      </sl-tab-panel>
-      <sl-tab-panel name="chart">
-        <div id="chart-container" style="margin-top: 2em; max-width: 800px; margin-left: auto; margin-right: auto;">
-          <h3 id="chart-title" class="text-align-center">Spending Breakdown</h3>
-          <div style="text-align: center; margin: 2em 0 1em 0;">
-            <sl-radio-group id="chart-view-toggle" help-text="Select a data view" name="chart-view" value="sport">
-              <sl-radio-button value="sport">By Sport</sl-radio-button>
-              <sl-radio-button value="type">By Type</sl-radio-button>
-            </sl-radio-group>
-          </div>
-          <canvas id="spending-chart"></canvas>
-        </div>
-      </sl-tab-panel>
-    </sl-tab-group>
-  </section>
-</sl-details>
-<div class="container mt-5">
-  <form class="row g-1">
-    <div class="col-6 offset-3">
-      <div class="input-group">
-        <input type="text" class="form-control" aria-label="chat prompt" aria-describedby="button-submit-chat"></input>
-        <button class="btn btn-outline-secondary" type="button" id="button-submit-chat"><i class="fas fa-paper-plane"></i></button>
-      </div>
-    </div>
-    <div class="col-6 offset-3 g-2 text-center">
-      <button type="submit" class="btn btn-outline-secondary">
-        <i class="fas fa-lightbulb"></i>Insights
-      </button>
-      <button type="submit" class="btn btn-outline-secondary">
-        <i class="fas fa-dollar"></i>Costs
-      </button>
-      <button type="submit" class="btn btn-outline-secondary">
-        <i class="fas fa-toolbox"></i>Projects
-      </button>
-      <button type="submit" class="btn btn-outline-secondary">
-        <i class="fas fa-hard-hat"></i>Employees
-      </button>
-    </div>
-  </form>
+        
+<ul class="nav nav-pills border-bottom pb-2 mb-2">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">
+      Active
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      Inactive
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      Complete
+    </a>
+  </li>
+</ul>
+
+<div class="table-responsive-lg">
+  <table class="table table-striped table-hover table-sm">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Project</th>
+        <th scope="col">ToDate Costs</th>
+        <th scope="col">Total Project Costs</th>
+        <th scope="col">Contract Total</th>
+        <th scope="col">Pending COs</th>
+        <th scope="col">Billed ToDate</th>
+        <th scope="col">Payments Remaining</th>
+        <th scope="col">Unbilled Costs</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr><th scope="row" class="text-center">
+              <a href="#" alt="Link to area chart">
+                <i class="fa-solid fa-chart-area"></i>
+              </a>
+            </th><th scope="row" class="text-center">
+              <a href="#" alt="Link to art chart">
+                <i class="fa-solid fa-chart-simple"></i>
+              </a>
+            </th><td class="d-flex align-items-center gap-1">
+            <a href="/casWOW/to-date-costs" class="flex-grow-1">Skywalker and Family</a>
+            <span class="badge text-bg-secondary bg-transparent border border-secondary text-secondary">300</span>
+          </td>
+          <td>186,455</td>
+          <td>186,455</td>
+          <td>179,252</td>
+          <td>0</td>
+          <td>165,543</td>
+          <td>165,543</td>
+          <td>7,203</td>
+        </tr>
+      
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-end">
+    <li class="page-item">
+      <a class="page-link disabled">
+        <i class="fa-solid fa-angle-left"></i>
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link disabled">
+        <i class="fa-solid fa-angles-left"></i>
+      </a>
+    </li>
+    <li class="page-item active"><a class="page-link" href="#" aria-current="page">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link">
+        <i class="fa-solid fa-angle-right"></i>
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link">
+        <i class="fa-solid fa-angles-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
 </div>
 
       </main>
