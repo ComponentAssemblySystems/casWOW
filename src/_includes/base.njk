@@ -45,14 +45,9 @@
         Skip to main content
       </a>
       {% include 'header.njk' %}
-      <main class="col-12 px-md-4" style="
-        background-color: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 2px #ddd;
-        padding: 8px;
-      ">
+      <main>
         <a id="main-content"></a>
-        <div class="container-fluid">
+        <div class="container-fluid content-wrapper">
           <div class="row">
           {% if page.sidebar == "sidebar" %}
           {% include 'sidebar.njk' %}

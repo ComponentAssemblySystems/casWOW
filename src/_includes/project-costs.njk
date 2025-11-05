@@ -1,0 +1,122 @@
+---
+layout : base.njk
+---
+
+<ul class="nav nav-pills border-bottom pb-2 mb-2">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">
+      Active
+      <span class="badge text-bg-light">45</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      Inactive
+      <span class="badge text-bg-dark">20</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      Complete
+      <span class="badge text-bg-success">72</span>
+    </a>
+  </li>
+</ul>
+
+<div class="table-responsive-lg">
+  <table class="table table-striped table-hover table-sm">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Plans</th>
+        <th scope="col">Project</th>
+        <th scope="col">Budget hours</th>
+        <th scope="col">Equated hours</th>
+        <th scope="col">Actual hours</th>
+        <th scope="col">Delta hours</th>
+        <th scope="col"># Days</th>
+        <th scope="col">% Complete</th>
+        <th scope="col">% Update</th>
+        <th scope="col">Times updated</th>
+        <th scope="col">Budget updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in costs %}
+        <tr>
+          <th scope="row" class="text-center">
+            {%- if data.plans === "true" -%}
+              <a href="/casWOW/plans">
+                <i class="fa-solid fa-file-image"></i>
+              </a>
+            {%- else -%}{%- endif -%}
+          </th>
+          <td class="d-flex align-items-center gap-1">
+            <span class="badge rounded-pill text-bg-primary">{{ data.badge }}</span>
+            <a href="/casWOW/cost-summary" class="flex-grow-1">{{ data.project }}</a>
+            {% if data.budgetstatus == "Over Budget" %}
+              <span class="badge rounded-pill badge text-bg-danger bg-transparent border border-danger text-danger">{{ data.budgetstatus }}</span>
+            {% endif %}
+          </td>
+          <td>{{ data.budget }}</td>
+          <td>{{ data.equated }}</td>
+          <td>{{ data.actual }}</td>
+          <td>
+            {% set delta = data.delta | int %}
+            {%- if delta < 0 -%}
+              <span style="color: red;">({{ data.delta }})</span>
+            {%- elseif data.delta == "0" -%}
+              <span class="text-neutral">{{ data.delta }}</span>
+            {%- else -%}
+              <span>{{ data.delta }}</span>
+            {%- endif -%}
+          </td>
+          <td>{{ data.days }}</td>
+          <td>
+            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow={{ data.percent }} aria-valuemin="0" aria-valuemax="100">
+              {% set percent = data.percent | int %}
+              {%- if data.percent <= 20 -%}
+              <div class="progress-bar bg-secondary" style="width: {{ percent }}%"></div>
+              {%- elseif percent > 21 and percent < 50 -%}
+              <div class="progress-bar bg-danger" style="width: {{ percent }}%">{{ percent }}</div>
+              {%- elseif percent >= 50 and percent < 100 -%}
+              <div class="progress-bar bg-primary" style="width: {{ percent }}%">{{ percent }}</div>
+              {%- elseif percent === 100 -%}
+              <div class="progress-bar bg-success" style="width: {{ percent }}%">{{ percent }}</div>
+              {%- endif -%}
+            </div>
+          </td>
+          <td>{{ data.update }}</td>
+          <td>{{ data.timesUpdated }}</td>
+          <td>{{ data.budgetUpdated }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-end">
+    <li class="page-item">
+      <a class="page-link disabled">
+        <i class="fa-solid fa-angle-left"></i>
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link disabled">
+        <i class="fa-solid fa-angles-left"></i>
+      </a>
+    </li>
+    <li class="page-item active"><a class="page-link" href="#" aria-current="page">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link">
+        <i class="fa-solid fa-angle-right"></i>
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link">
+        <i class="fa-solid fa-angles-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>

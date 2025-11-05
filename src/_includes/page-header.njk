@@ -1,5 +1,5 @@
 <div class="page-header">
-  <div class="top-page-header">
+  <div class="top-page-header d-none d-sm-block">
     {%- if (breadcrumbs) -%}
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -8,9 +8,17 @@
         </li>
         {%- if (eleventyNavigation.level) === 1 -%}
         <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
-        {%- else -%}
+        {%- elseif (eleventyNavigation.level) === 2 -%}
         <li class="breadcrumb-item">
-          <a href="{{ eleventyNavigation.url | url }}">{{eleventyNavigation.parent}}</a>
+          <a href="javascript:history.back()">{{eleventyNavigation.parent}}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+        {%- elseif (eleventyNavigation.level) === 3 -%}
+        <li class="breadcrumb-item">
+          <a href="{{ eleventyNavigation.url | url }}">{{eleventyNavigation.primaryParent}}</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="javascript:history.back()">{{eleventyNavigation.parent}}</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
         {%- endif -%}
@@ -39,7 +47,7 @@
       </div>
     </div>
     {%- if (toolBar) -%}
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-toolbar d-none d-sm-block" role="toolbar" aria-label="Toolbar with button groups">
       {%- if toolbar === "btn-group" -%}
       <div class="btn-group me-2" role="group" aria-label="First group">
         <button type="button" class="btn btn-outline-secondary">1</button>
@@ -56,9 +64,21 @@
       {%- endif -%}
       {%- if toolBar === "buttons" -%}
       <div class="d-flex gap-2">
-        {%- if buttonCount === "2" -%}
+        {%- if buttonCount === "1" -%}
         <div class="dropdown">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonOne }}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">{{ dropdownOne }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ dropdownTwo }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ dropdownThree }}</a></li>
+            <li><a class="dropdown-item" href="#">{{ dropdownFour }}</a></li>
+          </ul>
+        </div>
+        {%- elseif buttonCount === "2" -%}
+        <div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonOne }}
           </button>
           <ul class="dropdown-menu">
@@ -69,7 +89,7 @@
           </ul>
         </div>
         <div class="dropdown">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-building"></i> {{ toolbarButtonTwo }}
           </button>
           <ul class="dropdown-menu">
@@ -77,16 +97,26 @@
             <li><a class="dropdown-item" href="#">{{ dropdownTwo }}</a></li>
           </ul>
         </div>
+        {%- elseif buttonCount === "4" -%}
+          <button class="btn btn-outline-secondary" type="button">
+            By Date Costs
+          </button>
+          <button class="btn btn-outline-secondary" type="button">
+            Art Chart
+          </button>
+          <button class="btn btn-outline-secondary" type="button">
+            Exclude 990s
+          </button>
         {%- else -%}
         <div class="dropdown">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonCalendar }}
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item">{{ calendarOne }}</a></li>
             <li><a class="dropdown-item">{{ calendarTwo }}</a></li>
             <li><a class="dropdown-item" href="#">{{ calendarThree }}</a></li>
-            {%- if (isExpanded) -%}
+            <!-- {%- if (isExpanded) -%}
             <li data-bs-toggle="collapse" data-bs-target="#applications" aria-expanded="false"><a class="dropdown-item">{{ calendarFour }}</a>
               <ul id="applications">
                 <li><a class="dropdown-item" href="#">{{ expandedOne }}</a>
@@ -99,7 +129,7 @@
                 </li>
               </ul>
             </li>
-            {%- else -%}
+            {%- else -%} -->
             <li><a class="dropdown-item" href="#">{{ calendarFour }}</a></li>
             {%- endif -%}
           </ul>
