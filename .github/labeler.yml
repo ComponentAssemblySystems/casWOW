@@ -1,0 +1,10 @@
+## Major releases require manual tags
+minor:
+  - README.md
+  - assets/**
+  - src/**
+dependencies:
+  - dependencies/**
+  - package-lock.json
+github-action:
+  - .github/**

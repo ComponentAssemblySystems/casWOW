@@ -1,0 +1,46 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: 'Features/Enhancements'
+    labels:
+      - 'enhancement'
+  - title: 'Fixes'
+    labels:
+      - 'bug'
+  - title: 'Maintenance'
+    labels:
+      - 'documentation'
+      - 'github-actions'
+exclude-labels:
+  - 'invalid'
+  - 'duplicate'
+  - 'question'
+  - 'wontfix'
+  - 'help wanted'
+change-template: '- #$NUMBER $TITLE (@$AUTHOR)'
+version-resolver:
+  major:
+    labels:
+      - 'feature'
+  minor:
+    labels:
+      - 'bug'
+      - 'enhancement'
+  patch:
+    labels:
+      - 'documentation'
+      - 'github-actions'
+  default: minor
+template: |
+  ## What's Changed
+  $CHANGES
+
+  ## New Contributors
+  $CONTRIBUTORS
+
+  **Previous tag**
+  [$PREVIOUS_TAG](https://github.com/AdamJ/AdamJ/releases/tag/$PREVIOUS_TAG)
+
+  **Full Changelog**: https://github.com/AdamJ/AdamJ/commits/v0.1.0
+no-changes-template: |
+  Confusingly, there are no changes in this release.
