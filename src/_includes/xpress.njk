@@ -36,7 +36,9 @@ layout : base.njk
           <tr>
             <th scope="row" class="text-center">
               {%- if data.plans === "true" -%}
-                <a href="/casWOW/plans">
+                <a href="/casWOW/plans" data-bs-toggle="tooltip" data-bs-placement="right"
+                data-bs-custom-class="arch-plan-tooltip"
+                data-bs-title="314 drawings | 5 revisions">
                   <i class="fa-solid fa-file-image"></i>
                 </a>
               {%- else -%}{%- endif -%}

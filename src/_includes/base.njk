@@ -22,8 +22,6 @@
     <link rel="icon" type="image/png" size="48x48" href="{{ '/favicon.ico' | url }}">
     <link rel="icon" type="image/png" size="72x72" href="{{ '/favicon.png' | url }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <meta
       name="description"
       content="{{meta.siteDescription}}"
@@ -31,12 +29,12 @@
     <meta name="generator" content="Eleventy">
     {# {%- if meta.env=="dev" -%} #}
     {# {%- else -%} #}
-    <link rel="stylesheet" href="{{ '/css/caswow.css' | url }}" />
-    <link href="{{ '/css/tokens.css' | url }}" rel="stylesheet" />
-    <link href="{{ '/css/site.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/fontawesome.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/solid.css' | url }}" rel="stylesheet" />
     <link href="{{ '/css/brands.css' | url }}" rel="stylesheet" />
+    <link href="{{ '/css/site.css' | url }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ '/css/caswow.css' | url }}" />
+    {# <link href="{{ '/css/tokens.css' | url }}" rel="stylesheet" /> #}
     {# {%- endif -%} #}
     {# Set the initial theme and menu states here to prevent flashing #}
   </head>
@@ -67,12 +65,13 @@
       }
     </style>
     <script>
-      const dialog = document.querySelector('.dialog-overview');
-      const openButton = dialog.nextElementSibling;
-      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+      {# Popover #}
+      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+      const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
-      openButton.addEventListener('click', () => dialog.show());
-      closeButton.addEventListener('click', () => dialog.hide());
+      {# Tooltip #}
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
     <script src="{{ '/js/renderDataTable.js' | url }}"></script>
     <script src="{{ '/js/renderDashboard.js' | url }}"></script>

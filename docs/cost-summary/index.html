@@ -15,8 +15,6 @@
     <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
     <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <meta
       name="description"
       content=""
@@ -24,12 +22,12 @@
     <meta name="generator" content="Eleventy">
     
     
-    <link rel="stylesheet" href="/casWOW/css/caswow.css" />
-    <link href="/casWOW/css/tokens.css" rel="stylesheet" />
-    <link href="/casWOW/css/site.css" rel="stylesheet" />
     <link href="/casWOW/css/fontawesome.css" rel="stylesheet" />
     <link href="/casWOW/css/solid.css" rel="stylesheet" />
     <link href="/casWOW/css/brands.css" rel="stylesheet" />
+    <link href="/casWOW/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/casWOW/css/caswow.css" />
+    
     
     
   </head>
@@ -312,11 +310,17 @@
     <tbody>
       
         <tr><th scope="row" class="text-center">
-              <a href="#" alt="Link to area chart">
+              <a href="#" alt="Link to area chart"
+              data-bs-toggle="tooltip" data-bs-placement="right"
+                data-bs-custom-class="arch-plan-tooltip"
+                data-bs-title="Art Chart">
                 <i class="fa-solid fa-chart-area"></i>
               </a>
             </th><th scope="row" class="text-center">
-              <a href="#" alt="Link to art chart">
+              <a href="#" alt="Link to art chart"
+              data-bs-toggle="tooltip" data-bs-placement="right"
+                data-bs-custom-class="arch-plan-tooltip"
+                data-bs-title="Data Chart">
                 <i class="fa-solid fa-chart-simple"></i>
               </a>
             </th><td class="d-flex align-items-center gap-1">
@@ -373,12 +377,13 @@
       }
     </style>
     <script>
-      const dialog = document.querySelector('.dialog-overview');
-      const openButton = dialog.nextElementSibling;
-      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+      
+      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+      const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
-      openButton.addEventListener('click', () => dialog.show());
-      closeButton.addEventListener('click', () => dialog.hide());
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
     <script src="/casWOW/js/renderDataTable.js"></script>
     <script src="/casWOW/js/renderDashboard.js"></script>

@@ -1,7 +1,6 @@
 ---
 layout : base.njk
 ---
-
 <ul class="nav nav-pills border-bottom pb-2 mb-2">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="#">
@@ -45,9 +44,14 @@ layout : base.njk
         <tr>
           <th scope="row" class="text-center">
             {%- if data.plans === "true" -%}
-              <a href="/casWOW/plans">
+              <a data-bs-toggle="tooltip" data-bs-placement="right"
+              data-bs-custom-class="arch-plan-tooltip"
+              data-bs-title="314 drawings | 5 revisions">
                 <i class="fa-solid fa-file-image"></i>
               </a>
+              {# <a href="/casWOW/plans">
+
+              </a> #}
             {%- else -%}{%- endif -%}
           </th>
           <td class="d-flex align-items-center gap-1">
@@ -63,7 +67,7 @@ layout : base.njk
           <td>
             {% set delta = data.delta | int %}
             {%- if delta < 0 -%}
-              <span style="color: red;">({{ data.delta }})</span>
+              <span class="text-danger">({{ data.delta }})</span>
             {%- elseif data.delta == "0" -%}
               <span class="text-neutral">{{ data.delta }}</span>
             {%- else -%}
