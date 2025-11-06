@@ -49,14 +49,20 @@ layout : base.njk
         <tr>
           {%- if data.art === "true" -%}
             <th scope="row" class="text-center">
-              <a href="#" alt="Link to area chart">
+              <a href="#" alt="Link to area chart"
+              data-bs-toggle="tooltip" data-bs-placement="right"
+                data-bs-custom-class="arch-plan-tooltip"
+                data-bs-title="Art Chart">
                 <i class="fa-solid fa-chart-area"></i>
               </a>
             </th>
           {%- endif -%}
           {%- if data.graph === "true" -%}
             <th scope="row" class="text-center">
-              <a href="#" alt="Link to art chart">
+              <a href="#" alt="Link to art chart"
+              data-bs-toggle="tooltip" data-bs-placement="right"
+                data-bs-custom-class="arch-plan-tooltip"
+                data-bs-title="Data Chart">
                 <i class="fa-solid fa-chart-simple"></i>
               </a>
             </th>

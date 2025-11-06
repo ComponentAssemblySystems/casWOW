@@ -15,8 +15,6 @@
     <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
     <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <meta
       name="description"
       content=""
@@ -24,12 +22,12 @@
     <meta name="generator" content="Eleventy">
     
     
-    <link rel="stylesheet" href="/casWOW/css/caswow.css" />
-    <link href="/casWOW/css/tokens.css" rel="stylesheet" />
-    <link href="/casWOW/css/site.css" rel="stylesheet" />
     <link href="/casWOW/css/fontawesome.css" rel="stylesheet" />
     <link href="/casWOW/css/solid.css" rel="stylesheet" />
     <link href="/casWOW/css/brands.css" rel="stylesheet" />
+    <link href="/casWOW/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/casWOW/css/caswow.css" />
+    
     
     
   </head>
@@ -269,8 +267,7 @@
       </div></div></div></div>
 
         </div>
-        
-<ul class="nav nav-pills border-bottom pb-2 mb-2">
+        <ul class="nav nav-pills border-bottom pb-2 mb-2">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="#">
       Active
@@ -345,7 +342,7 @@
           <td>86,675</td>
           <td>96,886</td>
           <td>
-            <span style="color: red;">(-1,209)</span></td>
+            <span class="text-danger">(-1,209)</span></td>
           <td>212</td>
           <td>
             <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow=50 aria-valuemin="0" aria-valuemax="100">
@@ -357,9 +354,12 @@
         </tr>
       
         <tr>
-          <th scope="row" class="text-center"><a href="/casWOW/plans">
+          <th scope="row" class="text-center"><a data-bs-toggle="tooltip" data-bs-placement="right"
+              data-bs-custom-class="arch-plan-tooltip"
+              data-bs-title="314 drawings | 5 revisions">
                 <i class="fa-solid fa-file-image"></i>
-              </a></th>
+              </a>
+              </th>
           <td class="d-flex align-items-center gap-1">
             <span class="badge rounded-pill text-bg-primary">873</span>
             <a href="/casWOW/cost-summary" class="flex-grow-1">Skywalker and Family</a>
@@ -487,12 +487,13 @@
       }
     </style>
     <script>
-      const dialog = document.querySelector('.dialog-overview');
-      const openButton = dialog.nextElementSibling;
-      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+      
+      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+      const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
-      openButton.addEventListener('click', () => dialog.show());
-      closeButton.addEventListener('click', () => dialog.hide());
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
     <script src="/casWOW/js/renderDataTable.js"></script>
     <script src="/casWOW/js/renderDashboard.js"></script>

@@ -15,8 +15,6 @@
     <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
     <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <meta
       name="description"
       content=""
@@ -24,12 +22,12 @@
     <meta name="generator" content="Eleventy">
     
     
-    <link rel="stylesheet" href="/casWOW/css/caswow.css" />
-    <link href="/casWOW/css/tokens.css" rel="stylesheet" />
-    <link href="/casWOW/css/site.css" rel="stylesheet" />
     <link href="/casWOW/css/fontawesome.css" rel="stylesheet" />
     <link href="/casWOW/css/solid.css" rel="stylesheet" />
     <link href="/casWOW/css/brands.css" rel="stylesheet" />
+    <link href="/casWOW/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/casWOW/css/caswow.css" />
+    
     
     
   </head>
@@ -329,36 +327,36 @@
           <dl class="row">
             <dd class="col-sm-6">
               <dl class="row">
-                <dt class="col-sm-4">Labor Cost Variance</dt>
-                <dd class="col-sm-4"><span class="text-danger">($1,000,009)</span></dd>
+                <dt class="col-sm-6">Labor Cost Variance</dt>
+                <dd class="col-sm-6"><span class="text-danger">($1,000,009)</span></dd>
               </dl>
             </dd>
             <dd class="col-sm-6">
               <dl class="row">
-                <dt class="col-sm-4">Labor Actual Hours</dt>
-                <dd class="col-sm-4">120,230</dd>
-              </dl>
-            </dd>
-          </dl>
-          <dl class="row">
-            <dd class="col-sm-6">
-              <dl class="row">
-                <dt class="col-sm-4">Labor Variance Hours</dt>
-                <dd class="col-sm-4">4,190</dd>
-              </dl>
-            </dd>
-            <dd class="col-sm-6">
-              <dl class="row">
-                <dt class="col-sm-4">Labor Budget Hours</dt>
-                <dd class="col-sm-4">124,420</dd>
+                <dt class="col-sm-6">Labor Actual Hours</dt>
+                <dd class="col-sm-6">120,230</dd>
               </dl>
             </dd>
           </dl>
           <dl class="row">
             <dd class="col-sm-6">
               <dl class="row">
-                <dt class="col-sm-4">Labor Variance $</dt>
-                <dd class="col-sm-4">$410,568</dd>
+                <dt class="col-sm-6">Labor Variance Hours</dt>
+                <dd class="col-sm-6">4,190</dd>
+              </dl>
+            </dd>
+            <dd class="col-sm-6">
+              <dl class="row">
+                <dt class="col-sm-6">Labor Budget Hours</dt>
+                <dd class="col-sm-6">124,420</dd>
+              </dl>
+            </dd>
+          </dl>
+          <dl class="row">
+            <dd class="col-sm-6">
+              <dl class="row">
+                <dt class="col-sm-6">Labor Variance $</dt>
+                <dd class="col-sm-6">$410,568</dd>
               </dl>
             </dd>
           </dl>
@@ -482,8 +480,7 @@
         </tr>
     </tbody>
   </table>
-  <nav aria-label="Page navigation example">
-    
+  
 </div>
 
       </main>
@@ -496,12 +493,13 @@
       }
     </style>
     <script>
-      const dialog = document.querySelector('.dialog-overview');
-      const openButton = dialog.nextElementSibling;
-      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+      
+      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+      const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
-      openButton.addEventListener('click', () => dialog.show());
-      closeButton.addEventListener('click', () => dialog.hide());
+      
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
     <script src="/casWOW/js/renderDataTable.js"></script>
     <script src="/casWOW/js/renderDashboard.js"></script>
