@@ -11,10 +11,10 @@
 
       <ul class="nav navbar-top col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0  d-none d-sm-flex">
         <li>
-          <a href="{{ '/xpress' | url }}" class="nav-link px-2 link-secondary {% if '/xpress' in page.url %}active{%- endif -%}">XPress</a>
+          <a href="{{ '/costs/xpress' | url }}" class="nav-link px-2 link-secondary {% if '/xpress' in page.url %}active{%- endif -%}">XPress</a>
         </li>
         <li>
-          <a href="{{ '/project-costs' | url }}" class="nav-link px-2 link-secondary {% if '/project-costs' in page.url %}active{%- endif -%}">Project Costs</a>
+          <a href="{{ '/costs/project-costs' | url }}" class="nav-link px-2 link-secondary {% if '/project-costs' in page.url %}active{%- endif -%}">Project Costs</a>
         </li>
         <li class="d-none d-lg-block">
           <a href="{{ '/reports' | url }}" class="nav-link px-2 link-secondary {% if '/reports' in page.url %}active{%- endif -%}">Reports</a>
@@ -79,3 +79,4 @@
     </div>
   </div>
 </header>
+{% include "../_partials/about_modal.njk" %}

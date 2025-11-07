@@ -26,7 +26,6 @@
     <link href="/casWOW/css/solid.css" rel="stylesheet" />
     <link href="/casWOW/css/brands.css" rel="stylesheet" />
     <link href="/casWOW/css/site.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/casWOW/css/caswow.css" />
     
     
     
@@ -48,10 +47,10 @@
 
       <ul class="nav navbar-top col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0  d-none d-sm-flex">
         <li>
-          <a href="/casWOW/xpress" class="nav-link px-2 link-secondary ">XPress</a>
+          <a href="/casWOW/costs/xpress" class="nav-link px-2 link-secondary ">XPress</a>
         </li>
         <li>
-          <a href="/casWOW/project-costs" class="nav-link px-2 link-secondary active">Project Costs</a>
+          <a href="/casWOW/costs/project-costs" class="nav-link px-2 link-secondary active">Project Costs</a>
         </li>
         <li class="d-none d-lg-block">
           <a href="/casWOW/reports" class="nav-link px-2 link-secondary ">Reports</a>
@@ -116,117 +115,177 @@
     </div>
   </div>
 </header>
+<!-- remove show -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!-- remove display: block -->
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content about-modal-background">
+      <div class="position-absolute top-0 end-0 p-2">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="container-fluid">
+        <div class="row about-modal-content">
+          <div class="col-6 d-flex flex-column align-items-start gap-2">
+            <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" style="height: 32px;" />
+            <h2>CASim Online</h2>
+            <div class="modal-content__details">
+              <dl class="row mb-1">
+                <dt class="col-sm-5">Version</dt>
+                <dd class="col-sm-7">6.0.4.24</dd>
+              </dl>
+              <dl class="row mb-1">
+                <dt class="col-sm-5">Last Updated</dt>
+                <dd class="col-sm-7">November 5, 2025</dd>
+              </dl>
+              <dl class="row mb-1">
+                <dt class="col-sm-5">Browser Build</dt>
+                <dd class="col-sm-7">Microsoft Edge for Business<br/>131.0.2903.86 (Official Build)</dd>
+              </dl>
+              <dl class="row mb-1">
+                <dt class="col-sm-5">Operating System</dt>
+                <dd class="col-sm-7">macOS 15.1.0 (arm64)</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       <main>
         <a id="main-content"></a>
         <div class="container-fluid content-wrapper">
           <div class="row">
           
-          <div class="offcanvas offcanvas-start left-navigation" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas offcanvas-start left-navigation"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+  data-bs-scroll="true"
+  data-bs-backdrop="false"
+>
   <div class="offcanvas-header">
-    <span class="h5 offcanvas-title product-name" id="offcanvasExampleLabel">CASim Online</span>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <h5 class="offcanvas-title"
+      id="sidebarMenuLabel"
+      style="display: flex; width: 100%; align-items: center;"
+    >
+      <div class="sidebar-header-logo">
+        <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" style="height: 32px;" />
+        <span class="uppercase fs-3 text-wrap">CASim Online</span>
+      </div>
+    </h5>
   </div>
-  <div class="">
+  <div class="offcanvas-body" style="overflow: visible;">
   
     <div class="item-menu-dashboards">
-      <div class="menu">
-        <div class="menu-item">
-          
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-expandable">
           <div class="menu-item__row">
-            <div class="menu-item__text active">
+            <div class="menu-item__text fw-medium">
               <a href="/casWOW/">Dashboard</a>
             </div>
             
           </div>
         </div>
-        <div class="menu-block">
-          <div class="menu-item">
-            <div class="menu-item__text-header " data-bs-toggle="collapse" data-bs-target="#applications" aria-expanded="false">
-              <h4 class="mb-0">Applications</h4>
+        <div class="sidebar-menu-expandable  dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="menu-item__text fw-medium">
+              <a href="/casWOW/">Costs</a>
             </div>
-            <div class="menu-item__section collapse" id="applications">
-              <div class="section-item">
-                <a class="menu-item__text">CASim</a>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            <li><a class="dropdown-item " href="/casWOW/costs/xpress">CASim Xpress</a></li>
+            <li><a class="dropdown-item " href="/casWOW/project-costs">Project Costs</a></li>
+            <li><a class="dropdown-item" href="#">Custom List (GC)</a></li>
+            <li><a class="dropdown-item" href="#">Employee List</a></li>
+            <li><a class="dropdown-item" href="#">Vendor List</a></li>
+            <li><a class="dropdown-item" href="#">Comparative Analysis</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-menu-expandable  dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="menu-item__text fw-medium">
+              <a href="/casWOW/">Analytics</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            <li><a class="dropdown-item " href="/casWOW/xpress">CASim Xpress</a></li>
+            <li><a class="dropdown-item active" href="/casWOW/project-costs">Project Costs</a></li>
+            <li><a class="dropdown-item" href="#">Custom List (GC)</a></li>
+            <li><a class="dropdown-item" href="#">Employee List</a></li>
+            <li><a class="dropdown-item" href="#">Vendor List</a></li>
+            <li><a class="dropdown-item" href="#">Comparative Analysis</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-menu-expandable ">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="/casWOW/">PO Module</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable ">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="/casWOW/">EDI Module</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable ">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="/casWOW/">Administration</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable ">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="/casWOW/">Plan Room</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable ">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="/casWOW/">RTU Module</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable ">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="/casWOW/">Quick View</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <div class="sidebar-menu-expandable ">
+            <div class="menu-item__row">
+              <div class="menu-item__text fw-medium">
+                <a href="/casWOW/developer">Developer</a>
               </div>
-              <div class="section-item compound">
-                <a class="menu-item__text">Analytics</a>
-                <div class="section-item">
-                  <a class="menu-item__text">Analytics</a>
-                </div>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">PO Module</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">EDI Module</a>
-              </div>
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
-          <div class="menu-item">
-            <div class="menu-item__text-header " data-bs-toggle="collapse" data-bs-target="#rtu" aria-expanded="false">
-              <h4 class="mb-0">RTU</h4>
-            </div>
-            <div class="menu-item__section collapse" id="rtu">
-              <div class="section-item">
-                <a class="menu-item__text">CASim</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Analytics</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">PO Module</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">EDI Module</a>
-              </div>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="menu-item">
-            <div class="menu-item__text-header " data-bs-toggle="collapse" data-bs-target="#administration" aria-expanded="false">
-              <h4 class="mb-0">Administration</h4>
-            </div>
-            <div class="menu-item__section collapse" id="administration">
-              <div class="section-item">
-                <a class="menu-item__text">Users</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Site</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Access</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Other</a>
-              </div>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="menu-item">
-            <div class="menu-item__text-header " data-bs-toggle="collapse" data-bs-target="#integrations" aria-expanded="false">
-              <h4 class="mb-0">Integrations</h4>
-            </div>
-            <div class="menu-item__section collapse" id="integrations">
-              <div class="section-item">
-                <a class="menu-item__text">Users</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Site</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Access</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Other</a>
-              </div>
-            </div>
+          <div class="footer-details d-grid gap-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              About
+            </button>
+            <p class="footer-copyright mb-0">© 2025 CASim Online</p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="item-menu-footer d-grid gap-2 p-2">
-      <button class="btn btn-outline-secondary" type="button">6.0.4.24</button>
     </div>
   </div>
 </div>

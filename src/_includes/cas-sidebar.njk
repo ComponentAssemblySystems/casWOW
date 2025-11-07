@@ -1,17 +1,29 @@
-<div class="offcanvas offcanvas-start left-navigation" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas offcanvas-start left-navigation"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+  data-bs-scroll="true"
+  data-bs-backdrop="false"
+>
   <div class="offcanvas-header">
-    <span class="h5 offcanvas-title product-name" id="offcanvasExampleLabel">CASim Online</span>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <h5 class="offcanvas-title"
+      id="sidebarMenuLabel"
+      style="display: flex; width: 100%; align-items: center;"
+    >
+      <div class="sidebar-header-logo">
+        <img src="{{ '/img/CAS_logo.svg' | url }}" height="32px" alt="CASWOW logo" style="height: 32px;" />
+        <span class="uppercase fs-3 text-wrap">CASim Online</span>
+      </div>
+    </h5>
   </div>
-  <div class="">
+  <div class="offcanvas-body" style="overflow: visible;">
   {# <div class="left-navigation"> #}
     <div class="item-menu-dashboards">
-      <div class="menu">
-        <div class="menu-item">
-          {# <div class="menu-active">
-          </div> #}
+      <div class="sidebar-menu">
+        <div class="sidebar-menu-expandable">
           <div class="menu-item__row">
-            <div class="menu-item__text {% if '/' in page.url %}active{% endif %}">
+            <div class="menu-item__text fw-medium">
               <a href="{{ '/' | url }}">Dashboard</a>
             </div>
             {% if entry.key === "Welcome, Username" %}
@@ -21,93 +33,103 @@
             {% endif %}
           </div>
         </div>
-        <div class="menu-block">
-          <div class="menu-item">
-            <div class="menu-item__text-header {% if '/applications' in page.url %}active{% endif %}" data-bs-toggle="collapse" data-bs-target="#applications" aria-expanded="false">
-              <h4 class="mb-0">Applications</h4>
+        <div class="sidebar-menu-expandable {% if '/costs' in page.url %}active{% endif %} dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="menu-item__text fw-medium">
+              <a href="{{ '/' | url }}">Costs</a>
             </div>
-            <div class="menu-item__section collapse" id="applications">
-              <div class="section-item">
-                <a class="menu-item__text">CASim</a>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            <li><a class="dropdown-item {% if '/costs/xpress' in page.url %}active{% endif %}" href="{{ '/costs/xpress' | url }}">CASim Xpress</a></li>
+            <li><a class="dropdown-item {% if '/costs/project-costs' in page.url %}active{% endif %}" href="{{ '/project-costs' | url }}">Project Costs</a></li>
+            <li><a class="dropdown-item" href="#">Custom List (GC)</a></li>
+            <li><a class="dropdown-item" href="#">Employee List</a></li>
+            <li><a class="dropdown-item" href="#">Vendor List</a></li>
+            <li><a class="dropdown-item" href="#">Comparative Analysis</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %} dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="menu-item__text fw-medium">
+              <a href="{{ '/' | url }}">Analytics</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            <li><a class="dropdown-item {% if '/xpress' in page.url %}active{% endif %}" href="{{ '/xpress' | url }}">CASim Xpress</a></li>
+            <li><a class="dropdown-item {% if '/project-costs' in page.url %}active{% endif %}" href="{{ '/project-costs' | url }}">Project Costs</a></li>
+            <li><a class="dropdown-item" href="#">Custom List (GC)</a></li>
+            <li><a class="dropdown-item" href="#">Employee List</a></li>
+            <li><a class="dropdown-item" href="#">Vendor List</a></li>
+            <li><a class="dropdown-item" href="#">Comparative Analysis</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="{{ '/' | url }}">PO Module</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="{{ '/' | url }}">EDI Module</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="{{ '/' | url }}">Administration</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="{{ '/' | url }}">Plan Room</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="{{ '/' | url }}">RTU Module</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
+          <div class="menu-item__row">
+            <div class="menu-item__text fw-medium">
+              <a href="{{ '/' | url }}">Quick View</a>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
+            <div class="menu-item__row">
+              <div class="menu-item__text fw-medium">
+                <a href="{{ '/developer' | url }}">Developer</a>
               </div>
-              <div class="section-item compound">
-                <a class="menu-item__text">Analytics</a>
-                <div class="section-item">
-                  <a class="menu-item__text">Analytics</a>
-                </div>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">PO Module</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">EDI Module</a>
-              </div>
+              <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
-          <div class="menu-item">
-            <div class="menu-item__text-header {% if '/rtu' in page.url %}active{% endif %}" data-bs-toggle="collapse" data-bs-target="#rtu" aria-expanded="false">
-              <h4 class="mb-0">RTU</h4>
-            </div>
-            <div class="menu-item__section collapse" id="rtu">
-              <div class="section-item">
-                <a class="menu-item__text">CASim</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Analytics</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">PO Module</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">EDI Module</a>
-              </div>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="menu-item">
-            <div class="menu-item__text-header {% if '/administration' in page.url %}active{% endif %}" data-bs-toggle="collapse" data-bs-target="#administration" aria-expanded="false">
-              <h4 class="mb-0">Administration</h4>
-            </div>
-            <div class="menu-item__section collapse" id="administration">
-              <div class="section-item">
-                <a class="menu-item__text">Users</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Site</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Access</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Other</a>
-              </div>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="menu-item">
-            <div class="menu-item__text-header {% if '/integrations' in page.url %}active{% endif %}" data-bs-toggle="collapse" data-bs-target="#integrations" aria-expanded="false">
-              <h4 class="mb-0">Integrations</h4>
-            </div>
-            <div class="menu-item__section collapse" id="integrations">
-              <div class="section-item">
-                <a class="menu-item__text">Users</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Site</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Access</a>
-              </div>
-              <div class="section-item">
-                <a class="menu-item__text">Other</a>
-              </div>
-            </div>
+          <div class="footer-details d-grid gap-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              About
+            </button>
+            <p class="footer-copyright mb-0">© 2025 CASim Online</p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="item-menu-footer d-grid gap-2 p-2">
-      <button class="btn btn-outline-secondary" type="button">{{meta.version}}</button>
     </div>
   </div>
 </div>
