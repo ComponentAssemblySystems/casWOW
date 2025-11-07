@@ -1,1 +1,0 @@
-{"version":3,"sourceRoot":"","sources":["../../src/css/print.css"],"names":[],"mappings":"AACA,aACE,KACE","file":"print.css","sourcesContent":["/* Only include style for media print */\n@media print {\n  body {\n    background-color: red;\n  }\n}\n"]}
