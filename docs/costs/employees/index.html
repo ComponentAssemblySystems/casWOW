@@ -11,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="@" />
-    <title>casWOW | Vendor Information | </title>
+    <title>casWOW | Employee List | </title>
     <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
     <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -59,7 +59,7 @@
           <a href="/casWOW/project-info" class="nav-link px-2 link-secondary ">Project Information</a>
         </li>
         <li class="d-none d-lg-block">
-          <a href="/casWOW/vendor-info" class="nav-link px-2 link-secondary active">Vendor Information</a>
+          <a href="/casWOW/vendor-info" class="nav-link px-2 link-secondary ">Vendor Information</a>
         </li>
       </ul>
 
@@ -193,7 +193,7 @@
             
           </div>
         </div>
-        <div class="sidebar-menu-expandable  dropend">
+        <div class="sidebar-menu-expandable active dropend">
           <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="menu-item__text fw-medium">
               <a href="/casWOW/">Costs</a>
@@ -204,7 +204,7 @@
             <li><a class="dropdown-item " href="/casWOW/costs/xpress">CASim Xpress</a></li>
             <li><a class="dropdown-item " href="/casWOW/costs/project-costs">Project Costs</a></li>
             <li><a class="dropdown-item" href="#">Custom List (GC)</a></li>
-            <li><a class="dropdown-item " href="/casWOW/costs/employees">Employee List</a></li>
+            <li><a class="dropdown-item active" href="/casWOW/costs/employees">Employee List</a></li>
             <li><a class="dropdown-item" href="#">Vendor List</a></li>
             <li><a class="dropdown-item" href="#">Comparative Analysis</a></li>
           </ul>
@@ -690,27 +690,162 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a href="/casWOW/">Dashboard</a>
-        </li><li class="breadcrumb-item active" aria-current="page">Vendor Information</li></ol>
+        </li><li class="breadcrumb-item active" aria-current="page">Employee List</li></ol>
     </nav></div>
   <div class="page-header-text">
     <div class="logo-text-badge-link">
       <div class="header-subheader">
         <div class="header-label">
           <span class="h2">
-            Vendor Information
+            Employee List
           </span></div></div>
-    </div></div></div>
+    </div><div class="btn-toolbar d-none d-sm-block" role="toolbar" aria-label="Toolbar with button groups"><div class="d-flex gap-2"><div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-building"></i> CAS - NY
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">office location</a></li>
+            <li><a class="dropdown-item" href="#">office location</a></li>
+            <li><a class="dropdown-item" href="#">office location</a></li>
+            <li><a class="dropdown-item" href="#">office location</a></li>
+          </ul>
+        </div><div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Export to CSV</a></li>
+          </ul>
+        </div>
+      </div></div></div></div>
 
         </div>
-        <div class="d-grid gap-4">
-  <div class="custom-placeholder">
-    <a class="ItalicH5" href="breakout">Project breakout</a>
-  </div>
-  <div class="d-flex gap-4 justify-content-between">
-    <div class="custom-placeholder w-50"></div>
-    <div class="custom-placeholder w-50"></div>
-  </div>
+        
+<div class="container-fluid pb-2 mb-2">
+  <input type="radio" class="btn-check" name="options-base" id="active-employees" autocomplete="off" checked>
+  <label class="btn" for="active-employees">Active</label>
+
+  <input type="radio" class="btn-check" name="options-base" id="terminated-employees" autocomplete="off">
+  <label class="btn" for="terminated-employees">Terminated</label>
+
+  <input type="radio" class="btn-check" name="options-base" id="all-employees" autocomplete="off">
+  <label class="btn" for="all-employees">All</label>
 </div>
+
+<div class="container-fluid">
+  <ul class="nav nav-pills border-bottom pb-2 mb-2">
+  <li class="nav-item">
+    <a class="nav-link" href="#">All</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">A</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">B</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">C</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page">D</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">E</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">F</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">G</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">H</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">I</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">J</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">K</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">L</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">M</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">N</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">O</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">P</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Q</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">R</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">S</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">T</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">U</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">V</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">W</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">X</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Y</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Z</a>
+  </li>
+</ul>
+
+</div>
+
+<div class="table-responsive-lg">
+  <table class="table table-striped table-hover table-sm">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Name</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Project</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <th scope="row">
+            <a class="link" alt="Link to user profile">Doe, John</a></th>
+          <td>
+            <img src="/casWOW/img/judge.png" height="24px" width="24px" alt="Image of employee" />
+          </td>
+          <td>N824</td>
+          <td>11/04/2025</td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
 
       </main>
     </div>

@@ -2,14 +2,14 @@
   <div class="row g-0">
     <div class="card-body">
       <h5 class="card-title">Location Costs</h5>
-      <div class="card-columns-container">
+      <div class="row">
         {% for jobCashflow in jobCashflow %}
           {% set widgetTitle = jobCashflow.widgetTitle %}
           {% set widgetPercentage = jobCashflow.widgetPercentage %}
           {% set widgetNumber = jobCashflow.widgetNumber %}
           {% set isNegative = jobCashflow.isNegative %}
           {% set isWarning = jobCashflow.isWarning %}
-          <div data-state="Default" class="card-column-row">
+          <div data-state="Default" class="col-6 col-md-2">
             {% if isNegative %}
               <div class="card-widget widget-danger">
                 <div class="card-widget-header">

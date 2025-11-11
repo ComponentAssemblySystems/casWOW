@@ -1,0 +1,45 @@
+[
+  {
+    "type": "link",
+    "title": "Project List",
+    "url": "/analytics/project-list"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "title": "Job Bid Materials",
+    "url": "/analytics/job-bid-materials"
+  },
+  {
+    "type": "link",
+    "title": "New Bid Materials",
+    "url": "/analytics/new-bid-materials"
+  },
+  {
+    "type": "link",
+    "title": "Bid Material Status",
+    "url": "/analytics/bid-material-status"
+  },
+  {
+    "type": "link",
+    "title": "Material to Budget",
+    "url": "/analytics/material-to-budget"
+  },
+  {
+    "type": "link",
+    "title": "Vendor PO List",
+    "url": "/analytics/vendor-po-list"
+  },
+  {
+    "type": "link",
+    "title": "PO Entry",
+    "url": "/analytics/po-entry"
+  },
+  {
+    "type": "link",
+    "title": "Receive Vendor PO",
+    "url": "/analytics/receive-vendor-po"
+  }
+]

@@ -6,7 +6,7 @@
   },
   {
   "tags": ["xpress"],
-  "permalink": "/xpress/{{ page.fileSlug }}/"
+  "permalink": "/costs/xpress/{{ page.fileSlug }}/"
   },
   {
   "tags": ["reports"],

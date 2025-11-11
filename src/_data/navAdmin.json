@@ -1,0 +1,20 @@
+[
+  {
+    "type": "link",
+    "title": "Vendor List",
+    "url": "/analytics/vendor-list"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "title": "Transmission Activity",
+    "url": "/analytics/transmission-activity"
+  },
+  {
+    "type": "link",
+    "title": "EDI Purchase Orders",
+    "url": "/analytics/edi-purchase-orders"
+  }
+]

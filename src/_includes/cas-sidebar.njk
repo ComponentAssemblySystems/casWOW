@@ -18,7 +18,6 @@
     </h5>
   </div>
   <div class="offcanvas-body" style="overflow: visible;">
-  {# <div class="left-navigation"> #}
     <div class="item-menu-dashboards">
       <div class="sidebar-menu">
         <div class="sidebar-menu-expandable">
@@ -42,9 +41,9 @@
           </div>
           <ul class="sidebar-menu-slideout dropdown-menu">
             <li><a class="dropdown-item {% if '/costs/xpress' in page.url %}active{% endif %}" href="{{ '/costs/xpress' | url }}">CASim Xpress</a></li>
-            <li><a class="dropdown-item {% if '/costs/project-costs' in page.url %}active{% endif %}" href="{{ '/project-costs' | url }}">Project Costs</a></li>
+            <li><a class="dropdown-item {% if '/costs/project-costs' in page.url %}active{% endif %}" href="{{ '/costs/project-costs' | url }}">Project Costs</a></li>
             <li><a class="dropdown-item" href="#">Custom List (GC)</a></li>
-            <li><a class="dropdown-item" href="#">Employee List</a></li>
+            <li><a class="dropdown-item {% if '/costs/employees' in page.url %}active{% endif %}" href="{{ '/costs/employees' | url }}">Employee List</a></li>
             <li><a class="dropdown-item" href="#">Vendor List</a></li>
             <li><a class="dropdown-item" href="#">Comparative Analysis</a></li>
           </ul>
@@ -57,70 +56,264 @@
             <i class="fa-solid fa-arrow-right"></i>
           </div>
           <ul class="sidebar-menu-slideout dropdown-menu">
-            <li><a class="dropdown-item {% if '/xpress' in page.url %}active{% endif %}" href="{{ '/xpress' | url }}">CASim Xpress</a></li>
-            <li><a class="dropdown-item {% if '/project-costs' in page.url %}active{% endif %}" href="{{ '/project-costs' | url }}">Project Costs</a></li>
-            <li><a class="dropdown-item" href="#">Custom List (GC)</a></li>
-            <li><a class="dropdown-item" href="#">Employee List</a></li>
-            <li><a class="dropdown-item" href="#">Vendor List</a></li>
-            <li><a class="dropdown-item" href="#">Comparative Analysis</a></li>
+            {% for item in navAnalytics %}
+              {% if item.type === 'divider' %}
+                <li><hr class="dropdown-divider"></li>
+              {% else %}
+                <li class="submenu-hover-parent position-relative">
+                  {% if item.children and item.children.length %}
+                    <a class="dropdown-item d-flex justify-content-between align-items-center submenu-toggle" href="#">
+                      {{ item.title }}
+                      <i class="fa fa-caret-right ms-2"></i>
+                    </a>
+                    <ul class="submenu-dropdown dropdown-menu position-absolute start-100 top-0 mt-0 ms-1" style="display: none; min-width: 180px;">
+                      {% for child in item.children %}
+                        <li>
+                          <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
           </ul>
         </div>
-        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
-          <div class="menu-item__row">
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %} dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="menu-item__text fw-medium">
               <a href="{{ '/' | url }}">PO Module</a>
             </div>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            {% for item in navPOModule %}
+              {% if item.type === 'divider' %}
+                <li><hr class="dropdown-divider"></li>
+              {% else %}
+                <li class="submenu-hover-parent position-relative">
+                  {% if item.children and item.children.length %}
+                    <a class="dropdown-item d-flex justify-content-between align-items-center submenu-toggle" href="#">
+                      {{ item.title }}
+                      <i class="fa fa-caret-right ms-2"></i>
+                    </a>
+                    <ul class="submenu-dropdown dropdown-menu position-absolute start-100 top-0 mt-0 ms-1" style="display: none; min-width: 180px;">
+                      {% for child in item.children %}
+                        <li>
+                          <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </div>
-        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
-          <div class="menu-item__row">
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %} dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="menu-item__text fw-medium">
               <a href="{{ '/' | url }}">EDI Module</a>
             </div>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            {% for item in navEDIModule %}
+              {% if item.type === 'divider' %}
+                <li><hr class="dropdown-divider"></li>
+              {% else %}
+                <li class="submenu-hover-parent position-relative">
+                  {% if item.children and item.children.length %}
+                    <a class="dropdown-item d-flex justify-content-between align-items-center submenu-toggle" href="#">
+                      {{ item.title }}
+                      <i class="fa fa-caret-right ms-2"></i>
+                    </a>
+                    <ul class="submenu-dropdown dropdown-menu position-absolute start-100 top-0 mt-0 ms-1" style="display: none; min-width: 180px;">
+                      {% for child in item.children %}
+                        <li>
+                          <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </div>
-        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
-          <div class="menu-item__row">
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %} dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="menu-item__text fw-medium">
               <a href="{{ '/' | url }}">Administration</a>
             </div>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            {% for item in navAdmin %}
+              {% if item.type === 'divider' %}
+                <li><hr class="dropdown-divider"></li>
+              {% else %}
+                <li class="submenu-hover-parent position-relative">
+                  {% if item.children and item.children.length %}
+                    <a class="dropdown-item d-flex justify-content-between align-items-center submenu-toggle" href="#">
+                      {{ item.title }}
+                      <i class="fa fa-caret-right ms-2"></i>
+                    </a>
+                    <ul class="submenu-dropdown dropdown-menu position-absolute start-100 top-0 mt-0 ms-1" style="display: none; min-width: 180px;">
+                      {% for child in item.children %}
+                        <li>
+                          <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </div>
-        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
-          <div class="menu-item__row">
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %} dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="menu-item__text fw-medium">
               <a href="{{ '/' | url }}">Plan Room</a>
             </div>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            {% for item in navPlanRoom %}
+              {% if item.type === 'divider' %}
+                <li><hr class="dropdown-divider"></li>
+              {% else %}
+                <li class="submenu-hover-parent position-relative">
+                  {% if item.children and item.children.length %}
+                    <a class="dropdown-item d-flex justify-content-between align-items-center submenu-toggle" href="#">
+                      {{ item.title }}
+                      <i class="fa fa-caret-right ms-2"></i>
+                    </a>
+                    <ul class="submenu-dropdown dropdown-menu position-absolute start-100 top-0 mt-0 ms-1" style="display: none; min-width: 180px;">
+                      {% for child in item.children %}
+                        <li>
+                          <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </div>
-        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
-          <div class="menu-item__row">
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %} dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="menu-item__text fw-medium">
               <a href="{{ '/' | url }}">RTU Module</a>
             </div>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            {% for item in navRTUModule %}
+              {% if item.type === 'divider' %}
+                <li><hr class="dropdown-divider"></li>
+              {% else %}
+                <li class="submenu-hover-parent position-relative">
+                  {% if item.children and item.children.length %}
+                    <a class="dropdown-item d-flex justify-content-between align-items-center submenu-toggle" href="#">
+                      {{ item.title }}
+                      <i class="fa fa-caret-right ms-2"></i>
+                    </a>
+                    <ul class="submenu-dropdown dropdown-menu position-absolute start-100 top-0 mt-0 ms-1" style="display: none; min-width: 180px;">
+                      {% for child in item.children %}
+                        <li>
+                          <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </div>
-        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
-          <div class="menu-item__row">
+        <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %} dropend">
+          <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="menu-item__text fw-medium">
               <a href="{{ '/' | url }}">Quick View</a>
             </div>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
+          <ul class="sidebar-menu-slideout dropdown-menu">
+            {% for item in navQuickview %}
+              {% if item.type === 'divider' %}
+                <li><hr class="dropdown-divider"></li>
+              {% else %}
+                <li class="submenu-hover-parent position-relative">
+                  {% if item.children and item.children.length %}
+                    <a class="dropdown-item d-flex justify-content-between align-items-center submenu-toggle" href="#">
+                      {{ item.title }}
+                      <i class="fa fa-caret-right ms-2"></i>
+                    </a>
+                    <ul class="submenu-dropdown dropdown-menu position-absolute start-100 top-0 mt-0 ms-1" style="display: none; min-width: 180px;">
+                      {% for child in item.children %}
+                        <li>
+                          <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </div>
         <div class="sidebar-footer">
-          <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %}">
-            <div class="menu-item__row">
+          <div class="sidebar-menu-expandable {% if '/analytics' in page.url %}active{% endif %} dropup">
+            <div class="menu-item__row dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               <div class="menu-item__text fw-medium">
-                <a href="{{ '/developer' | url }}">Developer</a>
+                <a href="{{ '/' | url }}">Developer</a>
               </div>
               <i class="fa-solid fa-arrow-right"></i>
             </div>
+            <ul class="sidebar-menu-slideout dropdown-menu">
+              {% for item in navDeveloper %}
+                {% if item.type === 'divider' %}
+                  <li><hr class="dropdown-divider"></li>
+                {% elseif item.type === 'header' %}
+                  <li><h6 class="dropdown-header">{{ item.title }}</h6></li>
+                {% else %}
+                  <li class="submenu-hover-parent position-relative">
+                    {% if item.children and item.children.length %}
+                      <a class="dropdown-item d-flex justify-content-between align-items-center submenu-toggle" href="#">
+                        {{ item.title }}
+                        <i class="fa fa-caret-right ms-2"></i>
+                      </a>
+                      <ul class="submenu-dropdown dropdown-menu position-absolute start-100 top-0 mt-0 ms-1" style="display: none; min-width: 180px;">
+                        {% for child in item.children %}
+                          <li>
+                            <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% else %}
+                      <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+                    {% endif %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
           </div>
           <div class="footer-details d-grid gap-2">
             <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
