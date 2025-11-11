@@ -56,7 +56,7 @@ layout : base.njk
           </th>
           <td class="d-flex align-items-center gap-1">
             <span class="badge rounded-pill text-bg-primary">{{ data.badge }}</span>
-            <a href="/casWOW/cost-summary" class="flex-grow-1">{{ data.project }}</a>
+            <a href="/casWOW/costs/cost-summary" class="flex-grow-1">{{ data.project }}</a>
             {% if data.budgetstatus == "Over Budget" %}
               <span class="badge rounded-pill badge text-bg-danger bg-transparent border border-danger text-danger">{{ data.budgetstatus }}</span>
             {% endif %}

@@ -1,0 +1,85 @@
+[
+  {
+    "type": "link",
+    "title": "Reports Options",
+    "url": "/analytics/reports-options"
+  },
+  {
+    "type": "link",
+    "title": "Regional Manpower",
+    "url": "/analytics/regional-manpower"
+  },
+  {
+    "type": "link",
+    "title": "Manpower Analytics",
+    "url": "/analytics/manpower-analytics"
+  },
+  {
+    "type": "link",
+    "title": "Labor Classification",
+    "url": "/analytics/labor-classification"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "title": "Schedule of Values",
+    "url": "/analytics/schedule-of-values"
+  },
+  {
+    "type": "link",
+    "title": "PCB to AIA Link List",
+    "url": "/analytics/pcb-to-aia-link-list"
+  },
+  {
+    "type": "link",
+    "title": "Ranking",
+    "url": "/analytics/regional-manpower",
+    "children": [
+      {
+        "title": "Manpower - Objective",
+        "url": "/analytics/manpower-object-ranking"
+      },
+      {
+        "title": "Manpower",
+        "url": "/analytics/manpower-ranking"
+      },
+      {
+        "title": "Specialists by Category",
+        "url": "/analytics/specialists-by-category-ranking"
+      }
+    ]
+  },
+  {
+  "type": "divider"
+  },
+  {
+    "type": "link",
+    "title": "Additional Hours (Interferences)",
+    "url": "/analytics/additional-hours-interferences"
+  },
+  {
+    "type": "link",
+    "title": "Additional Hours (Charted)",
+    "url": "/analytics/additional-hours-charted"
+  },
+  {
+    "type": "link",
+    "title": "Percent Complete Deltas (Summary)",
+    "url": "/analytics/percent-complete-deltas-summary"
+  },
+  {
+    "type": "link",
+    "title": "Phase/Category Start/End Dates",
+    "url": "/analytics/phase-category-start-end-dates"
+  },
+  {
+    "type": "divider"
+  },
+  {
+    "type": "link",
+    "title": "Query",
+    "url": "/analytics/query"
+  }
+]

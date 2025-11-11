@@ -1,0 +1,30 @@
+[
+  {
+    "type": "header",
+    "title": "Site Administration"
+  },
+  {
+    "type": "link",
+    "title": "Pages",
+    "url": "/pages"
+  },
+  {
+    "type": "link",
+    "title": "Page Usage",
+    "url": "/pages/page-usage"
+  },
+  {
+    "type": "header",
+    "title": "Unauthorized Access"
+  },
+  {
+    "type": "link",
+    "title": "Blacklisted IPs",
+    "url": "/pages/blacklisted-ips"
+  },
+  {
+    "type": "link",
+    "title": "List Failed Access Attempts",
+    "url": "/pages/failed-access-attempts"
+  }
+]
