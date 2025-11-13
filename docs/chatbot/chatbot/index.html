@@ -34,7 +34,8 @@
       <a id="skip-to-main" class="visually-hidden" href="#main-content" data-smooth-link="false">
         Skip to main content
       </a>
-      <header class="py-1 px-3 mb-4 bg-light shadow-sm rounded-b-full">
+      <header class="site-header sticky-header">
+        <header class="py-1 px-3 mb-4 bg-light shadow-sm rounded-b-full fixed-top">
   <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-2">
       <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
@@ -62,6 +63,87 @@
           <a href="/casWOW/vendor-info" class="nav-link px-2 link-secondary ">Vendor Information</a>
         </li>
       </ul>
+
+      <div class="d-none d-sm-flex gap-2">
+        <button class="btn btn-sm btn-dropdown-toggle btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          CAS - New York
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+          
+          <li>
+            <a class="dropdown-item " href="#">Boston Adams Management</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">C/F Data</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Capital Interiors (SUBS)</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">CAS - Boston</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">CAS - New Jersey</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item active" href="#">CAS - New York</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">CAS - Pennsylvania</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">CAS - Washington, DC</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Commonwealth Wall Systems LLC</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Component West Cal</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Component West LLC</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Construction Validation</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Estimate</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">ESTIME Management Corp</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Hi-Rise Construction Corp</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Service Company</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Zapata Construction, Boston</a>
+          </li>
+          
+          <li>
+            <a class="dropdown-item " href="#">Zapata Construction, New York</a>
+          </li>
+          
+        </ul>
+      </div>
 
       <div class="d-none d-sm-flex gap-2">
         <button class="btn btn-sm btn-outline-secondary" type="button">
@@ -158,12 +240,25 @@
 </div>
 
 
-      <main>
+      </header>
+      
+          <div class="page-header sticky-page-header">
+              <div class="page-header">
+  <div class="top-page-header d-none d-sm-block"></div>
+  <div class="page-header-text">
+    <div class="logo-text-badge-link">
+      <div class="header-subheader">
+        <div class="header-label">
+          <span class="h2">
+            
+          </span></div></div>
+    </div></div></div>
+
+          </div>
+      
+      <main class="mt-6">
         <a id="main-content"></a>
-        <div class="container-fluid content-wrapper">
-          <div class="row">
-          
-          <div class="offcanvas offcanvas-start left-navigation"
+        <div class="offcanvas offcanvas-start left-navigation"
   tabindex="-1"
   id="offcanvasExample"
   aria-labelledby="offcanvasExampleLabel"
@@ -684,20 +779,10 @@
   </div>
 </div>
 
-          
-          <div class="page-header">
-  <div class="top-page-header d-none d-sm-block"></div>
-  <div class="page-header-text">
-    <div class="logo-text-badge-link">
-      <div class="header-subheader">
-        <div class="header-label">
-          <span class="h2">
-            
-          </span></div></div>
-    </div></div></div>
-
-        </div>
-        <div class="container py-5">
+        
+        <div class="container-fluid content-wrapper">
+          <div class="row">
+          <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-lg-8">
       <div class="card chatbot-header p-4 mb-0">
@@ -747,15 +832,12 @@
   </div>
 </div>
 
+          </div>
+        </div>
       </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="/casWOW/js/bootstrap.min.js"></script>
-    <style>
-      sl-dialog::part(base) {
-        z-index: 10000 !important;
-      }
-    </style>
     <script>
       
       const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
