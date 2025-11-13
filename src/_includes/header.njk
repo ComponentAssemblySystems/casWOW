@@ -1,4 +1,4 @@
-<header class="py-1 px-3 mb-4 bg-light shadow-sm rounded-b-full">
+<header class="py-1 px-3 mb-4 bg-light shadow-sm rounded-b-full fixed-top">
   <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-2">
       <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
@@ -26,6 +26,19 @@
           <a href="{{ '/vendor-info' | url }}" class="nav-link px-2 link-secondary {% if '/vendor-info' in page.url %}active{%- endif -%}">Vendor Information</a>
         </li>
       </ul>
+
+      <div class="d-none d-sm-flex gap-2">
+        <button class="btn btn-sm btn-dropdown-toggle btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          CAS - New York
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+          {% for item in companyList %}
+          <li>
+            <a class="dropdown-item {% if item.text === 'CAS - New York' %}active{% endif %}" href="#">{{ item.text }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
 
       <div class="d-none d-sm-flex gap-2">
         <button class="btn btn-sm btn-outline-secondary" type="button">
