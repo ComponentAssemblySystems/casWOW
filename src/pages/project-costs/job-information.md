@@ -16,7 +16,7 @@ toolbarButtonOne: "CAS - NY"
 eleventyNavigation:
   key: JobInformation
   parent: Project Costs
-  level: 3
+  level: 2
 ---
 
 <div class="d-grid gap-4">
