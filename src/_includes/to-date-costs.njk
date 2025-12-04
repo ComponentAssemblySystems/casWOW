@@ -111,10 +111,8 @@ layout : base.njk
     <tbody>
       {% for data in todatecosts %}
         <tr>
-          <td class="d-flex align-items-center gap-1">
-            <a href="" class="flex-grow-1">{{ data.area }}</a>
-          </td>
-          <td>{{ data.costs }}</td>
+          <td class="d-flex align-items-center gap-1">{{ data.area }}</td>
+          <td><a href="">{{ data.costs }}</a></td>
           <td>{{ data.equated }}</td>
           <td>{{ data.totalBudget }}</td>
           <td>{{ data.origBudget }}</td>

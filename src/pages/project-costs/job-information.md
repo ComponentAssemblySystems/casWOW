@@ -1,18 +1,21 @@
 ---
-layout: to-date-costs.njk
-title: To Date Costs
+layout: job-information.njk
+title: Job Information
 badge: true
-badgeText: "873"
+badgeCount: 2
+badgeTextOne: "B873"
+badgeTextTwo: "Complete Code Y"
 breadcrumbs: true
 toolBar: buttons
 buttonCount: "4"
-buttonFourOne: "By Date Costs"
-buttonFourTwo: "Art Chart"
+buttonFourOne: "COR Images"
+buttonFourTwo: "Contract"
 buttonFourThree: "Exclude 990s"
+toolbarIcon: "fa-building"
+toolbarButtonOne: "CAS - NY"
 eleventyNavigation:
-  key: ToDateCosts
-  parent: Cost Summary
-  primaryParent: Project Costs
+  key: JobInformation
+  parent: Project Costs
   level: 3
 ---
 

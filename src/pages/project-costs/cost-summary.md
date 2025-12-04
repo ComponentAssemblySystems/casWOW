@@ -5,7 +5,7 @@ badge: true
 badgeText: "873"
 breadcrumbs: true
 toolBar: buttons
-buttonCount: "0"
+buttonCount: "1"
 dropdownOne: "office location"
 dropdownTwo: "office location"
 dropdownThree: "office location"

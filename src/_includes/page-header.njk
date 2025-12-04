@@ -1,5 +1,5 @@
 <div class="page-header">
-  <div class="top-page-header d-none d-sm-block">
+  <div class="top-page-header">
     {%- if (breadcrumbs) -%}
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -34,10 +34,20 @@
             {{ title }}
           </span>
           {%- if (badge) -%}
-          <span class="badge bg-secondary">
-            {{ badgeText }}
-          </span>
-          {%- else -%}{%- endif -%}
+            {%- if (badgeCount) === 2 -%}
+              <span class="badge bg-secondary">
+                {{ badgeTextOne }}
+              </span>
+              <span class="badge bg-success">
+                {{ badgeTextTwo }}
+              </span>
+            {%- else -%}
+              <span class="badge bg-secondary">
+                {{ badgeText }}
+              </span>
+            {%- endif -%}
+          {%- else -%}
+          {%- endif -%}
         </div>
           {%- if (projectName) -%}
           <span class="fw-bold">
@@ -67,7 +77,8 @@
         {%- if buttonCount === "1" -%}
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonOne }}
+            <span class="d-inline-flex d-lg-none"><i class="fa-solid {{ toolbarIcon }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ toolbarButtonOne }}"></i></span>
+            <span class="d-none d-lg-inline-flex">{{ toolbarButtonOne }}</span>
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">{{ dropdownOne }}</a></li>
@@ -79,7 +90,8 @@
         {%- elseif buttonCount === "2" -%}
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonOne }}
+            <span class="d-inline-flex d-lg-none"><i class="fa-solid {{ toolbarIcon }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ toolbarButtonOne }}"></i></span>
+            <span class="d-none d-lg-inline-flex">{{ toolbarButtonOne }}</span>
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">{{ dropdownOne }}</a></li>
@@ -90,7 +102,8 @@
         </div>
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-building"></i> {{ toolbarButtonTwo }}
+            <span class="d-inline-flex d-lg-none"><i class="fa-solid fa-building" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ toolbarButtonTwo }}"></i></span>
+            <span class="d-none d-lg-inline-flex">{{ toolbarButtonTwo }}</span>
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">{{ dropdownOne }}</a></li>
@@ -99,18 +112,22 @@
         </div>
         {%- elseif buttonCount === "4" -%}
           <button class="btn btn-outline-secondary" type="button">
-            By Date Costs
+            <span class="d-none d-lg-inline-flex">{{ buttonFourOne }}</span>
+            <span class="d-inline-flex d-lg-none" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ buttonFourOne }}"><i class="fa-solid fa-calendar-days"></i></span>
           </button>
           <button class="btn btn-outline-secondary" type="button">
-            Art Chart
+            <span class="d-none d-lg-inline-flex">{{ buttonFourTwo }}</span>
+            <span class="d-inline-flex d-lg-none" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ buttonFourTwo }}"><i class="fa-solid fa-chart-area"></i></span>
           </button>
           <button class="btn btn-outline-secondary" type="button">
-            Exclude 990s
+            <span class="d-none d-lg-inline-flex">{{ buttonFourThree }}</span>
+            <span class="d-inline-flex d-lg-none" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ buttonFourThree }}"><i class="fa-solid fa-circle-minus"></i></span>
           </button>
         {%- else -%}
         <div class="dropdown">
           <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid {{ toolbarIcon }}"></i> {{ toolbarButtonCalendar }}
+            <span class="d-inline-flex d-lg-none" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ toolbarButtonCalendar }}"><i class="fa-solid {{ toolbarIcon }}"></i></span>
+            <span class="d-none d-lg-inline-flex">{{ toolbarButtonCalendar }}</span>
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item">{{ calendarOne }}</a></li>
