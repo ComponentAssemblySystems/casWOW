@@ -37,21 +37,22 @@
       <header class="site-header sticky-header">
         <header class="py-1 px-3 mb-4 bg-light shadow-sm rounded-b-full fixed-top">
   <div class="container-fluid">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-2">
-      <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
-        <i class="fa-solid fa-bars fa-lg"></i>
-      </button>
-      <a href="/casWOW/" class="d-flex align-items-center mb-2 mb-lg-0 link-secondary text-decoration-none">
-        <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" style="height: 32px;" />
-        <span class="d-flex d-sm-none">CASim Online</span>
-      </a>
+    <div class="d-inline-flex flex-wrap align-items-center justify-content-between gap-2 w-100">
+      <div class="d-inline-flex gap-2 align-items-center me-3">
+        <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
+          <i class="fa-solid fa-bars fa-lg"></i>
+        </button>
+        <a href="/casWOW/" class="d-flex align-items-center mb-2 mb-lg-0 link-secondary text-decoration-none">
+          <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" style="height: 32px;" />
+        </a>
+      </div>
 
-      <ul class="nav navbar-top col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0  d-none d-sm-flex">
-        <li>
+      <ul class="nav navbar-top col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 d-none d-lg-flex">
+        <li class="d-none d-lg-block">
           <a href="/casWOW/costs/xpress" class="nav-link px-2 link-secondary active">XPress</a>
         </li>
-        <li>
-          <a href="/casWOW/costs/project-costs" class="nav-link px-2 link-secondary ">Project Costs</a>
+        <li class="d-none d-lg-block">
+          <a href="/casWOW/costs/project-costs" class="nav-link px-2 link-secondary active">Project Costs</a>
         </li>
         <li class="d-none d-lg-block">
           <a href="/casWOW/reports" class="nav-link px-2 link-secondary ">Reports</a>
@@ -64,9 +65,9 @@
         </li>
       </ul>
 
-      <div class="d-none d-sm-flex gap-2">
+      <div class="d-none d-lg-flex gap-2">
         <button class="btn btn-sm btn-dropdown-toggle btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          CAS - New York
+          <i class="fa-solid fa-building"></i> <span class="d-none d-lg-inline">CAS - New York</span>
         </button>
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
           
@@ -145,18 +146,16 @@
         </ul>
       </div>
 
-      <div class="d-none d-sm-flex gap-2">
-        <button class="btn btn-sm btn-outline-secondary" type="button">
+      <div class="d-none d-lg-flex gap-2">
+        <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Print">
           <i class="fa-solid fa-print"></i>
-          Print
         </button>
-        <button class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center" type="button">
+        <button class="btn btn-sm btn-outline-secondary align-items-center" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Export">
           <i class="fa-solid fa-file-export"></i>
-          Export
         </button>
       </div>
 
-      <div class="dropdown text-end d-none d-lg-block">
+      <div class="dropdown text-end d-flex">
         <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="/casWOW/img/lumberjack.png" height="32px" alt="Lumberjack avatar" style="height: 32px;" class="rounded-full" />
         </a>
@@ -202,7 +201,50 @@
     </div>
   </div>
 </header>
-<!-- remove show -->
+
+      </header>
+      
+          <div class="page-header sticky-page-header">
+              <div class="page-header">
+  <div class="top-page-header"><nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/casWOW/">Dashboard</a>
+        </li><li class="breadcrumb-item active" aria-current="page">XPress</li></ol>
+    </nav></div>
+  <div class="page-header-text">
+    <div class="logo-text-badge-link">
+      <div class="header-subheader">
+        <div class="header-label">
+          <span class="h2">
+            XPress
+          </span></div></div>
+    </div><div class="btn-toolbar d-none d-sm-block" role="toolbar" aria-label="Toolbar with button groups"><div class="d-flex gap-2"><div class="dropdown">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="d-inline-flex d-lg-none"><i class="fa-solid fa-building" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="CAS - NY"></i></span>
+            <span class="d-none d-lg-inline-flex">CAS - NY</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">office location</a></li>
+            <li><a class="dropdown-item" href="#">office location</a></li>
+            <li><a class="dropdown-item" href="#">office location</a></li>
+            <li><a class="dropdown-item" href="#">office location</a></li>
+          </ul>
+        </div><div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Export to CSV</a></li>
+          </ul>
+        </div>
+      </div></div></div></div>
+
+          </div>
+      
+      <main class="mt-6">
+        <a id="main-content"></a>
+        <!-- remove show -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!-- remove display: block -->
   <div class="modal-dialog modal-xl">
     <div class="modal-content about-modal-background">
@@ -239,48 +281,6 @@
   </div>
 </div>
 
-
-      </header>
-      
-          <div class="page-header sticky-page-header">
-              <div class="page-header">
-  <div class="top-page-header d-none d-sm-block"><nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="/casWOW/">Dashboard</a>
-        </li><li class="breadcrumb-item active" aria-current="page">XPress</li></ol>
-    </nav></div>
-  <div class="page-header-text">
-    <div class="logo-text-badge-link">
-      <div class="header-subheader">
-        <div class="header-label">
-          <span class="h2">
-            XPress
-          </span></div></div>
-    </div><div class="btn-toolbar d-none d-sm-block" role="toolbar" aria-label="Toolbar with button groups"><div class="d-flex gap-2"><div class="dropdown">
-          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-building"></i> CAS - NY
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">office location</a></li>
-            <li><a class="dropdown-item" href="#">office location</a></li>
-            <li><a class="dropdown-item" href="#">office location</a></li>
-            <li><a class="dropdown-item" href="#">office location</a></li>
-          </ul>
-        </div><div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Actions
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Export to CSV</a></li>
-          </ul>
-        </div>
-      </div></div></div></div>
-
-          </div>
-      
-      <main class="mt-6">
-        <a id="main-content"></a>
         <div class="offcanvas offcanvas-start left-navigation"
   tabindex="-1"
   id="offcanvasExample"
@@ -838,8 +838,8 @@
       <tbody>
         
           <tr>
-            <th scope="row" class="text-center"></th>
-            <td>
+            <th scope="row" class="text-center" style="max-width: 40px; width: 40px; padding: 0;"></th>
+            <td class="d-flex align-items-center gap-1">
               <span class="badge rounded-pill text-bg-primary">717</span>
               <a href="" class="flex-grow-1">Mandalore Place</a>
             <td>186,455</td>
@@ -858,8 +858,8 @@
           </tr>
         
           <tr>
-            <th scope="row" class="text-center"></th>
-            <td>
+            <th scope="row" class="text-center" style="max-width: 40px; width: 40px; padding: 0;"></th>
+            <td class="d-flex align-items-center gap-1">
               <span class="badge rounded-pill text-bg-primary">212</span>
               <a href="" class="flex-grow-1">Heater Grappler</a>
             <td>86,686</td>
@@ -878,12 +878,18 @@
           </tr>
         
           <tr>
-            <th scope="row" class="text-center"><a href="/casWOW/plans" data-bs-toggle="tooltip" data-bs-placement="right"
-                data-bs-custom-class="arch-plan-tooltip"
-                data-bs-title="314 drawings | 5 revisions">
+            <th scope="row" class="text-center" style="max-width: 40px; width: 40px; padding: 0;"><button tabindex="0" type="button" class="btn btn-link btn-sm" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Architectural Drawings" data-bs-content="
+                  <p>314 drawings | 5 revisions</p>
+                  <div class='d-flex gap-2'>
+                    <a class='btn btn-sm btn-outline-primary' href='/casWOW/plans' role='button' alt='Link to view plans for this project'>View Plans</a>
+                    <a class='btn btn-sm btn-outline-secondary' href='' role='button' alt='Download all available plans'>Download Plans</a>
+                  </div>
+                "
+                data-bs-html="true"
+                >
                   <i class="fa-solid fa-file-image"></i>
-                </a></th>
-            <td>
+                </button></th>
+            <td class="d-flex align-items-center gap-1">
               <span class="badge rounded-pill text-bg-primary">873</span>
               <a href="" class="flex-grow-1">Skywalker and Family</a>
             <td>38,763</td>
@@ -902,8 +908,8 @@
           </tr>
         
           <tr>
-            <th scope="row" class="text-center"></th>
-            <td>
+            <th scope="row" class="text-center" style="max-width: 40px; width: 40px; padding: 0;"></th>
+            <td class="d-flex align-items-center gap-1">
               <span class="badge rounded-pill text-bg-primary">718</span>
               <a href="" class="flex-grow-1">400 Raffles</a>
             <td>7,270</td>
@@ -922,8 +928,8 @@
           </tr>
         
           <tr>
-            <th scope="row" class="text-center"></th>
-            <td>
+            <th scope="row" class="text-center" style="max-width: 40px; width: 40px; padding: 0;"></th>
+            <td class="d-flex align-items-center gap-1">
               <span class="badge rounded-pill text-bg-primary">212</span>
               <a href="" class="flex-grow-1">Healthcore Group LLC</a>
             <td>145,087</td>
@@ -942,8 +948,8 @@
           </tr>
         
           <tr>
-            <th scope="row" class="text-center"></th>
-            <td>
+            <th scope="row" class="text-center" style="max-width: 40px; width: 40px; padding: 0;"></th>
+            <td class="d-flex align-items-center gap-1">
               <span class="badge rounded-pill text-bg-primary">712</span>
               <a href="" class="flex-grow-1">Company and Sons</a>
             <td>17,652</td>

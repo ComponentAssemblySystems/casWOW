@@ -6,6 +6,9 @@ badgeText: "873"
 breadcrumbs: true
 toolBar: buttons
 buttonCount: "4"
+buttonFourOne: "By Date Costs"
+buttonFourTwo: "Art Chart"
+buttonFourThree: "Exclude 990s"
 eleventyNavigation:
   key: ToDateCosts
   parent: Cost Summary

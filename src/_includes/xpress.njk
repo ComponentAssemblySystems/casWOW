@@ -34,16 +34,22 @@ layout : base.njk
       <tbody>
         {% for data in xpress %}
           <tr>
-            <th scope="row" class="text-center">
+            <th scope="row" class="text-center" style="max-width: 40px; width: 40px; padding: 0;">
               {%- if data.plans === "true" -%}
-                <a href="/casWOW/plans" data-bs-toggle="tooltip" data-bs-placement="right"
-                data-bs-custom-class="arch-plan-tooltip"
-                data-bs-title="314 drawings | 5 revisions">
+                <button tabindex="0" type="button" class="btn btn-link btn-sm" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Architectural Drawings" data-bs-content="
+                  <p>314 drawings | 5 revisions</p>
+                  <div class='d-flex gap-2'>
+                    <a class='btn btn-sm btn-outline-primary' href='/casWOW/plans' role='button' alt='Link to view plans for this project'>View Plans</a>
+                    <a class='btn btn-sm btn-outline-secondary' href='' role='button' alt='Download all available plans'>Download Plans</a>
+                  </div>
+                "
+                data-bs-html="true"
+                >
                   <i class="fa-solid fa-file-image"></i>
-                </a>
+                </button>
               {%- else -%}{%- endif -%}
             </th>
-            <td>
+            <td class="d-flex align-items-center gap-1">
               <span class="badge rounded-pill text-bg-primary">{{ data.badge }}</span>
               <a href="" class="flex-grow-1">{{ data.project }}</a>
             <td>{{ data.budget }}</td>

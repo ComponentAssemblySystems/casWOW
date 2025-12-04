@@ -1,0 +1,162 @@
+---
+layout : base.njk
+---
+
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card mb-3 custom-placeholder">
+        <div class="row g-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6 col-sm-4 col-md-3">
+                <p class="mb-0 fw-medium">Joe Bants</p>
+                <p class="mb-0 text-muted">
+                  Project Manager
+                </p>
+              </div>
+              <div class="col-6 col-sm-4 col-md-3">
+                <p class="mb-0 fw-medium">08/16/2019</p>
+                <p class="mb-0 text-muted">
+                  Project Date
+                </p>
+              </div>
+              <div class="col-6 col-sm-4 col-md-3">
+                <p class="mb-0 fw-medium">$17,005,000</p>
+                <p class="mb-0 text-muted">
+                  Original contract amount
+                </p>
+              </div>
+              <div class="col-6 col-sm-4 col-md-3">
+                <p class="mb-0 fw-medium">$25,712,806</p>
+                <p class="mb-0 text-muted">
+                  Adjusted contract amount
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-3 col-lg-3">
+      <div class="card">
+        <div class="card-body">
+          <dl class="row">
+            <dt class="col-sm-12">G.C.</dt>
+            <dd class="col-sm-12">Construction Company LLC</dd>
+          </dl>
+          <dl class="row">
+            <dt class="col-sm-12">No.</dt>
+            <dd class="col-sm-12">717</dd>
+          </dl>
+          <dl class="row">
+            <dt class="col-sm-12">Address 1</dt>
+            <dd class="col-sm-12">65 Address Street</dd>
+          </dl>
+          <dl class="row">
+            <dt class="col-sm-12">City, State, Zip</dt>
+            <dd class="col-sm-12">Somewhere, OH 01010</dd>
+          </dl>
+          <dl class="row">
+            <dt class="col-sm-12">Contact</dt>
+            <dd class="col-sm-12">Mister Noname</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 col-lg-3">
+      <div class="card">
+        <div class="card-body">
+          <dl class="row">
+            <dt class="col-sm-6">ToDate Costs</dt>
+            <dd class="col-sm-6"><a href="{{ '/costs/to-date-costs' | url }}" alt="">$19,818,658</a></dd>
+          </dl>
+          <dl class="row">
+            <dt class="col-sm-6">Sub costs not in books</dt>
+            <dd class="col-sm-6">0</dd>
+          </dl>
+          <dl class="row">
+            <dt class="col-sm-6">Open POs</dt>
+            <dd class="col-sm-6"><a href="{{ '/costs/open-pos' | url }}" alt="Link to GC">0</a></dd>
+          </dl>
+          <dl class="row">
+            <dt class="col-sm-6">Total Project Costs</dt>
+            <dd class="col-sm-6"><a href="{{ '/costs/total-project-costs' | url }}" alt="">$19,818,658</a></dd>
+          </dl>
+          <dl class="row">
+            <dt class="col-sm-6">Contract Total</dt>
+            <dd class="col-sm-6"><a href="{{ '/costs/contract-total' | url }}" alt="">$25,712,806</a></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <dl class="row">
+            <div class="col-6">
+              <div class="row">
+                <dt class="col-sm-6">Pending COs</dt>
+                <dd class="col-sm-6"><a href="{{ '/costs/pending-cos' | url }}" alt="">$1,580,644</a></dd>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <dt class="col-sm-6">Extra work orders</dt>
+                <dd class="col-sm-6"><a href="{{ '/costs/extra-work-orders' | url }}" alt="">$2,618,802</a></dd>
+              </div>
+            </div>
+          </dl>
+          <dl class="row">
+            <div class="col-6">
+              <div class="row">
+                <dt class="col-sm-6">Billed to date</dt>
+                <dd class="col-sm-6"><a href="{{ '/costs/billed-to-date' | url }}" alt="Link to GC">$25,712,806</a></dd>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <dt class="col-sm-6">Proposals</dt>
+                <dd class="col-sm-6"><a href="{{ '/costs/proposals' | url }}" alt="Link to GC">$8,949,612</a></dd>
+              </div>
+            </div>
+          </dl>
+          <dl class="row">
+            <div class="col-6">
+              <div class="row">
+                <dt class="col-sm-6">900 billings</dt>
+                <dd class="col-sm-6"><a href="{{ '/costs/990-billings' | url }}" alt="Link to GC">$21,840</a></dd>
+              </div>
+            </div>
+          </dl>
+          <dl class="row">
+            <div class="col-6">
+              <div class="row">
+                <dt class="col-sm-6">Payments received</dt>
+                <dd class="col-sm-6"><a href="{{ '/costs/payments-received' | url }}" alt="">$24,722,197</a></dd>
+              </div>
+            </div>
+          </dl>
+          <dl class="row">
+            <div class="col-6">
+              <div class="row">
+                <dt class="col-sm-6">Overhead G&A</dt>
+                <dd class="col-sm-6">$2,563,939</dd>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <dt class="col-sm-6">Last entry</dt>
+                <dd class="col-sm-6">05/31/2024</dd>
+              </div>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
