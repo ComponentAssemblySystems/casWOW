@@ -15,7 +15,7 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0(yaml@2.8.1)
       '@fortawesome/fontawesome-free':
-        specifier: ^7.0.1
+        specifier: ^7.1.0
         version: 7.1.0
       bootstrap-icons:
         specifier: ^1.13.1
@@ -31,8 +31,8 @@ importers:
         specifier: ^6.0.4
         version: 6.0.4
       '@11ty/eleventy-navigation':
-        specifier: ^1.0.4
-        version: 1.0.4
+        specifier: ^1.0.5
+        version: 1.0.5
       '@11ty/eleventy-plugin-inclusive-language':
         specifier: ^1.0.3
         version: 1.0.3
@@ -89,8 +89,8 @@ packages:
     resolution: {integrity: sha512-jSy9BmubVs0mN76dcXWfSYDgRU+1+/rq/SxUR3MgIvTUAJRDop5pFW+Z1f56CDcOlEHaiPqHgnfOlqRmJvXl7g==}
     engines: {node: '>=18'}
 
-  '@11ty/eleventy-navigation@1.0.4':
-    resolution: {integrity: sha512-FgIfKiFP1e3plQdIvSRph1tFV44bbCXcYs+AWcwnsfrn5I6Gf0t3hBq9IrR4JdnZ06hlEKq8qRbnbb0nfEZg3A==}
+  '@11ty/eleventy-navigation@1.0.5':
+    resolution: {integrity: sha512-zb6xe29cM9viSdYtZywKIkJw2HIROyBINdBcFWC9uD0c/jYOTAex5nwy3HNEuh5t6/Ld/S9V4gEizfmeYuYpCQ==}
 
   '@11ty/eleventy-plugin-bundle@3.0.7':
     resolution: {integrity: sha512-QK1tRFBhQdZASnYU8GMzpTdsMMFLVAkuU0gVVILqNyp09xJJZb81kAS3AFrNrwBCsgLxTdWHJ8N64+OTTsoKkA==}
@@ -1971,7 +1971,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@11ty/eleventy-navigation@1.0.4':
+  '@11ty/eleventy-navigation@1.0.5':
     dependencies:
       dependency-graph: 1.0.0
 
