@@ -1,0 +1,73 @@
+<ul class="sidebar-menu-slideout dropdown-menu">
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(200px, 1fr)); gap: 1rem;">
+    <div>
+      <li>
+        <h6 class="dropdown-header">Reports</h6>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/reports-options' | url }}">Report Options</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/regional-manpower' | url }}">Regional Manpower</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/manpower-analytics' | url }}">Manpower Analytics</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/labor-classification' | url }}">Labor Classification</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/schedule-of-values' | url }}">Schedule of Values</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/pcb-to-aia-link-list' | url }}">PCB to AIA Link List</a>
+      </li>
+    </div>
+    <div>
+      <li>
+        <h6 class="dropdown-header">Ranking</h6>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/regional-manpower' | url }}">Regional Manpower</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/manpower-object-ranking' | url }}">Manpower Object Ranking</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/specialists-by-category-ranking' | url }}">Specialists by Category Ranking</a>
+      </li>
+    </div>
+    <div>
+      <li>
+        <h6 class="dropdown-header">Hours</h6>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/additional-hours-interferences' | url }}">Additional Hours (Interferences)</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/additional-hours-charted' | url }}">Additional Hours (Charted)</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ '/analytics/percent-complete-deltas-summary' | url }}">Percent Complete Deltas (Summary)</a>
+      </li>
+    </div>
+  {# {% for item in navAnalytics %}
+    {% if item.type === 'divider' %}
+      <li><hr class="dropdown-divider"></li>
+    {% else %}
+      <li class="submenu-hover-parent position-relative">
+        {% if item.type === 'header' %}
+          <h6 class="dropdown-header">{{ item.title }}</h6>
+          {% for child in item.children %}
+            <li>
+              <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+            </li>
+          {% endfor %}
+            <li><hr class="dropdown-divider"></li>
+        {% else %}
+          <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+        {% endif %}
+      </li>
+    {% endif %}
+  {% endfor %} #}
+</ul>

@@ -5,16 +5,39 @@
     "url": "/analytics/vendor-list"
   },
   {
-    "type": "divider"
+    "type": "header",
+    "title": "User Administration",
+    "children": [
+      {
+        "title": "Users",
+        "url": "/administration/users"
+      },
+      {
+        "title": "Project Security",
+        "url": "/administration/project-security"
+      },
+      {
+        "title": "Password Reset",
+        "url": "/administration/password-reset"
+      }
+    ]
   },
   {
-    "type": "link",
-    "title": "Transmission Activity",
-    "url": "/analytics/transmission-activity"
-  },
-  {
-    "type": "link",
-    "title": "EDI Purchase Orders",
-    "url": "/analytics/edi-purchase-orders"
+    "type": "header",
+    "title": "Site Administration",
+    "children": [
+      {
+        "title": "Pages",
+        "url": "/administration/pages"
+      },
+      {
+        "title": "Page Usage",
+        "url": "/administration/page-usage"
+      },
+      {
+        "title": "Site Logins",
+        "url": "/administration/site-logins"
+      }
+    ]
   }
 ]

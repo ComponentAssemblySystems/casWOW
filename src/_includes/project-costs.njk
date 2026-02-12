@@ -23,75 +23,117 @@ layout : base.njk
 </ul>
 
 <div class="table-responsive-lg">
-  <table class="table table-striped table-hover table-sm">
+  <table class="table table-striped table-hover table-sm table-sticky-header">
     <thead>
       <tr class="table-primary">
-        <th scope="col">Plans</th>
+        <th scope="col"></th>
         <th scope="col">Project</th>
-        <th scope="col">Budget hours</th>
-        <th scope="col">Equated hours</th>
-        <th scope="col">Actual hours</th>
-        <th scope="col">Delta hours</th>
-        <th scope="col"># Days</th>
-        <th scope="col">% Complete</th>
-        <th scope="col">% Update</th>
-        <th scope="col">Times updated</th>
-        <th scope="col">Budget updated</th>
+        <th scope="col">ToDate Costs</th>
+        <th scope="col">Total Proj Costs</th>
+        <th scope="col">Contract Total</th>
+        <th scope="col">Pending COs</th>
+        <th scope="col">Billed ToDate</th>
+        <th scope="col">Payments Received</th>
+        <th scope="col">Unbilled Costs</th>
       </tr>
     </thead>
     <tbody>
       {% for data in costs %}
         <tr>
-          <th scope="row" class="text-center">
-            {%- if data.plans === "true" -%}
-              <a data-bs-toggle="tooltip" data-bs-placement="right"
-              data-bs-custom-class="arch-plan-tooltip"
-              data-bs-title="314 drawings | 5 revisions">
-                <i class="fa-solid fa-file-image"></i>
-              </a>
-              {# <a href="/casWOW/plans">
-
-              </a> #}
-            {%- else -%}{%- endif -%}
+          <th scope="row" class="text-center" style="width: 90px;">
+            <a
+              href="{{ '/art-chart' | url }}"
+              class="text-decoration-none"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-custom-class="casim-custom-tooltip"
+              data-bs-title="Show art chart"
+            >
+              <i class="fa-solid fa-chart-area"></i>
+            </a>
+            <div class="vr mx-2"></div>
+            <a
+              href="{{ '/project-analysis' | url }}"
+              class="text-decoration-none"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-custom-class="casim-custom-tooltip"
+              data-bs-title="Show project analysis"
+            >
+              <i class="fa-solid fa-diagram-project"></i>
+            </a>
           </th>
           <td class="d-flex align-items-center gap-1">
             <span class="badge rounded-pill text-bg-primary">{{ data.badge }}</span>
-            <a href="/casWOW/costs/cost-summary" class="flex-grow-1">{{ data.project }}</a>
-            {% if data.budgetstatus == "Over Budget" %}
-              <span class="badge rounded-pill badge text-bg-danger bg-transparent border border-danger text-danger">{{ data.budgetstatus }}</span>
+            <a href="/casWOW/costs/cost-summary" class="flex-grow-1 fw-bold">{{ data.project }}</a>
+            {% if data.budgetStatus == "Over Budget" %}
+              <span class="badge rounded-pill badge text-bg-danger bg-transparent border border-danger text-danger">{{ data.budgetStatus }}</span>
             {% endif %}
           </td>
-          <td>{{ data.budget }}</td>
-          <td>{{ data.equated }}</td>
-          <td>{{ data.actual }}</td>
           <td>
-            {% set delta = data.delta | int %}
-            {%- if delta < 0 -%}
-              <span class="text-danger">({{ data.delta }})</span>
-            {%- elseif data.delta == "0" -%}
-              <span class="text-neutral">{{ data.delta }}</span>
-            {%- else -%}
-              <span>{{ data.delta }}</span>
-            {%- endif -%}
+            <a
+              href="/casWOW/summary"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="arch-progress-tooltip"
+              data-bs-title="Show to-date costs"
+            >
+              {{ data.toDateCosts }}
+            </a>
           </td>
-          <td>{{ data.days }}</td>
           <td>
-            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow={{ data.percent }} aria-valuemin="0" aria-valuemax="100">
-              {% set percent = data.percent | int %}
-              {%- if data.percent <= 20 -%}
-              <div class="progress-bar bg-secondary" style="width: {{ percent }}%"></div>
-              {%- elseif percent > 21 and percent < 50 -%}
-              <div class="progress-bar bg-danger" style="width: {{ percent }}%">{{ percent }}</div>
-              {%- elseif percent >= 50 and percent < 100 -%}
-              <div class="progress-bar bg-primary" style="width: {{ percent }}%">{{ percent }}</div>
-              {%- elseif percent === 100 -%}
-              <div class="progress-bar bg-success" style="width: {{ percent }}%">{{ percent }}</div>
+            <a
+              href="/casWOW/summary"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="arch-progress-tooltip"
+              data-bs-title="Show total project costs"
+            >
+              {{ data.totalProjCosts }}
+            </a>
+          </td>
+          <td>
+            <a
+              href="/casWOW/summary"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="arch-progress-tooltip"
+              data-bs-title="Show contract totals"
+            >
+              {{ data.contractTotal }}
+            </a>
+          </td>
+          <td>
+            <a
+              href="/casWOW/summary"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="arch-progress-tooltip"
+              data-bs-title="Show pending change orders"
+              {% set delta = data.pendingCOs | int %}
+              {%- if delta < 0 -%}
+                class="text-danger"
+              {%- elseif data.pendingCOs == "0" -%}
+                class="text-neutral"
+              {%- else -%}
               {%- endif -%}
-            </div>
+            >
+              {{ data.pendingCOs }}
+            </a>
           </td>
-          <td>{{ data.update }}</td>
-          <td>{{ data.timesUpdated }}</td>
-          <td>{{ data.budgetUpdated }}</td>
+          <td>
+            <a
+              href="/casWOW/summary"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              data-bs-custom-class="arch-progress-tooltip"
+              data-bs-title="Show billed-to-date"
+            >
+              {{ data.billedToDate }}
+            </a>
+          </td>
+          <td>{{ data.paymentsReceived }}</td>
+          <td>{{ data.unbilledCosts }}</td>
         </tr>
       {% endfor %}
     </tbody>

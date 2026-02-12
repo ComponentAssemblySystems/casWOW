@@ -9,7 +9,7 @@ const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
 module.exports = function (eleventyConfig) {
   eleventyConfig.setServerOptions({
     liveReload: true,
-    showVersion: true,
+    showVersion: true
   });
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -40,6 +40,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/favicon.png');
 
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
+  eleventyConfig.addFilter('starDate', function (datestring) {
+    return ` ${new Date(datestring).toDateString()}`;
+  });
   eleventyConfig.addShortcode('packageVersion', () => `v${packageVersion}`);
 
   eleventyConfig.setBrowserSyncConfig({

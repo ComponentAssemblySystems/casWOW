@@ -29,11 +29,11 @@
   },
   {
     "type": "link",
-    "title": "PCB to AIA Link List",
+    "title": "Map PCB to AIA",
     "url": "/analytics/pcb-to-aia-link-list"
   },
   {
-    "type": "link",
+    "type": "header",
     "title": "Ranking",
     "url": "/analytics/regional-manpower",
     "children": [
@@ -52,9 +52,6 @@
     ]
   },
   {
-  "type": "divider"
-  },
-  {
     "type": "link",
     "title": "Additional Hours (Interferences)",
     "url": "/analytics/additional-hours-interferences"
@@ -70,12 +67,12 @@
     "url": "/analytics/percent-complete-deltas-summary"
   },
   {
+    "type": "divider"
+  },
+  {
     "type": "link",
     "title": "Phase/Category Start/End Dates",
     "url": "/analytics/phase-category-start-end-dates"
-  },
-  {
-    "type": "divider"
   },
   {
     "type": "link",

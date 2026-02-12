@@ -1,0 +1,50 @@
+<ul class="sidebar-menu-slideout dropdown-menu">
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(200px, 1fr)); gap: 1rem;">
+    <div>
+    <li>
+      <h6 class="dropdown-header">User Administration</h6>
+    </li>
+    <li>
+      <a class="dropdown-item" href="{{ '/administration/users' | url }}">Users</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="{{ '/administration/project-security' | url }}">Project Security</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="{{ '/administration/password-reset' | url }}">Password Reset</a>
+    </li>
+  </div>
+  <div>
+    <li>
+      <h6 class="dropdown-header">Site Administration</h6>
+    </li>
+    <li>
+      <a class="dropdown-item" href="{{ '/administration/pages' | url }}">Pages</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="{{ '/administration/page-usage' | url }}">Page Usage</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="{{ '/administration/site-logins' | url }}">Site Logins</a>
+    </li>
+  </div>
+  {# {% for item in navAdmin %}
+    {% if item.type === 'divider' %}
+      <li><hr class="dropdown-divider"></li>
+    {% else %}
+      <li class="submenu-hover-parent position-relative">
+        {% if item.type === 'header' %}
+          <h6 class="dropdown-header">{{ item.title }}</h6>
+          {% for child in item.children %}
+            <li>
+              <a class="dropdown-item" href="{{ child.url | url }}">{{ child.title }}</a>
+            </li>
+          {% endfor %}
+            <li><hr class="dropdown-divider"></li>
+        {% else %}
+          <a class="dropdown-item" href="{{ item.url | url }}">{{ item.title }}</a>
+        {% endif %}
+      </li>
+    {% endif %}
+  {% endfor %} #}
+</ul>

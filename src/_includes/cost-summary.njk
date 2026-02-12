@@ -21,7 +21,7 @@ layout : base.njk
 </ul>
 
 <div class="table-responsive-lg">
-  <table class="table table-striped table-hover table-sm">
+  <table class="table table-striped table-hover table-sm table-sticky-header">
     <thead>
       <tr class="table-primary">
         {% for data in costsummary %}
@@ -49,7 +49,7 @@ layout : base.njk
         <tr>
           {%- if data.art === "true" -%}
             <th scope="row" class="text-center">
-              <a href="#" alt="Link to area chart"
+              <a href="{{ '/art-chart' | url }}" alt="Link to area chart"
               data-bs-toggle="tooltip" data-bs-placement="right"
                 data-bs-custom-class="arch-plan-tooltip"
                 data-bs-title="Art Chart">
