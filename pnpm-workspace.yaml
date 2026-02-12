@@ -1,2 +1,3 @@
 overrides:
+  '@componentassemblysystems/caswow.library': link:../caswow.library
   caswow.library: link:../caswow.library

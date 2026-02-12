@@ -5,9 +5,6 @@
     "url": "/analytics/project-list"
   },
   {
-    "type": "divider"
-  },
-  {
     "type": "link",
     "title": "Job Bid Materials",
     "url": "/analytics/job-bid-materials"

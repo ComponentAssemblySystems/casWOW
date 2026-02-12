@@ -15,10 +15,10 @@ layout : base.njk
 </ul>
 
   <div class="table-responsive-lg">
-    <table class="table table-striped table-hover table-sm">
+    <table class="table table-striped table-hover table-sm table-sticky-header">
       <thead>
         <tr class="table-primary">
-          <th scope="col">Plans</th>
+          <th scope="col"></th>
           <th scope="col">Project</th>
           <th scope="col">Budget hours</th>
           <th scope="col">Equated hours</th>
@@ -34,21 +34,60 @@ layout : base.njk
       <tbody>
         {% for data in xpress %}
           <tr>
-            <th scope="row" class="text-center">
+            <th scope="row" class="text-center" style="width: 90px;">
               {%- if data.plans === "true" -%}
-                <a href="/casWOW/plans" data-bs-toggle="tooltip" data-bs-placement="right"
-                data-bs-custom-class="arch-plan-tooltip"
-                data-bs-title="314 drawings | 5 revisions">
+                <a
+                  href="{{ '/plans' | url }}"
+                  class="text-decoration-none"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  data-bs-custom-class="casim-custom-tooltip"
+                  data-bs-title="314 drawings | 5 revisions"
+                >
                   <i class="fa-solid fa-file-image"></i>
                 </a>
-              {%- else -%}{%- endif -%}
+                <div class="vr mx-2"></div>
+                <a
+                  href="{{ '/art-chart' | url }}"
+                  class="text-decoration-none"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  data-bs-custom-class="casim-custom-tooltip"
+                  data-bs-title="Art chart"
+                >
+                  <i class="fa-solid fa-chart-area"></i>
+                </a>
+              {%- else -%}
+              {%- endif -%}
             </th>
             <td>
               <span class="badge rounded-pill text-bg-primary">{{ data.badge }}</span>
-              <a href="" class="flex-grow-1">{{ data.project }}</a>
-            <td>{{ data.budget }}</td>
+              <a href="" class="flex-grow-1 fw-bold">{{ data.project }}</a>
+            <td>
+              <a
+                href="/casWOW/summary"
+                style="width: 100%"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="arch-progress-tooltip"
+                data-bs-title="Show budget hours"
+              >
+                {{ data.budget }}
+              </a>
+            </td>
             <td>{{ data.equated }}</td>
-            <td>{{ data.actual }}</td>
+            <td>
+              <a
+                href="/casWOW/summary"
+                style="width: 100%"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="arch-progress-tooltip"
+                data-bs-title="Show manpower chart"
+              >
+                {{ data.actual }}
+              </a>
+            </td>
             <td>
               {% set delta = data.delta | int %}
               {%- if delta < 0 -%}
@@ -59,18 +98,79 @@ layout : base.njk
                 <span>{{ data.delta }}</span>
               {%- endif -%}
             </td>
-            <td>{{ data.days }}</td>
+            <td>
+              <a
+                href="/casWOW/summary"
+                style="width: 100%"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="arch-progress-tooltip"
+                data-bs-title="Show labor days"
+              >
+                {{ data.days }}
+              </a>
+            </td>
             <td>
               <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow={{ data.percent }} aria-valuemin="0" aria-valuemax="100">
                 {% set percent = data.percent | int %}
                 {%- if data.percent <= 20 -%}
-                <div class="progress-bar bg-secondary" style="width: {{ percent }}%"></div>
+                <a
+                  href="/casWOW/summary"
+                  style="width: 100%"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  data-bs-custom-class="arch-progress-tooltip"
+                  data-bs-title="Show category summary"
+                >
+                  <div
+                    class="progress-bar bg-secondary"
+                    style="width: {{ percent }}%">
+                  </div>
+                </a>
                 {%- elseif percent > 21 and percent < 50 -%}
-                <div class="progress-bar bg-danger" style="width: {{ percent }}%">{{ percent }}</div>
+                <a
+                  href="/casWOW/summary"
+                  style="width: 100%"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  data-bs-custom-class="arch-progress-tooltip"
+                  data-bs-title="Show category summary"
+                >
+                <div
+                  class="progress-bar bg-danger"
+                  style="width: {{ percent }}%"
+                >
+                  {{ percent }}
+                </div>
+                </a>
                 {%- elseif percent >= 50 and percent < 100 -%}
-                <div class="progress-bar bg-primary" style="width: {{ percent }}%">{{ percent }}</div>
+                <a
+                  href="/casWOW/summary"
+                  style="width: 100%"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  data-bs-custom-class="arch-progress-tooltip"
+                  data-bs-title="Show category summary"
+                >
+                  <div
+                    class="progress-bar bg-primary"
+                    style="width: {{ percent }}%">{{ percent }}
+                  </div>
+                </a>
                 {%- elseif percent === 100 -%}
-                <div class="progress-bar bg-success" style="width: {{ percent }}%">{{ percent }}</div>
+                <a
+                  href="/casWOW/summary"
+                  style="width: 100%"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  data-bs-custom-class="arch-progress-tooltip"
+                  data-bs-title="Show category summary"
+                >
+                  <div
+                    class="progress-bar bg-success"
+                    style="width: {{ percent }}%">{{ percent }}
+                  </div>
+                </a>
                 {%- endif -%}
               </div>
             </td>

@@ -47,22 +47,22 @@ To run CAS WOW locally, simply clone the repository and install dependencies. Cu
 
 Run the following to link the caswow.library as a pnpm module:
 
-```sh
-$ cd /path/to/your/stylesheet
-$ pnpm link
+```bash
+cd /path/to/your/stylesheet
+pnpm link
 ```
 
 return to this project:
 
 ```sh
-$ pnpm link ../caswow.library // path to your local caswow.library
-$ pnpm install
+pnpm link ../caswow.library // path to your local caswow.library
+pnpm install
 ```
 
 Then copy the caswow CSS files into the dependencies folder:
 
 ```sh
-$ pnpm copy-cas
+pnpm copy-cas
 ```
 
 or you can import it into `site.css`:

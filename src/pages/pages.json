@@ -1,15 +1,19 @@
 [
   {
-  "layout": "page",
-  "tags": ["pages"],
-  "permalink": "/{{ page.fileSlug }}/"
+    "layout": "page",
+    "tags": ["pages"],
+    "permalink": "/{{ page.fileSlug }}/"
   },
   {
-  "tags": ["xpress"],
-  "permalink": "/costs/xpress/{{ page.fileSlug }}/"
+    "tags": ["xpress"],
+    "permalink": "/costs/xpress/{{ page.fileSlug }}/"
   },
   {
-  "tags": ["reports"],
-  "permalink": "/reports/{{ page.fileSlug }}/"
+    "tags": ["reports"],
+    "permalink": "/reports/{{ page.fileSlug }}/"
+  },
+  {
+    "tags": ["art-chart"],
+    "permalink": "/{{ page.fileSlug }}/"
   }
 ]

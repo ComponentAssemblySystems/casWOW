@@ -45,9 +45,7 @@
         {% include "header.njk" %}
       </header>
       {% if page.pageHeader !== false %}
-          <div class="page-header sticky-page-header">
-              {% include "page-header.njk" %}
-          </div>
+        {% include "page-header.njk" %}
       {% endif %}
       <main class="mt-6">
         <a id="main-content"></a>
@@ -63,6 +61,7 @@
           </div>
         </div>
       </main>
+      {% include "../_partials/about_modal.njk" %}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="{{ '/js/bootstrap.min.js' | url }}"></script>
@@ -77,6 +76,7 @@
     </script>
     <script src="{{ '/js/renderDataTable.js' | url }}"></script>
     <script src="{{ '/js/renderDashboard.js' | url }}"></script>
+    <script src="{{ '/js/renderArtChart.js' | url }}"></script>
     <script src="{{ '/js/csvUploader.js' | url }}"></script>
     <script src="{{ '/js/app.js' | url }}"></script>
   </body>
