@@ -1,0 +1,81 @@
+[
+  {
+    "name": "Costs +",
+    "subitems": [
+      {
+        "name": "CASim XPress",
+        "url": "/costs/xpress/"
+      },
+      {
+        "name": "Project Cost Summary",
+        "url": "/costs/project-costs"
+      },
+      {
+        "name": "CASim Notes List",
+        "url": "/costs/casim-notes-list/"
+      },
+      {
+        "name": "Customer (GC) List",
+        "url": "/costs/customer-gc-list/"
+      },
+      {
+        "name": "Employee List",
+        "url": "/costs/employees/"
+      },
+      {
+        "name": "Vendor List",
+        "url": "/costs/vendors/"
+      },
+      {
+        "name": "Comparative Analysis",
+        "url": "/costs/comparative-analysis/"
+      },
+      {
+        "name": "Insurance Accident History",
+        "url": "/costs/insurance-accident-history/"
+      },
+      {
+        "name": "GNA - Region Summary",
+        "url": "/costs/gna-region-summary/"
+      },
+      {
+        "name": "OTG Applications",
+        "url": "/costs/otg-applications/"
+      }
+    ]
+  },
+  {
+    "name": "Time Entry",
+    "subitems": [
+      {
+        "name": "Time Sheet",
+        "url": "/time-sheet/"
+      },
+      {
+        "name": "Time Entry",
+        "url": "/time-entry/"
+      },
+      {
+        "name": "Time View",
+        "url": "/time-view/"
+      }
+    ]
+  },
+  {
+    "name": "Analytics",
+    "subitems": [
+      {
+        "name": "Report Options",
+        "url": "/analytics/reports-options/"
+      },
+      {
+        "name": "Regional Manpower",
+        "url": "/analytics/regional-manpower/"
+      },
+      {
+        "name": "Manpower Analytics",
+        "url": "/analytics/manpower-analytics/"
+      }
+    ]
+  }
+]
