@@ -28,13 +28,13 @@
           </div>
         </div>
       </div>
-      <ul class="list-unstyled ps-0">
+      <ul class="list-unstyled ps-0" id="sidebarAccordion">
         {% for item in sidebar %}
           <li class="mb-1">
             <button class="btn sidebar-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#{{ item.name | slugify }}" aria-expanded="false">
               <span>{{ item.name }}</span>
             </button>
-            <div class="collapse" id="{{ item.name | slugify }}">
+            <div class="collapse" id="{{ item.name | slugify }}" data-bs-parent="#sidebarAccordion">
               <ul class="sidebar-toggle-nav">
                 {% for subitem in item.subitems %}
                   <li>

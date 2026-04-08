@@ -278,13 +278,13 @@
           </div>
         </div>
       </div>
-      <ul class="list-unstyled ps-0">
+      <ul class="list-unstyled ps-0" id="sidebarAccordion">
         
           <li class="mb-1">
             <button class="btn sidebar-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#costs" aria-expanded="false">
               <span>Costs +</span>
             </button>
-            <div class="collapse" id="costs">
+            <div class="collapse" id="costs" data-bs-parent="#sidebarAccordion">
               <ul class="sidebar-toggle-nav">
                 
                   <li>
@@ -355,7 +355,7 @@
             <button class="btn sidebar-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#time-entry" aria-expanded="false">
               <span>Time Entry</span>
             </button>
-            <div class="collapse" id="time-entry">
+            <div class="collapse" id="time-entry" data-bs-parent="#sidebarAccordion">
               <ul class="sidebar-toggle-nav">
                 
                   <li>
@@ -384,7 +384,7 @@
             <button class="btn sidebar-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#analytics" aria-expanded="false">
               <span>Analytics</span>
             </button>
-            <div class="collapse" id="analytics">
+            <div class="collapse" id="analytics" data-bs-parent="#sidebarAccordion">
               <ul class="sidebar-toggle-nav">
                 
                   <li>
