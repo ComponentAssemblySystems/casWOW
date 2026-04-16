@@ -15,5 +15,9 @@
   {
     "tags": ["art-chart"],
     "permalink": "/{{ page.fileSlug }}/"
+  },
+  {
+    "tags": ["examples"],
+    "permalink": "/{{ page.fileSlug }}/"
   }
 ]
