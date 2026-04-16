@@ -78,7 +78,15 @@ layout : base.njk
               data-bs-custom-class="arch-progress-tooltip"
               data-bs-title="Show to-date costs"
             >
-              {{ data.toDateCosts }}
+              <a
+                href="/casWOW/costs/to-date-costs/"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="arch-progress-tooltip"
+                data-bs-title="Show total to-date costs"
+              >
+                {{ data.toDateCosts }}
+              </a>
             </a>
           </td>
           <td>
