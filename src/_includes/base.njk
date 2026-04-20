@@ -1,6 +1,7 @@
 <!doctype html>
 <html
   lang="en"
+  data-bs-theme="light"
   data-layout="fluid"
   data-sidebar-theme="colored"
   data-sidebar-position="left"
@@ -35,7 +36,16 @@
     <link href="{{ '/css/site.css' | url }}" rel="stylesheet" />
     {# <link href="{{ '/css/tokens.css' | url }}" rel="stylesheet" /> #}
     {# {%- endif -%} #}
-    {# Set the initial theme and menu states here to prevent flashing #}
+    {# Set the initial theme based on system preference — runs before paint to prevent flash #}
+    <script>
+      (function () {
+        var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-bs-theme', dark ? 'dark' : 'light');
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+          document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
+        });
+      })();
+    </script>
   </head>
     <body style="height: 100vh;">
       <a id="skip-to-main" class="visually-hidden" href="#main-content" data-smooth-link="false">
