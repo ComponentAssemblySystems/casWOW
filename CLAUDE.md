@@ -39,8 +39,8 @@
   - Shared layouts and partials are used for composition.
 
 - **Documentation/Storybook:**
-  - No Storybook or automated component documentation detected.
-  - Component usage is documented via template structure and frontmatter in markdown files.
+  - casWOW itself has no Storybook. Component documentation lives in `caswow.library`, which runs Storybook separately (`pnpm storybook` in that repo).
+  - Component usage in casWOW is documented via template structure and frontmatter in markdown files.
 
 ---
 
@@ -198,4 +198,13 @@ For further details, see:
 
 ---
 
-This rules doc can be saved as `CLAUDE.md` or `.cursor/rules/design_system_rules.mdc` for future reference.
+## AI Skills
+
+Project-specific skills are in `.claude/skills/` and are loaded automatically by Claude Code when run from this directory.
+
+| Skill | Triggers on |
+|---|---|
+| `caswow-page` | Adding or editing Eleventy pages, frontmatter, nav wiring, partials, Chart.js, sidebar layout |
+| `caswow-release` | Bumping the caswow.library version, running `pnpm copy-cas`, tagging a release |
+
+For component and token work, run Claude Code from the `caswow.library` repo — those skills live there.
