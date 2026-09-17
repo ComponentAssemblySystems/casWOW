@@ -124,7 +124,7 @@ layout : base.njk
                 >
                   <div
                     class="progress-bar bg-secondary"
-                    style="width: {{ percent }}%">
+                    style="width: {{ percent }}%; height: 100%;">
                   </div>
                 </a>
                 {%- elseif percent > 21 and percent < 50 -%}
@@ -138,7 +138,7 @@ layout : base.njk
                 >
                 <div
                   class="progress-bar bg-danger"
-                  style="width: {{ percent }}%"
+                  style="width: {{ percent }}%; height: 100%;"
                 >
                   {{ percent }}
                 </div>
@@ -154,7 +154,7 @@ layout : base.njk
                 >
                   <div
                     class="progress-bar bg-primary"
-                    style="width: {{ percent }}%">{{ percent }}
+                    style="width: {{ percent }}%; height: 100%;">{{ percent }}
                   </div>
                 </a>
                 {%- elseif percent === 100 -%}
@@ -168,7 +168,7 @@ layout : base.njk
                 >
                   <div
                     class="progress-bar bg-success"
-                    style="width: {{ percent }}%">{{ percent }}
+                    style="width: {{ percent }}%; height: 100%;">{{ percent }}
                   </div>
                 </a>
                 {%- endif -%}
