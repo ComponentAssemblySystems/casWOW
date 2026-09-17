@@ -123,13 +123,13 @@ layout : base.njk
             <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow={{ data.percentComplete }} aria-valuemin="0" aria-valuemax="100">
               {% set percent = data.percentComplete | int %}
               {%- if data.percent <= 20 -%}
-              <div class="progress-bar bg-secondary" style="width: {{ percent }}%"></div>
+              <div class="progress-bar bg-secondary" style="width: {{ percent }}%; height: 100%;"></div>
               {%- elseif percent > 21 and percent < 50 -%}
-              <div class="progress-bar bg-danger" style="width: {{ percent }}%">{{ percent }}</div>
+              <div class="progress-bar bg-danger" style="width: {{ percent }}%; height: 100%;">{{ percent }}</div>
               {%- elseif percent >= 50 and percent < 100 -%}
-              <div class="progress-bar bg-primary" style="width: {{ percent }}%">{{ percent }}</div>
+              <div class="progress-bar bg-primary" style="width: {{ percent }}%; height: 100%;">{{ percent }}</div>
               {%- elseif percent === 100 -%}
-              <div class="progress-bar bg-success" style="width: {{ percent }}%">{{ percent }}</div>
+              <div class="progress-bar bg-success" style="width: {{ percent }}%; height: 100%;">{{ percent }}</div>
               {%- endif -%}
             </div>
           </td>
@@ -137,13 +137,13 @@ layout : base.njk
             <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow={{ data.percentBudget }} aria-valuemin="0" aria-valuemax="100">
               {% set percent = data.percentBudget | int %}
               {%- if data.percent <= 20 -%}
-              <div class="progress-bar bg-secondary" style="width: {{ percent }}%"></div>
+              <div class="progress-bar bg-secondary" style="width: {{ percent }}%; height: 100%;"></div>
               {%- elseif percent > 21 and percent < 50 -%}
-              <div class="progress-bar bg-danger" style="width: {{ percent }}%">{{ percent }}</div>
+              <div class="progress-bar bg-danger" style="width: {{ percent }}%; height: 100%;">{{ percent }}</div>
               {%- elseif percent >= 50 and percent < 100 -%}
-              <div class="progress-bar bg-primary" style="width: {{ percent }}%">{{ percent }}</div>
+              <div class="progress-bar bg-primary" style="width: {{ percent }}%; height: 100%;">{{ percent }}</div>
               {%- elseif percent === 100 -%}
-              <div class="progress-bar bg-success" style="width: {{ percent }}%">{{ percent }}</div>
+              <div class="progress-bar bg-success" style="width: {{ percent }}%; height: 100%;">{{ percent }}</div>
               {%- endif -%}
             </div>
           </td>
@@ -160,12 +160,12 @@ layout : base.njk
           <td>7,394,638</td>
           <td>
             <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar bg-success" style="width: 100%">100</div>
+              <div class="progress-bar bg-success" style="width: 100%; height: 100%;">100</div>
             </div>
           </td>
           <td>
             <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar bg-primary" style="width: 94%">94</div>
+              <div class="progress-bar bg-primary" style="width: 94%; height: 100%;">94</div>
             </div>
           </td>
         </tr>
