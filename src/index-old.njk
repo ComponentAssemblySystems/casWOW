@@ -1,0 +1,19 @@
+---
+layout: workspace.njk
+title: Explore casWOW
+screen: explore
+subtitle: A directory of the library-based sample screens
+---
+<section>
+<h2 class="h5 mb-3">Explore the sample application</h2>
+<div class="row g-3">{% for name, destination, description in samples.routes %}<div class="col-12 col-md-6 col-xl-4">
+<article class="card bg-body h-100">
+<div class="card-body">
+<h3 class="h5">
+<a href="{{ destination | url }}">{{ name }}</a>
+</h3>
+<p class="text-body-secondary mb-0">{{ description }}</p>
+</div>
+</article>
+</div>{% endfor %}</div>
+</section>

@@ -135,7 +135,7 @@ pnpm build:eleventy
 **If reinstalling from GitHub (CI / clean install):**
 ```bash
 pnpm install          # pulls latest from the GitHub URL
-pnpm copy-cas         # copies caswow.css from node_modules into src/css/
+pnpm copy-cas         # rebuilds Eleventy and copies canonical library assets into docs/library/
 pnpm build:eleventy   # rebuilds the Eleventy site
 ```
 
@@ -143,7 +143,7 @@ pnpm build:eleventy   # rebuilds the Eleventy site
 
 ```bash
 # Confirm the CSS file was updated
-head -5 src/css/caswow.css   # should show the new build timestamp or token values
+head -5 docs/library/caswow.css   # should show the new build timestamp or token values
 
 # Check the built site
 pnpm show   # dev server — open browser and spot-check affected components
@@ -166,7 +166,7 @@ This version appears in the Storybook footer and build metadata — it's cosmeti
 ## Step 5: Commit casWOW changes
 
 ```bash
-git add src/css/caswow.css src/_data/meta.js
+git add docs/library/caswow.css src/_data/meta.js
 git commit -m "chore: update caswow.library to v0.7.4"
 git push origin main
 ```
@@ -183,7 +183,7 @@ git push origin main
 - [ ] `package.json` version bumped correctly
 - [ ] Git commit and tag created (`v{VERSION}`)
 - [ ] Tag pushed to origin (`git push origin main --tags`)
-- [ ] `casWOW`: `pnpm copy-cas` run and `src/css/caswow.css` updated
+- [ ] `casWOW`: `pnpm copy-cas` run and `docs/library/caswow.css` updated
 - [ ] `casWOW`: Eleventy build passes (`pnpm build`)
 - [ ] `casWOW`: visual spot-check in dev server (`pnpm show`)
 - [ ] `casWOW`: changes committed and pushed
@@ -196,6 +196,6 @@ git push origin main
 
 **`pnpm css` fails with SCSS compilation error** — a variable used in `scss/caswow.scss` or its imports is missing from `_tokens-generated.scss`. Run `pnpm tokens:build` first, or check that the token path mapping in `sd.config.mjs` is correct.
 
-**casWOW still shows old styles after `pnpm copy-cas`** — Eleventy may have cached the old file. Run `pnpm build:eleventy` explicitly, or delete `docs/css/caswow.css` and rebuild.
+**casWOW still shows old styles after `pnpm copy-cas`** — Eleventy may have cached the old file. Run `pnpm build:eleventy` explicitly, or delete `docs/library/caswow.css` and rebuild.
 
 **`pnpm vitest run` fails on a Storybook story test** — the component factory function likely has a breaking change. Fix the component or update the test to match the new API before tagging.

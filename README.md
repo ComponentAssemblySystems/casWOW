@@ -59,35 +59,19 @@ pnpm link ../caswow.library // path to your local caswow.library
 pnpm install
 ```
 
-Then copy the caswow CSS files into the dependencies folder:
+Build the site to copy the library stylesheet and its self-hosted fonts directly into the published output:
 
 ```sh
-pnpm copy-cas
+pnpm build
 ```
 
-or you can import it into `site.css`:
+The application loads only `docs/library/caswow.css`. Eleventy copies it, its source map, and `docs/library/fonts/` from the linked `caswow.library` package. Do not add local CSS copies or extra stylesheets.
 
-```javascript
-@import "caswow.library/css/caswow.css";
-```
+`pnpm copy-cas` and `pnpm css` also rebuild the site. `pnpm watch:cas` watches the linked library and rebuilds when its CSS or fonts change.
 
-> if the caswow.library is ever published, replace `pnpm link caswow.library` with `pnpm install caswow.library` to add it to the package.json dependencies.
+## Local Views
 
-## Font Awesome
-
-CASWOW uses [Font Awesome](https://fontawesome.com/) for icons, with the current version set at `v7.0.1`.
-
-### Updates / Upgrades
-
-To upgrade the version of Font Awesome, the following steps must be taken:
-
-1. Update the version in `package.json`
-1. Run `pnpm install`
-1. Run `copy-fa` to copy the latest Font Awesome webfonts and CSS files to their respective CASWOW directories
-1. Run `pnpm build` to rebuild the CASWOW project with the new dependencies
-1. Verify the build has picked up the latest changes by checking the version under `docs/css/fontawesome.css`
-
-You should now be able to run `pnpm dev` to view the icons with the newest version. If any icons are missing that are specific to the latest version, be sure to check `dependencies/` and `src/css/fontawesome.css` to verify that the correct version has been copied over.
+The casWOW demo site has two entry points - `/casWOW/` and `/casWOW/index-old/`. The baseline `/casWOW/` page is the dashboard, whereas `/casWOW/index-old/` shows all of the available pages, without having to dive into each according to the standard user workflow.
 
 ## Notes
 

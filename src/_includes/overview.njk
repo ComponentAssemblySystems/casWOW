@@ -1,0 +1,71 @@
+<section class="card bg-body mb-4" aria-labelledby="location-costs-title">
+  <header class="card-header border-0 bg-transparent"><h2 class="h5 mb-1" id="location-costs-title">Location costs</h2><p class="small text-body-secondary mb-0">Overall totals. The chart timeframe only filters the charts and their data tables below.</p></header>
+  <div class="card-body pt-0">
+    <dl class="row row-cols-1 row-cols-sm-2 row-cols-xl-5 g-3 mb-0">
+    {% for metric in reviewed.metrics %}
+    <div class="col" data-metric>
+      <dt class="small text-body-secondary fw-normal">{{ metric.label }}</dt>
+      <dd class="h5 mb-1">{{ metric.value | money }}</dd>
+      <dd class="small text-body-secondary mb-0">{{ metric.basis }}</dd>
+    </div>
+    {% endfor %}
+  </dl></div>
+</section>
+<div class="d-flex justify-content-end mb-2">
+  <button class="btn btn-sm btn-outline-secondary d-none" type="button" data-restore hidden>Restore hidden charts</button>
+</div>
+<div class="row g-3" data-chart-grid id="dashboard-charts">
+{% for chart in reviewed.charts %}
+  <div class="col-12 col-lg-6" data-chart-panel="{{ chart.id }}">
+    <section class="card bg-body h-100" aria-labelledby="{{ chart.id }}-title">
+      <header class="card-header border-0 bg-transparent d-flex align-items-start justify-content-between gap-3">
+        <div>
+          <h2 class="h5 mb-1" id="{{ chart.id }}-title">{{ chart.title }}</h2>
+          <p class="small text-body-secondary mb-0"><span data-chart-period>May–Oct 2026</span> · {{ chart.unit }}</p>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Configure {{ chart.title | lower }} chart"><i class="fa-solid fa-sliders" aria-hidden="true"></i></button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <button class="dropdown-item" type="button" data-hide-chart="{{ chart.id }}">Hide chart</button>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <div class="card-body pt-0">
+        <div class="ratio ratio-21x9">
+          <canvas data-chart="{{ chart | jsonAttribute | escape }}" role="img" aria-label="{{ chart.title }} for May through October 2026. Exact values are in the data table below.">
+          </canvas>
+        </div>
+        <details class="mt-2">
+          <summary class="small">View chart data</summary>
+          <div class="table-responsive" tabindex="0" role="region" aria-label="{{ chart.title }} data">
+            <table class="table table-striped table-sm">
+              <caption>{{ chart.title }} · {{ chart.unit }}</caption>
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">Month</th>
+                  {% for series in chart.series %}
+                  <th scope="col" class="text-end">{{ series.label }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for month in ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'] %}
+                {% set index = loop.index0 %}
+                <tr data-chart-month="{{ index }}">
+                  <th scope="row">{{ month }} 2026</th>
+                  {% for series in chart.series %}
+                  <td class="text-end">{{ series.values[index] }}</td>
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </section>
+  </div>
+{% endfor %}
+</div>

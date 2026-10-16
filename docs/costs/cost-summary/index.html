@@ -1,578 +1,244 @@
 <!doctype html>
-<html
-  lang="en"
-  data-bs-theme="light"
-  data-layout="fluid"
-  data-sidebar-theme="colored"
-  data-sidebar-position="left"
-  data-sidebar-behavior="sticky"
-><head>
-    <!-- Generated from the 11ty Netlify Jumpstart: https://github.com/5t3ph/11ty-netlify-jumpstart -->
-    <!-- Modified for usage/content provided by Adam J. Jolicoeur: https://github.com/AdamJ -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="@construction, project management, dashboard, cas" />
-    <title>casWOW | Cost Summary | casWOW</title>
-    <link rel="icon" type="image/png" size="48x48" href="/casWOW/favicon.ico">
-    <link rel="icon" type="image/png" size="72x72" href="/casWOW/favicon.png">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <meta
-      name="description"
-      content="Construction project management dashboard for CAS"
-    />
-    <meta name="generator" content="Eleventy">
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cost summary | casWOW</title>
+  <link rel="icon" href="/casWOW/favicon.ico">
+  <link rel="stylesheet" href="/casWOW/library/caswow.css">
+  <script src="/casWOW/js/theme.js"></script>
+  <script src="/casWOW/js/chart.umd.js" defer></script>
+  <script src="/casWOW/js/workspace.js" defer></script>
+  <link rel="stylesheet" href="/casWOW/vendor/fontawesome/css/all.min.css">
+</head>
+
+  <body style="background-color: var(--dashboard-background, #F4F6F7);" data-screen="costs">
+
+<a class="visually-hidden-focusable btn btn-outline-secondary" href="#main-content">Skip to main content</a>
+<header class="navbar bg-body sticky-top border-bottom" aria-label="Application header">
+  <div class="container-fluid d-flex flex-nowrap gap-3">
+    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#workspace-menu" aria-controls="workspace-menu" aria-label="Open navigation"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
     
-    
-    <link href="/casWOW/css/fontawesome.css" rel="stylesheet" />
-    <link href="/casWOW/css/solid.css" rel="stylesheet" />
-    <link href="/casWOW/css/brands.css" rel="stylesheet" />
-    <link href="/casWOW/css/site.css" rel="stylesheet" />
-    
-    
-    
-    <script>
-      (function () {
-        var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.setAttribute('data-bs-theme', dark ? 'dark' : 'light');
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-          document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
-        });
-      })();
-    </script>
-  </head>
-    <body style="height: 100vh;">
-      <a id="skip-to-main" class="visually-hidden" href="#main-content" data-smooth-link="false">
-        Skip to main content
-      </a>
-      <header class="site-header sticky-header">
-        <header class="navbar navbar-expand-lg py-1 px-3 mb-4 bg-light shadow-sm rounded-b-full fixed-top">
-  <div class="container-fluid">
-    <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Menu">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    <a class="navbar-brand ms-2" href="/casWOW/">
-      <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" style="height: 32px;" />
-    </a>
-    <button class="navbar-toggler btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <nav class="nav nav-pills flex-row flex-wrap gap-1 me-auto d-none d-xl-flex" aria-label="Primary">
+      <a class="nav-link" href="/casWOW/costs/xpress/">XPress</a>
+      <a class="nav-link active fw-medium" href="/casWOW/costs/project-costs/" aria-current="page">Project costs</a>
+      <a class="nav-link" href="/casWOW/reports/">Reports</a>
+      <a class="nav-link" href="/casWOW/project-info/">Project information</a>
+      <a class="nav-link" href="/casWOW/vendor-info/">Vendor information</a>
+      <a class="nav-link" href="/casWOW/chatbot/chatbot/">AskCASim</a>
+    </nav>
+    <div class="d-flex gap-2 align-items-center ms-auto"><div class="dropdown">
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="office-switcher" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch office" ><i class="fa-solid fa-building me-2" aria-hidden="true"></i><span data-office-label>CAS - New York</span></button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="office-switcher">
+        <li><h2 class="dropdown-header h6">Switch office</h2></li>
+        
         <li>
-          <a href="/casWOW/costs/xpress" class="nav-link px-2 link-secondary ">XPress</a>
+          <button class="dropdown-item" type="button" data-office="Boston Adams Management">Boston Adams Management
+          </button>
         </li>
+        
         <li>
-          <a href="/casWOW/costs/project-costs" class="nav-link px-2 link-secondary ">Project Costs</a>
+          <button class="dropdown-item" type="button" data-office="C/F Data">C/F Data
+          </button>
         </li>
+        
         <li>
-          <a href="/casWOW/reports" class="nav-link px-2 link-secondary ">Reports</a>
+          <button class="dropdown-item" type="button" data-office="Capital Interiors (SUBS)">Capital Interiors (SUBS)
+          </button>
         </li>
+        
         <li>
-          <a href="/casWOW/project-info" class="nav-link px-2 link-secondary ">Project Information</a>
+          <button class="dropdown-item" type="button" data-office="CAS - Boston">CAS - Boston
+          </button>
         </li>
+        
         <li>
-          <a href="/casWOW/vendor-info" class="nav-link px-2 link-secondary ">Vendor Information</a>
+          <button class="dropdown-item" type="button" data-office="CAS - New Jersey">CAS - New Jersey
+          </button>
         </li>
+        
+        <li>
+          <button class="dropdown-item active" type="button" data-office="CAS - New York" aria-current="true">CAS - New York
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="CAS - Pennsylvania">CAS - Pennsylvania
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="CAS - Washington, DC">CAS - Washington, DC
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="Commonwealth Wall Systems LLC">Commonwealth Wall Systems LLC
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="Component West Cal">Component West Cal
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="Component West LLC">Component West LLC
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="Construction Validation">Construction Validation
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="Estimate">Estimate
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="ESTIME Management Corp">ESTIME Management Corp
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="Hi-Rise Construction Corp">Hi-Rise Construction Corp
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="Service Company">Service Company
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="Zapata Construction, Boston">Zapata Construction, Boston
+          </button>
+        </li>
+        
+        <li>
+          <button class="dropdown-item" type="button" data-office="Zapata Construction, New York">Zapata Construction, New York
+          </button>
+        </li>
+        
+        <li><hr class="dropdown-divider"></li>
+        <li><span class="dropdown-item-text small text-body-secondary">Demo selection; sample records remain unchanged.</span></li>
       </ul>
-      <div class="d-flex gap-2">
-        <button class="btn btn-sm dropdown-toggle btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-building"></i>
-          <span class="d-none d-md-inline-flex">CAS - New York</span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-          
-          <li>
-            <a class="dropdown-item " href="#">Boston Adams Management</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">C/F Data</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Capital Interiors (SUBS)</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">CAS - Boston</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">CAS - New Jersey</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item active" href="#">CAS - New York</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">CAS - Pennsylvania</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">CAS - Washington, DC</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Commonwealth Wall Systems LLC</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Component West Cal</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Component West LLC</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Construction Validation</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Estimate</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">ESTIME Management Corp</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Hi-Rise Construction Corp</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Service Company</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Zapata Construction, Boston</a>
-          </li>
-          
-          <li>
-            <a class="dropdown-item " href="#">Zapata Construction, New York</a>
-          </li>
-          
-        </ul>
-
-        <button class="btn btn-outline-secondary" type="button">
-          <i class="fa-solid fa-print"></i>
-          <span class="d-none d-md-inline-flex">Print</span>
-        </button>
-        <button class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center" type="button">
-          <i class="fa-solid fa-file-export"></i>
-          <span class="d-none d-md-inline-flex">Export</span>
-        </button>
-
-        <a href="#" class="d-block link-secondary text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="/casWOW/img/lumberjack.png" height="32px" alt="Lumberjack avatar" style="height: 32px;" class="rounded-full" />
-        </a>
-        <ul class="dropdown-menu text-small" style="">
-          <li>
-            <a class="dropdown-item" href="#">Access Level A</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Change Password</a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">My Configuration</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Email Administrator</a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <a class="dropdown-item" href="https://www.chromatic.com/library?appId=6903b2381f768ce7c6da402a" target="_blank" alt="Link to component library on Storybook">
-              Component Library
-              <i class="fa-solid fa-external-link"></i>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="https://6903b2381f768ce7c6da402a-jdnoovaaei.chromatic.com/?path=/docs/introduction--docs" target="_blank" alt="Link to documentation on Storybook">View Storybook
-              <i class="fa-solid fa-external-link"></i>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Log out</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    </div><button class="btn btn-sm btn-outline-secondary" type="button" data-theme-toggle aria-label="Switch to dark theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i><span class="visually-hidden">Theme</span></button></div>
   </div>
 </header>
-
-      </header>
-      
-        <div class="page-header">
-  <div class="top-page-header d-none d-sm-block"><nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="/casWOW/">Dashboard</a>
-        </li><li class="breadcrumb-item">
-          <a href="javascript:history.back()">Project Costs</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">Cost Summary</li></ol>
-    </nav></div>
-  <div class="page-header-text">
-    <div class="logo-text-badge-link">
-      <div class="header-subheader">
-        <div class="header-label">
-          <span class="h2">
-            Cost Summary
-          </span><span class="badge bg-secondary">
-            873
-          </span></div></div>
-    </div><div class="btn-toolbar d-none d-sm-block" role="toolbar" aria-label="Toolbar with button groups"><div class="d-flex gap-2"><div class="dropdown">
-          <button class="btn btn-outline-brand dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-building"></i> 
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item"></a></li>
-            <li><a class="dropdown-item"></a></li>
-            <li><a class="dropdown-item" href="#"></a></li>
-            <!---->
-            <li><a class="dropdown-item" href="#"></a></li></ul>
-        </div><div class="dropdown">
-          <button class="btn btn-brand dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Actions
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Export to CSV</a></li>
-          </ul>
-        </div>
-      </div></div></div></div>
-
-      
-      <main class="mt-6">
-        <a id="main-content"></a>
-        <div class="offcanvas offcanvas-start left-navigation"
-  tabindex="-1"
-  id="offcanvasExample"
-  aria-labelledby="offcanvasExampleLabel"
-  data-bs-scroll="true"
-  data-bs-backdrop="false"
->
-  <div class="offcanvas-header">
-    <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    <h5 class="offcanvas-title"
-      id="sidebarMenuLabel"
-      style="display: flex; width: 100%; align-items: center;"
-    >
-      <div class="sidebar-header-logo">
-        <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" style="height: 32px;" />
-        <span class="uppercase fs-3 text-wrap">CASim Online</span>
-      </div>
-    </h5>
-  </div>
-  <div class="offcanvas-body" style="overflow: scroll;">
-    <div class="flex-shrink-0 p-3">
-      <div class="sidebar-menu-expandable">
-        <div class="sidebar-menu__row">
-          <div class="menu-item__row">
-            <a href="/casWOW/" class="menu-item__text text-decoration-none text-body ">
-              <span class="fs-4">Dashboard</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <ul class="list-unstyled ps-0" id="sidebarAccordion">
-        
-          <li class="mb-1">
-            <button class="btn sidebar-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#costs" aria-expanded="false">
-              <span>Costs +</span>
-            </button>
-            <div class="collapse" id="costs" data-bs-parent="#sidebarAccordion">
-              <ul class="sidebar-toggle-nav">
-                
-                  <li>
-                    <a href="/casWOW/costs/xpress/" class="sidebar-link ">
-                      CASim XPress
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/costs/project-costs" class="sidebar-link ">
-                      Project Cost Summary
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/costs/casim-notes-list/" class="sidebar-link ">
-                      CASim Notes List
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/costs/customer-gc-list/" class="sidebar-link ">
-                      Customer (GC) List
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/costs/employees/" class="sidebar-link ">
-                      Employee List
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/costs/vendors/" class="sidebar-link ">
-                      Vendor List
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/costs/comparative-analysis/" class="sidebar-link ">
-                      Comparative Analysis
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/costs/insurance-accident-history/" class="sidebar-link ">
-                      Insurance Accident History
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/costs/gna-region-summary/" class="sidebar-link ">
-                      GNA - Region Summary
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/costs/otg-applications/" class="sidebar-link ">
-                      OTG Applications
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          </li>
-        
-          <li class="mb-1">
-            <button class="btn sidebar-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#time-entry" aria-expanded="false">
-              <span>Time Entry</span>
-            </button>
-            <div class="collapse" id="time-entry" data-bs-parent="#sidebarAccordion">
-              <ul class="sidebar-toggle-nav">
-                
-                  <li>
-                    <a href="/casWOW/time-sheet/" class="sidebar-link ">
-                      Time Sheet
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/time-entry/" class="sidebar-link ">
-                      Time Entry
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/time-view/" class="sidebar-link ">
-                      Time View
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          </li>
-        
-          <li class="mb-1">
-            <button class="btn sidebar-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#analytics" aria-expanded="false">
-              <span>Analytics</span>
-            </button>
-            <div class="collapse" id="analytics" data-bs-parent="#sidebarAccordion">
-              <ul class="sidebar-toggle-nav">
-                
-                  <li>
-                    <a href="/casWOW/analytics/reports-options/" class="sidebar-link ">
-                      Report Options
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/analytics/regional-manpower/" class="sidebar-link ">
-                      Regional Manpower
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="/casWOW/analytics/manpower-analytics/" class="sidebar-link ">
-                      Manpower Analytics
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="workspace-menu" aria-labelledby="workspace-menu-title">
+  <div class="offcanvas-header"><h2 class="h5" id="workspace-menu-title">Navigation</h2><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation"></button></div>
+  <nav class="offcanvas-body d-flex flex-column gap-3" aria-label="All pages">
+    <a href="/casWOW/">Dashboard</a><a href="/casWOW/costs/xpress/">XPress</a><a href="/casWOW/costs/project-costs/">Project costs</a><a href="/casWOW/costs/cost-summary/">Cost summary</a><a href="/casWOW/costs/to-date-costs/">Cost transactions</a><a href="/casWOW/project-costs/breakout/">Project breakout</a><a href="/casWOW/project-info/">Project information</a><a href="/casWOW/reports/">Reports</a><a href="/casWOW/vendor-info/">Vendor information</a><a href="/casWOW/costs/employees/">Employees</a><a href="/casWOW/plans/">Plans</a><a href="/casWOW/art-chart/">Art Chart</a><a href="/casWOW/chatbot/chatbot/">AskCASim demo</a><a href="/casWOW/examples/">Component examples</a><hr><a href="/casWOW/index-old/">Explore all screens</a>
+  </nav>
 </div>
-
-        
-        <div class="container-fluid content-wrapper">
-          <div class="row">
-          
-<ul class="nav nav-pills border-bottom pb-2 mb-2">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">
-      Active
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">
-      Inactive
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">
-      Complete
-    </a>
-  </li>
-</ul>
-
-<div class="table-responsive-lg">
-  <table class="table table-striped table-hover table-sm table-sticky-header">
-    <thead>
-      <tr class="table-primary">
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col">Project</th>
-        <th scope="col">ToDate Costs</th>
-        <th scope="col">Total Project Costs</th>
-        <th scope="col">Contract Total</th>
-        <th scope="col">Pending COs</th>
-        <th scope="col">Billed ToDate</th>
-        <th scope="col">Payments Remaining</th>
-        <th scope="col">Unbilled Costs</th>
-      </tr>
-    </thead>
-    <tbody>
+<main id="main-content" class="container-fluid mx-0 p-3 p-lg-4" tabindex="-1">
+  <section class="mb-4" aria-labelledby="page-title">
+    <div class="mb-2"><nav aria-label="Breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="/casWOW/">Dashboard</a></li>
       
-        <tr><th scope="row" class="text-center">
-              <a href="/casWOW/art-chart" alt="Link to area chart"
-              data-bs-toggle="tooltip" data-bs-placement="right"
-                data-bs-custom-class="arch-plan-tooltip"
-                data-bs-title="Art Chart">
-                <i class="fa-solid fa-chart-area"></i>
-              </a>
-            </th><th scope="row" class="text-center">
-              <a href="#" alt="Link to art chart"
-              data-bs-toggle="tooltip" data-bs-placement="right"
-                data-bs-custom-class="arch-plan-tooltip"
-                data-bs-title="Data Chart">
-                <i class="fa-solid fa-chart-simple"></i>
-              </a>
-            </th><td class="d-flex align-items-center gap-1">
-            <a href="/casWOW/costs/to-date-costs" class="flex-grow-1">Skywalker and Family</a>
-            <span class="badge text-bg-secondary bg-transparent border border-secondary text-secondary">300</span>
-          </td>
-          <td>186,455</td>
-          <td>186,455</td>
-          <td>179,252</td>
-          <td>0</td>
-          <td>165,543</td>
-          <td>165,543</td>
-          <td>7,203</td>
-        </tr>
-      
-    </tbody>
-  </table>
-  <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-end">
-    <li class="page-item">
-      <a class="page-link disabled">
-        <i class="fa-solid fa-angle-left"></i>
-      </a>
-    </li>
-    <li class="page-item">
-      <a class="page-link disabled">
-        <i class="fa-solid fa-angles-left"></i>
-      </a>
-    </li>
-    <li class="page-item active"><a class="page-link" href="#" aria-current="page">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link">
-        <i class="fa-solid fa-angle-right"></i>
-      </a>
-    </li>
-    <li class="page-item">
-      <a class="page-link">
-        <i class="fa-solid fa-angles-right"></i>
-      </a>
-    </li>
-  </ul>
+      <li class="breadcrumb-item active" aria-current="page">Cost summary</li>
+    </ol></nav></div>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div class="flex-grow-1"><h1 id="page-title" class="h2 mb-1">Cost summary</h1>
+        <p class="text-body-secondary mb-0">N819 · Waldorf Astoria Hotel Millwork</p>
+      </div><div class="d-flex flex-wrap gap-2 align-items-center">
+        <button class="btn btn-outline-secondary" type="button" data-print><i class="fa-solid fa-print me-2" aria-hidden="true"></i>Print</button>
+        <button class="btn btn-brand" type="button" data-export><i class="fa-solid fa-download me-2" aria-hidden="true"></i>Export data</button>
+      </div>
+    </div>
+  </section>
+  <nav class="d-flex flex-wrap gap-3 mb-4" aria-label="Project cost views">
+<a href="/casWOW/project-info/N819/">Project information</a>
+<a href="/casWOW/costs/cost-summary/">Cost summary</a>
+<a href="/casWOW/costs/to-date-costs/">Cost transactions</a>
+<a href="/casWOW/project-costs/breakout/">Category breakout</a>
+<a href="/casWOW/plans/">Plans</a>
 </nav>
+<section class="card bg-body mb-4">
+<div class="card-body">
+<h2 class="h5">Financial position</h2>
+<dl class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3 mb-0"><div class="col">
+<dt class="small text-body-secondary fw-normal">Adjusted contract</dt>
+<dd class="h4 mb-0">$8,751,689</dd>
+</div><div class="col">
+<dt class="small text-body-secondary fw-normal">Costs to date</dt>
+<dd class="h4 mb-0">$5,638,679</dd>
+</div><div class="col">
+<dt class="small text-body-secondary fw-normal">Billed to date</dt>
+<dd class="h4 mb-0">$8,751,689</dd>
+</div><div class="col">
+<dt class="small text-body-secondary fw-normal">Payments received</dt>
+<dd class="h4 mb-0">$8,751,689</dd>
+</div></dl>
+</div>
+</section>
+<div class="row g-3">
+<div class="col-12 col-lg-7">
+<section class="card bg-body h-100">
+<div class="card-body">
+<h2 class="h5 mb-3">Cost categories</h2>
+<div class="table-responsive" tabindex="0" role="region" aria-label="Sample cost categories">
+<table class="table table-striped table-hover align-middle">
+<caption class="visually-hidden">Sample cost categories</caption>
+<thead class="table-dark">
+<tr>
+<th scope="col">Category</th>
+<th scope="col" class="text-end">Sample budget</th>
+<th scope="col" class="text-end">Costs to date</th>
+<th scope="col" class="text-end">Remaining</th>
+</tr>
+</thead>
+<tbody><tr>
+<th scope="row" class="fw-normal">Labor</th>
+<td class="text-end">$3,100,000</td>
+<td class="text-end">$2,800,000</td>
+<td class="text-end">$300,000</td>
+</tr><tr>
+<th scope="row" class="fw-normal">Materials</th>
+<td class="text-end">$2,400,000</td>
+<td class="text-end">$2,100,000</td>
+<td class="text-end">$300,000</td>
+</tr><tr>
+<th scope="row" class="fw-normal">Equipment</th>
+<td class="text-end">$450,000</td>
+<td class="text-end">$388,679</td>
+<td class="text-end">$61,321</td>
+</tr><tr>
+<th scope="row" class="fw-normal">Subcontracts</th>
+<td class="text-end">$400,000</td>
+<td class="text-end">$350,000</td>
+<td class="text-end">$50,000</td>
+</tr><tr>
+<th scope="row">Total</th>
+<td class="text-end">$6,350,000</td>
+<td class="text-end">$5,638,679</td>
+<td class="text-end">$711,321</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+<div class="col-12 col-lg-5">
+<section class="card bg-body h-100">
+<div class="card-body">
+<h2 class="h5 mb-3">Change and billing activity</h2>
+<dl class="row mb-0"><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Pending change orders</dt>
+<dd class="col-sm-6 border-bottom py-2 mb-0">$0</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Extra work orders</dt>
+<dd class="col-sm-6 border-bottom py-2 mb-0">$606,053</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Proposals</dt>
+<dd class="col-sm-6 border-bottom py-2 mb-0">$99,766</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Overhead G&amp;A</dt>
+<dd class="col-sm-6 border-bottom py-2 mb-0">$875,172</dd></dl>
+<p class="small text-body-secondary mt-3">Cost budgets are illustrative baselines, separate from contract value.</p>
+</div>
+</section>
+</div>
 </div>
 
-          </div>
-        </div>
-      </main>
-      <!-- remove show -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!-- remove display: block -->
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content about-modal-background">
-      <div class="position-absolute top-0 end-0 p-2">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="container-fluid">
-        <div class="row about-modal-content">
-          <div class="col-6 d-flex flex-column align-items-start gap-2">
-            <img src="/casWOW/img/CAS_logo.svg" height="32px" alt="CASWOW logo" style="height: 32px;" />
-            <h2>CASim Online</h2>
-            <div class="modal-content__details">
-              <dl class="row mb-1">
-                <dt class="col-sm-5">Version</dt>
-                <dd class="col-sm-7">6.0.4.24</dd>
-              </dl>
-              <dl class="row mb-1">
-                <dt class="col-sm-5">Last Updated</dt>
-                <dd class="col-sm-7"> Wed Feb 11 2026</dd>
-              </dl>
-              <dl class="row mb-1">
-                <dt class="col-sm-5">Browser Build</dt>
-                <dd class="col-sm-7">Microsoft Edge for Business<br/>131.0.2903.86 (Official Build)</dd>
-              </dl>
-              <dl class="row mb-1">
-                <dt class="col-sm-5">Operating System</dt>
-                <dd class="col-sm-7">macOS 15.1.0 (arm64)</dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="/casWOW/js/bootstrap.min.js"></script>
-    <script>
-      
-      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-      const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-
-      
-      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    </script>
-    <script src="/casWOW/js/renderDataTable.js"></script>
-    <script src="/casWOW/js/renderDashboard.js"></script>
-    <script src="/casWOW/js/renderArtChart.js"></script>
-    <script src="/casWOW/js/csvUploader.js"></script>
-    <script src="/casWOW/js/app.js"></script>
-  </body>
+  <p class="visually-hidden" role="status" data-announcement></p>
+</main>
+<script src="/casWOW/js/bootstrap.bundle.min.js" defer></script>
+</body>
 </html>

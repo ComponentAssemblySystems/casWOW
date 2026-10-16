@@ -30,11 +30,7 @@
     <meta name="generator" content="Eleventy">
     {# {%- if meta.env=="dev" -%} #}
     {# {%- else -%} #}
-    <link href="{{ '/css/fontawesome.css' | url }}" rel="stylesheet" />
-    <link href="{{ '/css/solid.css' | url }}" rel="stylesheet" />
-    <link href="{{ '/css/brands.css' | url }}" rel="stylesheet" />
-    <link href="{{ '/css/site.css' | url }}" rel="stylesheet" />
-    {# <link href="{{ '/css/tokens.css' | url }}" rel="stylesheet" /> #}
+    <link href="{{ '/library/caswow.css' | url }}" rel="stylesheet" />
     {# {%- endif -%} #}
     {# Set the initial theme based on system preference — runs before paint to prevent flash #}
     <script>
@@ -46,8 +42,9 @@
         });
       })();
     </script>
-  </head>
-    <body style="height: 100vh;">
+    <link rel="stylesheet" href="{{ '/vendor/fontawesome/css/all.min.css' | url }}">
+</head>
+    <body style="height: 100vh; background-color: #F4F6F7;">
       <a id="skip-to-main" class="visually-hidden" href="#main-content" data-smooth-link="false">
         Skip to main content
       </a>

@@ -1,0 +1,11 @@
+---
+layout: workspace.njk
+title: Project information
+screen: project
+pagination:
+  data: reviewed.projects
+  size: 1
+  alias: project
+permalink: "/project-info/{{ project.id }}/index.html"
+---
+{% include 'project-details.njk' %}

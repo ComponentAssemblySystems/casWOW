@@ -1,0 +1,58 @@
+---
+layout: workspace.njk
+title: Art Chart
+screen: art
+subtitle: N819 · Work package hours and installation progress
+---
+<div class="row g-3">
+<div class="col-12 col-xl-7">
+<section class="card bg-body h-100">
+<div class="card-body">
+<h2 class="h5">Work package hours</h2>
+<p class="small text-body-secondary">N819 · Sample actual vs budget hours</p>
+<div class="ratio ratio-16x9">
+<canvas role="img" aria-label="Work package actual and budget hours; exact values are in the adjacent table" data-chart="{{ samples.productionChart | jsonAttribute | escape }}">
+</canvas>
+</div>
+</div>
+</section>
+</div>
+<div class="col-12 col-xl-5">
+<section class="card bg-body h-100">
+<div class="card-body">
+<h2 class="h5 mb-3">Installation progress</h2>{% for item in samples.workPackages %}<div class="mb-4">
+<div class="d-flex justify-content-between mb-1">
+<span>{{ item.name }}</span>
+<span>{{ item.percent }}%</span>
+</div>
+<div class="progress" role="progressbar" aria-label="{{ item.name }} installation progress" aria-valuenow="{{ item.percent }}" aria-valuemin="0" aria-valuemax="100">
+<div class="progress-bar bg-primary" style="width: {{ item.percent }}%">
+</div>
+</div>
+</div>{% endfor %}<p class="small text-body-secondary mb-0">Completion percentage is illustrative and does not imply productivity or risk by itself.</p>
+</div>
+</section>
+</div>
+</div>
+<section class="mt-4">
+<h2 class="h5">Work package data</h2>
+<div class="table-responsive" tabindex="0" role="region" aria-label="Sample work package hours">
+<table class="table table-striped table-hover align-middle">
+<caption class="visually-hidden">Sample work package hours</caption>
+<thead class="table-dark">
+<tr>
+<th scope="col">Work package</th>
+<th scope="col" class="text-end">Budget hours</th>
+<th scope="col" class="text-end">Actual hours</th>
+<th scope="col" class="text-end">Complete</th>
+</tr>
+</thead>
+<tbody>{% for item in samples.workPackages %}<tr>
+<th scope="row" class="fw-normal">{{ item.name }}</th>
+<td class="text-end">{{ item.budget | number }}</td>
+<td class="text-end">{{ item.actual | number }}</td>
+<td class="text-end">{{ item.percent }}%</td>
+</tr>{% endfor %}</tbody>
+</table>
+</div>
+</section>

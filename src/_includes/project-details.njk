@@ -1,0 +1,42 @@
+<div data-project-export="{{ project | jsonAttribute | escape }}">
+{% if project.financial %}
+{% include 'project-financial-details.njk' %}
+{% if screen == 'project' %}
+<section class="card bg-body mt-3" aria-labelledby="project-hours-title"><div class="card-body p-4">
+<h2 class="h4 mb-3" id="project-hours-title">Hours and reporting</h2>
+<dl class="row row-cols-1 row-cols-sm-3 g-3 mb-0">
+{% for label, value in [['Budget hours', project.budget | number], ['Actual hours', project.actual | number], ['Completion', project.percent + '%']] %}<div class="col"><dt class="fw-normal text-body-secondary">{{ label }}</dt><dd class="mb-0">{{ value }}</dd></div>{% endfor %}
+</dl></div></section>
+{% endif %}
+{% else %}
+{%- if project.financial %}
+<section class="card bg-body mb-4" aria-labelledby="financial-title">
+  <header class="card-header border-0 bg-transparent"><h2 class="h5 mb-0" id="financial-title">Financial summary</h2></header>
+  <div class="card-body pt-0"><dl class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3 mb-0">
+  {%- for label, key in [['Adjusted contract', 'adjusted'], ['Costs to date', 'costs'], ['Billed to date', 'billed'], ['Payments received', 'paid']] %}<div class="col" data-metric><dt class="small text-body-secondary fw-normal">{{ label }}</dt><dd class="h4 mb-0">{{ project.financial[key] | money }}</dd>{%- if key == 'costs' %}<dd class="small text-body-secondary mb-0">64.4% of adjusted contract</dd>{%- endif %}</div>{%- endfor %}
+  </dl></div>
+</section>
+{%- else %}<p class="text-body-secondary">Financial and contact details are not provided for this illustrative project. Available hours are shown below.</p>{%- endif %}
+<div class="row g-3">
+  <div class="col-12 col-lg-6"><section class="card bg-body h-100"><div class="card-body">
+    <h2 class="h5 mb-3">Project details</h2><dl class="row mb-0">
+      <dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Project number</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.id }}</dd>
+      {%- if project.manager %}<dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Project manager</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.manager }}</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Project date</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.date }}</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Original contract</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.financial.original | money }}</dd>{%- endif %}
+      <dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Budget hours</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.budget | number }}</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Actual hours</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.actual | number }}</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Completion</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.percent }}%</dd>
+    </dl>
+    {%- if project.contractor %}<hr><h2 class="h5 mb-3">Contractor and contact</h2><dl class="row mb-0"><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">General contractor</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.contractor }}</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Contact</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.contact }}</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Phone</dt><dd class="col-sm-6 border-bottom py-2 mb-0"><a href="tel:+16468795682">{{ project.phone }}</a></dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Address</dt><dd class="col-sm-6 border-bottom py-2 mb-0">{{ project.address }}</dd></dl>{%- endif %}
+  </div></section></div>
+  <div class="col-12 col-lg-6"><section class="card bg-body h-100"><div class="card-body">
+    <h2 class="h5 mb-3">{%- if project.financial %}Cost and billing details{%- else %}Hours and reporting{%- endif %}</h2>
+    <dl class="row mb-0">
+    {%- if project.financial %}
+      {%- for label, key in [['Subcontract costs not in books', 'subcontract'], ['Open purchase orders', 'purchaseOrders'], ['Total project costs', 'costs'], ['Pending change orders', 'pending'], ['Extra work orders', 'extra'], ['Proposals', 'proposals'], ['Overhead G&A', 'overhead']] %}<dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">{{ label }}</dt><dd class="col-sm-6 border-bottom py-2 mb-0 text-sm-end">{{ project.financial[key] | money }}</dd>{%- endfor %}<dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Last entry</dt><dd class="col-sm-6 border-bottom py-2 mb-0 text-sm-end">{{ project.lastEntry }}</dd>
+    {%- else %}<dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Equated hours</dt><dd class="col-sm-6 border-bottom py-2 mb-0 text-sm-end">{{ project.equated | number }}</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Remaining baseline hours</dt><dd class="col-sm-6 border-bottom py-2 mb-0 text-sm-end">{{ project.remaining | number }}</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Days elapsed</dt><dd class="col-sm-6 border-bottom py-2 mb-0 text-sm-end">{{ project.days | number }}</dd><dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">Last update</dt><dd class="col-sm-6 border-bottom py-2 mb-0 text-sm-end">{{ project.updated }}</dd>{%- endif %}
+    </dl>
+    <p class="small text-body-secondary mt-3">Illustrative demo values, not live project records.</p>
+    <a href="{{ '/costs/xpress/' | url }}">View all project hours</a>
+  </div></section></div>
+</div>
+
+{% endif %}
+</div>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} | casWOW</title>
+  <link rel="icon" href="{{ '/favicon.ico' | url }}">
+  <link rel="stylesheet" href="{{ '/library/caswow.css' | url }}">
+  <script src="{{ '/js/theme.js' | url }}"></script>
+  <script src="{{ '/js/chart.umd.js' | url }}" defer></script>
+  <script src="{{ '/js/workspace.js' | url }}" defer></script>
+  <link rel="stylesheet" href="{{ '/vendor/fontawesome/css/all.min.css' | url }}">
+</head>
+{% if screen == 'dashboard' %}
+  <body style="background-color: var(--dashboard-background, #F4F6F7);" data-screen="{{ screen }}">
+{% elseif screen == 'project' %}
+  <body style="background-color: var(--dashboard-background, #F4F6F7);" data-screen="{{ screen }}">
+{% elseif screen == 'costs' %}
+  <body style="background-color: var(--dashboard-background, #F4F6F7);" data-screen="{{ screen }}">
+{% else %}
+  <body data-screen="{{ screen }}">
+{% endif %}
+<a class="visually-hidden-focusable btn btn-outline-secondary" href="#main-content">Skip to main content</a>
+<header class="navbar bg-body sticky-top border-bottom" aria-label="Application header">
+  <div class="container-fluid d-flex flex-nowrap gap-3">
+    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#workspace-menu" aria-controls="workspace-menu" aria-label="Open navigation"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    {# <a class="navbar-brand me-0" data-home href="{{ '/' | url }}" aria-label="CAS dashboard"><img src="{{ '/img/CAS_logo.svg' | url }}" alt="" height="32"></a> #}
+    <nav class="nav nav-pills flex-row flex-wrap gap-1 me-auto d-none d-xl-flex" aria-label="Primary">
+      {%- for item in [['XPress', '/costs/xpress/', 'xpress'], ['Project costs', '/costs/project-costs/', 'costs'], ['Reports', '/reports/', 'reports'], ['Project information', '/project-info/', 'project'], ['Vendor information', '/vendor-info/', 'vendor'], ['AskCASim', '/chatbot/chatbot/', 'chat']] %}
+      <a class="nav-link{% if screen == item[2] %} active fw-medium{% endif %}" href="{{ item[1] | url }}"{% if screen == item[2] %} aria-current="page"{% endif %}>{{ item[0] }}</a>
+      {%- endfor %}
+    </nav>
+    <div class="d-flex gap-2 align-items-center ms-auto"><div class="dropdown">
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="office-switcher" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch office" ><i class="fa-solid fa-building me-2" aria-hidden="true"></i><span data-office-label>CAS - New York</span></button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="office-switcher">
+        <li><h2 class="dropdown-header h6">Switch office</h2></li>
+        {% for office in companyList %}
+        <li>
+          <button class="dropdown-item{% if office.text == 'CAS - New York' %} active{% endif %}" type="button" data-office="{{ office.text }}"{% if office.text == 'CAS - New York' %} aria-current="true"{% endif %}>{{ office.text }}
+          </button>
+        </li>
+        {% endfor %}
+        <li><hr class="dropdown-divider"></li>
+        <li><span class="dropdown-item-text small text-body-secondary">Demo selection; sample records remain unchanged.</span></li>
+      </ul>
+    </div><button class="btn btn-sm btn-outline-secondary" type="button" data-theme-toggle aria-label="Switch to dark theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i><span class="visually-hidden">Theme</span></button></div>
+  </div>
+</header>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="workspace-menu" aria-labelledby="workspace-menu-title">
+  <div class="offcanvas-header"><h2 class="h5" id="workspace-menu-title">Navigation</h2><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close navigation"></button></div>
+  <nav class="offcanvas-body d-flex flex-column gap-3" aria-label="All pages">
+    {% for name, destination, description in samples.routes %}<a href="{{ destination | url }}">{{ name }}</a>{%- endfor %}<hr><a href="{{ '/index-old/' | url }}">Explore all screens</a>
+  </nav>
+</div>
+<main id="main-content" class="container-fluid mx-0 p-3 p-lg-4" tabindex="-1">
+  <section class="mb-4" aria-labelledby="page-title">
+    <div class="mb-2"><nav aria-label="Breadcrumb"><ol class="breadcrumb">
+      {%- if screen != 'dashboard' %}<li class="breadcrumb-item"><a href="{{ '/' | url }}">Dashboard</a></li>{%- endif %}
+      {% if projectCostDetail %}<li class="breadcrumb-item"><a href="{{ '/costs/cost-summary/' | url }}">Cost summary</a></li>{% elif screen == 'project' %}<li class="breadcrumb-item"><a href="{{ '/costs/xpress/' | url }}">XPress</a></li>{% endif %}
+      <li class="breadcrumb-item active" aria-current="page">{%- if projectCostDetail %}{{ project.id }}{%- elif screen == 'project' %}{{ project.id }}{%- else %}{{ title }}{%- endif %}</li>
+    </ol></nav></div>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div class="flex-grow-1"><h1 id="page-title" class="h2 mb-1">{%- if screen == 'project' or projectCostDetail %}{{ project.name }}{%- else %}{{ title }}{%- endif %}</h1>
+        <p class="text-body-secondary mb-0">{%- if screen == 'project' or projectCostDetail %}Project {{ project.id }} · CAS - New York{%- else %}{{ subtitle }}{%- endif %}</p>
+      </div>
+      {%- if not hideActions %}<div class="d-flex flex-wrap gap-2 align-items-center">
+        {%- if screen == 'dashboard' %}<div><select class="form-select" id="chart-timeframe" data-chart-timeframe aria-controls="dashboard-charts"><option value="6">May–Oct 2026</option><option value="3">Aug–Oct 2026</option><option value="1">October 2026</option></select></div>{%- endif %}
+        <button class="btn btn-outline-secondary" type="button" data-print><i class="fa-solid fa-print me-2" aria-hidden="true"></i>Print</button>
+        <button class="btn btn-brand" type="button" data-export><i class="fa-solid fa-download me-2" aria-hidden="true"></i>Export {{ 'project' if screen == 'project' or projectCostDetail else ('table' if screen == 'xpress' else 'data') }}</button>
+      </div>{% endif %}
+    </div>
+  </section>
+  {{ content | safe }}
+  <p class="visually-hidden" role="status" data-announcement></p>
+</main>
+<script src="{{ '/js/bootstrap.bundle.min.js' | url }}" defer></script>
+</body>
+</html>
