@@ -1,0 +1,56 @@
+---
+layout: workspace.njk
+title: Component examples
+screen: examples
+subtitle: Working sample controls from caswow.library
+---
+<div class="row g-3">
+<div class="col-12 col-lg-7">
+<section class="card bg-body h-100">
+<div class="card-body">
+<h2 class="h5">Project preferences</h2>
+<p class="text-body-secondary">Try the library’s form controls. This example stays on this page and does not change project records.</p>
+<form data-sample-form>
+<div class="mb-3">
+<label class="form-label" for="example-name">Display name</label>
+<input class="form-control " id="example-name" name="displayName" required maxlength="80" value="N819 project review">
+</div>
+<div class="mb-3">
+<label class="form-label" for="example-view">Default view</label>
+<select class="form-select" id="example-view" name="view">
+<option>Financial summary</option>
+<option>Project hours</option>
+<option>Drawing register</option>
+</select>
+</div>
+<div class="mb-3">
+<label class="form-label" for="example-notes">Review notes</label>
+<textarea class="form-control" id="example-notes" name="notes" rows="3" maxlength="500" aria-describedby="example-help">
+</textarea>
+<p id="example-help" class="small text-body-secondary">Sample notes only. Changes are not saved after reloading.</p>
+</div>
+<button class="btn btn-primary" type="submit">Apply sample preferences</button>
+<p class="mt-3 mb-0" role="status" data-form-result>
+</p>
+</form>
+</div>
+</section>
+</div>
+<div class="col-12 col-lg-5">
+<section class="card bg-body h-100">
+<div class="card-body">
+<h2 class="h5">Library patterns in use</h2>
+<ul class="list-group list-group-flush">
+<li class="list-group-item">Page headers and navigation</li>
+<li class="list-group-item">Cards and neutral badges <span class="badge text-bg-secondary">Sample</span>
+</li>
+<li class="list-group-item">Labeled inputs and selects</li>
+<li class="list-group-item">Accessible progress values</li>
+<li class="list-group-item">Theme-aware colors and focus</li>
+</ul>
+<h3 class="h6 mt-4">Explore a sample workflow</h3>
+<a href="{{ '/plans/' | url }}">Preview a drawing</a>
+</div>
+</section>
+</div>
+</div>

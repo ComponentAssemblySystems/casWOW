@@ -1,0 +1,41 @@
+---
+layout: workspace.njk
+title: Reports
+screen: reports
+subtitle: Browse financial, operations and people reports
+---
+<section data-sample-list>
+<div class="row g-3 align-items-end mb-3">
+<div class="col-12 col-md-4">
+<label class="form-label" for="sample-search">Find a report</label>
+<input class="form-control" type="search" id="sample-search" data-sample-search>
+</div>
+<div class="col-12 col-md-4">
+<label class="form-label" for="sample-category">Report category</label>
+<select class="form-select" id="sample-category" data-sample-category>
+<option value="all">All categories</option>
+<option>Financial</option>
+<option>Operations</option>
+<option>People</option>
+</select>
+</div>
+</div>
+<div class="row g-3">{% for item in samples.reports %}<div class="col-12 col-md-6 col-xl-4" data-sample-item data-category="{{ item.category }}">
+<article class="card bg-body h-100">
+<header class="card-header border-0 bg-transparent">
+<p class="small text-body-secondary mb-1">{{ item.category }}</p>
+<h2 class="h5 mb-0">
+{{ item.title }}</h2>
+</header>
+<div class="card-body">
+<p>{{ item.description }}</p>
+<a href="{{ item.url | url }}">Open report<span class="visually-hidden">: {{ item.title }}</span>
+</a>
+</div>
+</article>
+</div>{% endfor %}</div>
+<p class="text-body-secondary p-4 text-center d-none" data-sample-empty hidden>No results match these filters. Try another search or category.</p>
+<p class="small text-body-secondary" role="status" data-sample-count>
+</p>
+<p class="small text-body-secondary mt-3">Open a report to print or export its sample data. Use your browser’s print dialog to save a PDF.</p>
+</section>

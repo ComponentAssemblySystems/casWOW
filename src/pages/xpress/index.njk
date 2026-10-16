@@ -1,0 +1,38 @@
+---
+layout: workspace.njk
+title: XPress
+screen: xpress
+subtitle: Compare project hours and completion
+---
+<section class="mb-4" aria-label="Project hours" data-project-table>
+  <div class="row g-3 align-items-center mb-3">
+    <div class="nav nav-pills col-12 col-lg-10" role="group" aria-label="Project status">
+      {%- for status in ['active', 'inactive', 'complete'] %}<button type="button" class="nav-link{%- if status == 'active' %} active{%- endif %}" data-status="{{ status }}" aria-pressed="{{ status == 'active' }}">{{ status | capitalize }} <span class="badge text-bg-secondary ms-1" data-count="{{ status }}"></span></button>{%- endfor %}
+    </div>
+    <label class="col-12 col-lg-2"><input class="form-control " type="search" placeholder="Find a project" aria-label="Find a project" data-project-search></label>
+  </div>
+  <p class="small text-body-secondary" id="hours-help">Remaining baseline hours = equated hours − actual hours. Negative values exceed this illustrative baseline.</p>
+  <div class="card">
+    <div class="table-responsive" tabindex="0" role="region" aria-label="Project hours table" aria-describedby="hours-help">
+      <table class="table table-striped table-hover table-sm align-middle">
+        <caption class="visually-hidden">Illustrative project hours and completion</caption>
+        <thead class="table-dark"><tr class="">
+          {%- for label in ['Project', 'Budget hours', 'Equated hours', 'Actual hours', 'Remaining baseline hours', 'Days elapsed', 'Complete', 'Last update'] %}<th scope="col" class="align-middle{%- if loop.index > 1 and loop.index < 7 %} text-end{%- endif %}">{{ label }}</th>{%- endfor %}
+        </tr></thead><tbody>
+        {%- for item in reviewed.projects %}
+          <tr data-project-row data-status="{{ item.status }}" data-search="{{ item.name | lower }} {{ item.id | lower }}" {% if item.status != 'active' %}class="d-none" hidden{%- endif %}>
+            <th scope="row" class="fw-normal"><a href="{{ ('/project-info/' + item.id + '/') | url }}">{{ item.name }}</a><span class="d-block small text-body-secondary">Project {{ item.id }}</span></th>
+            <td class="text-end">{{ item.budget | number }}</td><td class="text-end">{{ item.equated | number }}</td><td class="text-end">{{ item.actual | number }}</td>
+            <td class="text-end{%- if item.remaining < 0 %} text-danger{%- endif %}">{%- if item.remaining < 0 %}<span class="visually-hidden">Over baseline: </span>({{ (-item.remaining) | number }}){%- else %}{{ item.remaining | number }}{%- endif %}</td>
+            <td class="text-end">{{ item.days | number }}</td>
+            <td><div class="d-flex align-items-center gap-2"><div class="progress w-50" role="progressbar" aria-label="{{ item.name }} completion" aria-valuenow="{{ item.percent }}" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-primary" style="width: {{ item.percent }}%"></div></div><span>{{ item.percent }}%</span></div></td>
+            <td class="text-nowrap">{{ item.updated }}</td>
+          </tr>
+        {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="text-body-secondary py-4 text-center d-none" data-no-projects hidden>No projects match these filters. Try another name or status.</p>
+  <p class="small text-body-secondary mt-3" role="status" data-result-count></p>
+</section>

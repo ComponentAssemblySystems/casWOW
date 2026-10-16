@@ -1,0 +1,63 @@
+---
+layout: workspace.njk
+title: Plans
+screen: plans
+subtitle: N819 · Sample drawing register
+---
+<nav class="d-flex flex-wrap gap-3 mb-4" aria-label="Project cost views">
+<a href="{{ '/project-info/N819/' | url }}">Project information</a>
+<a href="{{ '/costs/cost-summary/' | url }}">Cost summary</a>
+<a href="{{ '/costs/to-date-costs/' | url }}">Cost transactions</a>
+<a href="{{ '/project-costs/breakout/' | url }}">Category breakout</a>
+<a href="{{ '/plans/' | url }}">Plans</a>
+</nav>
+<p class="text-body-secondary">Sample drawing catalog for N819. The historical reference image demonstrates preview layout; it is not a project drawing.</p>
+<section data-sample-list>
+<div class="row g-3 align-items-end mb-3">
+<div class="col-12 col-md-4">
+<label class="form-label" for="sample-search">Find a drawing</label>
+<input class="form-control" type="search" id="sample-search" data-sample-search>
+</div>
+<div class="col-12 col-md-4">
+<label class="form-label" for="sample-category">Discipline</label>
+<select class="form-select" id="sample-category" data-sample-category>
+<option value="all">All disciplines</option>
+<option>Architectural</option>
+<option>Structural</option>
+</select>
+</div>
+</div>
+<div class="row g-3">{% for item in samples.drawings %}<div class="col-12 col-md-6 col-xl-4" data-sample-item data-category="{{ item.category }}">
+<article class="card bg-body h-100">
+<img class="card-img-top img-fluid" src="{{ ('/img/' + item.image) | url }}" alt="Historical architectural drawing used as a sample preview" loading="lazy">
+<div class="card-body">
+<p class="small text-body-secondary mb-1">{{ item.category }} · Revision {{ item.revision }}</p>
+<h2 class="h5">{{ item.number }} · {{ item.title }}</h2>
+<p class="small text-body-secondary">Updated {{ item.date }}</p>
+<button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#drawing-{{ loop.index }}">Preview drawing<span class="visually-hidden"> {{ item.number }}</span>
+</button>
+</div>
+</article>
+</div>{% endfor %}</div>
+<p class="text-body-secondary p-4 text-center d-none" data-sample-empty hidden>No results match these filters. Try another search or category.</p>
+<p class="small text-body-secondary" role="status" data-sample-count>
+</p>
+</section>{% for item in samples.drawings %}<div class="modal fade d-none" id="drawing-{{ loop.index }}" tabindex="-1" aria-labelledby="drawing-title-{{ loop.index }}" aria-hidden="true">
+<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h2 class="modal-title h5" id="drawing-title-{{ loop.index }}">{{ item.number }} · {{ item.title }} · Sample preview</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close drawing preview">
+</button>
+</div>
+<div class="modal-body">
+<img class="img-fluid" src="{{ ('/img/' + item.image) | url }}" alt="Historical architectural drawing used only to demonstrate image preview">
+<p class="small text-body-secondary mt-3">Reference image: Amsterdam City Archives. This is not an N819 drawing.</p>
+</div>
+<div class="modal-footer">
+<button class="btn btn-outline-secondary" type="button" data-bs-dismiss="modal">Close preview</button>
+<a class="btn btn-primary" download href="{{ ('/img/' + item.image) | url }}">Download sample image</a>
+</div>
+</div>
+</div>
+</div>{% endfor %}

@@ -1,0 +1,32 @@
+<div class="col-12 col-lg-9 col-xl-8 mx-auto">
+<section class="card bg-body mb-3">
+<div class="card-body">
+<h2 class="h5">Explore sample project information</h2>
+<p class="text-body-secondary">Scripted demo only. No AI service or live project database is connected. Choose a topic or ask about costs, hours or drawings.</p>
+<div class="d-flex flex-wrap gap-2">
+<button class="btn btn-outline-secondary" type="button" data-chat-topic="Show the N819 cost summary">Project costs</button>
+<button class="btn btn-outline-secondary" type="button" data-chat-topic="Show project hours">Project hours</button>
+<button class="btn btn-outline-secondary" type="button" data-chat-topic="Show project drawings">Drawings</button>
+</div>
+</div>
+</section>
+<section class="card bg-body">
+<div class="card-body">
+<h2 class="h5">Sample conversation</h2>
+<div class="vstack gap-3" data-chat-messages role="log" aria-label="Sample conversation" aria-live="polite">
+<p>
+<strong>Demo assistant:</strong> I can point you to sample cost, hours and drawing screens. Responses are scripted from this demo.</p>
+</div>
+<form data-chat-form class="mt-3">
+<label class="form-label" for="chat-message">Your message</label>
+<textarea class="form-control" id="chat-message" name="message" rows="2" required maxlength="500" aria-describedby="chat-help">
+</textarea>
+<p id="chat-help" class="small text-body-secondary">Messages remain on this page only. Nothing is sent to a server.</p>
+<div class="d-flex gap-2">
+<button class="btn btn-primary" type="submit">Send demo message</button>
+<button class="btn btn-outline-secondary" type="button" data-chat-reset>Reset conversation</button>
+</div>
+</form>
+</div>
+</section>
+</div>

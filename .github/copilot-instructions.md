@@ -19,20 +19,20 @@ These notes are meant to get an AI coding agent immediately productive in this r
   - pnpm watch:eleventy — equivalent eleventy serve command.
 
 - Build for production:
-  - pnpm css — compiles SASS and runs postcss/autoprefixer (produces `docs/css/` files).
+  - pnpm css — rebuilds the site and copies the canonical library assets into `docs/library/`.
   - pnpm build — sets ELEVENTY_ENV=prod, runs CSS pipeline then Eleventy.
 
 - Useful asset-copy helpers (run when vendor files change or after npm install):
-  - pnpm copy-css, pnpm copy-js, pnpm copy-fa, pnpm copy-chartjs, pnpm copy-cas
+  - pnpm copy-js, pnpm copy-chartjs, pnpm copy-cas
 
 3) Project-specific conventions & patterns
 - Template engine: Nunjucks. Shared layout at `src/_includes/base.njk` — note it reads `meta` data (from `src/_data/meta.*`) and sets `pageTitle` and `pageDescription` using frontmatter variables `title`/`description`.
   - Example dynamic behavior: `base.njk` checks `page.sidebar`. If `page.sidebar == "sidebar"` it includes `sidebar.njk`; otherwise it falls back to `cas-sidebar.njk`. When adding a page that needs the left navigation, set `page.sidebar: "sidebar"` in frontmatter.
 
-- Local library dependency: `caswow.library` is consumed via a local link by default (`package.json` shows `"caswow.library": "file:../caswow.library"`). The canonical setup uses `npm link caswow.library` + `pnpm copy-cas` which copies `node_modules/caswow.library/css/caswow.css` -> `src/css/caswow.css`.
+- Local library dependency: `caswow.library` is consumed via a local link by default (`package.json` shows `"caswow.library": "file:../caswow.library"`). The canonical setup uses `npm link caswow.library` + `pnpm copy-cas` which rebuilds the site and copies `node_modules/caswow.library/css/caswow.css` -> `docs/library/caswow.css`.
 
 - Asset locations
-  - Vendor CSS/JS used for the built site are copied into `dependencies/css`, `dependencies/js`, `dependencies/webfonts` (scripts under `package.json` perform these copies). The `docs/` folder contains compiled site assets used for hosting.
+  - The only application stylesheet and its fonts are copied from caswow.library into `docs/library/` by Eleventy. Vendor JavaScript assets have separate copy scripts. The `docs/` folder contains compiled site assets used for hosting.
   - `src/js/` contains the project javascript sources (e.g. `renderDataTable.js`, `renderDashboard.js`, `app.js`). The templates include them near the bottom of `base.njk`.
 
 4) Integration & runtime gotchas (things that cause common runtime errors)
@@ -62,7 +62,7 @@ These notes are meant to get an AI coding agent immediately productive in this r
 - Error modes to watch for: missing vendor assets (run copy-* scripts), unhandled DOM queries added to `base.njk` (add null checks), broken frontmatter (11ty will skip rendering as expected).
 
 8) Edge cases / common tasks
-- If updating Font Awesome or bootstrap, run `pnpm copy-fa`, `pnpm copy-css`, `pnpm copy-js` and then rebuild.
+- If updating Font Awesome or bootstrap, run `pnpm copy-js` when needed and rebuild. Do not copy standalone vendor CSS into this project.
 - If caswow.library changes, either `npm link` again from the library repo, or run `pnpm config` to re-link and copy its CSS.
 
 If anything here is out-of-date or you want deeper coverage (example tests, CI steps, or specific coding style rules), tell me which area to expand and I'll iterate.

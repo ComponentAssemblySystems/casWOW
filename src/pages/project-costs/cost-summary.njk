@@ -1,0 +1,66 @@
+---
+layout: workspace.njk
+title: Cost summary
+screen: costs
+subtitle: N819 · Waldorf Astoria Hotel Millwork
+---
+<nav class="d-flex flex-wrap gap-3 mb-4" aria-label="Project cost views">
+<a href="{{ '/project-info/N819/' | url }}">Project information</a>
+<a href="{{ '/costs/cost-summary/' | url }}">Cost summary</a>
+<a href="{{ '/costs/to-date-costs/' | url }}">Cost transactions</a>
+<a href="{{ '/project-costs/breakout/' | url }}">Category breakout</a>
+<a href="{{ '/plans/' | url }}">Plans</a>
+</nav>
+<section class="card bg-body mb-4">
+<div class="card-body">
+<h2 class="h5">Financial position</h2>
+<dl class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3 mb-0">{% for label,key in [['Adjusted contract','adjusted'],['Costs to date','costs'],['Billed to date','billed'],['Payments received','paid']] %}<div class="col">
+<dt class="small text-body-secondary fw-normal">{{ label }}</dt>
+<dd class="h4 mb-0">{{ reviewed.featured.financial[key] | money }}</dd>
+</div>{% endfor %}</dl>
+</div>
+</section>
+<div class="row g-3">
+<div class="col-12 col-lg-7">
+<section class="card bg-body h-100">
+<div class="card-body">
+<h2 class="h5 mb-3">Cost categories</h2>
+<div class="table-responsive" tabindex="0" role="region" aria-label="Sample cost categories">
+<table class="table table-striped table-hover align-middle">
+<caption class="visually-hidden">Sample cost categories</caption>
+<thead class="table-dark">
+<tr>
+<th scope="col">Category</th>
+<th scope="col" class="text-end">Sample budget</th>
+<th scope="col" class="text-end">Costs to date</th>
+<th scope="col" class="text-end">Remaining</th>
+</tr>
+</thead>
+<tbody>{% for item in samples.categories %}<tr>
+<th scope="row" class="fw-normal">{{ item.name }}</th>
+<td class="text-end">{{ item.budget | money }}</td>
+<td class="text-end">{{ item.actual | money }}</td>
+<td class="text-end">{{ item.remaining | money }}</td>
+</tr>{% endfor %}<tr>
+<th scope="row">Total</th>
+<td class="text-end">{{ samples.totals.budget | money }}</td>
+<td class="text-end">{{ samples.totals.actual | money }}</td>
+<td class="text-end">{{ (samples.totals.budget - samples.totals.actual) | money }}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+<div class="col-12 col-lg-5">
+<section class="card bg-body h-100">
+<div class="card-body">
+<h2 class="h5 mb-3">Change and billing activity</h2>
+<dl class="row mb-0">{% for label,key in [['Pending change orders','pending'],['Extra work orders','extra'],['Proposals','proposals'],['Overhead G&A','overhead']] %}<dt class="col-sm-6 fw-normal text-body-secondary border-bottom py-2">{{ label }}</dt>
+<dd class="col-sm-6 border-bottom py-2 mb-0">{{ reviewed.featured.financial[key] | money }}</dd>{% endfor %}</dl>
+<p class="small text-body-secondary mt-3">Cost budgets are illustrative baselines, separate from contract value.</p>
+</div>
+</section>
+</div>
+</div>

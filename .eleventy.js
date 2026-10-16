@@ -20,21 +20,10 @@ module.exports = function (eleventyConfig) {
     words:
       'simply,obviously,basically,of course,clearly,just,everyone knows,however,easy'
   });
-  // eleventyConfig.addWatchTarget('src/css/*.css');
 
   eleventyConfig.addPassthroughCopy('dependencies/js/bootstrap.min.js');
   eleventyConfig.addPassthroughCopy('dependencies/js/chart.js');
-  eleventyConfig.addPassthroughCopy('src/css/caswow.css');
-  eleventyConfig.addPassthroughCopy('src/css/variables.css');
-  eleventyConfig.addPassthroughCopy('src/css/tokens.css');
-  eleventyConfig.addPassthroughCopy('src/css/site.css');
-  eleventyConfig.addPassthroughCopy('src/css/colors.css');
-  eleventyConfig.addPassthroughCopy('src/css/fontawesome.css');
-  eleventyConfig.addPassthroughCopy('src/css/brands.css');
-  eleventyConfig.addPassthroughCopy('src/css/solid.css');
-  eleventyConfig.addPassthroughCopy('src/css/print.css');
   eleventyConfig.addPassthroughCopy('src/img');
-  eleventyConfig.addPassthroughCopy('src/webfonts');
   eleventyConfig.addPassthroughCopy('src/js/**');
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
   eleventyConfig.addPassthroughCopy('src/favicon.png');
@@ -59,6 +48,17 @@ module.exports = function (eleventyConfig) {
       }
     }
   });
+
+  eleventyConfig.addPassthroughCopy({ 'node_modules/caswow.library/css/caswow.css': 'library/caswow.css' });
+  eleventyConfig.addPassthroughCopy({ 'node_modules/caswow.library/css/fonts': 'library/fonts' });
+  eleventyConfig.addPassthroughCopy({ 'node_modules/caswow.library/css/caswow.css.map': 'library/caswow.css.map' });
+  eleventyConfig.addPassthroughCopy({ 'node_modules/@fortawesome/fontawesome-free/css/all.min.css': 'vendor/fontawesome/css/all.min.css' });
+  eleventyConfig.addPassthroughCopy({ 'node_modules/@fortawesome/fontawesome-free/webfonts': 'vendor/fontawesome/webfonts' });
+  eleventyConfig.addPassthroughCopy({ 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js': 'js/bootstrap.bundle.min.js' });
+  eleventyConfig.addPassthroughCopy({ 'node_modules/chart.js/dist/chart.umd.js': 'js/chart.umd.js' });
+  eleventyConfig.addFilter('money', value => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value));
+  eleventyConfig.addFilter('number', value => new Intl.NumberFormat('en-US').format(value));
+  eleventyConfig.addFilter('jsonAttribute', value => JSON.stringify(value));
 
   // Markdown
   eleventyConfig.setLibrary('md');

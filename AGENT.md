@@ -4,15 +4,15 @@
 Purpose: get an AI coding agent instantly productive editing this Eleventy site and making safe, testable changes.
 
 - Project type: Eleventy (11ty) static site. Source in `src/`, built output in `docs/`.
-- Local dependency: `caswow.library` is used as a linked npm package and its CSS is copied into `src/css/` by `pnpm copy-cas`.
+- Local dependency: `caswow.library` is used as a linked npm package and Eleventy copies its CSS, source map and fonts directly into `docs/library/`. There are no local CSS source files.
 
 Key commands (use exactly):
 
 - `pnpm config` — install deps, link `caswow.library`, copy vendor files, run initial build
 - `pnpm show` — start Eleventy in dev mode with auto-reload (ELEVENTY_ENV=dev)
-- `pnpm build` — production build (runs css pipeline then eleventy)
-- `pnpm css` — compile SASS and run autoprefixer
-- `pnpm copy-css`, `pnpm copy-js`, `pnpm copy-fa`, `pnpm copy-chartjs`, `pnpm copy-cas` — copy vendor assets when needed
+- `pnpm build` — production build (Eleventy copies the library assets and generates pages)
+- `pnpm css` — rebuild the site and copy the canonical library assets
+- `pnpm copy-js`, `pnpm copy-chartjs`, `pnpm copy-cas` — copy vendor assets when needed
 
 Important files and places to read first:
 
