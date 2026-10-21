@@ -1,0 +1,38 @@
+<section class="card bg-body border-0 shadow-sm mb-4" aria-labelledby="active-jobs-title">
+  <header class="card-header bg-transparent border-0 px-4 pt-4 pb-0">
+    <h2 class="h5 mb-1 fw-bold" id="active-jobs-title">Your Active Jobs</h2>
+  </header>
+  <div class="card-body px-4 pb-4">
+    <div class="row g-3">
+      {% for job in dashboardData.activeJobsImages %}
+      <div class="col-12 col-sm-6 col-lg-3">
+        <article class="card card-project">
+          <img class="card-img-top card-project__image" src="https://placehold.co/588x448/png" alt="New York State Life Sciences Public Health Laboratory" width="588" height="448">
+          <div class="card-body">
+            <h3 class="card-title card-project__title">{{ job.name }}</h3>
+            <p class="card-text card-project__meta">{{ job.location }}</p>
+          </div>
+        </article>
+        {# <div class="card h-100 border-0 shadow-sm">
+          <div style="height: 120px; background: linear-gradient(135deg, #4e73df, #1cc88a); position: relative;">
+            <span class="position-absolute top-0 end-0 m-3 badge bg-white text-dark">{{ job.badge }}</span>
+          </div>
+          <div class="card-body px-3 py-2">
+            {% if job.progressLabel %}
+            <div class="mt-2">
+              <div class="d-flex justify-content-between small mb-1">
+                <span>{{ job.progressLabel }}</span>
+                <span>{{ job.progressPercent }}%</span>
+              </div>
+              <div class="progress" style="height: 4px; border-radius: 2px;">
+                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ job.progressPercent }}%" aria-valuenow="{{ job.progressPercent }}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div> #}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

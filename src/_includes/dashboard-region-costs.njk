@@ -1,0 +1,23 @@
+<section class="card bg-body border-0 shadow-sm mb-4" aria-labelledby="region-costs-title">
+  <header class="card-header bg-transparent border-0 px-4 pt-4 pb-0">
+    <h2 class="h5 mb-1 fw-bold" id="region-costs-title">Region Costs</h2>
+  </header>
+  <div class="card-body px-4 pb-4">
+    <div class="row g-3">
+      {% for metric in dashboardData.regionCosts %}
+      <div class="col-6 col-lg">
+        <div class="card card-dashboard-metric">
+          <div class="card-body">
+            <div class="card-dashboard-metric__label-row">
+              <span>{{ metric.label }}</span>
+              <span class="card-dashboard-metric__delta--info">{{ metric.delta }}</span>
+            </div>
+            <div class="card-dashboard-metric__value">{{ metric.value }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

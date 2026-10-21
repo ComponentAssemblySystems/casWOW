@@ -59,6 +59,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('money', value => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value));
   eleventyConfig.addFilter('number', value => new Intl.NumberFormat('en-US').format(value));
   eleventyConfig.addFilter('jsonAttribute', value => JSON.stringify(value));
+  eleventyConfig.addFilter('json', value => JSON.stringify(value));
 
   // Markdown
   eleventyConfig.setLibrary('md');

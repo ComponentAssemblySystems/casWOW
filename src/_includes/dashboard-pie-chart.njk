@@ -1,0 +1,32 @@
+{# <section class="card bg-body border-0 shadow-sm" aria-labelledby="pie-chart-title">
+  <header class="card-header bg-transparent border-0 px-4 pt-4 pb-0">
+    <h2 class="h5 mb-1 fw-bold" id="pie-chart-title">Percent Complete Deltas (active)</h2>
+  </header>
+  <div class="card-body px-4 pb-4">
+    <div class="d-flex flex-wrap">
+      <div style="width: 208px; height: 208px; flex-shrink: 0;">
+        <canvas id="percentCompleteChart" aria-label="Percent Complete Deltas pie chart" role="img"></canvas>
+      </div>
+      <div class="d-flex flex-column gap-3 ps-4">
+        <div class="d-flex gap-2 align-items-center">
+          <div class="bg-success" style="width: 10px; height: 10px; border-radius: 2px;"></div>
+          <span class="small">Budget Hours: 2,131,917</span>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+          <div class="bg-dark" style="width: 10px; height: 10px; border-radius: 2px;"></div>
+          <span class="small">Actual Hours: 1,370,356</span>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+          <div class="bg-primary" style="width: 10px; height: 10px; border-radius: 2px;"></div>
+          <span class="small">Average compute percentage: 65%</span>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+          <div class="bg-danger" style="width: 10px; height: 10px; border-radius: 2px;"></div>
+          <span class="small">Incomplete: 13</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> #}
+
+<div class="cas-dashboard-advanced__chart-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px;"><section class="card card-dashboard-panel"><header class="card-header border-0 bg-transparent d-flex align-items-start justify-content-between gap-3"><div class="d-flex flex-column gap-1"><h2 class="card-title mb-0">Project Count by Region</h2></div><div class="d-inline-flex align-items-center gap-2"><button type="button" class="btn btn-sm btn-link text-body-secondary p-1 card-action-button" aria-label="info circle"><i class="fa-solid fa-circle-info" data-figma-icon-name="info-circle" aria-hidden="true"></i></button><button type="button" class="btn btn-sm btn-link text-body-secondary p-1 card-action-button" aria-label="share"><i class="fa-solid fa-share" data-figma-icon-name="share" aria-hidden="true"></i></button><button type="button" class="btn btn-sm btn-link text-body-secondary p-1 card-action-button" aria-label="ellipsis vertical"><i class="fa-solid fa-ellipsis-vertical" data-figma-icon-name="ellipsis-vertical" aria-hidden="true"></i></button></div></header><div class="card-body"><div class="cas-dashboard-bar-chart" role="img" aria-label="Project count by region bar chart with tooltip showing projects 5 and workers 83"><div class="cas-dashboard-bar-chart__bar" style="--bar-height: 76px;"></div><div class="cas-dashboard-bar-chart__bar" style="--bar-height: 96px;"></div><div class="cas-dashboard-bar-chart__bar" style="--bar-height: 42px;"><div class="cas-dashboard-bar-chart__tooltip">Projects: 5 Workers: 83</div></div><div class="cas-dashboard-bar-chart__bar" style="--bar-height: 104px;"></div><div class="cas-dashboard-bar-chart__bar" style="--bar-height: 64px;"></div><div class="cas-dashboard-bar-chart__bar" style="--bar-height: 108px;"></div><div class="cas-dashboard-bar-chart__bar" style="--bar-height: 84px;"></div><div class="cas-dashboard-bar-chart__bar" style="--bar-height: 18px;"></div><div class="cas-dashboard-bar-chart__bar" style="--bar-height: 28px;"></div></div></div></section><section class="card card-dashboard-panel"><header class="card-header border-0 bg-transparent d-flex align-items-start justify-content-between gap-3"><div class="d-flex flex-column gap-1"><h2 class="card-title mb-0">Percent Complete Deltas (active)</h2></div><div class="d-inline-flex align-items-center gap-2"><button type="button" class="btn btn-sm btn-link text-body-secondary p-1 card-action-button" aria-label="info circle"><i class="fa-solid fa-circle-info" data-figma-icon-name="info-circle" aria-hidden="true"></i></button><button type="button" class="btn btn-sm btn-link text-body-secondary p-1 card-action-button" aria-label="share"><i class="fa-solid fa-share" data-figma-icon-name="share" aria-hidden="true"></i></button><button type="button" class="btn btn-sm btn-link text-body-secondary p-1 card-action-button" aria-label="ellipsis vertical"><i class="fa-solid fa-ellipsis-vertical" data-figma-icon-name="ellipsis-vertical" aria-hidden="true"></i></button></div></header><div class="card-body"><div class="cas-dashboard-pie-wrap"><div class="cas-dashboard-pie" role="img" aria-label="Budget hours 65 percent and actual hours 35 percent"></div><div class="cas-dashboard-pie-legend"><div class="cas-dashboard-pie-legend__item" style="--swatch-color: #669d3f;"><span class="cas-dashboard-pie-legend__swatch" aria-hidden="true"></span><span>Budget Hours: 2,131,917</span></div><div class="cas-dashboard-pie-legend__item" style="--swatch-color: #1f5a05;"><span class="cas-dashboard-pie-legend__swatch" aria-hidden="true"></span><span>Actual Hours: 1,370,356</span></div><p class="cas-dashboard-pie-legend__summary">Average compute percentage: 65%</p></div></div></div></section></div>
