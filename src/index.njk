@@ -4,4 +4,29 @@ title: Dashboard
 screen: dashboard
 subtitle: CAS - New York · Financial overview
 ---
-{% include 'overview.njk' %}
+
+{# Main 8/4 Layout: All content in col-lg-8, Active Projects sidebar in col-lg-4 spanning full height #}
+<div class="row g-3">
+  <div class="col-lg-8 h-100 gap-2">
+    {# Region Costs — Full Width Card #}
+    {% include "dashboard-region-costs.njk" %}
+
+    {# Active Jobs — Full Width Card #}
+    {% include "dashboard-active-jobs.njk" %}
+
+    <div class="row g-3 mb-3">
+      <div class="col-12">
+        {# {% include "dashboard-charts.njk" %}
+      </div>
+      <div class="col-12 col-md-6"> #}
+        {% include "dashboard-pie-chart.njk" %}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-lg-4">
+    {% include "dashboard-active-projects.njk" %}
+  </div>
+</div>
+
