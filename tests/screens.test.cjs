@@ -66,7 +66,7 @@ test("all refreshed entry points use bundled library assets and one page title",
   assert.equal(
     output("library/caswow.css"),
     fs.readFileSync(
-      path.join(root, "node_modules/caswow.library/css/caswow.css"),
+      path.join(root, "node_modules/@componentassemblysystems/caswow.library/css/caswow.css"),
       "utf8",
     ),
   );

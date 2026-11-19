@@ -45,19 +45,23 @@ To run CAS WOW locally, simply clone the repository and install dependencies. Cu
 
 ### caswow library
 
-Run the following to link the caswow.library as a pnpm module:
+casWOW depends on a released version of `@componentassemblysystems/caswow.library`, pinned to its git tag in `package.json` (`github:ComponentAssemblySystems/caswow.library#v0.24.0`). `pnpm install` fetches that tag with your GitHub access; no registry token is needed. `pnpm-lock.yaml` records the exact commit.
 
-```bash
-cd /path/to/your/stylesheet
-pnpm link
-```
-
-return to this project:
+To move to a new release, read its entry in the library's `MIGRATION.md`, change the tag in `package.json`, and run:
 
 ```sh
-pnpm link ../caswow.library // path to your local caswow.library
 pnpm install
+pnpm build
 ```
+
+To work against your local copy of the library instead, for example while changing the library and casWOW together:
+
+```sh
+pnpm link-cas    # links ../caswow.library
+pnpm unlink-cas  # back to the pinned release
+```
+
+`pnpm link-cas` writes a `link:` override into `pnpm-workspace.yaml`. Run `pnpm unlink-cas` before you commit, so the override and a linked `pnpm-lock.yaml` are never committed.
 
 Build the site to copy the library stylesheet and its self-hosted fonts directly into the published output:
 
@@ -65,9 +69,9 @@ Build the site to copy the library stylesheet and its self-hosted fonts directly
 pnpm build
 ```
 
-The application loads only `docs/library/caswow.css`. Eleventy copies it, its source map, and `docs/library/fonts/` from the linked `caswow.library` package. Do not add local CSS copies or extra stylesheets.
+The application loads only `docs/library/caswow.css`. Eleventy copies it, its source map, and `docs/library/fonts/` from `node_modules/@componentassemblysystems/caswow.library`. Do not add local CSS copies or extra stylesheets.
 
-`pnpm copy-cas` and `pnpm css` also rebuild the site. `pnpm watch:cas` watches the linked library and rebuilds when its CSS or fonts change.
+`pnpm copy-cas` and `pnpm css` also rebuild the site. `pnpm watch:cas` watches `../caswow.library` and rebuilds when its CSS or fonts change; it is only useful while the library is linked.
 
 ## Local Views
 

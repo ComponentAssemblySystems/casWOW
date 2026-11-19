@@ -4,10 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@componentassemblysystems/caswow.library': link:../caswow.library
-  caswow.library: link:../caswow.library
-
 importers:
 
   .:
@@ -16,8 +12,8 @@ importers:
         specifier: 7.0.0
         version: 7.0.0(yaml@2.8.1)
       '@componentassemblysystems/caswow.library':
-        specifier: link:../caswow.library
-        version: link:../caswow.library
+        specifier: github:ComponentAssemblySystems/caswow.library#v0.24.0
+        version: git+https://github.com/ComponentAssemblySystems/caswow.library.git#4c5426e59bc241c45d4a9d1a01ddf62e20cc7a2b
       '@fortawesome/fontawesome-free':
         specifier: 7.2.0
         version: 7.2.0
@@ -76,10 +72,6 @@ importers:
       typescript:
         specifier: 5.8.3
         version: 5.8.3
-    optionalDependencies:
-      caswow.library:
-        specifier: link:../caswow.library
-        version: link:../caswow.library
 
 packages:
 
@@ -150,6 +142,10 @@ packages:
 
   '@cacheable/utils@2.5.0':
     resolution: {integrity: sha512-buipgOVDkkPXNR5+xBpDw7Zk2n1EvU7qBJCNUcL7rhQ//kfpOXPAvQ511Os0vpLYJ1pZnvudNytkQt2hst3wqA==}
+
+  '@componentassemblysystems/caswow.library@git+https://github.com/ComponentAssemblySystems/caswow.library.git#4c5426e59bc241c45d4a9d1a01ddf62e20cc7a2b':
+    resolution: {commit: 4c5426e59bc241c45d4a9d1a01ddf62e20cc7a2b, repo: https://github.com/ComponentAssemblySystems/caswow.library.git, type: git}
+    version: 0.24.0
 
   '@csstools/css-calc@3.4.0':
     resolution: {integrity: sha512-XQKj5B7QiZcHiegCOCAzcAOJdhGgWOHbbu62h5e5mkHnn8lWcfiJhllkqWmxu5zWR9jucPHuo1iTB56P033hcg==}
@@ -2557,6 +2553,11 @@ snapshots:
     dependencies:
       hashery: 1.5.1
       keyv: 5.6.0
+
+  '@componentassemblysystems/caswow.library@git+https://github.com/ComponentAssemblySystems/caswow.library.git#4c5426e59bc241c45d4a9d1a01ddf62e20cc7a2b':
+    dependencies:
+      '@popperjs/core': 2.11.8
+      bootstrap: 5.3.8(@popperjs/core@2.11.8)
 
   '@csstools/css-calc@3.4.0(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)':
     dependencies:
