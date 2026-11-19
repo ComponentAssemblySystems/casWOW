@@ -9,12 +9,13 @@
     "watch:eleventy": "eleventy --serve",
     "watch:cas": "chokidar '../caswow.library/css/**/*' -c 'pnpm build:eleventy'",
     "make": "mkdir -p dependencies/js dependencies/webfonts",
-    "project-config": "pnpm install && pnpm link ../caswow.library && pnpm copy-js && pnpm build:eleventy",
+    "project-config": "pnpm install && pnpm copy-js && pnpm build:eleventy",
     "copy-js": "cp node_modules/bootstrap/dist/js/bootstrap.min.js dependencies/js/",
     "copy-chartjs": "cp node_modules/chart.js/dist/chart.js dependencies/js/",
     "bootstrap-js": "cp node_modules/bootstrap/dist/js/bootstrap.min.js src/dependencies/js/",
     "copy-cas": "pnpm build:eleventy",
     "link-cas": "pnpm link ../caswow.library && pnpm install && pnpm copy-cas",
+    "unlink-cas": "pnpm unlink @componentassemblysystems/caswow.library && pnpm copy-cas",
     "show": "cross-env ELEVENTY_ENV=dev npx @11ty/eleventy --serve watch:*",
     "dev": "cross-env ELEVENTY_ENV=dev && npm-run-all --parallel watch:* ",
     "serve": "cross-env ELEVENTY_ENV=dev && npm-run-all --parallel watch:*",
@@ -44,13 +45,10 @@
   },
   "dependencies": {
     "@11ty/eleventy-plugin-vite": "7.0.0",
-    "@componentassemblysystems/caswow.library": "https://github.com/ComponentAssemblySystems/caswow.library",
+    "@componentassemblysystems/caswow.library": "github:ComponentAssemblySystems/caswow.library#v0.24.0",
     "@fortawesome/fontawesome-free": "7.2.0",
     "bootstrap-icons": "1.13.1",
     "chart.js": "4.5.1"
-  },
-  "optionalDependencies": {
-    "caswow.library": "file:../caswow.library"
   },
   "browserslist": [
     "> 5%, not dead",

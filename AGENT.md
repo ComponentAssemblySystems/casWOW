@@ -4,11 +4,12 @@
 Purpose: get an AI coding agent instantly productive editing this Eleventy site and making safe, testable changes.
 
 - Project type: Eleventy (11ty) static site. Source in `src/`, built output in `docs/`.
-- Local dependency: `caswow.library` is used as a linked npm package and Eleventy copies its CSS, source map and fonts directly into `docs/library/`. There are no local CSS source files.
+- Library dependency: `@componentassemblysystems/caswow.library` is pinned to a release tag in `package.json` (`github:ComponentAssemblySystems/caswow.library#v<version>`). Eleventy copies its CSS, source map and fonts from `node_modules/@componentassemblysystems/caswow.library` directly into `docs/library/`. There are no local CSS source files.
 
 Key commands (use exactly):
 
-- `pnpm config` — install deps, link `caswow.library`, copy vendor files, run initial build
+- `pnpm project-config` — install deps (including the pinned library release), copy vendor files, run initial build
+- `pnpm link-cas` / `pnpm unlink-cas` — switch to the local `../caswow.library` and back to the pinned release. Never commit while linked: `pnpm-workspace.yaml` then carries a `link:` override
 - `pnpm show` — start Eleventy in dev mode with auto-reload (ELEVENTY_ENV=dev)
 - `pnpm build` — production build (Eleventy copies the library assets and generates pages)
 - `pnpm css` — rebuild the site and copy the canonical library assets
@@ -32,7 +33,7 @@ Project-specific patterns / rules to follow:
 
 - `base.njk` checks `page.sidebar` and includes either `sidebar.njk` or `cas-sidebar.njk`
 - Vendor assets are copied into `dependencies/` and `src/dependencies/` via npm scripts — prefer using those scripts rather than inventing paths
-- `caswow.library` is normally linked (npm link). If it's not present, avoid removing imports; instead add a fallback or document the missing dependency
+- The library comes from the pinned release by default. If it's missing, run `pnpm install`; avoid removing imports
 
 Gotchas and runtime checks:
 
@@ -46,7 +47,7 @@ Change contract (what to do when making edits):
 3. Verify `docs/` contains expected output and that vendor files exist in `dependencies/`
 4. If you change global layout or scripts, check browser console for uncaught exceptions (dialog script is a common culprit)
 
-If something is missing or ambiguous, add a short note to the PR explaining the assumption (e.g., "assume caswow.library installed via npm link").
+If something is missing or ambiguous, add a short note to the PR explaining the assumption (e.g., "assume caswow.library v0.24.0 is installed").
 
 If you want, I can also add:
 
